@@ -2,11 +2,15 @@
   margin: 0;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
   background-color: #0f2b05;
 }
 .header {
-  height: 200px;
+  height: 180px;
 
   display: flex;
   justify-content: space-between;
@@ -27,21 +31,25 @@ ul {
     
 } */
 .logo {
-  width: 150px;
-  height: 250px;
+  width: 155px;
+  height: 200px;
 }
 
 .opcoes {
   justify-content: space-around;
   display: flex;
   background: #405b39;
+  height: 38px;
+  align-items: center;
+  font-size: 12px;
 }
 
 #icon {
+  width: 35px;
   margin-top: 2px;
   font-size: 20px;
   color: #7ED957;
-  ;
+  border-color: #7ED957;
 }
 .pesquisa-container {
   position: relative;
@@ -51,6 +59,9 @@ ul {
 .pesquisa {
   width: 450px; /* Define o tamanho do input */
   height: 30px;
+  border-radius: 7px;
+  border: none; /* Remove as bordas */
+  background-color: #FBF3DC; /* Define a cor de fundo desejada */
 }
 
 .pesquisa-icon {
@@ -64,14 +75,18 @@ ul {
 }
 
 .login {
+  background-color: #112a08;
   color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
 }
 
+
 .cadastrar {
-    background-color: #8d9776;
-    color: #0f2b05;
-    border-radius: 5px;
-    padding: 1px 10px;
+  background-color: #405b39;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
 }
 
 /* fim do header */
