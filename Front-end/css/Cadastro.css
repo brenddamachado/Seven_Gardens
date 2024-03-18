@@ -1,6 +1,7 @@
 * {
   margin: 0;
 }
+
 header {
   background-color: #0f2b05;
 }
@@ -71,4 +72,14 @@ ul {
     color: #0f2b05;
     border-radius: 5px;
     padding: 1px 10px;
+}
+
+/* fim do header */
+
+/* inicio footer */
+
+footer{
+    margin-top: 400px;
+    background-color: #0f2b05;
+    height: 200px;
 }
