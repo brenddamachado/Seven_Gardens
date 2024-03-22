@@ -4,6 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
 }
 
 header {
@@ -101,10 +102,9 @@ ul {
 
 /* Estilo para o formulário dentro da seção */
 .formulario form {
-  width: 80%;
+  width: 40%;
   max-width: 600px;
-  padding: 20px;
-  background-color: #f9f9f9;
+  padding: 3rem;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -170,7 +170,7 @@ ul {
 /* inicio footer */
 
 footer{
-    margin-top: 400px;
+   
     background-color: #0f2b05;
     height: 200px;
 }
