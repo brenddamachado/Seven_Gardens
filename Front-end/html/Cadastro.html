@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Seven Gardens</title>
+    <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon">
     <link rel="stylesheet" href="../css/Cadastro.css" />
     <link
       rel="stylesheet"
@@ -52,13 +53,14 @@
           type="text"
           id="nome"
           name="nome"
-          maxlength="60"
+          maxlength="80"
           autofocus
           placeholder="Digite o seu nome "
         />
 
         <label for="nasc" class="label_login"> Data de nascimento: </label>
         <input class="input_login" type="date" id="nasc" name="nasc" />
+
         <div class="genero">
           <label for="sexo" class="label_login"> Genêro:</label>
           <input type="radio" id="mcisgênero" name="genero" value="Mulher cisgênero" />
@@ -224,6 +226,7 @@
         <div id="mensagem"></div>
 
         <button class="btn_cadastrar" type="submit">Cadastrar</button>
+        <button class="btn_limpar">Limpar </button>
       </form>
     </section>
 
