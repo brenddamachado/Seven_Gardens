@@ -94,6 +94,7 @@ ul {
 
 /* formulario */
 .formulario {
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,16 +148,20 @@ ul {
 /* Estilo para o ícone de olho */
 .fa-eye {
   position: absolute;
-  top: 50%;
+  top: 30%;
+  font-size: 20px;
   right: 10px;
   transform: translateY(-50%);
   cursor: pointer;
+  z-index: 2; /* para garantir que o ícone fique sobre o input */
 }
+
 
 .genero{
-  margin-bottom: 30px
+  margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
 }
-
 
 
 

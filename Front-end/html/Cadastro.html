@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    
   </head>
 
   <body>
@@ -58,26 +59,24 @@
 
         <label for="nasc" class="label_login"> Data de nascimento: </label>
         <input class="input_login" type="date" id="nasc" name="nasc" />
-<div class="genero">  <label for="sexo" class="label_login"> Genêro:</label>
-        <input type="radio" id="m" name="genero" value="masculino" />
-        <label class="model" for="m">Masculino</label>
-        <input type="radio" id="f" name="genero" value="feminino" />
-        <label class="model" for="f"> Feminino</label>
-        <input type="radio" id="outro" name="genero" value="outro" />
-        <label class="model" for="outro">Outro</label></div>
-      
+        <div class="genero">
+          <label for="sexo" class="label_login"> Genêro:</label>
+          <input type="radio" id="mcisgênero" name="genero" value="Mulher cisgênero" />
+          <label class="model" for="mcisgênero">Mulher cisgênero</label>
+          <input type="radio" id="mtransgênero" name="genero" value="Mulher transgênero" />
+          <label class="model" for="mtransgênero"> Mulher transgênero</label>
+          <input type="radio" id="hcisgênero" name="genero" value="Homem cisgênero" />
+          <label class="model" for="hcisgênero">Homem cisgênero</label>
+          <input type="radio" id="htransgênero" name="genero" value="Homem transgênero" />
+          <label class="model" for="htransgênero">Homem transgênero</label>
+          <input type="radio" id="binário" name="genero" value="não-binário" />
+          <label class="model" for="binário">não-binário</label>
+          <input type="radio" id="outro" name="genero" value="outro" />
+          <label class="model" for="outro">Outros</label>
 
-        <label class="label_login" for="name" id="labelMae"
-          >Nome Materno:</label
-        >
-        <input
-          type="text"
-          id="Nomematerno"
-          name="mae"
-          class="input_login"
-          placeholder="Digite o nome da sua mãe"
-          maxlength="60"
-        />
+        </div>
+
+
 
         <label for="cpf" id="labelCpf" class="label_login">CPF:</label>
         <input
@@ -89,17 +88,6 @@
           placeholder="Digite seu cpf"
         />
 
-        <label for="tel" class="label_login" id="labelTel">
-          Telefone Fixo:</label
-        >
-        <input
-          class="input_login"
-          type="tel"
-          maxlength="12"
-          id="tel"
-          name="tel"
-          placeholder="Digite seu número com o DD"
-        />
 
         <label for="cel" class="label_login" id="labelCel">
           Telefone Celular:</label
@@ -136,6 +124,15 @@
           placeholder="Digite sua cidade"
         />
 
+        <label id="labelBairro" for="ende" class="label_login"> Bairro:</label>
+        <input
+          class="input_login"
+          type="text"
+          id="bairro"
+          name="bairro"
+          placeholder="Digite seu bairro"
+        />
+
         <label id="labelRua" for="ende" class="label_login"> Rua:</label>
         <input
           class="input_login"
@@ -145,14 +142,6 @@
           placeholder="Digite sua rua"
         />
 
-        <label id="labelBairro" for="ende" class="label_login"> Bairro:</label>
-        <input
-          class="input_login"
-          type="text"
-          id="bairro"
-          name="bairro"
-          placeholder="Digite seu bairro"
-        />
 
         <label id="labelN" for="ende" class="label_login"> Nº:</label>
         <input
@@ -208,7 +197,8 @@
             maxlength="8"
             autocomplete="new-password"
           />
-          <i id="verSenha" class="fa-regular fa-eye"></i>
+          <i id="verSenha" class="far fa-eye"></i>
+
         </div>
         <label
           class="label_login"
@@ -228,7 +218,7 @@
             maxlength="8"
             autocomplete="new-password"
           />
-          <i id="verConfirme" class="fa-regular fa-eye"></i>
+          <i id="verConfirme" class="far fa-eye"></i>
         </div>
 
         <div id="mensagem"></div>
