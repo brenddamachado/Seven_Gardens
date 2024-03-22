@@ -1,45 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/Cadastro.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/Cadastro.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-</head>
-
-<body>
-  <header>
-    <section class="header">
-      <div>
-        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
-      </div>
-      <nav>
-        <div class="navegacao">
-          <ul>
-            <li class="login">Login</li>
-            <li class="cadastrar">Cadastro</li>
-          </ul>
+  <body>
+    <header>
+      <section class="header">
+        <div>
+          <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
         </div>
-      </nav>
+        <nav>
+          <div class="navegacao">
+            <ul>
+              <li class="login">Login</li>
+              <li class="cadastrar">Cadastro</li>
+            </ul>
+          </div>
+        </nav>
+      </section>
+
+      <section class="opcoes">
+        <h2>Produtos</h2>
+        <div class="pesquisa-container">
+          <input type="search" name="" id="" class="pesquisa" />
+          <label for="" class="pesquisa-icon"
+            ><i class="fas fa-search"></i
+          ></label>
+        </div>
+        <img
+          src="../img/iconecar.svg"
+          alt="Ícone do carrinho de compras"
+          id="icon"
+        />
+      </section>
+    </header>
+
+    <section class="formulario">
+      <form action="">
+        <label class="label_login" for="nome" id="labelNome"> Nome:</label>
+        <input
+          class="input_login"
+          type="text"
+          id="nome"
+          name="nome"
+          maxlength="60"
+          autofocus
+        />
+
+        <label for="nasc" class="label_login"> Data de nascimento: </label>
+        <input class="input_login" type="date" id="nasc" name="nasc" />
+<div class="genero">  <label for="sexo" class="label_login"> Genêro:</label>
+        <input type="radio" id="m" name="genero" value="masculino" />
+        <label class="model" for="m">Masculino</label>
+        <input type="radio" id="f" name="genero" value="feminino" />
+        <label class="model" for="f"> Feminino</label>
+        <input type="radio" id="outro" name="genero" value="outro" />
+        <label class="model" for="outro">Outro</label></div>
+      
+
+        <label class="label_login" for="name" id="labelMae"
+          >Nome Materno:</label
+        >
+        <input
+          type="text"
+          id="Nomematerno"
+          name="mae"
+          class="input_login"
+          placeholder="Digite o nome da sua mãe"
+          maxlength="60"
+        />
+
+        <label for="cpf" id="labelCpf" class="label_login">CPF:</label>
+        <input
+          class="input_login"
+          type="text"
+          id="cpf"
+          name="cpf"
+          maxlength="11"
+          placeholder="Digite seu cpf"
+        />
+
+        <label for="tel" class="label_login" id="labelTel">
+          Telefone Fixo:</label
+        >
+        <input
+          class="input_login"
+          type="tel"
+          maxlength="12"
+          id="tel"
+          name="tel"
+          placeholder="Digite seu número com o DD"
+        />
+
+        <label for="cel" class="label_login" id="labelCel">
+          Telefone Celular:</label
+        >
+        <input
+          class="input_login"
+          type="tel"
+          id="numeroCelular"
+          name="numeroCelular"
+          placeholder="(xx) xxxxx-xxxx"
+          maxlength="14"
+        />
+
+        <label class="label_login" for="ende" class="form" id="labelCep">
+          Cep:</label
+        >
+        <input
+          class="input_login"
+          type="text"
+          maxlength="9"
+          id="cep"
+          name="cep"
+          placeholder="Digite seu cep"
+        />
+
+        <label class="label_login" for="ende" class="form" id="labelCidade">
+          Cidade:</label
+        >
+        <input
+          class="input_login"
+          type="text"
+          id="cid"
+          name="cidade"
+          placeholder="Digite sua cidade"
+        />
+
+        <label id="labelRua" for="ende" class="label_login"> Rua:</label>
+        <input
+          class="input_login"
+          type="text"
+          id="rua"
+          name="rua"
+          placeholder="Digite sua rua"
+        />
+
+        <label id="labelBairro" for="ende" class="label_login"> Bairro:</label>
+        <input
+          class="input_login"
+          type="text"
+          id="bairro"
+          name="bairro"
+          placeholder="Digite seu bairro"
+        />
+
+        <label id="labelN" for="ende" class="label_login"> Nº:</label>
+        <input
+          class="input_login"
+          type="number"
+          id="n"
+          name="numero"
+          placeholder="Digite o número da casa"
+        />
+
+        <label for="ende" class="label_login"> Complemento:</label>
+        <input
+          class="input_login"
+          type="text"
+          id="ende"
+          name="complemento"
+          placeholder="Digite o complemento"
+        />
+
+        <label class="label_login" id="labelLogin" for="login" class="form"
+          >Login:</label
+        >
+        <input
+          class="input_login"
+          type="text"
+          id="login"
+          name="login"
+          placeholder="Digite um login"
+          maxlength="6"
+        />
+
+        <label class="label_login" id="labelEmail" for="login" class="form">
+          E-mail:</label
+        >
+        <input
+          class="input_login"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Digite um e-mail"
+        />
+
+        <label class="label_login" id="labelSenha" for="senha" class="form">
+          Senha:</label
+        >
+        <div class="password-container">
+          <input
+            class="input_login"
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Digite sua senha"
+            maxlength="8"
+            autocomplete="new-password"
+          />
+          <i id="verSenha" class="fa-regular fa-eye"></i>
+        </div>
+        <label
+          class="label_login"
+          id="labelConfirmacao"
+          for="senha2"
+          class="form"
+        >
+          Confirmação de Senha:</label
+        >
+        <div class="password-container">
+          <input
+            class="input_login"
+            type="password"
+            id="senha2"
+            name="senha2"
+            placeholder="Digite sua senha"
+            maxlength="8"
+            autocomplete="new-password"
+          />
+          <i id="verConfirme" class="fa-regular fa-eye"></i>
+        </div>
+
+        <div id="mensagem"></div>
+
+        <button class="btn_cadastrar" type="submit">Cadastrar</button>
+      </form>
     </section>
 
-    <section class="opcoes">
-      <h2>Produtos</h2>
-      <div class="pesquisa-container">
-        <input type="search" name="" id="" class="pesquisa" />
-        <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
-      </div>
-      <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
-    </section>
-  </header>
-
-
-
-
-
-  <footer></footer>
-</body>
-
+    <footer></footer>
+  </body>
 </html>
