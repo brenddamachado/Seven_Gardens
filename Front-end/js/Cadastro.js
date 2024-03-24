@@ -47,20 +47,21 @@ const celular = document.getElementById('numero');
 const telefone = document.getElementById('tel');
 const cpf = document.getElementById('cpf');
 
-const mensagemNome = document.getElementById('mensagem')
+const mensagemNome = document.getElementById('mensagemNome')
 const mensagemCPF = document.getElementById('mensagemCPF');
 const mensagemCep = document.getElementById('mensagemCep');
-
+const mensagemEmail = document.getElementById('mensagemEmail')
+const mensagemLogin = document.getElementById('mensagemLogin')
 
 nome.addEventListener('input', () => {
   // Remove caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, '');
 
   if (nome.value.length >= 15 && nome.value.length < 60) {
-   mensagem.innerHTML= ""
+   mensagemNome.innerHTML= ""
     validenome = true;
   } else {
-    mensagem.innerHTML= "insira no mínimo 15 caracteres"
+    mensagemNome.innerHTML= "insira no mínimo 15 caracteres"
 
     validenome = false;
   }
@@ -166,11 +167,11 @@ function validarEmail(email) {
   var regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
   if (regex.test(email)) {
-    mensagem.innerHTML=""
+    mensagemEmail.innerHTML=""
     valideemail = true;
 
   } else {
-    mensagem.innerHTML='inválido';
+    mensagemEmail.innerHTML='inválido';
     valideemail = false;
 
   }
@@ -200,12 +201,10 @@ function validarCep(cep) {
   var regex = /^[0-9]{8}$/;
 
   if (regex.test(cep)) {
-   
-   mensagemCep.innerHTML('Cep:');
+    mensagemCep.innerHTML = '';
     validecep = true;
   } else {
-   
- mensagemCep.innerHTML('Cep: *inválido');
+    mensagemCep.innerHTML = 'Cep inválido';
     validecep = false;
   }
 
@@ -223,7 +222,7 @@ function validarCep(cep) {
       .then((data) => {
         if (data.erro) {
           labelCep.css("color", "maroon");
-          labelCep.html('CEP não encontrado');
+          mensagemCep.innerHTML = 'CEP não encontrado';
           validecep = false;
         } else {
           labelCep.css("color", "black");
@@ -326,13 +325,13 @@ login.addEventListener('input', function () {
   login.value = inputValue; // Define o valor do campo sem os números
 
   if (inputValue.length === 0) {
-    mensagem.innerHTML=""
+    mensagemLogin.innerHTML=""
     validelogin = false; // Define como inválido, se necessário
   } else if (inputValue.length === 6) {
-    mensagem.innerHTML=""
+    mensagemLogin.innerHTML=""
     validelogin = true;
   } else {
-    mensagem.innerHTML="Digite exatamente 6 letras."
+    mensagemLogin.innerHTML="Digite exatamente 6 letras."
 
     validelogin = false;
   }
