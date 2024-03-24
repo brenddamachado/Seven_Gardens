@@ -1,5 +1,7 @@
 * {
   margin: 0;
+  padding: 0;
+  outline: 0;
 }
 
 body {
@@ -162,12 +164,15 @@ ul {
     flex-direction: column;
 }
 
+.genero input[type="radio"].selected {
+  outline-color: green; /* Define a cor de destaque para a borda do input */
+}
 
-
-
-
-
-
+#mensagem{
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: red;
+}
 
 
 
