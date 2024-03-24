@@ -47,3 +47,10 @@ entity "UserRole" as user_role {
 }
 
 
+
+
+user }|..|| user_role
+role }|..|| user_role
+
+
+@enduml
