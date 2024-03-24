@@ -3,26 +3,26 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
-seven-gardens/.idea/**/workspace.xml
-seven-gardens/.idea/**/tasks.xml
-seven-gardens/.idea/**/usage.statistics.xml
-seven-gardens/.idea/**/dictionaries
-seven-gardens/.idea/**/shelf
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
 
 # AWS User-specific
-seven-gardens/.idea/**/aws.xml
+.idea/**/aws.xml
 
 # Generated files
-seven-gardens/.idea/**/contentModel.xml
+.idea/**/contentModel.xml
 
 # Sensitive or high-churn files
-seven-gardens/.idea/**/dataSources/
-seven-gardens/.idea/**/dataSources.ids
-seven-gardens/.idea/**/dataSources.local.xml
-seven-gardens/.idea/**/sqlDataSources.xml
-seven-gardens/.idea/**/dynamic.xml
-seven-gardens/.idea/**/uiDesigner.xml
-seven-gardens/.idea/**/dbnavigator.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
 
 # Gradle
 seven-gardens/.idea/**/gradle.xml
