@@ -1,52 +1,27 @@
-
 let btn = document.querySelector('#verSenha');
 let btn2 = document.querySelector('#verConfirme');
-
-let labelNome = document.querySelector('#labelNome');
 let nome = document.querySelector('#nome');
 let validenome = false;
-
-let labelSenha = document.querySelector('#labelSenha');
 let senha = document.querySelector('#senha');
 let validesenha = false;
-
-let labelConfirmacao = document.querySelector('#labelConfirmacao');
 let senha2 = document.querySelector('#senhaC');
 let validesenha2 = false;
-
-
-let labelTel = document.querySelector('#labelTel');
 let tel = document.querySelector('#tel');
-
 let login = document.querySelector('#login');
-let labelLogin = document.querySelector('#labelLogin');
 let validelogin = false;
-
-let labelCpf = document.querySelector('#labelCpf');
 let validecpf = false;
-
 const cepInput = $("#cep");
-const labelCep = $("#labelCep");
 let validecep = false;
-
-const labelCidade = $("#labelCidade");
 const cidadeInput = $("#cid");
-
 const ruaInput = $("#rua");
 const labelRua = $("#labelRua");
-
 const bairroInput = $("#bairro");
-const labelBairro = $("#labelBairro");
-
 const emailInput = document.getElementById('email');
-const labelEmail = document.getElementById('labelEmail');
 let valideemail = false;
-
 const n = document.getElementById('n');
 const celular = document.getElementById('numero');
 const telefone = document.getElementById('tel');
 const cpf = document.getElementById('cpf');
-
 const mensagemNome = document.getElementById('mensagemNome')
 const mensagemCPF = document.getElementById('mensagemCPF');
 const mensagemCep = document.getElementById('mensagemCep');
@@ -66,7 +41,6 @@ nome.addEventListener('input', () => {
     validenome = false;
   }
 });
-
 
 senha.addEventListener('input', () => {
   senha.value = senha.value.replace(/[^a-zA-Z]/g, ''); // Remove caracteres não alfabéticos
@@ -92,9 +66,6 @@ senha2.addEventListener('input', () => {
     validesenha2 = true;
   }
 });
-
-
-
 
 function validarCPF(cpf) {
   // Verificar se o CPF tem 11 dígitos
@@ -148,15 +119,11 @@ cpf.addEventListener('input', () => {
   }
 });
 
-
 $(document).ready(function() {
 
   //celular
   $("#numero").mask("(99) 99999-9999");
 });
-
-
-
 
 emailInput.addEventListener('input', function() {
   const email = emailInput.value;
@@ -243,9 +210,6 @@ function validarCep(cep) {
   }
 }
 
-
-
-
 function cadastrar() {
   // Validações dos campos
 
@@ -275,8 +239,6 @@ function cadastrar() {
     mae.value = '';
     nasc.value = '';
    
-    
-
     // Abrir a página após o cadastro
     setTimeout(() => {
       window.open("https://projetotelecall.rianefm.repl.co/html/Login.html", "_blank");
@@ -290,7 +252,6 @@ function cadastrar() {
     return false; // Impede o envio do formulário em caso de erro
   }
 }
-
 
 btn.addEventListener('click', () => {
   let inputSenha = document.querySelector('#senha')
@@ -309,9 +270,6 @@ btn2.addEventListener('click', () => {
     inputSenha.setAttribute('type', 'password')
   }
 });
-
-
-
 
 login.addEventListener('input', function () {
   let inputValue = login.value;
