@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/Login.css">
+</head>
+
+<body>
+    <header>
+      <section class="header">
+        <div>
+          <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
+        </div>
+        <nav>
+          <div class="navegacao">
+            <ul>
+              <li class="login">Login</li>
+              <li class="cadastrar">Cadastro</li>
+            </ul>
+          </div>
+        </nav>
+      </section>
+  
+      <section class="opcoes">
+        <h2>Produtos</h2>
+        <div class="pesquisa-container">
+          <input type="search" name="" id="" class="pesquisa" />
+          <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
+        </div>
+        <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
+      </section>
+    </header>
+  
+    <div class="container" id="divLogin">
+    <form class="divForm" action="javascript:validaLogin()">
+      <div class="form-header">
+        <h1 class="title">Login</h1>
+      </div>
+  
+  
+      <div class="input-box">
+        <label for="E-mail">E-mail</label>
+        <input type="text" id="senha" placeholder="e-mail" >
+      </div>
+  
+      <div class="input-box">
+        <label for="Senha">Senha</label>
+        <input type="password" id="senha" placeholder="senha" maxlength="8" minlength="8">
+      </div>
+  
+      <div class="EsqueceuSenha">
+        <a href="#">Esqueceu sua senha?</a>
+       </div>
+  
+      <div class="button-box">
+        <button id="enviarButton">Entrar</button>
+      </div>
+      <div class="button-box">
+        <button id="enviarButton"><a href="formulario.html">Cadastre-se</a></button>
+      </div>
+  
+  
+    </form>
+  
+  </div>
+  
+  
+    <footer></footer>
+  
+    
+  
+  <script src="../js/Login.js"></script>
+  </body>
+    
+</html>
