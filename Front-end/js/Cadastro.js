@@ -1,33 +1,40 @@
+// Seletores dos elementos
 let btn = document.querySelector('#verSenha');
 let btn2 = document.querySelector('#verConfirme');
 let nome = document.querySelector('#nome');
-let validenome = false;
 let senha = document.querySelector('#senha');
-let validesenha = false;
 let senha2 = document.querySelector('#senhaC');
-let validesenha2 = false;
 let tel = document.querySelector('#tel');
 let login = document.querySelector('#login');
-let validelogin = false;
-let validecpf = false;
-const cepInput = $("#cep");
-let validecep = false;
+let cepInput = $("#cep");
 const cidadeInput = $("#cid");
 const ruaInput = $("#rua");
-const labelRua = $("#labelRua");
 const bairroInput = $("#bairro");
 const emailInput = document.getElementById('email');
-let valideemail = false;
-const n = document.getElementById('n');
+const numero = document.getElementById('num');
 const celular = document.getElementById('numero');
 const telefone = document.getElementById('tel');
 const cpf = document.getElementById('cpf');
-const mensagemNome = document.getElementById('mensagemNome')
+const mensagemNome = document.getElementById('mensagemNome');
 const mensagemCPF = document.getElementById('mensagemCPF');
 const mensagemCep = document.getElementById('mensagemCep');
-const mensagemEmail = document.getElementById('mensagemEmail')
-const mensagemLogin = document.getElementById('mensagemLogin')
-const cadastrar = document.getElementById('cadastrar')
+const mensagemEmail = document.getElementById('mensagemEmail');
+const mensagemLogin = document.getElementById('mensagemLogin');
+const cadastrar = document.getElementById('cadastrar');
+const limpar = document.getElementById('limpar');
+const comple = document.getElementById('comple')
+const genero = document.querySelector('.genero')
+const data = document.getElementById('data')
+
+// Variáveis de validação
+let validenome = false;
+let validesenha = false;
+let validesenha2 = false;
+let validelogin = false;
+let validecpf = false;
+let validecep = false;
+let valideemail = false;
+
 nome.addEventListener('input', () => {
   // Remove caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, '');
@@ -177,68 +184,20 @@ function preencherEndereco(cep) {
     });
 }
 
-// Adicionando evento de entrada para o campo de CEP
-cepInput.on("input", function () {
-  let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
-  cepInput.val(cep);
-
-  if (cep.length < 8) {
-    // Limpar campos de entrada quando o CEP for menor que 8 caracteres
-    cidadeInput.val("");
-    ruaInput.val("");
-    bairroInput.val("");
-  }
-
-  if (cep.length === 8) {
-    preencherEndereco(cep);
-  }
-});
-
-// Adicionando evento de entrada para o campo de CEP
-cepInput.on("input", function () {
+// Evento e função para preencher endereço a partir do CEP
+cepInput.on("input", function() {
   let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
   cepInput.val(cep);
 
   if (cep.length === 8) {
     preencherEndereco(cep);
   } else {
-    // Limpar mensagem de erro quando o CEP for menor que 8 caracteres
     mensagemCep.innerHTML = '';
+    cidadeInput.val("");
+    ruaInput.val("");
+    bairroInput.val("");
   }
 });
-
-// Adicionando evento de entrada para o campo de CEP
-cepInput.on("input", function () {
-  let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
-  cepInput.val(cep);
-
-  if (cep.length === 8) {
-    preencherEndereco(cep);
-  }
-});
-
-
-// Adicionando evento de entrada para o campo de CEP
-cepInput.on("input", function () {
-  let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
-  cepInput.val(cep);
-
-  if (cep.length === 8) {
-    preencherEndereco(cep);
-  }
-});
-
-
-// Adicionando evento de entrada para o campo de CEP
-cepInput.on("input", function () {
-  let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
-  cepInput.val(cep);
-
-  if (cep.length === 8) {
-    preencherEndereco(cep);
-  }
-});
-
 
 btn.addEventListener('click', () => {
   let inputSenha = document.querySelector('#senha')
@@ -282,6 +241,37 @@ login.addEventListener('input', function () {
   }
 });
 
-cadastrar.addEventListener('click', function(e) {
+// Evento de clique para cadastrar
+limpar.addEventListener('click', (event) => {
+  event.preventDefault(); // Evita o recarregamento da página
+  
+  // Limpar os campos de input e os radios
+  nome.value = '';
+  login.value = '';
+  emailInput.value = '';
+  senha.value = '';
+  senha2.value = '';
+  cepInput.val('');
+  numero.value = '';
+  celular.value = '';
+  comple.value = '';
+  cpf.value = '';
+  cidadeInput.val(''); // Limpa o campo de input cidade
+  ruaInput.val('');
+  bairroInput.val('');
+    // Limpar a seleção dos radios de gênero
+    document.querySelectorAll('.genero').forEach(radio => {
+      radio.checked = false;
+    });
+    
+    data.value = '';
+  data.value= ''
 
-})
+  // Limpar mensagens de validação também, se necessário
+  mensagemNome.innerHTML = '';
+  mensagemCPF.innerHTML = '';
+  mensagemCep.innerHTML = '';
+  mensagemEmail.innerHTML = '';
+  mensagemLogin.innerHTML = '';
+  mensagem.innerHTML=''
+});

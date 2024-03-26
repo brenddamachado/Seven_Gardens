@@ -47,7 +47,7 @@
     </header>
 
     <section class="formulario">
-      <form action="">
+      <form action="" id="formulario">
         <label class="label_login" for="nome" id="labelNome"> Nome:</label>
         <input
           class="input_login"
@@ -68,6 +68,7 @@
           <input
             type="radio"
             id="mcisgênero"
+            class="genero"
             name="genero"
             value="Mulher cisgênero"
           />
@@ -75,6 +76,7 @@
           <input
             type="radio"
             id="mtransgênero"
+            class="genero"
             name="genero"
             value="Mulher transgênero"
           />
@@ -83,6 +85,7 @@
             type="radio"
             id="hcisgênero"
             name="genero"
+            class="genero"
             value="Homem cisgênero"
           />
           <label class="model" for="hcisgênero">Homem cisgênero</label>
@@ -90,12 +93,13 @@
             type="radio"
             id="htransgênero"
             name="genero"
+            class="genero"
             value="Homem transgênero"
           />
           <label class="model" for="htransgênero">Homem transgênero</label>
-          <input type="radio" id="binário" name="genero" value="não-binário" />
+          <input type="radio" id="binário" name="genero" value="não-binário"  class="genero"/>
           <label class="model" for="binário">não-binário</label>
-          <input type="radio" id="outro" name="genero" value="outro" />
+          <input type="radio" id="outro" name="genero" value="outro"  class="genero"/>
           <label class="model" for="outro">Outros</label>
         </div>
 
@@ -248,8 +252,8 @@
 
         <div id="mensagem"></div>
 
-        <button class="btn_cadastrar" type="submit" id="cadastrar">Cadastrar</button>
-        <button class="btn_limpar">Limpar</button>
+        <button class="btn_cadastrar" type="submit" id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+        <button class="btn_limpar" id="limpar">Limpar</button>
       </form>
     </section>
 
