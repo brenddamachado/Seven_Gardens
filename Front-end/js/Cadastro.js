@@ -27,7 +27,7 @@ const mensagemCPF = document.getElementById('mensagemCPF');
 const mensagemCep = document.getElementById('mensagemCep');
 const mensagemEmail = document.getElementById('mensagemEmail')
 const mensagemLogin = document.getElementById('mensagemLogin')
-
+const cadastrar = document.getElementById('cadastrar')
 nome.addEventListener('input', () => {
   // Remove caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, '');
@@ -144,114 +144,101 @@ function validarEmail(email) {
   }
 }
 
+
+function preencherEndereco(cep) {
+  const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Não foi possível obter os dados do CEP.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.erro) {
+        mensagemCep.innerHTML = 'CEP não encontrado';
+        return;
+      }
+
+      cidadeInput.val(data.localidade);
+      ruaInput.val(data.logradouro);
+      bairroInput.val(data.bairro);
+      
+      // Remover estilos CSS das labels
+      $("#labelRua, #labelCidade, #labelBairro").removeAttr("style");
+
+      // Limpar mensagem de erro
+      mensagemCep.innerHTML = '';
+    })
+    .catch(error => {
+      console.error('Erro ao obter dados do CEP:', error);
+      mensagemCep.innerHTML = 'Erro ao obter dados do CEP';
+    });
+}
+
+// Adicionando evento de entrada para o campo de CEP
 cepInput.on("input", function () {
   let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
   cepInput.val(cep);
 
-  cidadeInput.val("");
-  ruaInput.val("");
-  bairroInput.val("");
+  if (cep.length < 8) {
+    // Limpar campos de entrada quando o CEP for menor que 8 caracteres
+    cidadeInput.val("");
+    ruaInput.val("");
+    bairroInput.val("");
+  }
 
-  labelRua.css("color", ""); // Remover a cor da rua
-  labelCidade.css("color", ""); // Remover a cor da cidade
-  labelBairro.css("color", ""); // Remover a cor do bairro
-
-  if (cep.length === 0) {
-    labelCep.css("color", ""); // Remover a cor
-    labelCep.html("Cep:");
-  } else {
-    validarCep(cep);
+  if (cep.length === 8) {
+    preencherEndereco(cep);
   }
 });
 
-function validarCep(cep) {
-  var regex = /^[0-9]{8}$/;
-
-  if (regex.test(cep)) {
-    mensagemCep.innerHTML = '';
-    validecep = true;
-  } else {
-    mensagemCep.innerHTML = 'Cep inválido';
-    validecep = false;
-  }
-
-  const url = `https://viacep.com.br/ws/${cep}/json/`;
+// Adicionando evento de entrada para o campo de CEP
+cepInput.on("input", function () {
+  let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
+  cepInput.val(cep);
 
   if (cep.length === 8) {
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          labelCep.css("color", "maroon");
-          throw new Error('Não foi possível obter os dados do CEP.');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (data.erro) {
-          labelCep.css("color", "maroon");
-          mensagemCep.innerHTML = 'CEP não encontrado';
-          validecep = false;
-        } else {
-          labelCep.css("color", "black");
-          labelRua.css("color", "black");
-          labelCidade.css("color", "black");
-          labelBairro.css("color", "black");
-          validecep = true;
-        }
-
-        cidadeInput.val(data.localidade);
-        ruaInput.val(data.logradouro);
-        bairroInput.val(data.bairro);
-      })
-      .catch((error) => {
-        console.error(error);
-        validecep = false;
-      });
-  }
-}
-
-function cadastrar() {
-  // Validações dos campos
-
-  if (validenome && validesenha && validesenha2 && validecep && validecpf && valideemail && validemae && validelogin) {
-    let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
-
-    listaUser.push({
-      nome: nome.value,
-      login: login.value,
-      email: emailInput.value,
-      senha: senha.value
-    });
-
-    localStorage.setItem('listaUser', JSON.stringify(listaUser));
-
-    // Limpar os campos
-    nome.value = '';
-    login.value = '';
-    emailInput.value = '';
-    senha.value = '';
-    senha2.value = '';  
-    cepInput.val('');  // Limpar o campo do CEP usando jQuery
-    n.value = '';
-    celular.value = '';
-    telefone.value = '';
-    cpf.value = '';
-    mae.value = '';
-    nasc.value = '';
-   
-    // Abrir a página após o cadastro
-    setTimeout(() => {
-      window.open("https://projetotelecall.rianefm.repl.co/html/Login.html", "_blank");
-    }, 3000)
-
-    document.getElementById('mensagem').innerHTML = 'Cadastro realizado com sucesso!';
-
-    return false; // Impede o envio do formulário, já que a página será redirecionada
+    preencherEndereco(cep);
   } else {
-    document.getElementById('mensagem').innerHTML = 'Preencha o formulário corretamente.';
-    return false; // Impede o envio do formulário em caso de erro
+    // Limpar mensagem de erro quando o CEP for menor que 8 caracteres
+    mensagemCep.innerHTML = '';
   }
-}
+});
+
+// Adicionando evento de entrada para o campo de CEP
+cepInput.on("input", function () {
+  let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
+  cepInput.val(cep);
+
+  if (cep.length === 8) {
+    preencherEndereco(cep);
+  }
+});
+
+
+// Adicionando evento de entrada para o campo de CEP
+cepInput.on("input", function () {
+  let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
+  cepInput.val(cep);
+
+  if (cep.length === 8) {
+    preencherEndereco(cep);
+  }
+});
+
+
+// Adicionando evento de entrada para o campo de CEP
+cepInput.on("input", function () {
+  let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
+  cepInput.val(cep);
+
+  if (cep.length === 8) {
+    preencherEndereco(cep);
+  }
+});
+
 
 btn.addEventListener('click', () => {
   let inputSenha = document.querySelector('#senha')
@@ -263,7 +250,7 @@ btn.addEventListener('click', () => {
 })
 
 btn2.addEventListener('click', () => {
-  let inputSenha = document.querySelector('#senha2')
+  let inputSenha = document.querySelector('#senhaC')
   if (inputSenha.getAttribute('type') == 'password') {
     inputSenha.setAttribute('type', 'text')
   } else {
@@ -294,3 +281,7 @@ login.addEventListener('input', function () {
     validelogin = false;
   }
 });
+
+cadastrar.addEventListener('click', function(e) {
+
+})
