@@ -1,30 +1,30 @@
 // Seletores dos elementos
-let btn = document.querySelector('#verSenha');
-let btn2 = document.querySelector('#verConfirme');
-let nome = document.querySelector('#nome');
-let senha = document.querySelector('#senha');
-let senha2 = document.querySelector('#senhaC');
-let tel = document.querySelector('#tel');
-let login = document.querySelector('#login');
+let btn = document.querySelector("#verSenha");
+let btn2 = document.querySelector("#verConfirme");
+let nome = document.querySelector("#nome");
+let senha = document.querySelector("#senha");
+let senha2 = document.querySelector("#senhaC");
+let tel = document.querySelector("#tel");
+let login = document.querySelector("#login");
 let cepInput = $("#cep");
 const cidadeInput = $("#cid");
 const ruaInput = $("#rua");
 const bairroInput = $("#bairro");
-const emailInput = document.getElementById('email');
-const numero = document.getElementById('num');
-const celular = document.getElementById('numero');
-const telefone = document.getElementById('tel');
-const cpf = document.getElementById('cpf');
-const mensagemNome = document.getElementById('mensagemNome');
-const mensagemCPF = document.getElementById('mensagemCPF');
-const mensagemCep = document.getElementById('mensagemCep');
-const mensagemEmail = document.getElementById('mensagemEmail');
-const mensagemLogin = document.getElementById('mensagemLogin');
-const cadastrar = document.getElementById('cadastrar');
-const limpar = document.getElementById('limpar');
-const comple = document.getElementById('comple')
-const genero = document.querySelector('.genero')
-const data = document.getElementById('data')
+const emailInput = document.getElementById("email");
+const numero = document.getElementById("num");
+const celular = document.getElementById("numero");
+const telefone = document.getElementById("tel");
+const cpf = document.getElementById("cpf");
+const mensagemNome = document.getElementById("mensagemNome");
+const mensagemCPF = document.getElementById("mensagemCPF");
+const mensagemCep = document.getElementById("mensagemCep");
+const mensagemEmail = document.getElementById("mensagemEmail");
+const mensagemLogin = document.getElementById("mensagemLogin");
+const cadastrar = document.getElementById("cadastrar");
+const limpar = document.getElementById("limpar");
+const comple = document.getElementById("comple");
+const genero = document.querySelector(".genero");
+const data = document.getElementById("data");
 
 // Variáveis de validação
 let validenome = false;
@@ -35,41 +35,40 @@ let validecpf = false;
 let validecep = false;
 let valideemail = false;
 
-nome.addEventListener('input', () => {
+nome.addEventListener("input", () => {
   // Remove caracteres que não são letras ou espaços
-  nome.value = nome.value.replace(/[^a-zA-Z\s]/g, '');
+  nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
 
   if (nome.value.length >= 15 && nome.value.length < 60) {
-   mensagemNome.innerHTML= ""
+    mensagemNome.innerHTML = "";
     validenome = true;
   } else {
-    mensagemNome.innerHTML= "insira no mínimo 15 caracteres"
+    mensagemNome.innerHTML = "insira no mínimo 15 caracteres";
 
     validenome = false;
   }
 });
 
-senha.addEventListener('input', () => {
-  senha.value = senha.value.replace(/[^a-zA-Z]/g, ''); // Remove caracteres não alfabéticos
+senha.addEventListener("input", () => {
+  senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
 
   if (senha.value.length < 8) {
-    mensagem.innerHTML= ' *Insira no mínimo 8 caracteres';
+    mensagem.innerHTML = " *Insira no mínimo 8 caracteres";
     validesenha = false;
   } else {
-    mensagem.innerHTML= ""
+    mensagem.innerHTML = "";
     validesenha = true;
   }
 });
 
-senha2.addEventListener('input', () => {
-  senha2.value = senha2.value.replace(/[^a-zA-Z]/g, ''); // Remove caracteres não alfabéticos
+senha2.addEventListener("input", () => {
+  senha2.value = senha2.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
 
   if (senha.value !== senha2.value) {
-  
-    mensagem.innerHTML=  'Confirmação de Senha: *As senhas não conferem';
+    mensagem.innerHTML = "Confirmação de Senha: *As senhas não conferem";
     validesenha2 = false;
   } else {
-    mensagem.innerHTML= ""
+    mensagem.innerHTML = "";
     validesenha2 = true;
   }
 });
@@ -102,7 +101,10 @@ function validarCPF(cpf) {
   let digit2 = mod < 2 ? 0 : 11 - mod;
 
   // Verifica se os dígitos verificadores são válidos
-  if (parseInt(cpf.charAt(9)) !== digit1 || parseInt(cpf.charAt(10)) !== digit2) {
+  if (
+    parseInt(cpf.charAt(9)) !== digit1 ||
+    parseInt(cpf.charAt(10)) !== digit2
+  ) {
     return false;
   }
 
@@ -110,9 +112,9 @@ function validarCPF(cpf) {
   return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
 }
 
-cpf.addEventListener('input', () => {
+cpf.addEventListener("input", () => {
   // Remove todos os caracteres não numéricos
-  cpf.value = cpf.value.replace(/\D/g, '');
+  cpf.value = cpf.value.replace(/\D/g, "");
 
   const isCPFValid = validarCPF(cpf.value);
 
@@ -121,18 +123,17 @@ cpf.addEventListener('input', () => {
     cpf.value = isCPFValid; // Define o valor da entrada como o CPF formatado
     validecpf = true;
   } else {
-    mensagemCPF.innerHTML = 'CPF inválido';
+    mensagemCPF.innerHTML = "CPF inválido";
     validecpf = false;
   }
 });
 
-$(document).ready(function() {
-
+$(document).ready(function () {
   //celular
   $("#numero").mask("(99) 99999-9999");
 });
 
-emailInput.addEventListener('input', function() {
+emailInput.addEventListener("input", function () {
   const email = emailInput.value;
   validarEmail(email);
 });
@@ -141,137 +142,133 @@ function validarEmail(email) {
   var regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
   if (regex.test(email)) {
-    mensagemEmail.innerHTML=""
+    mensagemEmail.innerHTML = "";
     valideemail = true;
-
   } else {
-    mensagemEmail.innerHTML='inválido';
+    mensagemEmail.innerHTML = "inválido";
     valideemail = false;
-
   }
 }
-
 
 function preencherEndereco(cep) {
   const url = `https://viacep.com.br/ws/${cep}/json/`;
 
   fetch(url)
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
-        throw new Error('Não foi possível obter os dados do CEP.');
+        throw new Error("Não foi possível obter os dados do CEP.");
       }
       return response.json();
     })
-    .then(data => {
+    .then((data) => {
       if (data.erro) {
-        mensagemCep.innerHTML = 'CEP não encontrado';
+        mensagemCep.innerHTML = "CEP não encontrado";
         return;
       }
 
       cidadeInput.val(data.localidade);
       ruaInput.val(data.logradouro);
       bairroInput.val(data.bairro);
-      
+
       // Remover estilos CSS das labels
       $("#labelRua, #labelCidade, #labelBairro").removeAttr("style");
 
       // Limpar mensagem de erro
-      mensagemCep.innerHTML = '';
+      mensagemCep.innerHTML = "";
     })
-    .catch(error => {
-      console.error('Erro ao obter dados do CEP:', error);
-      mensagemCep.innerHTML = 'Erro ao obter dados do CEP';
+    .catch((error) => {
+      console.error("Erro ao obter dados do CEP:", error);
+      mensagemCep.innerHTML = "Erro ao obter dados do CEP";
     });
 }
 
 // Evento e função para preencher endereço a partir do CEP
-cepInput.on("input", function() {
+cepInput.on("input", function () {
   let cep = cepInput.val().replace(/\D/g, "").slice(0, 8);
   cepInput.val(cep);
 
   if (cep.length === 8) {
     preencherEndereco(cep);
   } else {
-    mensagemCep.innerHTML = '';
+    mensagemCep.innerHTML = "";
     cidadeInput.val("");
     ruaInput.val("");
     bairroInput.val("");
   }
 });
 
-btn.addEventListener('click', () => {
-  let inputSenha = document.querySelector('#senha')
-  if (inputSenha.getAttribute('type') == 'password') {
-    inputSenha.setAttribute('type', 'text')
+btn.addEventListener("click", () => {
+  let inputSenha = document.querySelector("#senha");
+  if (inputSenha.getAttribute("type") == "password") {
+    inputSenha.setAttribute("type", "text");
   } else {
-    inputSenha.setAttribute('type', 'password')
-  }
-})
-
-btn2.addEventListener('click', () => {
-  let inputSenha = document.querySelector('#senhaC')
-  if (inputSenha.getAttribute('type') == 'password') {
-    inputSenha.setAttribute('type', 'text')
-  } else {
-    inputSenha.setAttribute('type', 'password')
+    inputSenha.setAttribute("type", "password");
   }
 });
 
-login.addEventListener('input', function () {
+btn2.addEventListener("click", () => {
+  let inputSenha = document.querySelector("#senhaC");
+  if (inputSenha.getAttribute("type") == "password") {
+    inputSenha.setAttribute("type", "text");
+  } else {
+    inputSenha.setAttribute("type", "password");
+  }
+});
+
+login.addEventListener("input", function () {
   let inputValue = login.value;
 
   // Remova espaços em branco do início e do final do valor
   inputValue = inputValue.trim();
 
   // Remova todos os números do valor
-  inputValue = inputValue.replace(/\d/g, '');
+  inputValue = inputValue.replace(/\d/g, "");
 
   login.value = inputValue; // Define o valor do campo sem os números
 
   if (inputValue.length === 0) {
-    mensagemLogin.innerHTML=""
+    mensagemLogin.innerHTML = "";
     validelogin = false; // Define como inválido, se necessário
   } else if (inputValue.length === 6) {
-    mensagemLogin.innerHTML=""
+    mensagemLogin.innerHTML = "";
     validelogin = true;
   } else {
-    mensagemLogin.innerHTML="Digite exatamente 6 letras."
+    mensagemLogin.innerHTML = "Digite exatamente 6 letras.";
 
     validelogin = false;
   }
 });
 
 // Evento de clique para cadastrar
-limpar.addEventListener('click', (event) => {
+limpar.addEventListener("click", (event) => {
   event.preventDefault(); // Evita o recarregamento da página
-  
+
   // Limpar os campos de input e os radios
-  nome.value = '';
-  login.value = '';
-  emailInput.value = '';
-  senha.value = '';
-  senha2.value = '';
-  cepInput.val('');
-  numero.value = '';
-  celular.value = '';
-  comple.value = '';
-  cpf.value = '';
-  cidadeInput.val(''); // Limpa o campo de input cidade
-  ruaInput.val('');
-  bairroInput.val('');
-    // Limpar a seleção dos radios de gênero
-    document.querySelectorAll('.genero').forEach(radio => {
-      radio.checked = false;
-    });
-    
-    data.value = '';
-  data.value= ''
+  nome.value = "";
+  login.value = "";
+  emailInput.value = "";
+  senha.value = "";
+  senha2.value = "";
+  cepInput.val("");
+  numero.value = "";
+  celular.value = "";
+  comple.value = "";
+  cpf.value = "";
+  cidadeInput.val(""); // Limpa o campo de input cidade
+  ruaInput.val("");
+  bairroInput.val("");
+  // Limpar a seleção dos radios de gênero
+  document.querySelectorAll(".genero").forEach((radio) => {
+    radio.checked = false;
+  });
+
+  data.value = "";
 
   // Limpar mensagens de validação também, se necessário
-  mensagemNome.innerHTML = '';
-  mensagemCPF.innerHTML = '';
-  mensagemCep.innerHTML = '';
-  mensagemEmail.innerHTML = '';
-  mensagemLogin.innerHTML = '';
-  mensagem.innerHTML=''
+  mensagemNome.innerHTML = "";
+  mensagemCPF.innerHTML = "";
+  mensagemCep.innerHTML = "";
+  mensagemEmail.innerHTML = "";
+  mensagemLogin.innerHTML = "";
+  mensagem.innerHTML = "";
 });
