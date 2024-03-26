@@ -103,7 +103,6 @@ ul {
 /* inicio footer */
 
 footer{
-    margin-top: 400px;
     background-color: #0f2b05;
     height: 200px;
 }
@@ -172,3 +171,5 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: white;
   text-decoration: none;
 }
+
+
