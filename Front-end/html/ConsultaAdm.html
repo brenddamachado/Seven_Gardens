@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SevenGarden</title>
+  <link rel="stylesheet" href="consultaAdm.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <section class="header">
+      <div>
+        <img class="logo" src="img/logoatual .svg" alt="" srcset="" />
+      </div>
+      <nav>
+        <div class="navegacao">
+          <ul>
+            <li class="login">Login</li>
+            <li class="cadastrar">Cadastro</li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+  
+    <section class="opcoes">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Produtos
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Categoria 1</a>
+          <a class="dropdown-item" href="#">Categoria 2</a>
+          <a class="dropdown-item" href="#">Categoria 3</a>
+
+      </div>
+      
+      <div class="pesquisa-container">
+        <input type="search" name="" id="" class="pesquisa" />
+        <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
+      </div>
+      <img src="img/iconecar .svg" alt="Ícone do carrinho de compras" id="icon" />
+    </section>
+  </header>
+
+  <h1>Consulta de Usuários</h1>
+  <form>
+    <label for="inputPesquisa">Pesquisar por nome:</label>
+    <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário">
+    <button type="submit">Pesquisar</button>
+  </form>
+  
+  <table id="tabelaUsuarios">
+    <thead>
+      <tr>
+        <th>Nome do Usuário</th>
+        <!-- Adicione mais colunas conforme necessário -->
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Os resultados da consulta serão exibidos aqui -->
+      <tr>
+        <td>Usuário 1</td>
+        <!-- Adicione mais células conforme necessário -->
+      </tr>
+    </tbody>
+  </table>
+
+  
+<!-- ACESSIBILIDADES DE LIBRAS -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <footer>
+    <br>
+     <p class="social"> Siga-nos nas nossas redes sociais:</p>
+    
+      <div class="social-icons">
+        
+          <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icon"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="icon"><i class="fab fa-whatsapp""></i></a>
+        
+        
+      </div>
+      <div class="contact-info">
+          <p>Email: exemplo@email.com</p>
+          <p>Telefone: (XX) XXXX-XXXX</p>
+      </div>
+  </footer>
+
+
+
+
+</body>
+
+</html>
