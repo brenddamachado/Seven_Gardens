@@ -20,7 +20,7 @@ const mensagemCPF = document.getElementById("mensagemCPF");
 const mensagemCep = document.getElementById("mensagemCep");
 const mensagemEmail = document.getElementById("mensagemEmail");
 const mensagemLogin = document.getElementById("mensagemLogin");
-const cadastrar = document.getElementById("cadastrar");
+const form = document.getElementById('formulario')
 const limpar = document.getElementById("limpar");
 const comple = document.getElementById("comple");
 const genero = document.querySelector(".genero");
@@ -35,6 +35,16 @@ let validecpf = false;
 let validecep = false;
 let valideemail = false;
 
+form.addEventListener('submit', (event) => {
+event.preventDefault();
+if(validecep&& validecpf && valideemail && validelogin && validenome && validesenha&&validesenha2){
+  alert('foi')
+}else{
+  alert("erro")
+}
+form.submit();
+})
+
 nome.addEventListener("input", () => {
   // Remove caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
@@ -46,9 +56,10 @@ nome.addEventListener("input", () => {
     mensagemNome.innerHTML = "insira no mínimo 15 caracteres";
 
     validenome = false;
+
+   
   }
 });
-
 senha.addEventListener("input", () => {
   senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
 
@@ -102,7 +113,7 @@ function validarCPF(cpf) {
 
   // Verifica se os dígitos verificadores são válidos
   if (
-    parseInt(cpf.charAt(9)) !== digit1 ||
+    parseInt(cpf.charAt(9)) !== digit1 &&
     parseInt(cpf.charAt(10)) !== digit2
   ) {
     return false;
@@ -272,3 +283,94 @@ limpar.addEventListener("click", (event) => {
   mensagemLogin.innerHTML = "";
   mensagem.innerHTML = "";
 });
+
+function cadastrar() {
+  // Obter os valores dos campos
+  const nome = document.querySelector("#nome").value;
+  const email = document.querySelector("#email").value;
+  const cpf = document.querySelector("#cpf").value;
+  const senha = document.querySelector("#senha").value;
+  const senha2 = document.querySelector("#senha2").value;
+
+  // Variáveis de validação
+  let validenome = false;
+  let valideemail = false;
+  let validecpf = false;
+  let validesenha = false;
+  let validesenha2 = false;
+
+  // Expressões regulares para validação
+  const regexNome = /^[a-zA-Z ]+$/;
+  const regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const regexCPF = /^([0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2})$/;
+
+  // Funções de validação para cada campo
+  function validarNome() {
+    if (!regexNome.test(nome)) {
+      return false;
+    }
+    return true;
+  }
+
+  function validarEmail() {
+    if (!regexEmail.test(email)) {
+      return false;
+    }
+    return true;
+  }
+
+  function validarCPF() {
+    if (!regexCPF.test(cpf)) {
+      return false;
+    }
+    return true;
+  }
+
+  function validarSenha() {
+    if (senha.length < 8) {
+      return false;
+    }
+    return true;
+  }
+
+  function validarSenha2() {
+    if (senha !== senha2) {
+      return false;
+    }
+    return true;
+  }
+
+  // Validar todos os campos
+  validenome = validarNome();
+  valideemail = validarEmail();
+  validecpf = validarCPF();
+  validesenha = validarSenha();
+  validesenha2 = validarSenha2();
+
+  // Se todos os campos forem válidos, enviar os dados para o servidor
+  if (validenome && valideemail && validecpf && validesenha && validesenha2) {
+    // ...
+  } else {
+    // Exibir mensagens de erro
+    if (!validenome) {
+      // Exibir mensagem de erro para o nome
+    }
+
+    if (!valideemail) {
+      // Exibir mensagem de erro para o email
+    }
+
+    if (!validecpf) {
+      // Exibir mensagem de erro para o CPF
+    }
+
+    if (!validesenha) {
+      // Exibir mensagem de erro para a senha
+    }
+
+    if (!validesenha2) {
+      // Exibir mensagem de erro para a confirmação da senha
+    }
+  }
+}
+
