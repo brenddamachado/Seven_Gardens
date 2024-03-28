@@ -23,6 +23,8 @@ const mensagemLogin = document.getElementById("mensagemLogin");
 const form = document.getElementById('formulario')
 const limpar = document.getElementById("limpar");
 const comple = document.getElementById("comple");
+const generoInputs = document.querySelectorAll('.genero input[type="radio"]');
+
 const genero = document.querySelector(".genero");
 const data = document.getElementById("data");
 const mensagemform = document.getElementById('mensagemform')
@@ -37,26 +39,31 @@ let valideemail = false;
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  console.log("Submissão do formulário interceptada.");
-  
-  let errorMessage = "";
-  if (!validecep) errorMessage += "Cep inválido; ";
-  if (!validecpf) errorMessage += "CPF inválido; ";
-  if (!valideemail) errorMessage += "E-mail inválido; ";
-  if (!validelogin) errorMessage += "Login inválido; ";
-  if (!validenome) errorMessage += "Nome inválido; ";
-  if (!validesenha) errorMessage += "Senha inválida; ";
-  if (!validesenha2) errorMessage += "Confirmação de senha inválida; ";
-  
-  if(errorMessage === "") {
-    console.log("Todos os campos válidos. Exibindo mensagem de sucesso...");
+
+  let isChecked = false;
+  generoInputs.forEach(input => {
+    if (input.checked) {
+      isChecked = true;
+    }
+  });
+
+  if (!isChecked) {
+    mensagem.innerHTML ="Por favor, selecione uma opção de gênero; ";
+  }
+    // Verificar se a data foi selecionada
+    if (!data.value) {
+      mensagem.innerHTML ="Por favor, selecione uma data; ";
+    }
+  if(mensagem.innerHTML === "") {
+   
     mensagem.innerHTML = 'Cadastrado com sucesso!!';
     // Não envie o formulário
   } else {
-    console.log("Campos inválidos. Exibindo mensagem de erro.");
-    mensagem.innerHTML = errorMessage;
+ 
+    mensagem.innerHTML = "Campos inválidos";
   }
 });
+
 
 
 
@@ -78,7 +85,7 @@ senha.addEventListener("input", () => {
   senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
 
   if (senha.value.length < 8) {
-    mensagem.innerHTML = " *Insira no mínimo 8 caracteres";
+    mensagem.innerHTML = "Insira no mínimo 8 caracteres";
     validesenha = false;
   } else {
     mensagem.innerHTML = "";
@@ -90,7 +97,7 @@ senha2.addEventListener("input", () => {
   senha2.value = senha2.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
 
   if (senha.value !== senha2.value) {
-    mensagem.innerHTML = "Confirmação de Senha: *As senhas não conferem";
+    mensagem.innerHTML = "As senhas não conferem";
     validesenha2 = false;
   } else {
     mensagem.innerHTML = "";
