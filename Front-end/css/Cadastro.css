@@ -178,7 +178,13 @@ text-decoration: none;
   color: #0f2b05;
 }
 
+.conta{
+  display: flex;
+  justify-content: flex-end;
 
+}
+.sessao{
+  margin-left: 5px;}
 
 /* inicio footer */
 
