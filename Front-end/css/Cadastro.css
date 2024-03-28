@@ -78,18 +78,21 @@ ul {
 }
 
 .login {
-  background-color: #112a08;
+  background-color: #405b39;
+
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
+  text-decoration: none; 
 }
 
 
-.cadastrar {
-  background-color: #405b39;
+.home {
+
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
+text-decoration: none;
 }
 
 /* fim do header */
@@ -168,12 +171,11 @@ ul {
 /* Estilo para cada item de gênero */
 .genero label {
   margin-bottom: 5px; /* Adiciona um espaçamento entre cada item */
-} */
+} 
 
 #mensagem, #mensagemNome, #mensagemCpf, #mensagemCep, #mensagemEmail, #mensagemLogin, #mensagemform{
   margin-bottom: 10px;
-
-  color: red;
+  color: #0f2b05;
 }
 
 

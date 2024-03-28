@@ -57,6 +57,8 @@ form.addEventListener('submit', (event) => {
   if(mensagem.innerHTML === "") {
    
     mensagem.innerHTML = 'Cadastrado com sucesso!!';
+    window.location.replace('login.html');
+
     // Não envie o formulário
   } else {
  
