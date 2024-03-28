@@ -25,7 +25,7 @@ const limpar = document.getElementById("limpar");
 const comple = document.getElementById("comple");
 const genero = document.querySelector(".genero");
 const data = document.getElementById("data");
-
+const mensagemform = document.getElementById('mensagemform')
 // Variáveis de validação
 let validenome = false;
 let validesenha = false;
@@ -36,30 +36,44 @@ let validecep = false;
 let valideemail = false;
 
 form.addEventListener('submit', (event) => {
-event.preventDefault();
-if(validecep&& validecpf && valideemail && validelogin && validenome && validesenha&&validesenha2){
-  alert('foi')
-}else{
-  alert("erro")
-}
-form.submit();
-})
+  event.preventDefault();
+  console.log("Submissão do formulário interceptada.");
+  
+  let errorMessage = "";
+  if (!validecep) errorMessage += "Cep inválido; ";
+  if (!validecpf) errorMessage += "CPF inválido; ";
+  if (!valideemail) errorMessage += "E-mail inválido; ";
+  if (!validelogin) errorMessage += "Login inválido; ";
+  if (!validenome) errorMessage += "Nome inválido; ";
+  if (!validesenha) errorMessage += "Senha inválida; ";
+  if (!validesenha2) errorMessage += "Confirmação de senha inválida; ";
+  
+  if(errorMessage === "") {
+    console.log("Todos os campos válidos. Exibindo mensagem de sucesso...");
+    mensagem.innerHTML = 'Cadastrado com sucesso!!';
+    // Não envie o formulário
+  } else {
+    console.log("Campos inválidos. Exibindo mensagem de erro.");
+    mensagem.innerHTML = errorMessage;
+  }
+});
+
+
+
 
 nome.addEventListener("input", () => {
-  // Remove caracteres que não são letras ou espaços
+  // Remova caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
 
   if (nome.value.length >= 15 && nome.value.length < 60) {
-    mensagemNome.innerHTML = "";
-    validenome = true;
+      mensagemNome.innerHTML = "";
+      validenome = true;
   } else {
-    mensagemNome.innerHTML = "insira no mínimo 15 caracteres";
-
-    validenome = false;
-
-   
+      mensagemNome.innerHTML = "Insira no mínimo 15 caracteres";
+      validenome = false;
   }
 });
+
 senha.addEventListener("input", () => {
   senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
 
@@ -130,14 +144,15 @@ cpf.addEventListener("input", () => {
   const isCPFValid = validarCPF(cpf.value);
 
   if (isCPFValid) {
-    mensagemCPF.innerHTML = ""; // Limpa a mensagem se o CPF for válido
-    cpf.value = isCPFValid; // Define o valor da entrada como o CPF formatado
-    validecpf = true;
+      mensagemCPF.innerHTML = ""; // Limpa a mensagem se o CPF for válido
+      cpf.value = isCPFValid; // Define o valor da entrada como o CPF formatado
+      validecpf = true;
   } else {
-    mensagemCPF.innerHTML = "CPF inválido";
-    validecpf = false;
+      mensagemCPF.innerHTML = "CPF inválido";
+      validecpf = false;
   }
 });
+
 
 $(document).ready(function () {
   //celular
@@ -169,12 +184,14 @@ function preencherEndereco(cep) {
       if (!response.ok) {
         throw new Error("Não foi possível obter os dados do CEP.");
       }
+      validecep=true
       return response.json();
     })
     .then((data) => {
       if (data.erro) {
         mensagemCep.innerHTML = "CEP não encontrado";
-        return;
+        validecep = false
+        return ;
       }
 
       cidadeInput.val(data.localidade);
@@ -192,6 +209,7 @@ function preencherEndereco(cep) {
       mensagemCep.innerHTML = "Erro ao obter dados do CEP";
     });
 }
+
 
 // Evento e função para preencher endereço a partir do CEP
 cepInput.on("input", function () {
@@ -284,93 +302,4 @@ limpar.addEventListener("click", (event) => {
   mensagem.innerHTML = "";
 });
 
-function cadastrar() {
-  // Obter os valores dos campos
-  const nome = document.querySelector("#nome").value;
-  const email = document.querySelector("#email").value;
-  const cpf = document.querySelector("#cpf").value;
-  const senha = document.querySelector("#senha").value;
-  const senha2 = document.querySelector("#senha2").value;
-
-  // Variáveis de validação
-  let validenome = false;
-  let valideemail = false;
-  let validecpf = false;
-  let validesenha = false;
-  let validesenha2 = false;
-
-  // Expressões regulares para validação
-  const regexNome = /^[a-zA-Z ]+$/;
-  const regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const regexCPF = /^([0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2})$/;
-
-  // Funções de validação para cada campo
-  function validarNome() {
-    if (!regexNome.test(nome)) {
-      return false;
-    }
-    return true;
-  }
-
-  function validarEmail() {
-    if (!regexEmail.test(email)) {
-      return false;
-    }
-    return true;
-  }
-
-  function validarCPF() {
-    if (!regexCPF.test(cpf)) {
-      return false;
-    }
-    return true;
-  }
-
-  function validarSenha() {
-    if (senha.length < 8) {
-      return false;
-    }
-    return true;
-  }
-
-  function validarSenha2() {
-    if (senha !== senha2) {
-      return false;
-    }
-    return true;
-  }
-
-  // Validar todos os campos
-  validenome = validarNome();
-  valideemail = validarEmail();
-  validecpf = validarCPF();
-  validesenha = validarSenha();
-  validesenha2 = validarSenha2();
-
-  // Se todos os campos forem válidos, enviar os dados para o servidor
-  if (validenome && valideemail && validecpf && validesenha && validesenha2) {
-    // ...
-  } else {
-    // Exibir mensagens de erro
-    if (!validenome) {
-      // Exibir mensagem de erro para o nome
-    }
-
-    if (!valideemail) {
-      // Exibir mensagem de erro para o email
-    }
-
-    if (!validecpf) {
-      // Exibir mensagem de erro para o CPF
-    }
-
-    if (!validesenha) {
-      // Exibir mensagem de erro para a senha
-    }
-
-    if (!validesenha2) {
-      // Exibir mensagem de erro para a confirmação da senha
-    }
-  }
-}
 
