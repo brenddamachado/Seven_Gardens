@@ -158,17 +158,17 @@ ul {
   cursor: pointer;
   z-index: 2; /* para garantir que o ícone fique sobre o input */
 }
-
-
-.genero{
-  margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
+/* 
+/* Estilos para o formulário de cadastro */
+.genero {
+  display: flex;
+  flex-direction: column; /* Exibir os elementos em coluna */
 }
 
-.genero input[type="radio"].selected {
-  outline-color: green; /* Define a cor de destaque para a borda do input */
-}
+/* Estilo para cada item de gênero */
+.genero label {
+  margin-bottom: 5px; /* Adiciona um espaçamento entre cada item */
+} */
 
 #mensagem, #mensagemNome, #mensagemCpf, #mensagemCep, #mensagemEmail, #mensagemLogin, #mensagemform{
   margin-bottom: 10px;
