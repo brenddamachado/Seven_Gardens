@@ -15,12 +15,12 @@ header {
   display: flex;
   justify-content: space-between;
 }
-ul {
+.paginas {
   padding: 20px;
   display: flex;
   gap: 20px;
 }
-.header ul li {
+.header .paginas li {
   list-style-type: none;
   font-size: 20px;
 }
@@ -42,6 +42,7 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
+  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
 
 #icon {
@@ -269,4 +270,34 @@ footer {
 .contact-info p {
     margin: 3px 0; /* Ajustei a margem superior e inferior */
     font-size: 16px; /* Aumentei o tamanho da fonte */
+}
+#produtos {
+  font-size: 18px;
+  color: #fbf3dc;
+  transition: margin-top 0.3s; /* Adiciona uma transição para uma animação suave */
+}
+
+#produtos:hover {
+  margin-top: 10px; /* Define a margem superior durante o hover */
+}
+
+.categorias {
+  display: none;
+  position: absolute;
+  top: calc(100% + 1px); /* Calcula a posição com base na altura do elemento pai */
+  left: 0;
+  background-color: #405b39;
+  padding: 10px;
+  margin-left: 150px;
+}
+
+.categorias li {
+  font-size: 18px;
+  list-style-type: none;
+  margin-bottom: 10px;
+  cursor: pointer; /* Altera o cursor para indicar que os itens são clicáveis */
+}
+
+.categorias li:hover {
+  background-color: #7ED957; /* Altera a cor de fundo quando o mouse está sobre a categoria */
 }

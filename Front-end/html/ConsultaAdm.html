@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SevenGarden</title>
   <link rel="stylesheet" href="../css/ConsultaAdm.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
       </div>
       <nav>
         <div class="navegacao">
-          <ul>
+          <ul class="paginas">
             <li class="login">Login</li>
             <li class="cadastrar">Cadastro</li>
           </ul>
@@ -28,8 +28,22 @@
       </nav>
     </section>
   
-    <section class="opcoes">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+
+<section class="opcoes">
+  <div class="selecao">
+    <h3 id="produtos">Produtos <i class="fa-solid fa-angle-down"></i></h3>
+    <ul class="categorias">
+      <li class="categoria">Categoria1</li>
+      <li class="categoria">Categoria2</li>
+      <li class="categoria">Categoria3</li>
+    </ul>
+  </div>
+  
+
+
+      <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Produtos
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -37,7 +51,7 @@
           <a class="dropdown-item" href="#">Categoria 2</a>
           <a class="dropdown-item" href="#">Categoria 3</a>
 
-      </div>
+      </div> -->
       
       <div class="pesquisa-container">
         <input type="search" name="" id="" class="pesquisa" />
@@ -103,7 +117,7 @@
   </footer>
 
 
-
+<script src="../js/ConsultaAdm.js"></script>
 
 </body>
 
