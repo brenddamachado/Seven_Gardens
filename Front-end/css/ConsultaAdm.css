@@ -231,9 +231,7 @@ footer {
     background-color: #0f2b05;
     height: 200px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  
 }
 
 .social-icons {
