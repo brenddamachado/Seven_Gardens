@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/InterfaceMaster.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <section class="header">
+      <div>
+        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
+      </div>
+      <nav>
+        <div class="navegacao">
+          <ul>
+            <li class="login">Login</li>
+            <li class="cadastrar">Cadastro</li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <section class="opcoes">
+      <h2>Painel de controle</h2>
+    </section>
+  </header>
+
+  <!-- Diálogo Modal para Adicionar Produto -->
+  <dialog id="modalAdicionarProduto">
+    <div class="form-header">
+      <h2 class="title">Adicione um produto</h2>
+    </div>
+    <form>
+      <div class="input-box">
+        <label for="nomeProduto">Nome do Produto:</label>
+        <input type="text" id="nomeProduto" required>
+      </div>
+
+      <div class="input-box">
+        <label for="precoProduto">Preço:</label>
+        <input type="number" id="precoProduto" min="0" step="0.01" required>
+      </div>
+
+      <div class="input-box">
+        <label for="descricaoProduto">Descrição:</label>
+        <textarea id="descricaoProduto" rows="4" required></textarea>
+      </div>
+
+      <div class="input-box">
+        <label for="tipoProduto">Tipo:</label>
+        <select id="tipoProduto" required>
+          <option value="singelas">Singelas</option>
+          <option value="dobradas">Dobradas</option>
+        </select>
+      </div>
+      <div class="input-box">
+        <label for="imagemProduto">Imagem do Produto:</label>
+        <div class="custom-file-input">
+          <input type="file" id="imagemProduto" accept="image/*" onchange="previewImg(event)" required>
+          <button type="button" onclick="document.getElementById('imagemProduto').click()">Escolher arquivo</button>
+        </div>
+      </div>
+
+      <!-- Área de pré-visualização da imagem -->
+      <div id="previewContainer">
+        <img id="previewImage" src="#">
+      </div>
+
+      <!-- Seus botões de envio e cancelamento -->
+      <div class="button-box">
+        <button type="submit" id="add_produto">Adicionar</button>
+        <button type="button" onclick="fecharModalAdicionarProduto()" id="cancelar_add">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!--cards -->
+  <section class="card-container">
+    <div class="card">
+      <h3>Cadastrar Produto</h3>
+      <p>Adicione novos produtos ao seu catálogo.</p>
+      <button onclick="abrirModalAdicionarProduto()"">Cadastrar</button>
+    </div>
+    <div class=" card">
+        <h3>Meus Clientes</h3>
+        <p>Gerencie e acompanhe seus clientes.</p>
+        <button onclick="verClientes()">Ver Clientes</button>
+    </div>
+    <div class="card">
+      <h3>Histórico</h3>
+      <p>Histórico de acesso dos usuários.</p>
+      <button onclick="verHistorico()">Ver Histórico</button>
+    </div>
+    <div class="card">
+      <h3>Pedidos</h3>
+      <p>Visualize e gerencie pedidos pendentes.</p>
+      <button onclick="verPedidos()">Ver Pedidos</button>
+    </div>
+    <div class="card">
+      <h3>Relatórios</h3>
+      <p>Análises detalhadas com relatórios completos.</p>
+      <button onclick="verRelatorios()">Ver Relatórios</button>
+    </div>
+    <div class="card">
+      <h3>Sair</h3>
+      <p>Encerre a sessão e saia da plataforma.</p>
+      <button class="button secondary" onclick="sair()">Sair</button>
+    </div>
+  </section>
+
+<footer></footer>
+
+  <!-- JavaScript para Controlar o Diálogo Modal e Pré-visualização da Imagem -->
+  <script>
+    const modalAdicionarProduto = document.getElementById('modalAdicionarProduto');
+    const previewImage = document.getElementById('previewImage');
+
+    function abrirModalAdicionarProduto() {
+      modalAdicionarProduto.showModal();
+    }
+
+    function fecharModalAdicionarProduto() {
+      modalAdicionarProduto.close();
+    }
+
+    function previewImg(event) {
+      const input = event.target;
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function () {
+        previewImage.src = reader.result;
+      };
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+
+
+  <script>
+
+    function verClientes() {
+      alert('Função para visualizar clientes.');
+    }
+
+    function verHistorico() {
+      alert('Função para visualizar histórico.');
+    }
+
+    function verPedidos() {
+      alert('Função para visualizar pedidos.');
+    }
+
+    function verRelatorios() {
+      alert('Função para visualizar relatórios.');
+    }
+
+    function sair() {
+      alert('Função para sair.');
+    }
+  </script>
+</body>
+
+</html>
