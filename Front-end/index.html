@@ -7,9 +7,10 @@
   <title>SevenGarden</title>
   <link rel="icon" href="img/logoatual.svg" type="image/png" sizes="52x52">
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -18,7 +19,7 @@
   <header>
     <section class="header">
       <div>
-        <img class="logo" src="img/logoatual.svg" alt="" srcset="" />
+        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
       </div>
       <nav>
         <div class="navegacao">
@@ -32,24 +33,23 @@
       </nav>
     </section>
 
-    <section class="opcoes">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        Produtos
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Categoria 1</a>
-        <a class="dropdown-item" href="#">Categoria 2</a>
-        <a class="dropdown-item" href="#">Categoria 3</a>
+     
+      <section class="opcoes">
+      <div class="selecao">
+        <h3 id="produtos" style="position: relative;">Produtos <i class="fa-solid fa-angle-down"></i></h3>
 
+        <ul class="categorias">
+          <li class="categoria">Categoria1</li>
+          <li class="categoria">Categoria2</li>
+          <li class="categoria">Categoria3</li>
+        </ul>
       </div>
-
       <div class="pesquisa-container">
         <input type="search" name="" id="" class="pesquisa" />
         <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
       </div>
       <div id="icon-container">
-        <img src="img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
+        <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
         <div id="carrinho-count" class="carrinho-count">0</div>
       </div>
 
@@ -237,7 +237,7 @@
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
-
+  <!--FIM DA ACESSIBILIDADES DE LIBRAS -->
   <footer>
     <br>
      
@@ -259,7 +259,7 @@
 
 
 
-  <script src="js/script.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>
