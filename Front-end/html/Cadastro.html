@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
   </head>
@@ -32,7 +33,16 @@
       </section>
 
       <section class="opcoes">
-        <h2>Produtos</h2>
+        <div class="selecao">
+          <h3 id="produtos">Produtos <i class="fas fa-chevron-down"></i>
+          </i></h3>
+          <ul class="categorias">
+            <li class="categoria">Categoria1</li>
+            <li class="categoria">Categoria2</li>
+            <li class="categoria">Categoria3</li>
+          </ul>
+        </div>
+        
         <div class="pesquisa-container">
           <input type="search" name="" id="" class="pesquisa" />
           <label for="" class="pesquisa-icon"

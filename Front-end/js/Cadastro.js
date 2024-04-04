@@ -311,4 +311,40 @@ limpar.addEventListener("click", (event) => {
   mensagem.innerHTML = "";
 });
 
+let produtos = document.getElementById('produtos');
+let categorias = document.querySelector(".categorias");
+let listaCategorias = document.querySelectorAll(".categoria");
+
+produtos.addEventListener("click", function() {
+  categorias.style.display = categorias.style.display === "block" ? "none" : "block";
+});
+
+produtos.addEventListener("mouseenter", function() {
+  categorias.style.display = "block";
+});
+
+produtos.addEventListener("mouseleave", function() {
+  setTimeout(() => {
+    if (!categorias.matches(':hover')) {
+      categorias.style.display = "none";
+    }
+  }, 100);
+});
+
+categorias.addEventListener("mouseenter", function() {
+  categorias.style.display = "block";
+});
+
+categorias.addEventListener("mouseleave", function() {
+  categorias.style.display = "none";
+});
+
+listaCategorias.forEach(function(categoria) {
+  categoria.addEventListener("click", function() {
+    listaCategorias.forEach(function(c) {
+      c.classList.remove("selecionada");
+    });
+    categoria.classList.add("selecionada");
+  });
+});
 
