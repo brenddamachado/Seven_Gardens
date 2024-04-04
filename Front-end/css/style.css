@@ -4,27 +4,31 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-   background-color: #f4f4f4;
+  background-color: #f4f4f4;
 }
 
 header {
   background-color: #0f2b05;
 }
+
 .header {
   height: 180px;
 
   display: flex;
   justify-content: space-between;
 }
+
 ul {
   padding: 20px;
   display: flex;
   gap: 20px;
 }
+
 .header ul li {
   list-style-type: none;
   font-size: 20px;
 }
+
 /* .barra_pesquisa input{
     align-items: center;
     justify-content: center;
@@ -35,33 +39,15 @@ ul {
   width: 155px;
   height: 200px;
 }
-h1{
-   text-align: center; 
-   color:#405b39;
-   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+h1 {
+  text-align: center;
+  color: #405b39;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 
-/*dropdown*/
-.dropdown-menu {
-    background-color: #405b39 !important; /* Cor de fundo do dropdown */
-}
 
-.nav-link.dropdown-toggle {
-    color: #fbf3dc !important;
-    font-size: 18px;
-}
-
-.dropdown-item {
-    color: #fbf3dc !important; /* Cor do texto dos itens do menu */
-}
-
-.dropdown-item:hover, 
-.dropdown-item:focus {
-    background-color: #0f2b05 !important; /* Cor de fundo dos itens do menu ao passar o mouse */
-}
-
-/*fim do dropdown*/
 
 
 .opcoes {
@@ -80,25 +66,31 @@ h1{
   color: #7ED957;
   border-color: #7ED957;
 }
+
 .pesquisa-container {
   position: relative;
   display: inline-block;
 }
 
 .pesquisa {
-  width: 450px; /* Define o tamanho do input */
+  width: 450px;
+  /* Define o tamanho do input */
   height: 30px;
   border-radius: 7px;
-  border: none; /* Remove as bordas */
-  background-color: #FBF3DC; /* Define a cor de fundo desejada */
+  border: none;
+  /* Remove as bordas */
+  background-color: #FBF3DC;
+  /* Define a cor de fundo desejada */
 }
 
 .pesquisa-icon {
   position: absolute;
-  right: 15px; /* Posiciona o ícone à direita */
+  right: 15px;
+  /* Posiciona o ícone à direita */
   top: 50%;
   transform: translateY(-50%);
 }
+
 .opcoes h2 {
   color: #fbf3dc;
 }
@@ -121,7 +113,8 @@ h1{
 /* fim do header */
 
 /* inicio do carrossel */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
 }
@@ -129,23 +122,29 @@ body, html {
 .carousel {
   position: relative;
   overflow: hidden;
-  width: 100%; /* Ocupa toda a largura do corpo */
-   margin-bottom: 50px; /*  espaço entre o carrossel e o conteúdo abaixo */
+  width: 100%;
+  /* Ocupa toda a largura do corpo */
+  margin-bottom: 50px;
+  /*  espaço entre o carrossel e o conteúdo abaixo */
 }
 
 .carousel-inner {
   display: flex;
-  width: 100%; /*largura conteúdo do carrossel */
+  width: 100%;
+  /*largura conteúdo do carrossel */
 }
 
 .carousel-item {
-  flex: 0 0 100%; /* Faz as imagens ocuparem a largura total do contêiner */
+  flex: 0 0 100%;
+  /* Faz as imagens ocuparem a largura total do contêiner */
 }
 
 .carousel-item img {
-  width: 100%; /* Garante que a imagem preencha toda a largura do contêiner */
-  height: 300px; /* Mantém a proporção da imagem */
-  
+  width: 100%;
+  /* Garante que a imagem preencha toda a largura do contêiner */
+  height: 300px;
+  /* Mantém a proporção da imagem */
+
 }
 
 .carousel-prev,
@@ -172,87 +171,90 @@ body, html {
 
 /*css para card de fotos*/
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
 }
 
 .col {
-    flex: 0 0 calc(25% - 30px);
-    max-width: calc(25% - 30px);
-    padding: 0 15px;
-    margin-bottom: 30px;
-    margin-right: 50px; /* Adiciona margem à direita para separar as colunas */
+  flex: 0 0 calc(25% - 30px);
+  max-width: calc(25% - 30px);
+  padding: 0 15px;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  /* Adiciona margem à direita para separar as colunas */
 }
+
 .col:last-child {
-    margin-right: 0; /* Remove a margem direita da última coluna */
+  margin-right: 0;
+  /* Remove a margem direita da última coluna */
 }
 
 .card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .card img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .details {
-    padding: 15px;
-    background-color: #f9f9f9;
-    text-align: center;
+  padding: 15px;
+  background-color: #f9f9f9;
+  text-align: center;
 }
 
 .price-btn-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .price {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 
 .buy-btn {
-    padding: 10px 20px;
-    background-color: #405b39;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  background-color: #405b39;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .buy-btn:hover {
-    background-color: #0f2b05;
+  background-color: #0f2b05;
 }
 
 
 
 /* inicio footer */
 
-footer{
-    margin-top: 400px;
-    background-color: #0f2b05;
-    height: 200px;
+footer {
+  margin-top: 400px;
+  background-color: #0f2b05;
+  height: 200px;
 }
 
 
@@ -260,24 +262,33 @@ footer{
 
 /* Estilo do Modal */
 #modalCarrinho.modal-carrinho {
-  display: none; /* Oculto por padrão */
-  position: fixed; /* Fixo na tela */
-  z-index: 1; /* Fica sobre todos os elementos */
+  display: none;
+  /* Oculto por padrão */
+  position: fixed;
+  /* Fixo na tela */
+  z-index: 1;
+  /* Fica sobre todos os elementos */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Permite rolar se necessário */
-  background-color: rgba(0, 128, 0, 0.4); /* Fundo verde com opacidade */
+  overflow: auto;
+  /* Permite rolar se necessário */
+  background-color: rgba(0, 128, 0, 0.4);
+  /* Fundo verde com opacidade */
 }
 
 #modalCarrinho .modal-content {
-  background-color: #fff; /* Cor de fundo branca */
-  margin: 10% auto; /* Centralizado verticalmente e 10% do topo */
+  background-color: #fff;
+  /* Cor de fundo branca */
+  margin: 10% auto;
+  /* Centralizado verticalmente e 10% do topo */
   padding: 20px;
   border: 1px solid #888;
-  width: 70%; /* Largura do conteúdo do modal */
-  max-width: 500px; /* Largura máxima do modal */
+  width: 70%;
+  /* Largura do conteúdo do modal */
+  max-width: 500px;
+  /* Largura máxima do modal */
 }
 
 #modalCarrinho .close {
@@ -293,36 +304,48 @@ footer{
   text-decoration: none;
   cursor: pointer;
 }
+
 .modal-content h2 {
   color: #405b39;
-  font-size: 24px; 
-  margin-bottom: 20px; /* Espaçamento inferior */
+  font-size: 24px;
+  margin-bottom: 20px;
+  /* Espaçamento inferior */
   text-align: center;
 }
 
-.item-info { /* Estilo para o BOTÃO DE REMOVER */
+.item-info {
+  /* Estilo para o BOTÃO DE REMOVER */
   display: flex;
   align-items: center;
-  
+
 }
 
 .item-info p {
-  margin-right: 10px; /* Ajuste conforme necessário */
+  margin-right: 10px;
+  /* Ajuste conforme necessário */
 }
+
 .btn-remover {
   background-color: #405b39;
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
 }
+
 .product-image {
-    width: 50px; /* Defina a largura desejada para a imagem */
-    height: auto; /* Mantenha a proporção da imagem */
+  width: 50px;
+  /* Defina a largura desejada para a imagem */
+  height: auto;
+  /* Mantenha a proporção da imagem */
 }
+
 .product-image img {
-    width: 100%; /* Ajusta a largura da imagem para preencher o contêiner */
-    height: auto; /* Mantenha a proporção da imagem */
-    max-height: 50px; /* Altura máxima da imagem */
+  width: 100%;
+  /* Ajusta a largura da imagem para preencher o contêiner */
+  height: auto;
+  /* Mantenha a proporção da imagem */
+  max-height: 50px;
+  /* Altura máxima da imagem */
 }
 
 
@@ -332,12 +355,15 @@ footer{
 /* Estilo do Carrinho e o contador */
 
 #icon {
-  float: left; /* Garante que o ícone de carrinho de compras e o contador fiquem em linha */
-  margin-right: 5px; /* Ajuste conforme necessário para criar espaço entre o ícone e o contador */
+  float: left;
+  /* Garante que o ícone de carrinho de compras e o contador fiquem em linha */
+  margin-right: 5px;
+  /* Ajuste conforme necessário para criar espaço entre o ícone e o contador */
 }
 
 #icon-container {
-  position: relative; /* Permitirá que o contador seja posicionado absolutamente em relação a este contêiner */
+  position: relative;
+  /* Permitirá que o contador seja posicionado absolutamente em relação a este contêiner */
 }
 
 .carrinho-count {
@@ -345,48 +371,222 @@ footer{
   position: absolute;
   top: 0;
   right: -10px; /* Ajuste conforme necessário para posicionar o contador corretamente */
+  cursor: pointer; /*essa linha serve para mudar o cursor do mouse para uma mãozinha quando passar o mouse em cima do contador*/
+ 
 }
-.finalizar-compra-btn{
-background-color: #405b39;
-color: #fbf3dc;
-border-radius: 7px;
-padding: 4px 10px;
-  }
+
+.finalizar-compra-btn {
+  background-color: #405b39;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
 
 /* inicio footer */
 footer {
-    margin-top: 400px;
-    background-color: #0f2b05;
-    height: 200px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-top: 400px;
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .social-icons {
-    text-align: center;
+  text-align: center;
 
 
 }
+
 .social-icons p {
-    color: #fff; /* Cor do texto */
-    text-align: center;
-    font-size: 16px; /* Tamanho da fonte */
+  color: #fff;
+  /* Cor do texto */
+  text-align: center;
+  font-size: 16px;
+  /* Tamanho da fonte */
 
 }
 
 .social-icons .icon {
-    display: inline-block;
-    margin: 10px 10px 0; /* Adicionando uma margem superior de  */
-    font-size: 30px; /* Aumentei o tamanho dos ícones */
-    color: #fff;
-  transition: transform 0.3s ease; /* Adiciona uma transição suave */
+  display: inline-block;
+  margin: 10px 10px 0;
+  /* Adicionando uma margem superior de  */
+  font-size: 30px;
+  /* Aumentei o tamanho dos ícones */
+  color: #fff;
+  transition: transform 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+  /* Aumenta o tamanho do ícone em 20% no hover */
+}
+
+/* Estilo para o Produtos */
+
+#produtos {
+  font-size: 18px;
+  color: #fbf3dc;
+  transition: margin-top 0.3s;
+  /* Adiciona uma transição para uma animação suave */
+}
+
+#produtos:hover {
+  margin-top: 9px;
+  /* Define a margem superior durante o hover */
+}
+
+.categorias {
+  display: none;
+  position: absolute;
+  top: 100%;
+  /* Posição abaixo do título "Produtos" */
+  left: 3;
+  /* Ajuste conforme necessário */
+  margin-top: 0;
+  /* Adicione uma margem superior para separar as categorias */
+  background-color: #405b39;
+  padding: 10px;
+  width: 150px;
+  z-index: 1;
+}
+
+.categorias li {
+  font-size: 18px;
+  color: #fbf3dc;
+  list-style-type: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  /* Altera o cursor para indicar que os itens são clicáveis */
+}
+
+.categorias li:hover {
+  background-color: #0f2b05;
+  /* Altera a cor de fundo quando o mouse está sobre a categoria */
+}
+
+.opcoes {
+  justify-content: space-around;
+  display: flex;
+  background: #405b39;
+  height: 38px;
+  align-items: center;
+  font-size: 12px;
+  position: relative;
+  /* Adicione posicionamento relativo */
+}
+
+
+/* Adicione isso no final do seu CSS para as regras de mídia */
+
+/* Para telas menores que 768px (por exemplo, smartphones em modo retrato) */
+@media only screen and (max-width: 767px) {
+  .header {
+    height: auto;
+    /* Defina a altura automática para acomodar o conteúdo */
+    flex-direction: column;
+    /* Empilhe os itens verticalmente */
+    align-items: center;
+    /* Alinhe os itens ao centro */
   }
 
-  .social-icons .icon:hover {
-      transform: scale(1.2); /* Aumenta o tamanho do ícone em 20% no hover */
+  .logo {
+    width: 100%;
+    /* Faça a logo ocupar a largura total do contêiner */
+    height: auto;
+    /* Mantenha a proporção */
+    margin-bottom: 20px;
+    /* Adicione espaço abaixo da logo */
   }
 
+  ul {
+    flex-direction: column;
+    /* Empilhe os itens da lista verticalmente */
+    align-items: center;
+    /* Alinhe os itens ao centro */
+  }
 
+  .carousel-item img {
+    height: 200px;
+    /* Reduza a altura das imagens do carrossel */
+  }
 
+  .col {
+    flex: 0 0 calc(50% - 30px);
+    /* Faça as colunas ocuparem 50% da largura */
+    max-width: calc(50% - 30px);
+    /* Largura máxima de 50% */
+  }
+
+  footer {
+    flex-direction: column;
+    /* Empilhe os itens verticalmente */
+    align-items: center;
+    /* Alinhe os itens ao centro */
+  }
+
+  .social-icons {
+    margin-bottom: 20px;
+    /* Adicione espaço abaixo dos ícones sociais */
+  }
+
+  #produtos {
+    margin-top: 0;
+    /* Reset a margem superior */
+  }
+}
+
+/*RESPONSIVIDADE*/
+
+/* Para telas menores que 576px (por exemplo, smartphones em modo paisagem) */
+@media only screen and (max-width: 575px) {
+  .pesquisa {
+    width: 100%;
+    /* Faça a barra de pesquisa ocupar a largura total */
+  }
+
+  .opcoes {
+    font-size: 10px;
+    /* Reduza o tamanho da fonte para os ícones */
+  }
+
+  .carousel-item img {
+    height: 150px;
+    /* Reduza ainda mais a altura das imagens do carrossel */
+  }
+}
+
+/* Para telas menores que 768px (por exemplo, smartphones em modo retrato) */
+@media only screen and (max-width: 767px) {
+  .col {
+    flex: 0 0 calc(50% - 20px);
+    /* Faça as colunas ocuparem 50% da largura */
+    max-width: calc(50% - 20px);
+    /* Largura máxima de 50% */
+    margin-right: 10px;
+    /* Adicione margem à direita para separar as colunas */
+    margin-bottom: 20px;
+    /* Adicione espaço entre as linhas de cartões */
+  }
+
+  .card img {
+    width: 100%;
+    /* Faça as imagens dos cartões ocuparem toda a largura do cartão */
+    height: auto;
+    /* Mantenha a proporção */
+  }
+}
+
+/* Para telas menores que 576px (por exemplo, smartphones em modo paisagem) */
+@media only screen and (max-width: 575px) {
+  .col {
+    flex: 0 0 100%;
+    /* Faça as colunas ocuparem 100% da largura */
+    max-width: 100%;
+    /* Largura máxima de 100% */
+    margin-right: 0;
+    /* Remova a margem direita */
+  }
+}
