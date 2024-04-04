@@ -51,8 +51,8 @@ ul {
   width: 35px;
   margin-top: 2px;
   font-size: 20px;
-  color: #7ED957;
-  border-color: #7ED957;
+  color: #7ed957;
+  border-color: #7ed957;
 }
 .pesquisa-container {
   position: relative;
@@ -64,7 +64,7 @@ ul {
   height: 30px;
   border-radius: 7px;
   border: none; /* Remove as bordas */
-  background-color: #FBF3DC; /* Define a cor de fundo desejada */
+  background-color: #fbf3dc; /* Define a cor de fundo desejada */
 }
 
 .pesquisa-icon {
@@ -83,16 +83,14 @@ ul {
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
-
 .home {
-
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
-text-decoration: none;
+  text-decoration: none;
 }
 
 /* fim do header */
@@ -130,12 +128,11 @@ text-decoration: none;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-
-
 }
 
 /* Estilo para os botões */
-.btn_cadastrar, .btn_limpar {
+.btn_cadastrar,
+.btn_limpar {
   padding: 10px 20px;
   background-color: #405b39;
   color: #fff;
@@ -171,25 +168,94 @@ text-decoration: none;
 /* Estilo para cada item de gênero */
 .genero label {
   margin-bottom: 5px; /* Adiciona um espaçamento entre cada item */
-} 
+}
 
-#mensagem, #mensagemNome, #mensagemCpf, #mensagemCep, #mensagemEmail, #mensagemLogin, #mensagemform{
+#mensagem,
+#mensagemNome,
+#mensagemCpf,
+#mensagemCep,
+#mensagemEmail,
+#mensagemLogin,
+#mensagemform {
   margin-bottom: 10px;
   color: #0f2b05;
 }
 
-.conta{
+.conta {
   display: flex;
   justify-content: flex-end;
-
 }
-.sessao{
-  margin-left: 5px;}
+.sessao {
+  margin-left: 5px;
+}
 
 /* inicio footer */
 
-footer{
-   
-    background-color: #0f2b05;
-    height: 200px;
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.social-icons p {
+  color: #fff;
+  /* Cor do texto */
+  text-align: center;
+  font-size: 16px;
+  /* Tamanho da fonte */
+}
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 10px 0;
+  /* Adicionando uma margem superior de  */
+  font-size: 30px;
+  /* Aumentei o tamanho dos ícones */
+  color: #fff;
+  transition: transform 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+  /* Aumenta o tamanho do ícone em 20% no hover */
+}
+
+@media (max-width: 624px) {
+
+  .pesquisa {
+    width: 100%; /* Ocupa a largura total */
+  }
+  .header ul li {
+    text-align: center;
+  }
+  .formulario form {
+    width: 70%;
+  }
+  .conta {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .sessao {
+    margin-top: 5px;
+  }
+  .genero input{
+    margin-left: 8rem;
+  }
+}
+
+/* Para celulares pequenos (telas menores que 400px) */
+@media (max-width: 400px) {
+  .buttons{
+    display: flex;
+   gap: 1rem;
+  }
 }

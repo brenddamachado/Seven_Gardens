@@ -256,13 +256,39 @@
   <a href="Login.html" class="sessao">Iniciar sessão</a>
 </div>
         <div id="mensagem"></div>
-
-        <button class="btn_cadastrar" type="submit" id="cadastrar" >Cadastrar</button>
-        <button class="btn_limpar" id="limpar">Limpar</button>
+<div  class="buttons">    <button class="btn_cadastrar" type="submit" id="cadastrar" >Cadastrar</button>
+        <button class="btn_limpar" id="limpar">Limpar</button></div>
+    
       </form>
     </section>
 
-    <footer></footer>
-    <script src="../js/Cadastro.js"></script>
+  <!-- ACESSIBILIDADES DE LIBRAS -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+ <footer>
+  <br>
+   
+
+    <div class="social-icons">
+      <p> Siga-nos nas nossas redes sociais:</p>
+
+        <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="icon"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="icon"><i class="fab fa-whatsapp""></i></a>
+
+
+    </div>
+   
+  
+</footer>    <script src="../js/Cadastro.js"></script>
   </body>
 </html>
