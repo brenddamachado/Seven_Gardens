@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  header {
+    background-color: #0f2b05;
+  }
+  .header {
+    height: 180px;
+    
+    display: flex;
+    justify-content: space-between;
+  }
+  .paginas {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+  }
+  .header .paginas li {
+    list-style-type: none;
+    font-size: 20px;
+  }
+  /* .barra_pesquisa input{
+      align-items: center;
+      justify-content: center;
+      margin-top: 25%;
+  
+  } */
+  .logo {
+    width: 155px;
+    height: 200px;
+  }
+  
+  .opcoes {
+    justify-content: space-around;
+    display: flex;
+    background: #405b39;
+    height: 38px;
+    align-items: center;
+    font-size: 12px;
+    position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
+  }
+  
+  #icon {
+    width: 35px;
+    margin-top: 2px;
+    font-size: 20px;
+    color: #7ED957;
+    border-color: #7ED957;
+  }
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .pesquisa {
+    width: 450px; /* Define o tamanho do input */
+    height: 30px;
+    border-radius: 7px;
+    border: none; /* Remove as bordas */
+    background-color: #FBF3DC; /* Define a cor de fundo desejada */
+  }
+  
+  .pesquisa-icon {
+    position: absolute;
+    right: 15px; /* Posiciona o ícone à direita */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .opcoes h2 {
+    color: #fbf3dc;
+  }
+  
+  .login {
+    background-color: #112a08;
+    color: #fbf3dc;
+    border-radius: 7px;
+    padding: 4px 10px;
+  }
+  
+  
+  .cadastrar {
+    background-color: #405b39;
+    color: #fbf3dc;
+    border-radius: 7px;
+    padding: 4px 10px;
+  }
+  /* fim do header */
+  
+  
+  /* inicio da tabela */
+  form {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 auto; /* Isso centralizará o formulário na página */
+    max-width: 400px; /* Defina a largura máxima para evitar que o formulário se estenda demais */
+    margin-bottom: 50px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px; /* Aumentei um pouco o espaçamento entre os rótulos */
+    color: #333;
+  }
+  input[type="text"] {
+    width: 95%; /* Ajustei a largura para preencher completamente o espaço do formulário */
+    padding: 10px;
+    margin-bottom: 15px; /* Aumentei o espaçamento inferior */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  button[type="submit"] {
+    background-color: #405b39;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Faça o botão preencher completamente a largura do formulário */
+  }
+  button[type="submit"]:hover {
+    background-color:#112a08;
+  }
+  th {
+  background-color: #f2f2f2;
+    color: #333;
+    padding: 15px; /* Aumenta o padding para deixar mais espaçado */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-weight: bold; /* Deixa o texto em negrito */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    border-bottom: 2px solid #ccc; /* Adiciona uma borda inferior */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    transition: background-color 0.3s ease; /* Adiciona transição suave ao fundo */
+  }
+  
+  th:hover {
+    background-color: #e0e0e0; /* Muda a cor de fundo quando hover */
+  }
+  
+  #tabelaUsuarios {
+    margin: 0 auto; 
+    width: 30%; /* Você pode ajustar a largura conforme necessário */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  #tabelaUsuarios th,
+  #tabelaUsuarios td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+  }
+  
+  #tabelaUsuarios th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  #tabelaUsuarios tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  #tabelaUsuarios tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  #tabelaUsuarios tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  #tabelaUsuarios th:first-child,
+  #tabelaUsuarios td:first-child {
+    border-left: none;
+  }
+  
+  #tabelaUsuarios th:last-child,
+  #tabelaUsuarios td:last-child {
+    border-right: none;
+  }
+  h1 {
+    color: #405b39;
+    text-align: center;
+    margin-top: 100px; /* Adiciona um espaçamento superior */
+    
+  }
+  header {
+    margin-bottom: 40px; /* Adicione margem inferior ao header para separá-lo do conteúdo abaixo */
+  }
+  
+  /*dropdown*/
+  .dropdown-menu {
+      background-color: #405b39 !important; /* Cor de fundo do dropdown */
+  }
+  
+  .nav-link.dropdown-toggle {
+      color: #fbf3dc !important;
+      font-size: 18px;
+  }
+  
+  .dropdown-item {
+      color: #fbf3dc !important; /* Cor do texto dos itens do menu */
+  }
+  
+  .dropdown-item:hover, 
+  .dropdown-item:focus {
+      background-color: #0f2b05 !important; /* Cor de fundo dos itens do menu ao passar o mouse */
+  }
+  
+  /*fim do dropdown*/
+  
+  /* inicio footer */
+  footer {
+      margin-top: 400px;
+      background-color: #0f2b05;
+      height: 200px;
+      position: relative;
+    
+  }
+  
+  .social-icons {
+      text-align: center;
+    
+     
+  }
+  .social {
+      color: #fff; /* Cor do texto */
+      text-align: center;
+      font-size: 16px; /* Tamanho da fonte */
+  
+  }
+  
+  .social-icons .icon {
+      display: inline-block;
+      margin: 10px 20px 0; /* Adicionando uma margem superior de  */
+      font-size: 30px; /* Aumentei o tamanho dos ícones */
+      color: #fff;
+    transition: transform 0.3s ease; /* Adiciona uma transição suave */
+    }
+  
+    .social-icons .icon:hover {
+        transform: scale(1.2); /* Aumenta o tamanho do ícone em 20% no hover */
+    }
+  
+  
+  .contact-info {
+      text-align: right;
+      color: #fff; /* Alterei a cor do texto */
+      margin-right: 20px; /* Adicionei margem à direita para afastar do lado direito do footer */
+  }
+  
+  .contact-info p {
+      margin: 3px 0; /* Ajustei a margem superior e inferior */
+      font-size: 16px; /* Aumentei o tamanho da fonte */
+  }
+  #produtos {
+    font-size: 18px;
+    color: #fbf3dc;
+    transition: margin-top 0.3s; /* Adiciona uma transição para uma animação suave */
+  }
+  
+  #produtos:hover {
+    margin-top: 10px; /* Define a margem superior durante o hover */
+  }
+  
+  .categorias {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px); /* Calcula a posição com base na altura do elemento pai */
+    left: 0;
+    background-color: #405b39;
+    padding: 10px;
+    margin-left: 150px;
+  }
+  
+  .categorias li {
+    font-size: 18px;
+    list-style-type: none;
+    margin-bottom: 10px;
+    cursor: pointer; /* Altera o cursor para indicar que os itens são clicáveis */
+  }
+  
+  .categorias li:hover {
+    background-color: #7ED957; /* Altera a cor de fundo quando o mouse está sobre a categoria */
+  }
