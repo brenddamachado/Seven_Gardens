@@ -4,6 +4,11 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+   background-color: #f4f4f4;
+  min-height: 100vh;
+  min-width: 100svh;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -11,7 +16,7 @@ header {
 }
 .header {
   height: 180px;
-  
+
   display: flex;
   justify-content: space-between;
 }
@@ -97,35 +102,45 @@ form {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 50px;
   margin: 0 auto; /* Isso centralizará o formulário na página */
   max-width: 400px; /* Defina a largura máxima para evitar que o formulário se estenda demais */
   margin-bottom: 50px;
+  margin-top: 150px;
+}
+.title{
+  color: #0f2b05;
+  margin: 0;
+}
+
+.input-box {
+  margin-bottom: 15px;
 }
 
 label {
-  display: block;
-  margin-bottom: 10px; /* Aumentei um pouco o espaçamento entre os rótulos */
-  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 input[type="text"] {
-  width: 100%; /* Ajustei a largura para preencher completamente o espaço do formulário */
+  width: 100%;
   padding: 10px;
-  margin-bottom: 15px; /* Aumentei o espaçamento inferior */
-  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-shadow: 1px 1px 4px #0000001c;
 }
 button[type="submit"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #405b39;
-  color: #fff;
+  color: white;
   border: none;
   padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 7px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%; /* Faça o botão preencher completamente a largura do formulário */
+  font-size: 1rem;
+  margin-bottom: 15px;
 }
 button[type="submit"]:hover {
   background-color:#112a08;
@@ -149,7 +164,7 @@ th:hover {
 
 #tabelaUsuarios {
   margin: 0 auto; 
-  width: 30%; /* Você pode ajustar a largura conforme necessário */
+  width: 38%; /* Você pode ajustar a largura conforme necessário */
   border-collapse: collapse;
   background-color: #fff;
   border-radius: 10px;
@@ -198,32 +213,13 @@ h1 {
   color: #405b39;
   text-align: center;
   margin-top: 50px; /* Adiciona um espaçamento superior */
-  
+
 }
 header {
   margin-bottom: 40px; /* Adicione margem inferior ao header para separá-lo do conteúdo abaixo */
 }
 
-/*dropdown*/
-.dropdown-menu {
-    background-color: #405b39 !important; /* Cor de fundo do dropdown */
-}
 
-.nav-link.dropdown-toggle {
-    color: #fbf3dc !important;
-    font-size: 18px;
-}
-
-.dropdown-item {
-    color: #fbf3dc !important; /* Cor do texto dos itens do menu */
-}
-
-.dropdown-item:hover, 
-.dropdown-item:focus {
-    background-color: #0f2b05 !important; /* Cor de fundo dos itens do menu ao passar o mouse */
-}
-
-/*fim do dropdown*/
 
 /* inicio footer */
 footer {
@@ -231,13 +227,13 @@ footer {
     background-color: #0f2b05;
     height: 200px;
     position: relative;
-  
+
 }
 
 .social-icons {
     text-align: center;
-  
-   
+
+
 }
 .social {
     color: #fff; /* Cor do texto */
@@ -298,4 +294,75 @@ footer {
 
 .categorias li:hover {
   background-color: #7ED957; /* Altera a cor de fundo quando o mouse está sobre a categoria */
+}
+
+/* COMEÇO DA RESPONSIVIDADE DA PÁGINA*/
+@media only screen and (max-width: 767px) {
+.header {
+  height: auto; /* Defina a altura automática para acomodar o conteúdo */
+  flex-direction: column; /* Empilhe os itens verticalmente */
+  align-items: center; /* Alinhe os itens ao centro */
+}
+
+.logo {
+  width: 100%; /* Faça a logo ocupar a largura total do contêiner */
+  height: auto; /* Mantenha a proporção */
+  margin-bottom: 20px; /* Adicione espaço abaixo da logo */
+}
+  ul {
+    flex-direction: column; /* Empilhe os itens da lista verticalmente */
+    align-items: center; /* Alinhe os itens ao centro */
+  }
+  footer {
+    flex-direction: column; /* Empilhe os itens verticalmente */
+    align-items: center; /* Alinhe os itens ao centro */
+  }
+
+  .social-icons {
+    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
+  }
+}
+/* Responsividade para o formulário */
+@media only screen and (max-width: 767px) {
+  form {
+    max-width: 50%; /* Reduz a largura do formulário para 90% da largura da tela */
+    padding: 20px; /* Reduz o preenchimento para 20px */
+  }
+
+  .input-box {
+    margin-bottom: 10px; /* Reduz a margem inferior para 10px */
+  }
+
+  button[type="submit"] {
+    font-size: 0.9rem; /* Reduz o tamanho da fonte do botão */
+  }
+}
+
+/* Responsividade para os produtos */
+@media only screen and (max-width: 767px) {
+  .col {
+    flex: 0 0 calc(50% - 20px); /* Faça as colunas ocuparem 50% da largura */
+    max-width: calc(50% - 20px); /* Largura máxima de 50% */
+    margin-right: 10px; /* Adicione margem à direita para separar as colunas */
+    margin-bottom: 20px; /* Adicione espaço entre as linhas de cartões */
+  }
+
+  .card img {
+    width: 100%; /* Faça as imagens dos cartões ocuparem toda a largura do cartão */
+    height: auto; /* Mantenha a proporção */
+  }
+}
+
+/* Responsividade para as categorias */
+@media only screen and (max-width: 767px) {
+  .categorias {
+    left: 0; /* Alinha as categorias à esquerda */
+    margin-left: 0; /* Remove a margem esquerda */
+    width: 100%; /* Define a largura para 100% */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .categorias li {
+    margin: 5px 0; /* Adiciona espaço entre os itens de categoria */
+  }
 }
