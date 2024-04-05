@@ -1,6 +1,5 @@
-
-
 body {
+  margin: 0;
   background-color: #f4f4f4;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -23,12 +22,7 @@ ul {
   list-style-type: none;
   font-size: 20px;
 }
-/* .barra_pesquisa input{
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-    
-} */
+
 .logo {
   width: 155px;
   height: 200px;
@@ -56,11 +50,11 @@ ul {
 }
 
 .pesquisa {
-  width: 450px; /* Define o tamanho do input */
+  width: 450px; 
   height: 30px;
   border-radius: 7px;
   border: none; /* Remove as bordas */
-  background-color: #FBF3DC; /* Define a cor de fundo desejada */
+  background-color: #FBF3DC;
 }
 
 .pesquisa-icon {
@@ -91,15 +85,63 @@ ul {
 /* fim do header */
 
 /* inicio footer */
+footer {
+  
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.social-icons {
+  text-align: center;
+
+
+}
+
+.social-icons p {
+  color: #fff;
+  /* Cor do texto */
+  text-align: center;
+  font-size: 16px;
+  /* Tamanho da fonte */
+
+}
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 10px 0;
+  /* Adicionando uma margem superior de  */
+  font-size: 30px;
+  /* Aumentei o tamanho dos ícones */
+  color: #fff;
+  transition: transform 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+  /* Aumenta o tamanho do ícone em 20% no hover */
+}
 footer{
     background-color: #0f2b05;
     height: 200px;
+    flex-direction: column;
+    /* Empilhe os itens verticalmente */
+    align-items: center;
+    /* Alinhe os itens ao centro */
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+.social-icons {
+  margin-bottom: 20px;
+  /* Adicione espaço abaixo dos ícones sociais */
 }
+
+
+
+
 
 dialog::backdrop {
   background-color: rgba(13, 35, 6, 0.5);
@@ -221,11 +263,11 @@ dialog {
   width: calc(33.33% - 20px);
   margin-bottom: 20px;
   box-sizing: border-box;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .card h3 {
-  color: #405b39;
+  color: #0f2b05;
   margin-top: 0;
 }
 
@@ -236,6 +278,7 @@ dialog {
 .card button {
   background-color: #405b39;
   color: #fff;
+  font-size: 1rem;
   border: none;
   padding: 10px 20px;
   border-radius: 7px;
@@ -244,7 +287,7 @@ dialog {
 }
 
 .card button:hover {
-  background-color: #405b39;
+  background-color: #0f2b05;
 }
 
 .button.secondary {
