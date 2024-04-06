@@ -211,6 +211,38 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-decoration: none;
 }
 
+.social-icons {
+  text-align: center;
+
+
+}
+
+.social-icons p {
+  color: #fff;
+  /* Cor do texto */
+  text-align: center;
+  font-size: 16px;
+  /* Tamanho da fonte */
+
+}
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 10px 0;
+  /* Adicionando uma margem superior de  */
+  font-size: 30px;
+  /* Aumentei o tamanho dos ícones */
+  color: #fff;
+  transition: transform 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+  /* Aumenta o tamanho do ícone em 20% no hover */
+}
+
+
 @media (max-width: 624px) {
 
   .pesquisa {
