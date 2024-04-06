@@ -1,4 +1,4 @@
-* {
+body {
   margin: 0;
 }
 
@@ -241,7 +241,14 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transform: scale(1.2);
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
-
+footer{
+  background-color: #0f2b05;
+  height: 200px;
+  flex-direction: column;
+  /* Empilhe os itens verticalmente */
+  align-items: center;
+  /* Alinhe os itens ao centro */
+}
 
 @media (max-width: 624px) {
 
