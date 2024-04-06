@@ -45,7 +45,6 @@ h1 {
   color: #405b39;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -512,7 +511,7 @@ footer {
 }
 
 
-/* Adicione isso no final do seu CSS para as regras de mídia */
+/* Adicione isso no final do seu CSS para as regras de RESPONSIVIDADE */
 
 /* Para telas menores que 768px (por exemplo, smartphones em modo retrato) */
 @media only screen and (max-width: 767px) {
@@ -526,20 +525,28 @@ footer {
   }
 
   .logo {
-    width: 100%;
-    /* Faça a logo ocupar a largura total do contêiner */
+    width: 30%;
+    /* Defina a largura do logotipo para 30% do contêiner pai */
     height: auto;
     /* Mantenha a proporção */
-    margin-bottom: 20px;
-    /* Adicione espaço abaixo da logo */
+    margin-top: 40px;
   }
 
   ul {
-    flex-direction: column;
-    /* Empilhe os itens da lista verticalmente */
+    flex-direction: row;
+    /* Agora, os itens da lista serão dispostos horizontalmente */
     align-items: center;
-    /* Alinhe os itens ao centro */
+    /* Alinhe os itens ao centro verticalmente */
+    margin-left: auto;
+    /* Empurre a lista para o lado direito */
+    margin-top: 10px; /* Adicione espaço acima da lista */
   }
+
+  li {
+    margin-left: 10px;
+    /* Adicione um espaço entre os itens da lista */
+  }
+
 
   .carousel-item img {
     height: 200px;
