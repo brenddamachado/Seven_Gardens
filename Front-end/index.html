@@ -4,15 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SevenGarden</title>
+  <title>SevenGardens</title>
   <link rel="icon" href="img/logoatual.svg" type="image/png" sizes="52x52">
 
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -33,17 +31,20 @@
       </nav>
     </section>
 
-     
-      <section class="opcoes">
-      <div class="selecao">
-        <h3 id="produtos" style="position: relative;">Produtos <i class="fa-solid fa-angle-down"></i></h3>
+        <section class="opcoes">
 
-        <ul class="categorias">
-          <li class="categoria">Categoria1</li>
-          <li class="categoria">Categoria2</li>
-          <li class="categoria">Categoria3</li>
-        </ul>
-      </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Produtos <i class="fas fa-chevron-down">
+            </i></button>
+          <div class="dropdown-content">
+            <a href="#"> Enxertos</a>
+            <a href="#"> Naturais (De semente)
+            </a>
+            <a href="#">Especiais</a>
+            <a href="#">Insumos</a>
+          </div>
+        </div>
       <div class="pesquisa-container">
         <input type="search" name="" id="" class="pesquisa" />
         <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
@@ -87,9 +88,10 @@
 
   <!-- Fim do Carrossel -->
 
-  <!-- Bloco de Produtos -->
+  
   <h1>PRODUTOS EM DESTAQUE</h1>
-  <hr>
+  <hr><br><br>
+  <!-- Bloco de Produtos 
   <div class="container">
     <div class="row">
       <div class="col">
@@ -218,7 +220,7 @@
       </div>
     </div>
 
-  </div>
+  </div>-->
   <!-- Fim do Bloco de Produtos -->
 
   <div id="itensCarrinho" class="carrinho">
@@ -247,7 +249,6 @@
 
           <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
           <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="icon"><i class="fab fa-linkedin"></i></a>
           <a href="#" class="icon"><i class="fab fa-whatsapp""></i></a>
 
 
