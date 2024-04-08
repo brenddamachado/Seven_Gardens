@@ -253,6 +253,7 @@ dialog {
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 20px;
+  text-align: center;
 }
 
 .card {
@@ -296,4 +297,33 @@ dialog {
 
 .button.secondary:hover {
   background-color: #242923;
+}
+
+.iconCard {
+  width: 40%;
+}
+
+/* Estilos para telas menores que 768px (tamanho típico de tablets) */
+@media only screen and (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+/* Estilos para telas menores que 480px (tamanho típico de smartphones) */
+@media only screen and (max-width: 480px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+
+  .card {
+    padding: 10px;
+  }
 }
