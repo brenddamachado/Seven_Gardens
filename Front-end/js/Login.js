@@ -13,3 +13,10 @@ validaLogin = function () {
             alert('Usuário ou senha incorretos');
         }
 }
+
+function limparCampos() {
+    const email = document.querySelector("#email");
+    const senha = document.querySelector("#senha");
+    email.value = "";
+    senha.value = "";
+  }

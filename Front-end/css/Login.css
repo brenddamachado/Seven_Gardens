@@ -7,6 +7,24 @@
     font-family: Arial, Helvetica, sans-serif;
   }
   
+
+
+  .login {
+    background-color: #405b39;
+    color: #fbf3dc;
+    border-radius: 7px;
+    padding: 4px 10px;
+    text-decoration: none;
+  }
+  
+  .home {
+    color: #fbf3dc;
+    border-radius: 7px;
+    padding: 4px 10px;
+    text-decoration: none;
+  }
+
+
   header {
     background-color: #0f2b05;
   }
@@ -24,13 +42,10 @@
   .header ul li {
     list-style-type: none;
     font-size: 20px;
+  
   }
-  /* .barra_pesquisa input{
-      align-items: center;
-      justify-content: center;
-      margin-top: 25%;
-      
-  } */
+  
+
   .logo {
     width: 155px;
     height: 200px;
@@ -74,9 +89,58 @@
   .opcoes h2 {
     color: #fbf3dc;
   }
+
+/* Estilo do dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Botão do dropdown */
+.dropbtn {
+  background-color: #405B39;
+  color: #FBF3DC;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Conteúdo do dropdown (escondido por padrão) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #405B39;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links dentro do dropdown */
+.dropdown-content a {
+  color: #FBF3DC;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Hover nos links */
+.dropdown-content a:hover {
+  background-color: #0F2B05;
+}
+
+/* Exibir dropdown ao passar o mouse sobre o botão */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Centralizar o dropdown no botão */
+.dropdown-content {
+  right: 0;
+}
+
   
   .login {
-    background-color: #112a08;
     color: #fbf3dc;
     border-radius: 7px;
     padding: 4px 10px;
@@ -93,9 +157,10 @@
   
   /*lembrar senha*/
   .EsqueceuSenha a{
-    color: rgb(100, 209, 236);
+    color: rgb(60, 156, 180);
     text-decoration: none;
     margin-left: 340px;
+    margin-top: 40px;
   }
   
   .EsqueceuSenha a:hover{
@@ -115,9 +180,36 @@
   
   /* inicio footer */
   
-  footer{
-      background-color: #0f2b05;
-      height: 200px;
+  footer {
+    background-color: #0f2b05;
+    height: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .social-icons {
+    text-align: center;
+  }
+  
+  .social-icons p {
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+  
+  }
+  
+  .social-icons .icon {
+    display: inline-block;
+    margin: 10px 10px 0;
+    font-size: 30px;
+    color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons .icon:hover {
+    transform: scale(1.2);
   }
   
   .divForm {
@@ -160,8 +252,7 @@
   /* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" */
   .button-box {
     float: left;
-    margin-right: 60px;
-    margin-left: 80px;
+    margin-right: 5px;
     margin-top: 50px;
   }
   
@@ -184,4 +275,72 @@
   #enviarButton a {
     color: white;
     text-decoration: none;
+  }
+
+
+
+  /* responsividade tablets*/
+  @media screen and (max-width: 768px) {
+    .container, section {
+      width: 100%;
+      padding: 0%;
+      min-width: 0;
+    }
+
+    .dropdown-content{
+      min-width: 0;
+    }
+  }
+
+
+  /* responsividade celulare*/
+  @media  (max-width: 500px) {
+    .container{
+      justify-content: initial;
+      min-width: 0;
+    }
+
+    .pesquisa {
+      width: 300px; /* Define o tamanho do input */
+      height: 30px;    
+      margin-left: 5px;  
+    }
+
+    .opcoes {
+      height: 60px;
+      display: block;
+      font-size: 10px;
+    /* Reduza o tamanho da fonte para os ícones */
+    }
+
+    #icon {
+      margin-left: 10px;
+      margin-top: 4px;
+    }
+
+    
+    .dropdown-content{
+      margin-left: 20px;
+    }
+
+    .header, footer {
+      width: 100%;
+      margin: 0px;
+    }
+
+    .divForm {
+      width: 450px;
+      margin-left: 25px;
+    }
+    body{
+      width: 500px;
+    }
+
+    .EsqueceuSenha a {
+      margin-left: 195px;
+    }
+
+    .dropdown-content {
+      min-width: 0;
+    }
   }

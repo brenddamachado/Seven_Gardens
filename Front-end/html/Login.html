@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/Login.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 </head>
 
 <body>
@@ -15,25 +19,34 @@
         </div>
         <nav>
           <div class="navegacao">
-            <ul>
-              <li class="login">Login</li>
-              <li class="cadastrar">Cadastro</li>
+            <ul>   <li class="home"><a class="home" href="../index.html">Home</a></li>
+              <li class="login"><a href="cadastro.html" class="login">Cadastro</a></li>
+           
+              
             </ul>
           </div>
         </nav>
       </section>
   
       <section class="opcoes">
-        <h2>Produtos</h2>
+        <div class="dropdown">
+          <button class="dropbtn">Categorias</button>
+          <div class="dropdown-content">
+            <a href="#">Enxertos</a>
+            <a href="#">Naturais (De semente)</a>
+            <a href="#">Especiais</a>
+            <a href="#">Insumos</a>
+          </div>
+        </div>
         <div class="pesquisa-container">
           <input type="search" name="" id="" class="pesquisa" />
           <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
         </div>
-        <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
+        <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" class="carrinho" id="icon" />
       </section>
     </header>
   
-    <div class="container" id="divLogin">
+  <div class="container" id="divLogin">
     <form class="divForm" action="javascript:validaLogin()">
       <div class="form-header">
         <h1 class="title">Login</h1>
@@ -41,13 +54,17 @@
   
   
       <div class="input-box">
-        <label for="E-mail">E-mail</label>
-        <input type="text" id="senha" placeholder="e-mail" >
+        <label for="E-mail" >E-mail</label>
+        <input type="text" id="email" placeholder="e-mail" >
       </div>
   
       <div class="input-box">
         <label for="Senha">Senha</label>
         <input type="password" id="senha" placeholder="senha" maxlength="8" minlength="8">
+      </div>
+
+      <div class="button-boxi">
+        <button id="enviarButton" type="button" value="Limpar Campos" onclick="limparCampos()">Limpar</button>
       </div>
   
       <div class="EsqueceuSenha">
@@ -65,10 +82,35 @@
     </form>
   
   </div>
+  <!-- ACESSIBILIDADES DE LIBRAS -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
   
-  
-    <footer></footer>
-  
+<footer>
+  <br>
+
+
+    <div class="social-icons">
+      <p> Siga-nos nas nossas redes sociais:</p>
+
+        <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
+
+
+    </div>
+
+
+</footer>
     
   
   <script src="../js/Login.js"> </script>
