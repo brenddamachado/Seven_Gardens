@@ -20,6 +20,7 @@ const mensagemCPF = document.getElementById("mensagemCPF");
 const mensagemCep = document.getElementById("mensagemCep");
 const mensagemEmail = document.getElementById("mensagemEmail");
 const mensagemLogin = document.getElementById("mensagemLogin");
+let mensagemNomeMae = document.getElementById ('mensagemNomeMae')
 const form = document.getElementById('formulario')
 const limpar = document.getElementById("limpar");
 const comple = document.getElementById("comple");
@@ -36,7 +37,8 @@ let validelogin = false;
 let validecpf = false;
 let validecep = false;
 let valideemail = false;
-
+let valideMae = false
+let nomeDaMãe = document.getElementById('nomeDamae')
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -82,6 +84,20 @@ nome.addEventListener("input", () => {
       validenome = false;
   }
 });
+
+nomeDaMãe.addEventListener("input", () => {
+  // Remova caracteres que não são letras ou espaços
+  nomeDaMãe.value = nomeDaMãe.value.replace(/[^a-zA-Z\s]/g, "");
+
+  if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 60) {
+     mensagemNomeMae.innerHTML = "";
+      validenome = true;
+  } else {
+     mensagemNomeMae.innerHTML = "Insira no mínimo 15 caracteres";
+      validenome = false;
+  }
+});
+
 
 senha.addEventListener("input", () => {
   senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
@@ -295,6 +311,7 @@ limpar.addEventListener("click", (event) => {
   cidadeInput.val(""); // Limpa o campo de input cidade
   ruaInput.val("");
   bairroInput.val("");
+  nomeDaMãe.value = ""
   // Limpar a seleção dos radios de gênero
   document.querySelectorAll(".genero").forEach((radio) => {
     radio.checked = false;
@@ -309,42 +326,17 @@ limpar.addEventListener("click", (event) => {
   mensagemEmail.innerHTML = "";
   mensagemLogin.innerHTML = "";
   mensagem.innerHTML = "";
+  mensagemNomeMae.innerHTML = ''
 });
 
-let produtos = document.getElementById('produtos');
-let categorias = document.querySelector(".categorias");
-let listaCategorias = document.querySelectorAll(".categoria");
 
-produtos.addEventListener("click", function() {
-  categorias.style.display = categorias.style.display === "block" ? "none" : "block";
-});
 
-produtos.addEventListener("mouseenter", function() {
-  categorias.style.display = "block";
-});
+// dark e light
+let trilho = document.getElementById('trilho')
+let body = document.querySelector('body')
+trilho.addEventListener('click', ()=>{
+  trilho.classList.toggle('dark')
+  body.classList.toggle('dark')
 
-produtos.addEventListener("mouseleave", function() {
-  setTimeout(() => {
-    if (!categorias.matches(':hover')) {
-      categorias.style.display = "none";
-    }
-  }, 100);
-});
 
-categorias.addEventListener("mouseenter", function() {
-  categorias.style.display = "block";
-});
-
-categorias.addEventListener("mouseleave", function() {
-  categorias.style.display = "none";
-});
-
-listaCategorias.forEach(function(categoria) {
-  categoria.addEventListener("click", function() {
-    listaCategorias.forEach(function(c) {
-      c.classList.remove("selecionada");
-    });
-    categoria.classList.add("selecionada");
-  });
-});
-
+})
