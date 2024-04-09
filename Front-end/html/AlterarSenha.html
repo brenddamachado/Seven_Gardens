@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seven Gardens</title>
     <link rel="stylesheet" href="../css/AlterarSenha.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
 <body>
     <header>
@@ -23,7 +24,17 @@
         </section>
     
         <section class="opcoes">
-          <h2>Produtos</h2>
+          
+          <div class="dropdown">
+            <button class="dropbtn">Categorias</button>
+            <div class="dropdown-content">
+              <a href="#">Enxertos</a>
+              <a href="#">Naturais (De semente)</a>
+              <a href="#">Especiais</a>
+              <a href="#">Insumos</a>
+            </div>
+          </div>
+
           <div class="pesquisa-container">
             <input type="search" name="" id="" class="pesquisa" />
             <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
@@ -60,7 +71,33 @@
       
       </div>
 
+        <!-- ACESSIBILIDADES DE LIBRAS -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
 
-      <footer></footer>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
+
+
+      <footer> 
+         <br>
+
+
+        <div class="social-icons">
+          <p> Siga-nos nas nossas redes sociais:</p>
+    
+            <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
+    
+    
+        </div>
+      </footer>
 </body>
 </html>
