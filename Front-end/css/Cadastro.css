@@ -333,10 +333,49 @@ footer {
   background-color: #c3c3c3;
 }
 
-body.dark{
+body.dark-mode{
   background-color: #000;
 }
 
 body.dark form{
   background-color: bisque;
+}
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px; /* Ajuste conforme necessário */
+  z-index: 9999; /* Certifique-se de que o ícone está acima de outros elementos */
+  transition: all 0.3s ease; /* Adicionando uma transição suave */
+
+}
+
+#other-things {
+  display: none;
+  margin-top: 100px;
+}
+.img_letra{
+  width: 20px;
+}
+#dark-mode{
+  font-size: 20px;
+  
+}.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+#other-things {
+  display: none;
+}
+.img_letra{
+  font-size: 20px;
+}
+.fa-sun, .fa-moon{
+  font-size: 20px;
+
 }

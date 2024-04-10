@@ -331,12 +331,30 @@ limpar.addEventListener("click", (event) => {
 
 
 
-// dark e light
-let trilho = document.getElementById('trilho')
-let body = document.querySelector('body')
-trilho.addEventListener('click', ()=>{
-  trilho.classList.toggle('dark')
-  body.classList.toggle('dark')
+// // dark e light
+// let trilho = document.getElementById('trilho')
+// let body = document.querySelector('body')
+// trilho.addEventListener('click', ()=>{
+//   trilho.classList.toggle('dark')
+//   body.classList.toggle('dark')
 
 
-})
+// })
+
+// Adicionando um ouvinte de evento de clique ao ícone de acessibilidade
+document.getElementById('accessibility-icon').addEventListener('click', function() {
+  // Alternar a visibilidade das outras coisas dentro da seção
+  var otherThings = document.getElementById('other-things');
+  otherThings.style.display = otherThings.style.display === 'none' ? 'block' : 'none';
+});
+// Adicionando um ouvinte de evento de clique ao ícone do modo claro (sol)
+document.getElementById('light-mode-toggle').addEventListener('click', function() {
+  // Adicionando uma classe ao <body> para ativar o modo claro
+  document.body.classList.remove('dark-mode');
+});
+
+// Adicionando um ouvinte de evento de clique ao ícone do modo escuro (lua)
+document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+  // Adicionando uma classe ao <body> para ativar o modo escuro
+  document.body.classList.add('dark-mode');
+});
