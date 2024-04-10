@@ -358,3 +358,16 @@ document.getElementById('dark-mode-toggle').addEventListener('click', function()
   // Adicionando uma classe ao <body> para ativar o modo escuro
   document.body.classList.add('dark-mode');
 });
+// Adicionando um ouvinte de evento de clique ao ícone de aumentar fonte
+document.getElementById('increase-font').addEventListener('click', function() {
+  // Aumentar o tamanho da fonte do corpo (body)
+  var currentFontSize = parseFloat(window.getComputedStyle(document.body, null).getPropertyValue('font-size'));
+  document.body.style.fontSize = (currentFontSize + 2) + 'px';
+});
+
+// Adicionando um ouvinte de evento de clique ao ícone de diminuir fonte
+document.getElementById('decrease-font').addEventListener('click', function() {
+  // Diminuir o tamanho da fonte do corpo (body)
+  var currentFontSize = parseFloat(window.getComputedStyle(document.body, null).getPropertyValue('font-size'));
+  document.body.style.fontSize = (currentFontSize - 2) + 'px';
+});
