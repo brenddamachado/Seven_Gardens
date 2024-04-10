@@ -74,6 +74,58 @@
   .opcoes h2 {
     color: #fbf3dc;
   }
+
+  /* Estilo do dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Botão do dropdown */
+.dropbtn {
+  background-color: #405B39;
+  color: #FBF3DC;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Conteúdo do dropdown (escondido por padrão) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #405B39;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links dentro do dropdown */
+.dropdown-content a {
+  color: #FBF3DC;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Hover nos links */
+.dropdown-content a:hover {
+  background-color: #0F2B05;
+}
+
+/* Exibir dropdown ao passar o mouse sobre o botão */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Centralizar o dropdown no botão */
+.dropdown-content {
+  right: 0;
+}
+
+
+
   
   .login {
     background-color: #112a08;
