@@ -340,34 +340,42 @@ limpar.addEventListener("click", (event) => {
 
 
 // })
+document.addEventListener('DOMContentLoaded', function() {
+  // Alternar a visibilidade das opções de acessibilidade
+  document.getElementById('accessibility-icon').addEventListener('click', function() {
+    var otherThings = document.getElementById('other-things');
+    otherThings.style.display = otherThings.style.display === 'none' ? 'flex' : 'none';
+  });
 
-// Adicionando um ouvinte de evento de clique ao ícone de acessibilidade
-document.getElementById('accessibility-icon').addEventListener('click', function() {
-  // Alternar a visibilidade das outras coisas dentro da seção
-  var otherThings = document.getElementById('other-things');
-  otherThings.style.display = otherThings.style.display === 'none' ? 'block' : 'none';
-});
-// Adicionando um ouvinte de evento de clique ao ícone do modo claro (sol)
-document.getElementById('light-mode-toggle').addEventListener('click', function() {
-  // Adicionando uma classe ao <body> para ativar o modo claro
-  document.body.classList.remove('dark-mode');
+  // Alternar para o modo claro
+  document.getElementById('light-mode-toggle').addEventListener('click', function() {
+    document.body.classList.remove('dark-mode');
+  });
+
+  // Alternar para o modo escuro
+  document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+    document.body.classList.add('dark-mode');
+  });
+
+  // Função para ajustar o tamanho da fonte de elementos específicos
+  function adjustFontSizeForElements(factor) {
+    const selectors = 'h1, h2, h3, h4, h5, h6, p, li, div, label, span, a';
+    document.querySelectorAll(selectors).forEach(element => {
+      // Verifica se o elemento tem um estilo de fonte definido inline; se não, usa o estilo computado
+      const fontSizeValue = element.style.fontSize ? element.style.fontSize : window.getComputedStyle(element, null).getPropertyValue('font-size');
+      const currentFontSize = parseFloat(fontSizeValue);
+      element.style.fontSize = `${currentFontSize + factor}px`;
+    });
+  }
+
+  // Evento para aumentar o tamanho da fonte de elementos específicos
+  document.getElementById('increase-font').addEventListener('click', function() {
+    adjustFontSizeForElements(2); // Aumenta o tamanho da fonte em 2px
+  });
+
+  // Evento para diminuir o tamanho da fonte de elementos específicos
+  document.getElementById('decrease-font').addEventListener('click', function() {
+    adjustFontSizeForElements(-2); // Diminui o tamanho da fonte em 2px
+  });
 });
 
-// Adicionando um ouvinte de evento de clique ao ícone do modo escuro (lua)
-document.getElementById('dark-mode-toggle').addEventListener('click', function() {
-  // Adicionando uma classe ao <body> para ativar o modo escuro
-  document.body.classList.add('dark-mode');
-});
-// Adicionando um ouvinte de evento de clique ao ícone de aumentar fonte
-document.getElementById('increase-font').addEventListener('click', function() {
-  // Aumentar o tamanho da fonte do corpo (body)
-  var currentFontSize = parseFloat(window.getComputedStyle(document.body, null).getPropertyValue('font-size'));
-  document.body.style.fontSize = (currentFontSize + 2) + 'px';
-});
-
-// Adicionando um ouvinte de evento de clique ao ícone de diminuir fonte
-document.getElementById('decrease-font').addEventListener('click', function() {
-  // Diminuir o tamanho da fonte do corpo (body)
-  var currentFontSize = parseFloat(window.getComputedStyle(document.body, null).getPropertyValue('font-size'));
-  document.body.style.fontSize = (currentFontSize - 2) + 'px';
-});

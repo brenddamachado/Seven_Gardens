@@ -344,23 +344,31 @@ body.dark form{
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: 2px; /* Ajuste conforme necessário */
-  z-index: 9999; /* Certifique-se de que o ícone está acima de outros elementos */
-  transition: all 0.3s ease; /* Adicionando uma transição suave */
-
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
 }
 
 #other-things {
-  display: none;
-  margin-top: 100px;
+  display: none; /* Alteração aqui */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
 }
-.img_letra{
+
+.img_letra {
   width: 20px;
 }
-#dark-mode{
-  font-size: 20px;
-  
-}.fa-universal-access {
+
+.fa-universal-access {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
@@ -369,13 +377,32 @@ body.dark form{
   transition: all 0.3s ease;
   font-size: 40px;
 }
-#other-things {
-  display: none;
-}
-.img_letra{
-  font-size: 20px;
-}
-.fa-sun, .fa-moon{
-  font-size: 20px;
 
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
 }
+
+
+/* Media queries para responsividade */
+
+@media (max-width: 768px) {
+  #accessibility-section {
+    right: 10px;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  #accessibility-section {
+    right: 5px;
+  }
+
+  #other-things {
+    right: 20px;
+  }
+}
+
