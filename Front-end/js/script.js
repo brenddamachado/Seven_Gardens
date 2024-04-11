@@ -1,40 +1,43 @@
-//incio carrossel
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-item');
-const intervalTime = 5000; // Tempo em milissegundos entre cada transição
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    if (i === index) {
-      slide.classList.add('active');
-    } else {
-      slide.classList.remove('active');
-    }
-  });
-}
 
+// Início do Carrossel
+let slideIndex = 0; // Índice do slide atual
+
+// Função para avançar para o próximo slide
 function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+  showSlides(slideIndex += 1);
 }
 
+// Função para retroceder para o slide anterior
 function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
+  showSlides(slideIndex -= 1);
 }
 
-// Função para passar automaticamente para o próximo slide
-function autoSlide() {
-  nextSlide();
+// Função para mostrar o slide atual
+function showSlides(n) {
+  const slides = document.getElementsByClassName("carousel-item");
+  // Se chegarmos ao último slide, voltamos ao primeiro
+  if (n >= slides.length) {
+    slideIndex = 0;
+  }
+  // Se estivermos no slide anterior ao primeiro, voltamos ao último
+  if (n < 0) {
+    slideIndex = slides.length - 1;
+  }
+  // Ocultar todos os slides
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  // Mostrar o slide atual
+  slides[slideIndex].style.display = "block";
 }
 
-// Iniciar o temporizador para passar automaticamente os slides
-setInterval(autoSlide, intervalTime);
+// Avançar automaticamente para o próximo slide a cada 5 segundos
+setInterval(nextSlide, 5000);
 
-
-//fim do carrossel
-
-// INICIO do Carrinho de compras
+// Fim do Carrossel
+/*
+// INÍCIO do Carrinho de compras
 document.addEventListener("DOMContentLoaded", function() {
   const modal = document.getElementById("modalCarrinho");
   const btnAbrirModal = document.getElementById("carrinho-count");
@@ -53,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
       modal.style.display = "none";
     }
   }
-
+  
   // Adiciona evento de clique aos botões "Comprar"
   const botoesComprar = document.querySelectorAll(".buy-btn");
   botoesComprar.forEach(function(botao) {
@@ -140,41 +143,4 @@ function usuarioLogado() {
 }
 // Fim do Carrinho de compras
 
-
-//incio do produtos 
-
-document.addEventListener("DOMContentLoaded", function() {
-  var produtos = document.getElementById("produtos");
-  var categorias = document.querySelector(".categorias");
-  var listaCategorias = document.querySelectorAll(".categoria");
-
-  // Quando o mouse entra nos produtos ou nas categorias, mantenha as categorias visíveis
-  produtos.addEventListener("mouseenter", function() {
-    categorias.style.display = "block";
-  });
-
-  categorias.addEventListener("mouseenter", function() {
-    categorias.style.display = "block";
-  });
-
-  // Quando o mouse sai dos produtos ou das categorias, esconda as categorias
-  produtos.addEventListener("mouseleave", function() {
-    categorias.style.display = "none";
-  });
-
-  categorias.addEventListener("mouseleave", function() {
-    categorias.style.display = "none";
-  });
-
-  // Adicione o evento de clique para selecionar uma categoria
-  listaCategorias.forEach(function(categoria) {
-    categoria.addEventListener("click", function() {
-      // Remova a classe 'selecionada' de todas as categorias
-      listaCategorias.forEach(function(c) {
-        c.classList.remove("selecionada");
-      });
-      // Adicione a classe 'selecionada' apenas à categoria clicada
-      categoria.classList.add("selecionada");
-    });
-  });
-});
+});*/
