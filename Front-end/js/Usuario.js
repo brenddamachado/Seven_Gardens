@@ -50,3 +50,23 @@ activeLink.classList.toggle('active');
 
 shiftTabs(activeLink.id);
 
+
+/* modal 
+$(document).ready(function() {
+    $("#modalExcluirConta").on("click", ".btn-danger", function() {
+      if (confirm("Deseja realmente excluir sua conta?")) {
+        // Chamada a API para exclusão da conta
+        getAuth()
+            .deleteUser(uid)
+            .then(() => {
+                console.log('Successfully deleted user');
+         })
+        .catch((error) => {
+                console.log('Error deleting user:', error);
+  });
+        // Redirecionamento para outra página
+      }
+    });
+  });
+
+*/

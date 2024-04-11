@@ -168,7 +168,7 @@ body {
     color: #0F2B05;
     font-size: 1.3rem;
     font-weight: 600;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 8px;
   }
 
@@ -203,9 +203,11 @@ body {
     display: block;
     font-size: 1rem;
     padding: 25px 38px;
-    width: 400px;
-    height: 88%;
+    height: 89%;
     transition: all 0.45s ease-in-out;
+    width: 90%; 
+    max-width: 400px;
+    margin: 0 auto;
   }  
   
 
@@ -342,3 +344,54 @@ footer {
      gap: 1rem;
     }
   }
+
+
+  /*parte que alterei e acrescentei dia 10/04 */
+
+  #tab4-content {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+
+  }
+
+ 
+  .dados-pessoais, .alteracao-senha {
+    display: flex;
+    flex-direction: column;
+   
+  } 
+
+  .dados-pessoais {
+    margin-bottom: 2px;
+  }
+
+  h3 {
+    margin-top: 2px;
+  }
+
+  label {
+    margin-bottom: 2px;
+  }
+
+  input {
+    border: 1px solid #ccc;
+    padding: 2px;
+    border: none;
+  }
+
+  button {
+    background-color: #405B39;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 12px;
+   
+}
+
+ button:hover {
+    background-color:#0F2B05;
+}
+  

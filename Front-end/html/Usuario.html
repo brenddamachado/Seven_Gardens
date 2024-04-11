@@ -75,31 +75,31 @@
     <ul class="tabs">
         <li>
             <a id="tab1" title="Meu painel" href="#tab1">              
-              <i class="fa-regular fa-circle-user"></i>
+              <i class="far fa-user-circle"></i>
                  Meu painel
             </a>
         </li>
         <li>
             <a id="tab2" title="Pedidos" href="#tab2">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fas fa-shopping-cart"></i>
                 Pedidos
             </a>
         </li>
         <li>
             <a id="tab3" title="Enderecos" href="#tab3">
-                <i class="fa-regular fa-map"></i>
+                <i class="far fa-map"></i>
                 Endereços
             </a>
         </li>
         <li>
             <a id="tab4" title="DetalhesCompra" href="#tab4">
-                <i class="fa-regular fa-address-card"></i>
+                <i class="far fa-address-card"></i>
                 Detalhes da conta
             </a>
         </li>
         <li>
             <a id="tab5" title="Sair" href="#tab5">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <i class="fas fa-sign-out-alt"></i>
                 Log out
             </a>
         </li>
@@ -133,33 +133,78 @@
       <h2>Endereços</h2>
       <p>
         <div class="card">
-           <h2>Endereço para faturamento</h2>
+           <h2>Endereço para entrega</h2>
             <p><strong>Nome: </strong></p>
             <p><strong>Cep: </strong></p>
             <p><strong>Rua: </strong></p>
             <p><strong>Complemento: </strong></p>
-            <p><strong>Total:</strong> R$ 100,00</p>
+            <p><strong>Total:</strong> </p>
             <button>Ver pedidos</button>
             <button>Editar</button>
         </div>
       </p>
-    </section>
-    <section id="tab4-content" class="tab-content">
-      <h2>Sua conta</h2>
-      <p>
-       <label>Nome</label>
-       <input type="text">
-       <label>Sobrenome</label>
-       <input type="text">
-       
-
-      </p>
-    </section>
+      </section>
+      <!-- essa parte está dando erro, irei consertar ainda -->
+      <section id="tab4-content" class="tab-content">
+        <div class="container">
+          <div class="dados-pessoais">
+            <h3>Alteração de dados</h3>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome">
+            <br>
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" id="sobrenome">
+            <br>
+            <label for="email">Endereço de email</label>
+            <input type="text" id="email">
+          </div>
+          <div class="alteracao-senha">
+            <h3>Alteração de senha</h3>
+            <br>
+            <label for="nova-senha">Nova senha</label>
+            <input type="password" id="nova-senha">
+            <br>
+            <label for="confirma-senha">Digite a nova senha novamente</label>
+            <input type="password" id="confirma-senha">
+            <br>
+            <button id="salvar-alteracoes">Salvar alterações</button>
+          </div>
+        </div>
+      </section>
+      <!-- essa parte também -->
     <section id="tab5-content" class="tab-content">
       <h2>Deseja sair ?</h2>
       <p>
         <button>Sair</button>
       </p>
+      <br>
+      <h2>Deseja excluir sua conta ?</h2>
+      <p>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluirConta">
+            Excluir conta
+        </button>
+      </p>
+<!-- modal
+      <div class="modal fade" id="modalExcluirConta" tabindex="-1" role="dialog" aria-labelledby="modalExcluirContaLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalExcluirContaLabel">Confirmar exclusão de conta</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Deseja realmente excluir sua conta? Essa ação é irreversível.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    -->     
     </section>      
   </div>
 </div>
@@ -173,12 +218,11 @@
     
             <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
             <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="icon"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="icon"><i class="fab fa-whatsapp""></i></a>   
+            <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>   
         </div>
        
       
     </footer>
-    <script src="./js/Usuario.js"></script>
+    <script src="../js/Usuario.js"></script>
   </body>
 </html>
