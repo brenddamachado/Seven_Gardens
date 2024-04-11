@@ -1,6 +1,3 @@
-* {
-  margin: 0;
-}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -45,6 +42,7 @@ h1 {
   color: #405b39;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -83,12 +81,6 @@ h1 {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-.dropdown-content {
-  right: -20;
-}
-
-
 
 
 
@@ -539,7 +531,8 @@ footer {
     /* Alinhe os itens ao centro verticalmente */
     margin-left: auto;
     /* Empurre a lista para o lado direito */
-    margin-top: 10px; /* Adicione espaço acima da lista */
+    margin-top: 10px;
+    /* Adicione espaço acima da lista */
   }
 
   li {
