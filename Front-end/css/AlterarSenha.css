@@ -7,6 +7,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
 header {
   background-color: #0f2b05;
 }
@@ -43,14 +45,15 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
+  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
-
 #icon {
   width: 35px;
   margin-top: 2px;
+  margin-right: 15px;
   font-size: 20px;
-  color: #7ED957;
-  border-color: #7ED957;
+  color: #7ed957;
+  border-color: #7ed957;
 }
 .pesquisa-container {
   position: relative;
@@ -58,11 +61,13 @@ ul {
 }
 
 .pesquisa {
-  width: 450px; /* Define o tamanho do input */
+  width: 490px; /* Define o tamanho do input */
   height: 30px;
   border-radius: 7px;
   border: none; /* Remove as bordas */
-  background-color: #FBF3DC; /* Define a cor de fundo desejada */
+  background-color: #fbf3dc; /* Define a cor de fundo desejada */
+  margin-top: 75px;
+  margin-left: 30px;
 }
 
 .pesquisa-icon {
@@ -75,84 +80,75 @@ ul {
   color: #fbf3dc;
 }
 
-/* Estilo do dropdown */
+.login {
+  background-color: #405b39;
+
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
+.home {
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Botão do dropdown */
 .dropbtn {
-  background-color: #405B39;
-  color: #FBF3DC;
+  background-color: #405b39;
+  color: #fbf3dc;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
 }
 
-/* Conteúdo do dropdown (escondido por padrão) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #405B39;
+  background-color: #405b39;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-/* Links dentro do dropdown */
 .dropdown-content a {
-  color: #FBF3DC;
+  font-size: 15px;
+  color: #fbf3dc;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-/* Hover nos links */
 .dropdown-content a:hover {
-  background-color: #0F2B05;
+  background-color: #0f2b05;
 }
 
-/* Exibir dropdown ao passar o mouse sobre o botão */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Centralizar o dropdown no botão */
-.dropdown-content {
-  right: 0;
+.menu_btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
-
-
-.login {
-  background-color: #112a08;
+.menu_btn a {
   color: #fbf3dc;
-  border-radius: 7px;
-  padding: 4px 10px;
-}
-
-
-.cadastrar {
-  background-color: #405b39;
-  color: #fbf3dc;
-  border-radius: 7px;
-  padding: 4px 10px;
-}
-
-
-/*lembrar senha*/
-.EsqueceuSenha a{
-  color: rgb(100, 209, 236);
+  font-size: 16px;
   text-decoration: none;
-  margin-left: 340px;
-}
-
-.EsqueceuSenha a:hover{
-  text-decoration: underline;
 }
 
 /* fim do header */
+
+
 
 .container {
   display: flex;
@@ -283,6 +279,11 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   /* responsividade celulare*/
   @media  (max-width: 500px) {
+    
+    .navegacao ul{
+      margin-left: -200px;
+    }
+    
     .container{
       justify-content: initial;
       min-width: 0;
@@ -291,12 +292,16 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     .pesquisa {
       width: 300px; /* Define o tamanho do input */
       height: 30px;    
-      margin-left: 5px;  
+      margin-left: 5px; 
+      margin-top: 110px; 
+    }
+
+    .pesquisa-icon{
+      margin-top: 35px; 
     }
 
     .opcoes {
       height: 60px;
-      display: block;
       font-size: 10px;
     /* Reduza o tamanho da fonte para os ícones */
     }
@@ -309,6 +314,10 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
     .dropdown-content{
       margin-left: 20px;
+    }
+
+    .menu_btn{
+
     }
 
     .header, footer {
