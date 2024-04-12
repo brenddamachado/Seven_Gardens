@@ -12,39 +12,62 @@
 </head>
 
 <body>
-    <header>
-      <section class="header">
-        <div>
-          <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
+  <header>
+    <section class="header">
+      <div>
+        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
+      </div>
+
+      <div class="pesquisa-container">
+        <input type="search" name="" id="" class="pesquisa" />
+        <label for="" class="pesquisa-icon"
+          ><i class="fas fa-search"></i
+        ></label>
+      </div>
+      <nav>
+        <div class="navegacao">
+          <ul>
+            <li class="home">
+              <a class="home" href="../index.html">Home</a>
+            </li>
+            <li class="login">
+              <a href="Login.html" class="login">Login</a>
+            </li>
+          </ul>
         </div>
-        <nav>
-          <div class="navegacao">
-            <ul>   <li class="home"><a class="home" href="../index.html">Home</a></li>
-              <li class="login"><a href="cadastro.html" class="login">Cadastro</a></li>
-           
-              
-            </ul>
-          </div>
-        </nav>
-      </section>
-  
-      <section class="opcoes">
-        <div class="dropdown">
-          <button class="dropbtn">Categorias</button>
-          <div class="dropdown-content">
-            <a href="#">Enxertos</a>
-            <a href="#">Naturais (De semente)</a>
-            <a href="#">Especiais</a>
-            <a href="#">Insumos</a>
-          </div>
+      </nav>
+    </section>
+
+    <section class="opcoes">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <span>Produtos</span> <i class="fas fa-chevron-down"> </i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#"> Enxertos</a>
+          <a href="#"> Naturais (De semente) </a>
+          <a href="#">Especiais</a>
+          <a href="#">Insumos</a>
         </div>
-        <div class="pesquisa-container">
-          <input type="search" name="" id="" class="pesquisa" />
-          <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
-        </div>
-        <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" class="carrinho" id="icon" />
-      </section>
-    </header>
+      </div>
+      
+      <div class="menu_btn">
+        <a href="/Front-end/html/instrucoesCultivo.html">Instruções de Cultivo</a>
+      </div>
+      <div class="menu_btn">
+        <a href="#">Contato</a>
+      </div>
+      <div class="menu_btn">
+        <a href="/Front-end/html/Sobre.html">Sobre</a>
+      </div>
+
+      <img
+        src="../img/iconecar.svg"
+        alt="Ícone do carrinho de compras"
+        id="icon"
+      />
+    </section>
+  </header>
   
   <div class="container" id="divLogin">
     <form class="divForm" action="javascript:validaLogin()">
@@ -54,22 +77,24 @@
   
   
       <div class="input-box">
-        <label for="E-mail" >E-mail</label>
-        <input type="text" id="email" placeholder="e-mail" >
+        <label for="E-mail" >E-mail:</label>
+        <input type="text" id="email" placeholder="seuemail@exemplo.com" >
       </div>
   
       <div class="input-box">
-        <label for="Senha">Senha</label>
-        <input type="password" id="senha" placeholder="senha" maxlength="8" minlength="8">
+        <label for="Senha">Senha:</label>
+        <input type="password" id="senha" placeholder="Digite sua senha aqui" maxlength="8" minlength="8">
       </div>
 
-      <div class="button-boxi">
-        <button id="enviarButton" type="button" value="Limpar Campos" onclick="limparCampos()">Limpar</button>
-      </div>
-  
+      
       <div class="EsqueceuSenha">
         <a href="AlterarSenha.html">Esqueceu sua senha?</a>
        </div>
+  
+
+      <div class="button-boxi">
+        <button id="limparButton" type="button" value="Limpar Campos" onclick="limparCampos()">Limpar</button>
+      </div>
   
       <div class="button-box">
         <button id="enviarButton">Entrar</button>
