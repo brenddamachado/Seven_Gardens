@@ -7,9 +7,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f4f4f4;
-  transition:.5s ;
+  transition: 0.5s;
   background-color: white;
-
 }
 
 header {
@@ -57,7 +56,6 @@ ul {
   font-size: 20px;
   color: #7ed957;
   border-color: #7ed957;
-  
 }
 .pesquisa-container {
   position: relative;
@@ -106,8 +104,8 @@ ul {
 }
 
 .dropbtn {
-  background-color: #405B39;
-  color: #FBF3DC;
+  background-color: #405b39;
+  color: #fbf3dc;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -117,22 +115,22 @@ ul {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #405B39;
+  background-color: #405b39;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
   font-size: 15px;
-  color: #FBF3DC;
+  color: #fbf3dc;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: #0F2B05;
+  background-color: #0f2b05;
 }
 
 .dropdown:hover .dropdown-content {
@@ -140,13 +138,12 @@ ul {
 }
 
 .menu_btn {
-  background-color: #405B39;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
 }
 .menu_btn a {
-  color: #FBF3DC;
+  color: #fbf3dc;
   font-size: 16px;
   text-decoration: none;
 }
@@ -286,7 +283,6 @@ footer {
 }
 
 @media (max-width: 624px) {
-
   .pesquisa {
     width: 100%; /* Ocupa a largura total */
   }
@@ -304,56 +300,54 @@ footer {
   .sessao {
     margin-top: 5px;
   }
-  .genero input{
+  .genero input {
     margin-left: 8rem;
   }
 }
 
 /* Para celulares pequenos (telas menores que 400px) */
 @media (max-width: 400px) {
-  .buttons{
+  .buttons {
     display: flex;
-   gap: 1rem;
+    gap: 1rem;
   }
 }
-.trilho{
-  width: 30px; /* Largura reduzida */
-  height: 90px; /* Altura ajustada para formato vertical */
-  background-color: #4d4d4d;
-  border-radius: 45px; /* Raio de borda ajustado para a nova altura/proporção */
-  position: fixed;
-  left: 5px; /* Ajustado para ficar mais próximo à barra de rolagem */
-  top: 230px; /* Posiciona o trilho na vertical. Ajuste conforme necessário */
-  cursor: pointer;
-  z-index: 1000; /* Garante que o elemento fique acima de outros conteúdos da página */
+
+body.dark-mode {
+  background-color: #242923;
 }
 
-.trilho .indicador{
-  width: 30px; /* Largura ajustada para corresponder à do trilho */
-  height: 30px; /* Altura ajustada para um indicador mais compacto */
-  background-color: #000;
-  border-radius: 50%; /* Mantém forma circular */
-  position: absolute;
-  left: 0; /* Posicionado à esquerda por padrão */
-  bottom: 0; /* Posicionado na parte inferior para início no modo claro */
-  transition: .5s; /* Suaviza a transição entre estados */
+body.dark-mode header {
+  background-color: #242923;
+}
+body.dark-mode form {
+  background-color: rgba(255, 228, 196, 0.362);
+}
+body.dark-mode .opcoes {
+  background: #0c0d0c;
+}
+body.dark-mode .dropbtn {
+  background: #0c0d0c;
 }
 
-.trilho.dark .indicador{
-  bottom: 60px; /* Desloca o indicador para cima, para o modo escuro */
-  background-color: #ffff;
+body.dark-mode footer {
+  background: #0c0d0c;
 }
 
-.trilho.dark {
-  background-color: #c3c3c3;
+body.dark-mode .login {
+  background-color: #8d9776;
+  color: #0F2B05;
 }
 
-body.dark-mode{
-  background-color: #000;
+body.dark-mode .btn_cadastrar {
+  background-color: #8d9776;
+  color: #0F2B05;
 }
 
-body.dark form{
-  background-color: bisque;
+body.dark-mode 
+.btn_limpar {
+  background-color: #8d9776;
+  color: #0F2B05;
 }
 #accessibility-section {
   position: fixed;
@@ -398,7 +392,6 @@ body.dark form{
   font-size: 20px;
 }
 
-
 /* Media queries para responsividade */
 
 @media (max-width: 768px) {
@@ -420,4 +413,3 @@ body.dark form{
     right: 20px;
   }
 }
-

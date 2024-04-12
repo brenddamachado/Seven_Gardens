@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Função para ajustar o tamanho da fonte de elementos específicos
   function adjustFontSizeForElements(factor) {
-    const selectors = 'h1, h2, h3, h4, h5, h6, p, li, div, label, span, a';
+    const selectors = 'h1, h2, h3, h4, h5, h6, p, li, div, label, span, opcoes';
     document.querySelectorAll(selectors).forEach(element => {
       // Verifica se o elemento tem um estilo de fonte definido inline; se não, usa o estilo computado
       const fontSizeValue = element.style.fontSize ? element.style.fontSize : window.getComputedStyle(element, null).getPropertyValue('font-size');
