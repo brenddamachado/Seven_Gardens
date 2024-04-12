@@ -85,6 +85,7 @@ ul {
 #icon {
   width: 35px;
   margin-top: 2px;
+  margin-right: 15px;
   font-size: 20px;
   color: #7ED957;
   border-color: #7ED957;
@@ -127,13 +128,13 @@ ul {
   padding: 4px 10px;
 }
 
-.sobrebtn {
+.menu_btn {
   background-color: #405B39;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
 }
-.sobrebtn a {
+.menu_btn a {
   color: #FBF3DC;
   font-size: 16px;
   text-decoration: none;
