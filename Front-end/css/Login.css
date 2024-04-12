@@ -182,7 +182,6 @@
   
   /*lembrar senha*/
   .EsqueceuSenha a{
-    color: rgb(60, 156, 180);
     text-decoration: none;
     margin-left: 340px;
     margin-top: 40px;
@@ -274,7 +273,35 @@
     box-shadow: 1px 1px 4px #0000001c;
   }
   
-  /* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" */
+  /* Estilo para os botões */
+.btn_cadastrar {
+  padding: 10px 20px;
+  background-color: #405b39;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.btn_limpar {
+  padding: 10px 20px;
+  background-color: #8D9776;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.texto_links {
+  text-align: right;
+}
+  /* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" 
   .button-box {
     float: left;
     margin-right: 5px;
@@ -312,7 +339,7 @@
     color: white;
     text-decoration: none;
   }
-
+*/
 
 
   /* responsividade tablets*/
