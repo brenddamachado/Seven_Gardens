@@ -19,8 +19,8 @@
       <nav>
         <div class="navegacao">
           <ul class="paginas">
-            <li class="login">Login</li>
-            <li class="cadastrar">Cadastro</li>
+            <li class="login">Dashboard</li>
+            <li class="cadastrar">Visualizar Home</li>
           </ul>
         </div>
       </nav>
@@ -30,23 +30,7 @@
 
 
 <section class="opcoes">
-  <div class="dropdown">
-    <button class="dropbtn">Categorias</button>
-    <div class="dropdown-content">
-      <a href="#">Enxertos</a>
-      <a href="#">Naturais (De semente)</a>
-      <a href="#">Especiais</a>
-      <a href="#">Insumos</a>
-    </div>
-
-  </div>
-  
-      
-      <div class="pesquisa-container">
-        <input type="search" name="" id="" class="pesquisa" />
-        <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
-      </div>
-      <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
+  <h2>Painel de controle</h2>
     </section>
   </header>
 
@@ -54,23 +38,31 @@
   <form>
     <label for="inputPesquisa">pesquisar usuário:</label>
     <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome ou CPF do usuário">
+    <br><br>
     <button type="submit">Pesquisar</button>
   </form>
   
   <table id="tabelaUsuarios">
     <thead>
-      <tr>
+      <tr class="topo">
         <th>Nome do Usuário</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Data do login</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Hora do login</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Fator de autenticação</th>
+        <td></td>
+      </tr>
         <!-- Adicione mais colunas conforme necessário -->
       </tr>
     </thead>
-    <tbody>
-      <!-- Os resultados da consulta serão exibidos aqui -->
-      <tr>
-        <td>Usuário 1</td>
-        <!-- Adicione mais células conforme necessário -->
-      </tr>
-    </tbody>
   </table>
 
   
@@ -83,7 +75,7 @@
   </div>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
+    new window.VLibras.Widget ('https://vlibras.gov.br/app');
   </script>
 
   <footer>

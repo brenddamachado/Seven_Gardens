@@ -183,7 +183,6 @@
     background-color:#112a08;
   }
   th {
-  background-color: #f2f2f2;
     color: #333;
     padding: 15px; /* Aumenta o padding para deixar mais espaçado */
     text-align: center; /* Centraliza o texto horizontalmente */
@@ -218,8 +217,6 @@
   }
   
   #tabelaUsuarios th {
-    background-color: #f2f2f2;
-    color: #333;
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 10px 10px 0 0;
@@ -246,10 +243,33 @@
   #tabelaUsuarios td:last-child {
     border-right: none;
   }
+
+  .topo{
+    background-color: #f2f2f2;
+  }
+
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  td {
+    padding: 8px;
+    text-align: left;
+    border: 5px solid #f2f2f2;
+}
+
+  th {
+    padding: 8px;
+    text-align: left;
+    border: 5px solid #f2f2f2;
+  }
+
+
   h1 {
     color: #405b39;
     text-align: center;
-    margin-top: 100px; /* Adiciona um espaçamento superior */
+    margin-top: 140px; /* Adiciona um espaçamento superior */
     
   }
   header {
@@ -279,10 +299,11 @@
   
   /* inicio footer */
   footer {
-      margin-top: 400px;
+      margin-top: 200px;
       background-color: #0f2b05;
       height: 200px;
       position: relative;
+      
     
   }
   
@@ -295,6 +316,7 @@
       color: #fff; /* Cor do texto */
       text-align: center;
       font-size: 16px; /* Tamanho da fonte */
+      margin-top: 55px;
   
   }
   
@@ -310,31 +332,38 @@
         transform: scale(1.2); /* Aumenta o tamanho do ícone em 20% no hover */
     }
   
+
+
+
+    /*
   
   .contact-info {
       text-align: right;
-      color: #fff; /* Alterei a cor do texto */
-      margin-right: 20px; /* Adicionei margem à direita para afastar do lado direito do footer */
+      color: #fff; /* Alterei a cor do texto 
+      margin-right: 20px; /* Adicionei margem à direita para afastar do lado direito do footer 
   }
   
   .contact-info p {
-      margin: 3px 0; /* Ajustei a margem superior e inferior */
-      font-size: 16px; /* Aumentei o tamanho da fonte */
+      margin: 3px 0; /* Ajustei a margem superior e inferior 
+      font-size: 16px; /* Aumentei o tamanho da fonte 
   }
+
+
   #produtos {
     font-size: 18px;
     color: #fbf3dc;
-    transition: margin-top 0.3s; /* Adiciona uma transição para uma animação suave */
+    transition: margin-top 0.3s; /* Adiciona uma transição para uma animação suave 
   }
   
   #produtos:hover {
-    margin-top: 10px; /* Define a margem superior durante o hover */
+    margin-top: 10px; /* Define a margem superior durante o hover 
   }
   
+
   .categorias {
     display: none;
     position: absolute;
-    top: calc(100% + 1px); /* Calcula a posição com base na altura do elemento pai */
+    top: calc(100% + 1px); /* Calcula a posição com base na altura do elemento pai 
     left: 0;
     background-color: #405b39;
     padding: 10px;
@@ -345,9 +374,10 @@
     font-size: 18px;
     list-style-type: none;
     margin-bottom: 10px;
-    cursor: pointer; /* Altera o cursor para indicar que os itens são clicáveis */
+    cursor: pointer; /* Altera o cursor para indicar que os itens são clicáveis 
   }
   
   .categorias li:hover {
-    background-color: #7ED957; /* Altera a cor de fundo quando o mouse está sobre a categoria */
-  }
+    background-color: #7ED957; /* Altera a cor de fundo quando o mouse está sobre a categoria
+  } 
+  */
