@@ -70,6 +70,8 @@ ul {
   border-radius: 7px;
   border: none; /* Remove as bordas */
   background-color: #fbf3dc; /* Define a cor de fundo desejada */
+  margin-top: 75px;
+  margin-left: 30px;
 }
 
 .pesquisa-icon {
