@@ -192,6 +192,7 @@ ul {
   color: #fff;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 10px;
@@ -282,73 +283,54 @@ footer {
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
 
-@media (max-width: 624px) {
-  .pesquisa {
-    width: 100%; /* Ocupa a largura total */
-  }
-  .header ul li {
-    text-align: center;
-  }
-  .formulario form {
-    width: 70%;
-  }
-  .conta {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-  .sessao {
-    margin-top: 5px;
-  }
-  .genero input {
-    margin-left: 8rem;
-  }
-}
 
-/* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons {
-    display: flex;
-    gap: 1rem;
-  }
-}
+/* inicio DARK MODE */
 
-body.dark-mode {
-  background-color: #242923;
-}
-
-body.dark-mode header {
-  background-color: #242923;
-}
 body.dark-mode form {
-  background-color: rgba(255, 228, 196, 0.362);
-}
-body.dark-mode .opcoes {
-  background: #0c0d0c;
-}
-body.dark-mode .dropbtn {
-  background: #0c0d0c;
+  background-color: #282828;
 }
 
-body.dark-mode footer {
-  background: #0c0d0c;
+body.dark-mode .dropbtn, body.dark-mode .opcoes {
+  background: #1E1F1E;
+
 }
 
-body.dark-mode .login {
-  background-color: #8d9776;
-  color: #0F2B05;
+.fa-universal-access, .fa-moon, .fa-sun{
+  color: #7A7979;
+}
+body.dark-mode .sessao{
+  color: #fff;
 }
 
-body.dark-mode .btn_cadastrar {
-  background-color: #8d9776;
-  color: #0F2B05;
+body.dark-mode .login, body.dark-mode  .fa-search{
+
+  color: #070B06;
 }
 
-body.dark-mode 
-.btn_limpar {
-  background-color: #8d9776;
-  color: #0F2B05;
+ body.dark-mode header,   body.dark-mode footer{
+  background-color: #070B06; 
+ }
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar, body.dark-mode {
+  background-color: #151515;
 }
+
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn  {
+  color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+}
+
+
 #accessibility-section {
   position: fixed;
   top: 50%;
@@ -359,7 +341,7 @@ body.dark-mode
 }
 
 #other-things {
-  display: none; /* Alteração aqui */
+  display: none; 
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -391,6 +373,9 @@ body.dark-mode
 .fa-moon {
   font-size: 20px;
 }
+/* FINAL DO DARK MODE */
+
+
 
 /* Media queries para responsividade */
 
@@ -413,3 +398,34 @@ body.dark-mode
     right: 20px;
   }
 }
+@media (max-width: 624px) {
+  .pesquisa {
+    width: 100%; /* Ocupa a largura total */
+  }
+  .header ul li {
+    text-align: center;
+  }
+  .formulario form {
+    width: 70%;
+  }
+  .conta {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .sessao {
+    margin-top: 5px;
+  }
+  .genero input {
+    margin-left: 8rem;
+  }
+}
+
+/* Para celulares pequenos (telas menores que 400px) */
+@media (max-width: 400px) {
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+}
+

@@ -76,7 +76,7 @@ nome.addEventListener("input", () => {
   // Remova caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
 
-  if (nome.value.length >= 15 && nome.value.length < 60) {
+  if (nome.value.length >= 15 && nome.value.length < 80) {
       mensagemNome.innerHTML = "";
       validenome = true;
   } else {
@@ -89,7 +89,7 @@ nomeDaMãe.addEventListener("input", () => {
   // Remova caracteres que não são letras ou espaços
   nomeDaMãe.value = nomeDaMãe.value.replace(/[^a-zA-Z\s]/g, "");
 
-  if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 60) {
+  if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 80) {
      mensagemNomeMae.innerHTML = "";
       validenome = true;
   } else {
@@ -330,16 +330,7 @@ limpar.addEventListener("click", (event) => {
 });
 
 
-
-// // dark e light
-// let trilho = document.getElementById('trilho')
-// let body = document.querySelector('body')
-// trilho.addEventListener('click', ()=>{
-//   trilho.classList.toggle('dark')
-//   body.classList.toggle('dark')
-
-
-// })
+// INICIO DARK MODE
 document.addEventListener('DOMContentLoaded', function() {
   // Alternar a visibilidade das opções de acessibilidade
   document.getElementById('accessibility-icon').addEventListener('click', function() {
@@ -359,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Função para ajustar o tamanho da fonte de elementos específicos
   function adjustFontSizeForElements(factor) {
-    const selectors = 'h1, h2, h3, h4, h5, h6, p, li, div, label, span, opcoes';
+    const selectors = 'header, body';
     document.querySelectorAll(selectors).forEach(element => {
       // Verifica se o elemento tem um estilo de fonte definido inline; se não, usa o estilo computado
       const fontSizeValue = element.style.fontSize ? element.style.fontSize : window.getComputedStyle(element, null).getPropertyValue('font-size');
@@ -379,3 +370,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// FINAL DARK MODE
