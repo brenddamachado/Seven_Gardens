@@ -330,7 +330,7 @@ limpar.addEventListener("click", (event) => {
 });
 
 
-// INICIO DARK MODE
+// DARK MODE
 document.addEventListener('DOMContentLoaded', function() {
   // Alternar a visibilidade das opções de acessibilidade
   document.getElementById('accessibility-icon').addEventListener('click', function() {
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Função para ajustar o tamanho da fonte de elementos específicos
   function adjustFontSizeForElements(factor) {
-    const selectors = 'header, body';
+    const selectors = 'header, body, .social-icons p, .social-icons i';
     document.querySelectorAll(selectors).forEach(element => {
       // Verifica se o elemento tem um estilo de fonte definido inline; se não, usa o estilo computado
       const fontSizeValue = element.style.fontSize ? element.style.fontSize : window.getComputedStyle(element, null).getPropertyValue('font-size');
@@ -370,4 +370,3 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// FINAL DARK MODE
