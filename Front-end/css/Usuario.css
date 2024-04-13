@@ -159,9 +159,12 @@ body {
     height: 560px;
     color: #405B39;
     transition: all 0.45s ease-in-out;
-    padding: 12px 24px;
-    width: 100vh;
-   
+    padding: 2% 2% 5% 9%;
+    width: 100%;
+    max-width: 80%;
+    flex-direction: column;
+    text-align: left;
+
   }
   
   .tab-content h2 {
@@ -347,14 +350,17 @@ footer {
 
 
   /*parte que alterei e acrescentei dia 10/04 */
-
+/*
   #tab4-content {
+   
+
+  }
+*/
+  .container-final {
     display: flex;
     justify-content: center;
     padding-top: 50px;
-
   }
-
  
   .dados-pessoais, .alteracao-senha {
     display: flex;
@@ -366,6 +372,10 @@ footer {
     margin-bottom: 2px;
   }
 
+  .alteracao-senha{
+    margin-left: 6%;
+  }
+
   h3 {
     margin-top: 2px;
   }
@@ -375,9 +385,28 @@ footer {
   }
 
   input {
-    border: 1px solid #ccc;
+    border: 2px solid #405b39;
     padding: 2px;
     border: none;
+    background-color: #fff;
+    border-radius: 1rem;
+  }
+
+  input:hover{
+    border: 2px solid #405b39;
+  }
+
+  .dados-pessoais button{
+    background-color: #405B39;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 24%;
+    text-align: center;
+    
   }
 
   button {
@@ -385,9 +414,11 @@ footer {
     color: #ffffff;
     border: none;
     border-radius: 4px;
+    padding: 10px 20px;
     cursor: pointer;
     font-size: 14px;
     margin-left: 12px;
+    margin-top: 2%;
    
 }
 
