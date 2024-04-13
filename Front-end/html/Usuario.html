@@ -60,154 +60,80 @@
         />
       </section>
     </header>
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-          <div class="vw-plugin-top-wrapper"></div>
-        </div>
-      </div>
-      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-      <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-      </script>
 
-<div class="tabs-container">
-    <ul class="tabs">
-        <li>
-            <a id="tab1" title="Meu painel" href="#tab1">              
-              <i class="far fa-user-circle"></i>
-                 Meu painel
-            </a>
-        </li>
-        <li>
-            <a id="tab2" title="Pedidos" href="#tab2">
-                <i class="fas fa-shopping-cart"></i>
-                Pedidos
-            </a>
-        </li>
-        <li>
-            <a id="tab3" title="Enderecos" href="#tab3">
-                <i class="far fa-map"></i>
-                Endereços
-            </a>
-        </li>
-        <li>
-            <a id="tab4" title="DetalhesCompra" href="#tab4">
-                <i class="far fa-address-card"></i>
-                Detalhes da conta
-            </a>
-        </li>
-        <li>
-            <a id="tab5" title="Sair" href="#tab5">
-                <i class="fas fa-sign-out-alt"></i>
-                Log out
-            </a>
-        </li>
-    </ul>
 
-<div class="tab-content-wrapper">
-    <section id="tab1-content" class="tab-content">
-      <h2>Meu painel</h2>
-      <p>            
-       Olá, (nome)(não é "nome"?) <a href="#"> Sair</a>
-      </p>
-    </section>
-    <section id="tab2-content" class="tab-content">
-      <h2>Seus Pedidos</h2>
-      <p>
-        <div class="card">
-         <h2>Pedido #1234</h2>
-            <p><strong>Data:</strong> 01/04/2024</p>
-            <p><strong>Itens:</strong></p>
-                <ul>
-                    <li>Produto 1</li>
-                    <li>Produto 2</li>
-                    <li>Produto 3</li>
-                </ul>
-            <p><strong>Total:</strong> R$ 100,00</p>
-            <button>Ver detalhes</button>
-        </div>
-      </p>
-    </section>
-    <section id="tab3-content" class="tab-content">
-      <h2>Endereços</h2>
-      <p>
-        <div class="card">
-           <h2>Endereço para entrega</h2>
-            <p><strong>Nome: </strong></p>
-            <p><strong>Cep: </strong></p>
-            <p><strong>Rua: </strong></p>
-            <p><strong>Complemento: </strong></p>
-            <p><strong>Total:</strong> </p>
-            <button>Ver pedidos</button>
-            <button>Editar</button>
-        </div>
-      </p>
-      </section>
-      <!-- essa parte está dando erro, irei consertar ainda -->
-      <section id="tab4-content" class="tab-content">
-        <div class="container">
-          <div class="dados-pessoais">
-            <h3>Alteração de dados</h3>
-            <label for="nome">Nome</label>
-            <input type="text" id="nome">
-            <br>
-            <label for="sobrenome">Sobrenome</label>
-            <input type="text" id="sobrenome">
-            <br>
-            <label for="email">Endereço de email</label>
-            <input type="text" id="email">
-          </div>
-          <div class="alteracao-senha">
-            <h3>Alteração de senha</h3>
-            <br>
-            <label for="nova-senha">Nova senha</label>
-            <input type="password" id="nova-senha">
-            <br>
-            <label for="confirma-senha">Digite a nova senha novamente</label>
-            <input type="password" id="confirma-senha">
-            <br>
-            <button id="salvar-alteracoes">Salvar alterações</button>
-          </div>
-        </div>
-      </section>
-      <!-- essa parte também -->
-    <section id="tab5-content" class="tab-content">
-      <h2>Deseja sair ?</h2>
-      <p>
-        <button>Sair</button>
-      </p>
-      <br>
-      <h2>Deseja excluir sua conta ?</h2>
-      <p>
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluirConta">
-            Excluir conta
-        </button>
-      </p>
-<!-- modal
-      <div class="modal fade" id="modalExcluirConta" tabindex="-1" role="dialog" aria-labelledby="modalExcluirContaLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalExcluirContaLabel">Confirmar exclusão de conta</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+    <div class="tabs-container">
+      <ul class="tabs">
+          <li><a id="tab1" href="#tab1-content">Meu painel</a></li>
+          <li><a id="tab2" href="#tab2-content">Pedidos</a></li>
+          <li><a id="tab3" href="#tab3-content">Endereços</a></li>
+          <li><a id="tab4" href="#tab4-content">Detalhes da conta</a></li>
+          <li><a id="tab5" href="#tab5-content">Log out</a></li>
+      </ul>
+      <div class="tab-content-wrapper">
+          <section id="tab1-content" class="tab-content" style="display: none;">
+              <h2>Meu painel</h2>
+              <p>Olá, [nome do usuário] <a href="#">Sair</a></p>
+          </section>
+          <section id="tab2-content" class="tab-content" style="display: none;">
+              <h2>Seus Pedidos</h2>
+              <div class="card">
+                  <h3>Pedido #1234</h3>
+                  <p><strong>Data:</strong> 01/04/2024</p>
+                  <p><strong>Itens:</strong></p>
+                  <ul>
+                      <li>Produto 1</li>
+                      <li>Produto 2</li>
+                      <li>Produto 3</li>
+                  </ul>
+                  <p><strong>Total:</strong> R$ 100,00</p>
+                  <button>Ver detalhes</button>
+              </div>
+          </section>
+          <section id="tab3-content" class="tab-content" style="display: none;">
+              <h2>Endereços</h2>
+              <div class="card">
+                  <h3>Endereço para entrega</h3>
+                  <p><strong>Nome: </strong></p>
+                  <p><strong>Cep: </strong></p>
+                  <p><strong>Rua: </strong></p>
+                  <p><strong>Complemento: </strong></p>
+                  <button>Ver pedidos</button>
+                  <button>Editar</button>
+              </div>
+          </section>
+          <section id="tab4-content" class="tab-content" style="display: none;">
+              <div class="container">
+                  <div class="dados-pessoais">
+                      <h3>Alteração de dados</h3>
+                      <label for="nome">Nome</label>
+                      <input type="text" id="nome">
+                      <label for="sobrenome">Sobrenome</label>
+                      <input type="text" id="sobrenome">
+                      <label for="email">Endereço de email</label>
+                      <input type="text" id="email">
+                  </div>
+                  <div class="alteracao-senha">
+                      <h3>Alteração de senha</h3>
+                      <label for="nova-senha">Nova senha</label>
+                      <input type="password" id="nova-senha">
+                      <label for="confirma-senha">Digite a nova senha novamente</label>
+                      <input type="password" id="confirma-senha">
+                      <button id="salvar-alteracoes">Salvar alterações</button>
+                  </div>
+              </div>
+          </section>
+          <section id="tab5-content" class="tab-content" style="display: none;">
+              <h2>Deseja sair?</h2>
+              <button>Sair</button>
+              <h2>Deseja excluir sua conta?</h2>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluirConta">
+                  Excluir conta
               </button>
-            </div>
-            <div class="modal-body">
-              <p>Deseja realmente excluir sua conta? Essa ação é irreversível.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-danger">Excluir</button>
-            </div>
-          </div>
-        </div>
+          </section>
       </div>
-    -->     
-    </section>      
   </div>
-</div>
+  
       
     <footer>
       <br>
