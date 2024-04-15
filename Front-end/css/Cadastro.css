@@ -29,12 +29,7 @@ ul {
   list-style-type: none;
   font-size: 20px;
 }
-/* .barra_pesquisa input{
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-    
-} */
+
 .logo {
   width: 155px;
   height: 200px;
@@ -47,8 +42,7 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
-  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
-}
+  position: relative;}
 #icon {
   width: 35px;
   margin-top: 2px;
@@ -373,13 +367,16 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 .fa-moon {
   font-size: 20px;
 }
+
+
 /* FINAL DO DARK MODE */
 
 
 
-/* Media queries para responsividade */
+/* Media queries para responsividade*/
 
 @media (max-width: 768px) {
+ 
   #accessibility-section {
     right: 10px;
   }
@@ -387,24 +384,34 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   #other-things {
     right: 40px;
   }
-}
-
-@media (max-width: 576px) {
-  #accessibility-section {
-    right: 5px;
+  .header {
+  
+    height: auto;
   }
 
-  #other-things {
-    right: 20px;
-  }
-}
-@media (max-width: 624px) {
   .pesquisa {
-    width: 100%; /* Ocupa a largura total */
+    width: 350%;
   }
-  .header ul li {
-    text-align: center;
+.pesquisa-icon{
+  top: 68%;
+
+}
+  .opcoes {
+    height: auto;
   }
+
+  .menu_btn {
+    padding: 5px 10px;
+  }
+}
+
+
+@media (max-width: 624px) {
+  .logo {
+    width: 120px;
+    height: 160px;
+  }
+
   .formulario form {
     width: 70%;
   }
@@ -419,13 +426,25 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   .genero input {
     margin-left: 8rem;
   }
-}
+} 
 
 /* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
+ @media (max-width: 400px) {
   .buttons {
     display: flex;
     gap: 1rem;
+  }
+  .logo {
+    width: 100px;
+    height: 130px;
+  }
+
+  .header ul li {
+    font-size: 16px;
+  }
+
+  .menu_btn {
+    padding: 5px;
   }
 }
 

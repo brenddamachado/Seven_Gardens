@@ -20,15 +20,15 @@ const mensagemCPF = document.getElementById("mensagemCPF");
 const mensagemCep = document.getElementById("mensagemCep");
 const mensagemEmail = document.getElementById("mensagemEmail");
 const mensagemLogin = document.getElementById("mensagemLogin");
-let mensagemNomeMae = document.getElementById ('mensagemNomeMae')
-const form = document.getElementById('formulario')
+let mensagemNomeMae = document.getElementById("mensagemNomeMae");
+const form = document.getElementById("formulario");
 const limpar = document.getElementById("limpar");
 const comple = document.getElementById("comple");
 const generoInputs = document.querySelectorAll('.genero input[type="radio"]');
 
 const genero = document.querySelector(".genero");
 const data = document.getElementById("data");
-const mensagemform = document.getElementById('mensagemform')
+const mensagemform = document.getElementById("mensagemform");
 // Variáveis de validação
 let validenome = false;
 let validesenha = false;
@@ -37,51 +37,45 @@ let validelogin = false;
 let validecpf = false;
 let validecep = false;
 let valideemail = false;
-let valideMae = false
-let nomeDaMãe = document.getElementById('nomeDamae')
-form.addEventListener('submit', (event) => {
+let valideMae = false;
+let nomeDaMãe = document.getElementById("nomeDamae");
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let isChecked = false;
-  generoInputs.forEach(input => {
+  generoInputs.forEach((input) => {
     if (input.checked) {
       isChecked = true;
     }
   });
 
   if (!isChecked) {
-    mensagem.innerHTML ="Por favor, selecione uma opção de gênero; ";
+    mensagem.innerHTML = "Por favor, selecione uma opção de gênero; ";
   }
-    // Verificar se a data foi selecionada
-    if (!data.value) {
-      mensagem.innerHTML ="Por favor, selecione uma data; ";
-    }
-  if(mensagem.innerHTML === "") {
-   
-    mensagem.innerHTML = 'Cadastrado com sucesso!!';
-    window.location.replace('login.html');
+  // Verificar se a data foi selecionada
+  if (!data.value) {
+    mensagem.innerHTML = "Por favor, selecione uma data; ";
+  }
+  if (mensagem.innerHTML === "") {
+    mensagem.innerHTML = "Cadastrado com sucesso!!";
+    window.location.replace("login.html");
 
     // Não envie o formulário
   } else {
- 
     mensagem.innerHTML = "Campos inválidos";
   }
 });
-
-
-
-
 
 nome.addEventListener("input", () => {
   // Remova caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
 
   if (nome.value.length >= 15 && nome.value.length < 80) {
-      mensagemNome.innerHTML = "";
-      validenome = true;
+    mensagemNome.innerHTML = "";
+    validenome = true;
   } else {
-      mensagemNome.innerHTML = "Insira no mínimo 15 caracteres";
-      validenome = false;
+    mensagemNome.innerHTML = "Insira no mínimo 15 caracteres";
+    validenome = false;
   }
 });
 
@@ -90,14 +84,13 @@ nomeDaMãe.addEventListener("input", () => {
   nomeDaMãe.value = nomeDaMãe.value.replace(/[^a-zA-Z\s]/g, "");
 
   if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 80) {
-     mensagemNomeMae.innerHTML = "";
-      validenome = true;
+    mensagemNomeMae.innerHTML = "";
+    validenome = true;
   } else {
-     mensagemNomeMae.innerHTML = "Insira no mínimo 15 caracteres";
-      validenome = false;
+    mensagemNomeMae.innerHTML = "Insira no mínimo 15 caracteres";
+    validenome = false;
   }
 });
-
 
 senha.addEventListener("input", () => {
   senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
@@ -169,15 +162,14 @@ cpf.addEventListener("input", () => {
   const isCPFValid = validarCPF(cpf.value);
 
   if (isCPFValid) {
-      mensagemCPF.innerHTML = ""; // Limpa a mensagem se o CPF for válido
-      cpf.value = isCPFValid; // Define o valor da entrada como o CPF formatado
-      validecpf = true;
+    mensagemCPF.innerHTML = ""; // Limpa a mensagem se o CPF for válido
+    cpf.value = isCPFValid; // Define o valor da entrada como o CPF formatado
+    validecpf = true;
   } else {
-      mensagemCPF.innerHTML = "CPF inválido";
-      validecpf = false;
+    mensagemCPF.innerHTML = "CPF inválido";
+    validecpf = false;
   }
 });
-
 
 $(document).ready(function () {
   //celular
@@ -209,14 +201,14 @@ function preencherEndereco(cep) {
       if (!response.ok) {
         throw new Error("Não foi possível obter os dados do CEP.");
       }
-      validecep=true
+      validecep = true;
       return response.json();
     })
     .then((data) => {
       if (data.erro) {
         mensagemCep.innerHTML = "CEP não encontrado";
-        validecep = false
-        return ;
+        validecep = false;
+        return;
       }
 
       cidadeInput.val(data.localidade);
@@ -234,7 +226,6 @@ function preencherEndereco(cep) {
       mensagemCep.innerHTML = "Erro ao obter dados do CEP";
     });
 }
-
 
 // Evento e função para preencher endereço a partir do CEP
 cepInput.on("input", function () {
@@ -311,7 +302,7 @@ limpar.addEventListener("click", (event) => {
   cidadeInput.val(""); // Limpa o campo de input cidade
   ruaInput.val("");
   bairroInput.val("");
-  nomeDaMãe.value = ""
+  nomeDaMãe.value = "";
   // Limpar a seleção dos radios de gênero
   document.querySelectorAll(".genero").forEach((radio) => {
     radio.checked = false;
@@ -326,47 +317,59 @@ limpar.addEventListener("click", (event) => {
   mensagemEmail.innerHTML = "";
   mensagemLogin.innerHTML = "";
   mensagem.innerHTML = "";
-  mensagemNomeMae.innerHTML = ''
+  mensagemNomeMae.innerHTML = "";
 });
 
-
 // DARK MODE
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Alternar a visibilidade das opções de acessibilidade
-  document.getElementById('accessibility-icon').addEventListener('click', function() {
-    var otherThings = document.getElementById('other-things');
-    otherThings.style.display = otherThings.style.display === 'none' ? 'flex' : 'none';
-  });
+  document
+    .getElementById("accessibility-icon")
+    .addEventListener("click", function () {
+      var otherThings = document.getElementById("other-things");
+      otherThings.style.display =
+        otherThings.style.display === "none" ? "flex" : "none";
+    });
 
   // Alternar para o modo claro
-  document.getElementById('light-mode-toggle').addEventListener('click', function() {
-    document.body.classList.remove('dark-mode');
-  });
+  document
+    .getElementById("light-mode-toggle")
+    .addEventListener("click", function () {
+      document.body.classList.remove("dark-mode");
+    });
 
   // Alternar para o modo escuro
-  document.getElementById('dark-mode-toggle').addEventListener('click', function() {
-    document.body.classList.add('dark-mode');
-  });
+  document
+    .getElementById("dark-mode-toggle")
+    .addEventListener("click", function () {
+      document.body.classList.add("dark-mode");
+    });
 
   // Função para ajustar o tamanho da fonte de elementos específicos
   function adjustFontSizeForElements(factor) {
-    const selectors = 'header, body, .social-icons p, .social-icons i, .dropdown .dropdown-content a, .menu_btn a, .prod_dropdown, li a, button, input, .pesquisa-container input';
-    document.querySelectorAll(selectors).forEach(element => {
+    const selectors =
+      "header, body, .social-icons p, .social-icons i, .dropdown .dropdown-content a, .menu_btn a, .prod_dropdown, li a, button, input, .pesquisa-container input";
+    document.querySelectorAll(selectors).forEach((element) => {
       // Verifica se o elemento tem um estilo de fonte definido inline; se não, usa o estilo computado
-      const fontSizeValue = element.style.fontSize ? element.style.fontSize : window.getComputedStyle(element, null).getPropertyValue('font-size');
+      const fontSizeValue = element.style.fontSize
+        ? element.style.fontSize
+        : window.getComputedStyle(element, null).getPropertyValue("font-size");
       const currentFontSize = parseFloat(fontSizeValue);
       element.style.fontSize = `${currentFontSize + factor}px`;
     });
   }
 
   // Evento para aumentar o tamanho da fonte de elementos específicos
-  document.getElementById('increase-font').addEventListener('click', function() {
-    adjustFontSizeForElements(2); // Aumenta o tamanho da fonte em 2px
-  });
+  document
+    .getElementById("increase-font")
+    .addEventListener("click", function () {
+      adjustFontSizeForElements(2); // Aumenta o tamanho da fonte em 2px
+    });
 
   // Evento para diminuir o tamanho da fonte de elementos específicos
-  document.getElementById('decrease-font').addEventListener('click', function() {
-    adjustFontSizeForElements(-2); // Diminui o tamanho da fonte em 2px
-  });
+  document
+    .getElementById("decrease-font")
+    .addEventListener("click", function () {
+      adjustFontSizeForElements(-2); // Diminui o tamanho da fonte em 2px
+    });
 });
-
