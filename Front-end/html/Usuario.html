@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seven Gardens</title>
+    <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../css/Usuario.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"rel="stylesheet"type="text/css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <section class="header">
+        <div>
+          <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
+        </div>
+        <nav>
+            <div class="navegacao">
+            <ul>   <li class="home"><a class="home" href="../index.html">Home</a></li>
+              <li class="login"><a href="Login.html" class="login">Login</a></li>
+           
+              
+            </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+
+      <section class="opcoes">
+        <div class="dropdown">
+          <button class="dropbtn">Produtos</button>
+          <div class="dropdown-content">
+            <a href="#">Enxertos</a>
+            <a href="#">Naturais (De semente)</a>
+            <a href="#">Especiais</a>
+            <a href="#">Insumos</a>
+          </div>
+        </div>
+      
+        
+        <div class="pesquisa-container">
+          <input type="search" name="" id="" class="pesquisa" />
+          <label for="" class="pesquisa-icon"
+            ><i class="fas fa-search"></i
+          ></label>
+        </div>
+        <img
+          src="../img/iconecar.svg"
+          alt="Ícone do carrinho de compras"
+          id="icon"
+        />
+      </section>
+    </header>
+
+
+    <div class="tabs-container">
+      <ul class="tabs">
+          <li><a id="tab1" href="#tab1-content">Meu painel</a></li>
+          <li><a id="tab2" href="#tab2-content">Pedidos</a></li>
+          <li><a id="tab3" href="#tab3-content">Endereços</a></li>
+          <li><a id="tab4" href="#tab4-content">Detalhes da conta</a></li>
+          <li><a id="tab5" href="#tab5-content">Log out</a></li>
+      </ul>
+      <div class="tab-content-wrapper">
+          <section id="tab1-content" class="tab-content" style="display: none;">
+              <h2>Meu painel</h2>
+              <p>Olá, [nome do usuário] <a href="#">Sair</a></p>
+          </section>
+          <section id="tab2-content" class="tab-content" style="display: none;">
+              <h2>Seus Pedidos</h2>
+              <div class="card">
+                  <h3>Pedido #1234</h3>
+                  <p><strong>Data:</strong> 01/04/2024</p>
+                  <p><strong>Itens:</strong></p>
+                  <ul>
+                      <li>Produto 1</li>
+                      <li>Produto 2</li>
+                      <li>Produto 3</li>
+                  </ul>
+                  <p><strong>Total:</strong> R$ 100,00</p>
+                  <button>Ver detalhes</button>
+              </div>
+          </section>
+          <section id="tab3-content" class="tab-content" style="display: none;">
+              <h2>Endereços</h2>
+              <div class="card">
+                  <h3>Endereço para entrega</h3>
+                  <p><strong>Nome: </strong></p>
+                  <p><strong>Cep: </strong></p>
+                  <p><strong>Rua: </strong></p>
+                  <p><strong>Complemento: </strong></p>
+                  <button>Ver pedidos</button>
+                  <button>Editar</button>
+              </div>
+          </section>
+          <section id="tab4-content" class="tab-content" style="display: none;">
+              <div class="container">
+                  <div class="dados-pessoais">
+                      <h3>Alteração de dados</h3>
+                      <label for="nome">Nome</label>
+                      <input type="text" id="nome">
+                      <label for="sobrenome">Sobrenome</label>
+                      <input type="text" id="sobrenome">
+                      <label for="email">Endereço de email</label>
+                      <input type="text" id="email">
+                  </div>
+                  <div class="alteracao-senha">
+                      <h3>Alteração de senha</h3>
+                      <label for="nova-senha">Nova senha</label>
+                      <input type="password" id="nova-senha">
+                      <label for="confirma-senha">Digite a nova senha novamente</label>
+                      <input type="password" id="confirma-senha">
+                      <button id="salvar-alteracoes">Salvar alterações</button>
+                  </div>
+              </div>
+          </section>
+          <section id="tab5-content" class="tab-content" style="display: none;">
+              <h2>Deseja sair?</h2>
+              <button>Sair</button>
+              <h2>Deseja excluir sua conta?</h2>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluirConta">
+                  Excluir conta
+              </button>
+          </section>
+      </div>
+  </div>
+  
+      
+    <footer>
+      <br>
+       
+    
+        <div class="social-icons">
+          <p> Siga-nos nas nossas redes sociais:</p>
+    
+            <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>   
+        </div>
+       
+      
+    </footer>
+    <script src="../js/Usuario.js"></script>
+  </body>
+</html>
