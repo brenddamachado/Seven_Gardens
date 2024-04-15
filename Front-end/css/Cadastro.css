@@ -373,22 +373,64 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 }
 /* FINAL DO DARK MODE */
 
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+display: none;
+  background-color: 
+   #405b39;
+}
+#hambuguer{
 
-
-/* Media queries para responsividade*/
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+  /* Media queries para responsividade*/
 
 @media (max-width: 768px) {
- 
-  #accessibility-section {
-    right: 10px;
+  .mobile_i{
+    display: block;
   }
-
+  .icon_mobile{
+    display: block;
+  }
+    .opcoes{
+      display: none;
+    }
   #other-things {
     right: 40px;
+  }
+
+  .navegacao ul li{
+    display: none;
   }
   .header {
   
     height: auto;
+  }
+  .section_mobile{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: 
+     #405b39;
   }
   .dropdown .dropbtn .fa-chevron-down {
     display: none; /* Oculta o ícone dentro do botão dropdown em telas menores */

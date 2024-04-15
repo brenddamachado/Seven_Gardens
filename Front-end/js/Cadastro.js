@@ -373,3 +373,11 @@ document.addEventListener("DOMContentLoaded", function () {
       adjustFontSizeForElements(-2); // Diminui o tamanho da fonte em 2px
     });
 });
+
+
+let hamburger = document.getElementById('hambuguer'); // Corrected spelling
+let optionsHamburger = document.getElementById('mobile'); // Corrected spelling
+
+hamburger.addEventListener('click', function() {
+  optionsHamburger.style.display = 'block'; // Set display to 'block' to show the div
+});
