@@ -150,7 +150,6 @@ ul {
   align-items: center;
   min-height: 100vh;
   min-width: 100svh;
-  background-color: #f4f4f4;
 }
 
 /* inicio footer */
@@ -303,6 +302,30 @@ body.dark-mode .dropbtn {
   color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
 }
 
+body.dark-mode h1{
+  color: #E1F9D7;
+}
+
+body.dark-mode p{
+  color: #E1F9D7;
+}
+
+body.dark-mode .footer_p{
+  color: #fff;
+}
+
+body.dark-mode{
+  background-color: #151515;
+}
+
+body.dark-mode .divForm {
+  background-color: #282828;
+}
+
+body.dark-mode #enviarButton{
+  background-color: #151515;
+}
+
 #accessibility-section {
   position: fixed;
   top: 50%;
@@ -346,8 +369,119 @@ body.dark-mode .dropbtn {
   font-size: 20px;
 }
 
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
+
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+
 /* responsividade tablets*/
 @media screen and (max-width: 768px) {
+
+  .mobile_i{
+    display: block;
+  }
+  .icon_mobile{
+    display: block;
+  }
+  
+    .opcoes{
+      display: none;
+    }
+
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li{
+    display: none;
+  }
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+  .section_mobile{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: 
+     #405b39;
+  }
+
+  .pesquisa {
+    width: 120%;
+  }
+.pesquisa-icon{
+  top: 68%;
+  left: 230px;
+}
+
+.opcoes{
+  height: auto;
+}
+
   .container,
   section {
     width: 100%;
