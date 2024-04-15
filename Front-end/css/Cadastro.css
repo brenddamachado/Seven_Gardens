@@ -13,6 +13,7 @@ body {
 
 header {
   background-color: #0f2b05;
+  
 }
 .header {
   height: 180px;
@@ -29,12 +30,7 @@ ul {
   list-style-type: none;
   font-size: 20px;
 }
-/* .barra_pesquisa input{
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-    
-} */
+
 .logo {
   width: 155px;
   height: 200px;
@@ -47,8 +43,7 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
-  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
-}
+  position: relative;}
 #icon {
   width: 35px;
   margin-top: 2px;
@@ -290,7 +285,7 @@ body.dark-mode form {
   background-color: #282828;
 }
 
-body.dark-mode .dropbtn, body.dark-mode .opcoes {
+body.dark-mode .dropbtn, body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
   background: #1E1F1E;
 
 }
@@ -326,7 +321,7 @@ body.dark-mode #mensagemLogin,
 body.dark-mode #mensagemform,
 body.dark-mode .label_login,
 body.dark-mode .menu_btn a,
-body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn  {
+body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn, body.dark-mode a {
   color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
 }
 
@@ -373,38 +368,137 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 .fa-moon {
   font-size: 20px;
 }
+
+.fa-chevron-down {
+  display: inline-block; /* ou 'block', dependendo do seu layout */
+}
 /* FINAL DO DARK MODE */
+/* Estilo para o menu lateral escondido e animação */
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
+}
 
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
 
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
 
-/* Media queries para responsividade */
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+  /* Media queries para responsividade*/
 
 @media (max-width: 768px) {
-  #accessibility-section {
-    right: 10px;
+  .mobile_i{
+    display: block;
   }
+  .icon_mobile{
+    display: block;
+  }
+  
+    .opcoes{
+      display: none;
+    }
+
 
   #other-things {
     right: 40px;
   }
-}
 
-@media (max-width: 576px) {
-  #accessibility-section {
-    right: 5px;
+  .navegacao ul li{
+    display: none;
   }
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+  .section_mobile{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  #other-things {
-    right: 20px;
+    background-color: 
+     #405b39;
   }
-}
-@media (max-width: 624px) {
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none; /* Oculta o ícone dentro do botão dropdown em telas menores */
+  }
   .pesquisa {
-    width: 100%; /* Ocupa a largura total */
+    width: 120%;
   }
-  .header ul li {
-    text-align: center;
+.pesquisa-icon{
+  top: 68%;
+  left: 230px;
+}
+  .opcoes {
+    height: auto;
   }
+
+  .menu_btn {
+    padding: 5px 10px;
+  }
+}
+
+
+@media (max-width: 624px) {
+  .logo {
+    width: 120px;
+    height: 160px;
+  }
+
   .formulario form {
     width: 70%;
   }
@@ -419,13 +513,25 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   .genero input {
     margin-left: 8rem;
   }
-}
+} 
 
 /* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
+ @media (max-width: 400px) {
   .buttons {
     display: flex;
     gap: 1rem;
+  }
+  .logo {
+    width: 100px;
+    height: 130px;
+  }
+
+  .header ul li {
+    font-size: 16px;
+  }
+
+  .menu_btn {
+    padding: 5px;
   }
 }
 
