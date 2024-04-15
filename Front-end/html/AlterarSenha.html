@@ -36,9 +36,9 @@
 
     <section class="opcoes">
       <div class="dropdown">
-        <button class="dropbtn">
-          <span>Produtos</span> <i class="fas fa-chevron-down"> </i>
-        </button>
+        <div class="dropbtn">
+          <span class="prod_dropdown">Produtos</span> <i class="fas fa-chevron-down"> </i>
+        </div>
         <div class="dropdown-content">
           <a href="#"> Enxertos</a>
           <a href="#"> Naturais (De semente) </a>
@@ -93,18 +93,16 @@
       
       </div>
 
-        <!-- ACESSIBILIDADES DE LIBRAS -->
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
-
-      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-      <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-      </script>
+      <section id="accessibility-section">
+        <i class="fas fa-universal-access" id="accessibility-icon"></i>
+        <div id="other-things">
+   
+          <i class="fas fa-sun" id="light-mode-toggle"></i>
+          <i class="fas fa-moon" id="dark-mode-toggle"></i>
+          <img class="img_letra" src="../img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
+          <img class="img_letra" src="../img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
+        </div>
+      </section>
 
 
       <footer> 
@@ -121,5 +119,6 @@
     
         </div>
       </footer>
+      <script src="../js/AltararSenha.js"></script>
 </body>
 </html>

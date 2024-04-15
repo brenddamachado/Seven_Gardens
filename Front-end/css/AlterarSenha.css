@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
 }
@@ -6,8 +5,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
-
 
 header {
   background-color: #0f2b05;
@@ -102,7 +99,6 @@ ul {
 }
 
 .dropbtn {
-  background-color: #405b39;
   color: #fbf3dc;
   padding: 10px 20px;
   font-size: 16px;
@@ -148,8 +144,6 @@ ul {
 
 /* fim do header */
 
-
-
 .container {
   display: flex;
   justify-content: center;
@@ -178,7 +172,6 @@ footer {
   color: #fff;
   text-align: center;
   font-size: 16px;
-
 }
 
 .social-icons .icon {
@@ -193,15 +186,14 @@ footer {
   transform: scale(1.2);
 }
 
-
 .divForm {
   width: 100%;
-max-width: 600px;
-background-color: #fff;
-padding: 3rem;
-box-sizing: border-box;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  background-color: #fff;
+  padding: 3rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .form-header {
   text-align: center;
@@ -260,85 +252,173 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-decoration: none;
 }
 
+body.dark-mode form {
+  background-color: #282828;
+}
 
+body.dark-mode .dropbtn,
+body.dark-mode .opcoes {
+  background: #1e1f1e;
+}
 
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7a7979;
+}
+body.dark-mode .sessao {
+  color: #fff;
+}
 
-  /* responsividade tablets*/
-  @media screen and (max-width: 768px) {
-    .container, section {
-      width: 100%;
-      padding: 0%;
-      min-width: 0;
-    }
+body.dark-mode .login,
+body.dark-mode .fa-search {
+  color: #070b06;
+}
 
-    .dropdown-content{
-      min-width: 0;
-    }
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #070b06;
+}
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar,
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn {
+  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+/* responsividade tablets*/
+@media screen and (max-width: 768px) {
+  .container,
+  section {
+    width: 100%;
+    padding: 0%;
+    min-width: 0;
   }
 
+  .dropdown-content {
+    min-width: 0;
+  }
+}
 
-  /* responsividade celulare*/
-  @media  (max-width: 500px) {
-    
-    .navegacao ul{
-      margin-left: -200px;
-    }
-    
-    .container{
-      justify-content: initial;
-      min-width: 0;
-    }
+/* responsividade celulare*/
+@media (max-width: 500px) {
+  .navegacao ul {
+    margin-left: -200px;
+  }
 
-    .pesquisa {
-      width: 300px; /* Define o tamanho do input */
-      height: 30px;    
-      margin-left: 5px; 
-      margin-top: 110px; 
-    }
+  .container {
+    justify-content: initial;
+    min-width: 0;
+  }
 
-    .pesquisa-icon{
-      margin-top: 35px; 
-    }
+  .pesquisa {
+    width: 300px; /* Define o tamanho do input */
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 110px;
+  }
 
-    .opcoes {
-      height: 60px;
-      font-size: 10px;
+  .pesquisa-icon {
+    margin-top: 35px;
+  }
+
+  .opcoes {
+    height: 60px;
+    font-size: 10px;
     /* Reduza o tamanho da fonte para os ícones */
-    }
-
-    #icon {
-      margin-left: 10px;
-      margin-top: 4px;
-    }
-
-    
-    .dropdown-content{
-      margin-left: 20px;
-    }
-
-    .menu_btn{
-
-    }
-
-    .header, footer {
-      width: 100%;
-      margin: 0px;
-    }
-
-    .divForm {
-      width: 450px;
-      margin-left: 25px;
-    }
-    body{
-      width: 500px;
-    }
-
-    .EsqueceuSenha a {
-      margin-left: 195px;
-    }
-
-    .dropdown-content {
-      min-width: 0;
-    }
   }
 
+  #icon {
+    margin-left: 10px;
+    margin-top: 4px;
+  }
+
+  .dropdown-content {
+    margin-left: 20px;
+  }
+
+  .menu_btn {
+  }
+
+  .header,
+  footer {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .divForm {
+    width: 450px;
+    margin-left: 25px;
+  }
+  body {
+    width: 500px;
+  }
+
+  .EsqueceuSenha a {
+    margin-left: 195px;
+  }
+
+  .dropdown-content {
+    min-width: 0;
+  }
+}
