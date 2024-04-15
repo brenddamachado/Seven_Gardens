@@ -368,7 +368,9 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   font-size: 20px;
 }
 
-
+.fa-chevron-down {
+  display: inline-block; /* ou 'block', dependendo do seu layout */
+}
 /* FINAL DO DARK MODE */
 
 
@@ -388,13 +390,15 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   
     height: auto;
   }
-
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none; /* Oculta o ícone dentro do botão dropdown em telas menores */
+  }
   .pesquisa {
     width: 350%;
   }
 .pesquisa-icon{
   top: 68%;
-
+  left: 350%;
 }
   .opcoes {
     height: auto;
