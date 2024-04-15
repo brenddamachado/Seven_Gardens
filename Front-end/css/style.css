@@ -205,8 +205,14 @@ html {
 
 /* fim do carrossel */
 
-
-
+.titulopg {
+  display: flex;
+  justify-content: center;
+  
+}
+.titulopg h1 {
+  color: #405b39;
+}
 /*css para card de fotos
 .container {
   display: flex;
