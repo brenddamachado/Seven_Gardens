@@ -20,6 +20,7 @@ const mensagemCPF = document.getElementById("mensagemCPF");
 const mensagemCep = document.getElementById("mensagemCep");
 const mensagemEmail = document.getElementById("mensagemEmail");
 const mensagemLogin = document.getElementById("mensagemLogin");
+let mensagemNomeMae = document.getElementById ('mensagemNomeMae')
 const form = document.getElementById('formulario')
 const limpar = document.getElementById("limpar");
 const comple = document.getElementById("comple");
@@ -36,7 +37,8 @@ let validelogin = false;
 let validecpf = false;
 let validecep = false;
 let valideemail = false;
-
+let valideMae = false
+let nomeDaMãe = document.getElementById('nomeDamae')
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -74,7 +76,7 @@ nome.addEventListener("input", () => {
   // Remova caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
 
-  if (nome.value.length >= 15 && nome.value.length < 60) {
+  if (nome.value.length >= 15 && nome.value.length < 80) {
       mensagemNome.innerHTML = "";
       validenome = true;
   } else {
@@ -82,6 +84,20 @@ nome.addEventListener("input", () => {
       validenome = false;
   }
 });
+
+nomeDaMãe.addEventListener("input", () => {
+  // Remova caracteres que não são letras ou espaços
+  nomeDaMãe.value = nomeDaMãe.value.replace(/[^a-zA-Z\s]/g, "");
+
+  if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 80) {
+     mensagemNomeMae.innerHTML = "";
+      validenome = true;
+  } else {
+     mensagemNomeMae.innerHTML = "Insira no mínimo 15 caracteres";
+      validenome = false;
+  }
+});
+
 
 senha.addEventListener("input", () => {
   senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
@@ -295,6 +311,7 @@ limpar.addEventListener("click", (event) => {
   cidadeInput.val(""); // Limpa o campo de input cidade
   ruaInput.val("");
   bairroInput.val("");
+  nomeDaMãe.value = ""
   // Limpar a seleção dos radios de gênero
   document.querySelectorAll(".genero").forEach((radio) => {
     radio.checked = false;
@@ -309,42 +326,47 @@ limpar.addEventListener("click", (event) => {
   mensagemEmail.innerHTML = "";
   mensagemLogin.innerHTML = "";
   mensagem.innerHTML = "";
+  mensagemNomeMae.innerHTML = ''
 });
 
-let produtos = document.getElementById('produtos');
-let categorias = document.querySelector(".categorias");
-let listaCategorias = document.querySelectorAll(".categoria");
 
-produtos.addEventListener("click", function() {
-  categorias.style.display = categorias.style.display === "block" ? "none" : "block";
-});
+// DARK MODE
+document.addEventListener('DOMContentLoaded', function() {
+  // Alternar a visibilidade das opções de acessibilidade
+  document.getElementById('accessibility-icon').addEventListener('click', function() {
+    var otherThings = document.getElementById('other-things');
+    otherThings.style.display = otherThings.style.display === 'none' ? 'flex' : 'none';
+  });
 
-produtos.addEventListener("mouseenter", function() {
-  categorias.style.display = "block";
-});
+  // Alternar para o modo claro
+  document.getElementById('light-mode-toggle').addEventListener('click', function() {
+    document.body.classList.remove('dark-mode');
+  });
 
-produtos.addEventListener("mouseleave", function() {
-  setTimeout(() => {
-    if (!categorias.matches(':hover')) {
-      categorias.style.display = "none";
-    }
-  }, 100);
-});
+  // Alternar para o modo escuro
+  document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+    document.body.classList.add('dark-mode');
+  });
 
-categorias.addEventListener("mouseenter", function() {
-  categorias.style.display = "block";
-});
-
-categorias.addEventListener("mouseleave", function() {
-  categorias.style.display = "none";
-});
-
-listaCategorias.forEach(function(categoria) {
-  categoria.addEventListener("click", function() {
-    listaCategorias.forEach(function(c) {
-      c.classList.remove("selecionada");
+  // Função para ajustar o tamanho da fonte de elementos específicos
+  function adjustFontSizeForElements(factor) {
+    const selectors = 'header, body, .social-icons p, .social-icons i, .dropdown .dropdown-content a, .menu_btn a, .prod_dropdown, li a, button, input, .pesquisa-container input';
+    document.querySelectorAll(selectors).forEach(element => {
+      // Verifica se o elemento tem um estilo de fonte definido inline; se não, usa o estilo computado
+      const fontSizeValue = element.style.fontSize ? element.style.fontSize : window.getComputedStyle(element, null).getPropertyValue('font-size');
+      const currentFontSize = parseFloat(fontSizeValue);
+      element.style.fontSize = `${currentFontSize + factor}px`;
     });
-    categoria.classList.add("selecionada");
+  }
+
+  // Evento para aumentar o tamanho da fonte de elementos específicos
+  document.getElementById('increase-font').addEventListener('click', function() {
+    adjustFontSizeForElements(2); // Aumenta o tamanho da fonte em 2px
+  });
+
+  // Evento para diminuir o tamanho da fonte de elementos específicos
+  document.getElementById('decrease-font').addEventListener('click', function() {
+    adjustFontSizeForElements(-2); // Diminui o tamanho da fonte em 2px
   });
 });
 
