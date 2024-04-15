@@ -374,10 +374,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-let hamburger = document.getElementById('hambuguer'); // Corrected spelling
-let optionsHamburger = document.getElementById('mobile'); // Corrected spelling
+let hamburger = document.getElementById('hamburguer');
+let mobileMenu = document.getElementById('mobile');
+let closeButton = document.querySelector('.close-btn');
 
 hamburger.addEventListener('click', function() {
-  optionsHamburger.style.display = 'block'; // Set display to 'block' to show the div
+  mobileMenu.style.left = "0"; // Abre o menu
+});
+
+closeButton.addEventListener('click', function() {
+  mobileMenu.style.left = "-100%"; // Fecha o menu
 });
