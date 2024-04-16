@@ -256,7 +256,7 @@ body.dark-mode form {
 }
 
 body.dark-mode .dropbtn,
-body.dark-mode .opcoes {
+body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
   background: #1e1f1e;
 }
 
@@ -298,7 +298,7 @@ body.dark-mode .menu_btn a,
 body.dark-mode label,
 body.dark-mode .home,
 body.dark-mode .dropbtn,
-body.dark-mode .dropbtn {
+body.dark-mode .dropbtn, body.dark-mode a {
   color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
 }
 
@@ -470,14 +470,25 @@ body.dark-mode #enviarButton{
      #405b39;
   }
 
-  .pesquisa {
+  /* .pesquisa {
+    margin-top: 120px;
     width: 120%;
+    margin-left: 0;
   }
 .pesquisa-icon{
-  top: 68%;
-  left: 230px;
+  top: 67%;
+  left: 170px;
+} */
+.pesquisa {
+  width: 80%;
+  margin:40px; 
 }
 
+.pesquisa-icon {
+  position: absolute;
+  bottom: 30px;
+  transform: translateY(-50%);
+}
 .opcoes{
   height: auto;
 }
@@ -494,65 +505,12 @@ body.dark-mode #enviarButton{
   }
 }
 
-/* responsividade celulare*/
-@media (max-width: 500px) {
-  .navegacao ul {
-    margin-left: -200px;
-  }
 
-  .container {
-    justify-content: initial;
-    min-width: 0;
-  }
-
-  .pesquisa {
-    width: 300px; /* Define o tamanho do input */
-    height: 30px;
-    margin-left: 5px;
-    margin-top: 110px;
-  }
-
-  .pesquisa-icon {
-    margin-top: 35px;
-  }
-
-  .opcoes {
-    height: 60px;
-    font-size: 10px;
-    /* Reduza o tamanho da fonte para os ícones */
-  }
-
-  #icon {
-    margin-left: 10px;
-    margin-top: 4px;
-  }
-
-  .dropdown-content {
-    margin-left: 20px;
-  }
-
-  /* .menu_btn {
-  } */
-
-  .header,
-  footer {
-    width: 100%;
-    margin: 0px;
-  }
-
-  .divForm {
-    width: 450px;
-    margin-left: 25px;
-  }
-  body {
-    width: 500px;
-  }
-
-  .EsqueceuSenha a {
-    margin-left: 195px;
-  }
-
-  .dropdown-content {
-    min-width: 0;
+/* Para celulares pequenos (telas menores que 400px) */
+@media (max-width: 400px) {
+ 
+  .logo {
+    width: 100px;
+    height: 130px;
   }
 }
