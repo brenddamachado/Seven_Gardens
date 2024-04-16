@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SevenGarden</title>
+  <title>Seven Gardens</title>
   <link rel="stylesheet" href="../css/Log.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   
@@ -34,8 +34,8 @@
     </section>
   </header>
 
-  <h1>Histórico de Usuários</h1>
   <form>
+     <h1>Histórico de usuários</h1>
     <label for="inputPesquisa">pesquisar usuário:</label>
     <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome ou CPF do usuário">
     <br><br>
@@ -46,18 +46,17 @@
     <thead>
       <tr class="topo">
         <th>Nome do Usuário</th>
+      </tr>
+      <tr>
+        <th id="th-diferente">Data do login</th>
         <td></td>
       </tr>
       <tr>
-        <th>Data do login</th>
+        <th id="th-diferente">Hora do login</th>
         <td></td>
       </tr>
       <tr>
-        <th>Hora do login</th>
-        <td></td>
-      </tr>
-      <tr>
-        <th>Fator de autenticação</th>
+        <th id="th-diferente">Fator de autenticação</th>
         <td></td>
       </tr>
         <!-- Adicione mais colunas conforme necessário -->

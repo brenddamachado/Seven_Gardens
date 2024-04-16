@@ -3,6 +3,8 @@
   }
   
   body {
+    margin:0;
+    background-color: #f4f4f4;
     font-family: Arial, Helvetica, sans-serif;
   }
   
@@ -123,10 +125,7 @@
 .dropdown-content {
   right: 0;
 }
-
-
-
-  
+ 
   .login {
     background-color: #112a08;
     color: #fbf3dc;
@@ -154,6 +153,13 @@
     max-width: 400px; /* Defina a largura máxima para evitar que o formulário se estenda demais */
     margin-bottom: 50px;
   }
+
+  form h1{
+    margin-top: 0%;
+    padding-bottom: 4%;
+    color:#0f2b05;
+    
+  }
   
   label {
     display: block;
@@ -177,19 +183,64 @@
     border-radius: 7px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Faça o botão preencher completamente a largura do formulário */
+    align-items: left;
+    width: 30%; /* Faça o botão preencher completamente a largura do formulário */
+  }
+  button[type="submit"]:hover {
+    background-color:#112a08;
+  }
+
+  form {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    margin: 0 auto; /* Isso centralizará o formulário na página */
+    max-width: 400px; /* Defina a largura máxima para evitar que o formulário se estenda demais */
+    margin-bottom: 50px;
+    margin-top: 150px;
+  }
+  
+  .input-box {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 1rem;
+    box-shadow: 1px 1px 4px #0000001c;
+  }
+  button[type="submit"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 15px;
   }
   button[type="submit"]:hover {
     background-color:#112a08;
   }
   th {
-    color: #333;
-    padding: 15px; /* Aumenta o padding para deixar mais espaçado */
+  background-color: #405b39;
+    color: #fbf3dc;
+    padding: 5%; /* Aumenta o padding para deixar mais espaçado */
     text-align: center; /* Centraliza o texto horizontalmente */
     font-weight: bold; /* Deixa o texto em negrito */
-    text-transform: uppercase; /* Transforma o texto em maiúsculas */
     border-bottom: 2px solid #ccc; /* Adiciona uma borda inferior */
-    border-radius: 5px; /* Adiciona bordas arredondadas */
+    border-radius: 1px; /* Adiciona bordas arredondadas */
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
     transition: background-color 0.3s ease; /* Adiciona transição suave ao fundo */
   }
@@ -200,7 +251,7 @@
   
   #tabelaUsuarios {
     margin: 0 auto; 
-    width: 30%; /* Você pode ajustar a largura conforme necessário */
+    width: 38%; /* Você pode ajustar a largura conforme necessário */
     border-collapse: collapse;
     background-color: #fff;
     border-radius: 10px;
@@ -211,16 +262,28 @@
   
   #tabelaUsuarios th,
   #tabelaUsuarios td {
-    padding: 15px;
+    padding: 4%;
     border-bottom: 1px solid #e0e0e0;
     text-align: center;
   }
-  
-  #tabelaUsuarios th {
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 10px 10px 0 0;
-  }
+  /* Estilos para a tabela de usuario */
+
+#th-diferente{
+  background-color: #f9f9f9;
+  color:#0f2b05;
+  font-size:small;
+
+}
+
+.topo th{
+  background-color: #405b39;
+  color: #f9f9f9;
+  font-weight: bold;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-right: 33px;
+  text-transform: uppercase;
+}
   
   #tabelaUsuarios tbody tr:nth-child(even) {
     background-color: #f9f9f9;
@@ -244,32 +307,13 @@
     border-right: none;
   }
 
-  .topo{
-    background-color: #f2f2f2;
-  }
-
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-}
-  td {
-    padding: 8px;
-    text-align: left;
-    border: 5px solid #f2f2f2;
-}
-
-  th {
-    padding: 8px;
-    text-align: left;
-    border: 5px solid #f2f2f2;
-  }
 
 
   h1 {
     color: #405b39;
     text-align: center;
-    margin-top: 140px; /* Adiciona um espaçamento superior */
+    margin-top: 50px; /* Adiciona um espaçamento superior */
+
     
   }
   header {
