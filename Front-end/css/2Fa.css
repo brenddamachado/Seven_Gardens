@@ -134,7 +134,6 @@ ul {
 }
 
 .menu_btn {
-  background-color: #405B39;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -271,6 +270,197 @@ footer{
   align-items: center;
   
 }
+
+/*css da página alterar senha*/
+body.dark-mode form {
+  background-color: #282828;
+}
+
+body.dark-mode .dropbtn,
+body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
+  background: #1e1f1e;
+}
+
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7a7979;
+}
+body.dark-mode .sessao {
+  color: #fff;
+}
+
+body.dark-mode .login,
+body.dark-mode .fa-search {
+  color: #070b06;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #070b06;
+}
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar,
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn, body.dark-mode a {
+  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
+}
+
+body.dark-mode h1{
+  color: #E1F9D7;
+}
+
+body.dark-mode p{
+  color: #E1F9D7;
+}
+
+body.dark-mode .social-icons p,
+body.dark-mode .digiteCod{
+  color: #f4f4f4;
+}
+
+body.dark-mode{
+  background-color: #151515;
+}
+
+body.dark-mode .container {
+  background-color: #151515;
+}
+
+body.dark-mode .divForm {
+  background-color: #282828;
+}
+
+body.dark-mode #enviarButton{
+  background-color: #151515;
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
+
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+/*fim do css*/
+
 
 @media (max-width: 624px) {
 
