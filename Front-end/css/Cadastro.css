@@ -379,7 +379,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   left: -100%;  /* Inicialmente fora da tela à esquerda */
   top: 0;
   width: 300px;
-  height: 100vh;
+  height: 100%;
   background-color: #405b39;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
   transition: left 0.5s;
@@ -438,51 +438,71 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   display: flex;
   flex-direction: column;
 }
-  /* Media queries para responsividade*/
+ /* Media queries para responsividade */
+/* Media queries para responsividade */
 
-@media (max-width: 768px) {
-  .mobile_i{
-    display: block;
+@media (max-width: 915px) {
+  header {
+    width: 920px;
   }
-  .icon_mobile{
+  footer{
+    width: 920px;
+  }
+  .formulario form{
+    width: 350px;
+    margin-left: 100px;
+  }
+  .pesquisa-container{
+    left: 80px;
+  }
+    .formulario {
+      display: block;
+      padding: 100px
+    }
+}
+
+@media (max-width: 766px) {
+  .mobile_i, .icon_mobile {
     display: block;
   }
   
-    .opcoes{
-      display: none;
-    }
-
+  .opcoes {
+    display: none;
+  }
 
   #other-things {
     right: 40px;
   }
 
-  .navegacao ul li{
+  .navegacao ul li {
     display: none;
   }
+
   .header {
     justify-content: flex-start;
     height: auto;
   }
-  .section_mobile{
-    display: block;
+
+  .section_mobile {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #405b39;
+    padding: 10px;
+  }
 
-    background-color: 
-     #405b39;
-  }
   .dropdown .dropbtn .fa-chevron-down {
-    display: none; /* Oculta o ícone dentro do botão dropdown em telas menores */
+    display: none;
   }
-  .pesquisa {
-    width: 120%;
+
+  .formulario form {
+    margin-left: 120px;
   }
-.pesquisa-icon{
-  top: 68%;
-  left: 230px;
-}
+
+  .pesquisa-icon {
+    top: 45%;
+  }
+
   .opcoes {
     height: auto;
   }
@@ -492,46 +512,30 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   }
 }
 
-
 @media (max-width: 624px) {
-  .logo {
-    width: 120px;
-    height: 160px;
-  }
+ 
 
-  .formulario form {
-    width: 70%;
-  }
+
   .conta {
     display: flex;
     flex-direction: column;
     padding: 10px;
   }
+
   .sessao {
     margin-top: 5px;
   }
+
   .genero input {
     margin-left: 8rem;
   }
-} 
+}
 
 /* Para celulares pequenos (telas menores que 400px) */
- @media (max-width: 400px) {
+@media (max-width: 400px) {
   .buttons {
     display: flex;
     gap: 1rem;
   }
-  .logo {
-    width: 100px;
-    height: 130px;
-  }
 
-  .header ul li {
-    font-size: 16px;
-  }
-
-  .menu_btn {
-    padding: 5px;
-  }
 }
-
