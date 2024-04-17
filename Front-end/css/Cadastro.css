@@ -285,7 +285,7 @@ body.dark-mode form {
   background-color: #282828;
 }
 
-body.dark-mode .dropbtn, body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
+body.dark-mode .dropbtn, body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
   background: #1E1F1E;
 
 }
@@ -302,7 +302,7 @@ body.dark-mode .login, body.dark-mode  .fa-search{
   color: #070B06;
 }
 
- body.dark-mode header,   body.dark-mode footer{
+ body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
   background-color: #070B06; 
  }
 
@@ -373,6 +373,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   display: inline-block; /* ou 'block', dependendo do seu layout */
 }
 /* FINAL DO DARK MODE */
+
 /* Estilo para o menu lateral escondido e animação */
 #mobile {
   position: fixed;
@@ -452,9 +453,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     width: 350px;
     margin-left: 100px;
   }
-  .pesquisa-container{
-    left: 80px;
-  }
+
     .formulario {
       display: block;
       padding: 100px
@@ -488,7 +487,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     justify-content: space-between;
     align-items: center;
     background-color: #405b39;
-    padding: 10px;
+    
   }
 
   .dropdown .dropbtn .fa-chevron-down {
@@ -510,6 +509,9 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   .menu_btn {
     padding: 5px 10px;
   }
+  .pesquisa-container {
+    left: 80px;
+}
 }
 
 @media (max-width: 624px) {
