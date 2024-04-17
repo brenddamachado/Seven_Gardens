@@ -515,10 +515,12 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 @media (max-width: 624px) {
  
 
-
+.conta p{
+  margin-top: 10px;
+}
   .conta {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     padding: 10px;
   }
 
