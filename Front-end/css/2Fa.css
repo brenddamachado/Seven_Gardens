@@ -100,7 +100,6 @@ ul {
 }
 
 .dropbtn {
-  background-color: #405B39;
   color: #FBF3DC;
   padding: 10px 20px;
   font-size: 16px;
@@ -202,6 +201,12 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
   font-size: 1rem;
   box-shadow: 1px 1px 4px #0000001c;
+  margin-bottom: 10px;
+}
+
+.cliqueAqui {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" */
@@ -306,6 +311,7 @@ body.dark-mode {
   background-color: #151515;
 }
 
+body.dark-mode .cliqueAqui,
 body.dark-mode .conta p,
 body.dark-mode #mensagem,
 body.dark-mode #mensagemNome,
@@ -330,7 +336,7 @@ body.dark-mode h1{
 body.dark-mode p{
   color: #E1F9D7;
 }
-
+body.dark-mode .cliqueAqui a,
 body.dark-mode .social-icons p,
 body.dark-mode .digiteCod{
   color: #f4f4f4;
