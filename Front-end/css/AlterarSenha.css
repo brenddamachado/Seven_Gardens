@@ -255,7 +255,7 @@ body.dark-mode form {
   background-color: #282828;
 }
 
-body.dark-mode .dropbtn,
+
 body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
   background: #1e1f1e;
 }
@@ -504,7 +504,6 @@ body.dark-mode #enviarButton{
     min-width: 0;
   }
 }
-
 
 /* Para celulares pequenos (telas menores que 400px) */
 @media (max-width: 400px) {
