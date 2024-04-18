@@ -6,10 +6,12 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
-  transition: 0.5s;
-  background-color: white;
+  background-color: #f4f4f4; /* Cor padrão claro */
+
 }
+
+
+
 
 header {
   background-color: #0f2b05;
@@ -280,12 +282,14 @@ footer {
 
 
 /* inicio DARK MODE */
-
+body.dark-mode {
+  background-color: #151515;
+}
 body.dark-mode form {
   background-color: #282828;
 }
 
-body.dark-mode .dropbtn, body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
+ body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
   background: #1E1F1E;
 
 }
@@ -307,7 +311,7 @@ body.dark-mode .login, body.dark-mode  .fa-search{
  }
 
 body.dark-mode .btn_cadastrar,
-body.dark-mode .btn_limpar, body.dark-mode {
+body.dark-mode .btn_limpar{
   background-color: #151515;
 }
 
@@ -369,9 +373,6 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   font-size: 20px;
 }
 
-.fa-chevron-down {
-  display: inline-block; /* ou 'block', dependendo do seu layout */
-}
 /* FINAL DO DARK MODE */
 
 /* Estilo para o menu lateral escondido e animação */
