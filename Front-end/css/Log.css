@@ -58,7 +58,7 @@ header {
 }
 
 .login {
-  background-color: #112a08;
+
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
@@ -185,6 +185,75 @@ input[type="text"] {
   justify-content: center;
 
 }
+/* inicio DARK MODE */
+body.dark-mode, button[type="submit"] {
+  background-color: #151515;
+}
+body.dark-mode form, .topo_tabela {
+  background-color: #282828;
+}
+
+body.dark-mode header, body.dark-mode footer{
+  background-color: #070B06
+}
+body.dark-mode .opcoes{
+  background-color: #1E1F1E;
+}
+
+body.dark-mode .opcoes h2, form h1, label, .topo_tabela, .login{
+ color: #E1F9D7;
+}
+.fa-universal-access, .fa-moon, .fa-sun{
+  color: #7A7979;
+}
+body.dark-mode .cadastrar{
+  color: #070B06;
+  background-color: #E1F9D7;
+}
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+/* FINAL DO DARK MODE */
 
 /* inicio footer */
 footer {
