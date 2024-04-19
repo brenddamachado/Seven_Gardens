@@ -447,13 +447,14 @@ footer {
 body.dark-mode {
   background-color: #151515;
 }
-
+body.dark-mode form {
+  background-color: #282828;
+}
 
  body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
   background: #1E1F1E;
 
 }
-
 
 .fa-universal-access, .fa-moon, .fa-sun{
   color: #7A7979;
@@ -467,28 +468,30 @@ body.dark-mode .login, body.dark-mode  .fa-search{
   color: #070B06;
 }
 
- body.dark-mode header,   body.dark-mode footer{
+ body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
   background-color: #070B06; 
  }
 
-
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar{
+  background-color: #151515;
+}
 
 body.dark-mode .conta p,
-body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn  {
+body.dark-mode h1,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn, body.dark-mode a {
   color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
 }
-body.dark-mode h1{
-  color: #E1F9D7;
-}
 
-body.dark-mode p{
-  color: #E1F9D7;
-}
-
-body.dark-mode .social-icons p
-{
-  color: #f4f4f4;
-}
 
 
 #accessibility-section {
