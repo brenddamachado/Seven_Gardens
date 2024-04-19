@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seven Gardens</title>
   <link rel="stylesheet" href="../css/Log.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
 </head>
 
 <body>
@@ -25,69 +25,61 @@
         </div>
       </nav>
     </section>
-  
-
-
-
-<section class="opcoes">
-  <h2>Painel de controle</h2>
+    <section class="opcoes">
+      <h2>Painel de controle</h2>
     </section>
   </header>
 
   <form>
-     <h1>Histórico de usuários</h1>
+    <h1>Histórico de login</h1>
     <label for="inputPesquisa">pesquisar usuário:</label>
     <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome ou CPF do usuário">
     <br><br>
     <button type="submit">Pesquisar</button>
   </form>
-  
-  <table id="tabelaUsuarios">
-    <thead>
-      <tr class="topo">
-        <th>Nome do Usuário</th>
-      </tr>
-      <tr>
-        <th id="th-diferente">Data do login</th>
-        <td></td>
-      </tr>
-      <tr>
-        <th id="th-diferente">Hora do login</th>
-        <td></td>
-      </tr>
-      <tr>
-        <th id="th-diferente">Fator de autenticação</th>
-        <td></td>
-      </tr>
-        <!-- Adicione mais colunas conforme necessário -->
-      </tr>
-    </thead>
-  </table>
 
-  
-<!-- ACESSIBILIDADES DE LIBRAS -->
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    new window.VLibras.Widget ('https://vlibras.gov.br/app');
-  </script>
+  <section class="tabela_toda">
+    <section class="conteudo">
+      <h2 class="topo_tabela">*NOME*</h2>
+      <section class="tabela">
+        <div class="corpo_tabela">
+          <p>Data do login:</p>
+          <div class="border">
+            <p>lorem</p>
+          </div>
+
+        </div>
+
+        <div class="corpo_tabela">
+          <p>Hora do login:</p>
+          <div class="border">
+            <p>lorem</p>
+          </div>
+        </div>
+        <div class="corpo_tabela">
+          <p>Fator de autenticação:</p>
+          <div class="border">
+            <p>lorem</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+  </section>
+
+
 
   <footer>
     <br>
-     <p class="social"> Siga-nos nas nossas redes sociais:</p>
-    
-      <div class="social-icons">
-        
-          <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
-        
-    
+    <p class="social"> Siga-nos nas nossas redes sociais:</p>
+
+    <div class="social-icons">
+
+      <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
+
+
   </footer>
 
 
