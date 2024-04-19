@@ -1,3 +1,5 @@
+// DARK MODE 
+
 document.addEventListener('DOMContentLoaded', function() {
     // Alternar a visibilidade das opções de acessibilidade
     document.getElementById('accessibility-icon').addEventListener('click', function() {
@@ -37,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+// HAMBURGUER JS 
+
   let hamburger = document.getElementById('hamburguer');
   let mobileMenu = document.getElementById('mobile');
   let closeButton = document.querySelector('.close-btn');

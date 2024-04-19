@@ -251,6 +251,8 @@ footer {
   text-decoration: none;
 }
 
+/* DARK MODE  */
+
 body.dark-mode form {
   background-color: #282828;
 }
@@ -368,6 +370,8 @@ body.dark-mode #enviarButton{
 .fa-moon {
   font-size: 20px;
 }
+
+/* HAMBURGUER  */
 
 #mobile {
   position: fixed;
