@@ -326,7 +326,7 @@ body.dark-mode h1{
   color: #E1F9D7;
 }
 
-
+body.dark-mode .cadastrar,
 body.dark-mode  .fa-search{
   color: #070B06;
 }
@@ -334,7 +334,7 @@ body.dark-mode  .fa-search{
  body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
   background-color: #070B06; 
  }
-
+body.dark-mode .btn-enviar,
 body.dark-mode .btn_cadastrar,
 body.dark-mode .btn_limpar{
   background-color: #151515;
