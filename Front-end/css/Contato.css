@@ -191,7 +191,10 @@ form {
 }
 
 .contact-form label {
-  margin: 10px 0 5px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-top: 30px;
 }
 
 .contact-input {
@@ -291,7 +294,7 @@ footer{
 body.dark-mode {
   background-color: #151515;
 }
-body.dark-mode form {
+body.dark-mode .divForm {
   background-color: #282828;
 }
 
@@ -336,16 +339,9 @@ body.dark-mode .btn_cadastrar,
 body.dark-mode .btn_limpar{
   background-color: #151515;
 }
-
+body.dark-mode .contact-form h2,
+body.dark-mode .contact-info h2,
 body.dark-mode .conta p,
-body.dark-mode #mensagem,
-body.dark-mode #mensagemNome,
-body.dark-mode #mensagemCpf,
-body.dark-mode #mensagemCep,
-body.dark-mode #mensagemEmail,
-body.dark-mode #mensagemLogin,
-body.dark-mode #mensagemform,
-body.dark-mode .label_login,
 body.dark-mode .menu_btn a,
 body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn, body.dark-mode a {
   color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
