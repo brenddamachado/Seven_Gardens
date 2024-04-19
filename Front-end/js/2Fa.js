@@ -1,17 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Alternar a visibilidade das opções de acessibilidade
-  document.getElementById('accessibility-icon').addEventListener('click', function() {
+  document.getElementById('accessibility-icon').addEventListener('click', function () {
     var otherThings = document.getElementById('other-things');
     otherThings.style.display = otherThings.style.display === 'none' ? 'flex' : 'none';
   });
 
   // Alternar para o modo claro
-  document.getElementById('light-mode-toggle').addEventListener('click', function() {
+  document.getElementById('light-mode-toggle').addEventListener('click', function () {
     document.body.classList.remove('dark-mode');
   });
 
   // Alternar para o modo escuro
-  document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+  document.getElementById('dark-mode-toggle').addEventListener('click', function () {
     document.body.classList.add('dark-mode');
   });
 
@@ -27,25 +27,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Evento para aumentar o tamanho da fonte de elementos específicos
-  document.getElementById('increase-font').addEventListener('click', function() {
+  document.getElementById('increase-font').addEventListener('click', function () {
     adjustFontSizeForElements(2); // Aumenta o tamanho da fonte em 2px
   });
 
   // Evento para diminuir o tamanho da fonte de elementos específicos
-  document.getElementById('decrease-font').addEventListener('click', function() {
+  document.getElementById('decrease-font').addEventListener('click', function () {
     adjustFontSizeForElements(-2); // Diminui o tamanho da fonte em 2px
   });
 });
 
-let hamburger = document.getElementById('hamburguer');
-let mobileMenu = document.getElementById('mobile');
-let closeButton = document.querySelector('.close-btn');
+// HAMBURGUER JS
+document.addEventListener('DOMContentLoaded', function () {
+  let hamburger = document.getElementById('hamburguer');
+  let mobileMenu = document.getElementById('mobile');
+  let closeButton = document.querySelector('.close-btn');
 
-hamburger.addEventListener('click', function() {
-  mobileMenu.style.left = "0"; // Abre o menu
+  hamburger.addEventListener('click', function () {
+    mobileMenu.style.left = "0"; // Abre o menu
+  });
+
+  closeButton.addEventListener('click', function () {
+    mobileMenu.style.left = "-100%"; // Fecha o menu
+  });
 });
 
-closeButton.addEventListener('click', function() {
-  mobileMenu.style.left = "-100%"; // Fecha o menu
-});
-  

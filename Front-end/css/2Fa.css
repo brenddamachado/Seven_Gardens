@@ -100,7 +100,8 @@ ul {
 }
 
 .dropbtn {
-  color: #FBF3DC;
+ 
+  color: #fbf3dc;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -110,22 +111,22 @@ ul {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #405B39;
+  background-color: #405b39;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
   font-size: 15px;
-  color: #FBF3DC;
+  color: #fbf3dc;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: #0F2B05;
+  background-color: #0f2b05;
 }
 
 .dropdown:hover .dropdown-content {
@@ -138,7 +139,7 @@ ul {
   cursor: pointer;
 }
 .menu_btn a {
-  color: #FBF3DC;
+  color: #fbf3dc;
   font-size: 16px;
   text-decoration: none;
 }
@@ -467,18 +468,92 @@ body.dark-mode #enviarButton{
 }
 /*fim do css*/
 
+@media (max-width: 915px) {
+  header {
+    width: 920px;
+  }
+  footer{
+    width: 920px;
+  }
+  .divForm form{
+    width: 350px;
+    margin-left: 100px;
+  }
+
+    .divForm {
+      display: block;
+      padding: 100px
+    }
+}
+
+@media (max-width: 766px) {
+  .mobile_i, .icon_mobile {
+    display: block;
+  }
+  
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+    
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
+  .divForm form {
+    margin-left: 120px;
+  }
+
+  .pesquisa-icon {
+    top: 45%;
+  }
+
+  .opcoes {
+    height: auto;
+  }
+
+  .menu_btn {
+    padding: 5px 10px;
+  }
+  .pesquisa-container {
+    left: 80px;
+}
+}
+
+
+
+/* Para celulares pequenos (telas menores que 400px) */
+@media (max-width: 400px) {
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+}
 
 @media (max-width: 624px) {
-
-  .pesquisa {
-    width: 100%; 
-  }
-  .header ul li {
-    text-align: center;
-  }
-  .divForm .container {
-    width: 70%;
-  }
+ 
+ 
   .container {
     min-width: auto;
   }
@@ -487,13 +562,54 @@ body.dark-mode #enviarButton{
   }
 }
 
-/* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons{
-    display: flex;
-   gap: 1rem;
+
+
+
+/* Correções básicas para responsividade */
+body, header, footer, .container {
+  width: 100%; /* Garante que não ultrapassem a largura da tela */
+  margin: 0 auto; /* Centraliza na página */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
+}
+
+
+
+
+
+/* Ajustes específicos para o menu móvel */
+@media (max-width: 766px) {
+  .mobile_i, .icon_mobile {
+      display: block; /* Mostra o menu hambúrguer e ícones relevantes */
   }
-  .cadastrar {
-    width: 80%;
+  
+  .opcoes, .pesquisa-container, .nav_a {
+      display: none; /* Oculta opções que não cabem em telas pequenas */
+  }
+
+  #mobile {
+      display: block; /* Mostra o menu lateral */
+      left: 0; /* Ajusta a posição para ser visível */
+  }
+
+  .section_mobile {
+      display: flex; /* Garante que o menu mobile seja exibido corretamente */
   }
 }
+
+/* Ajustes adicionais para melhor visualização em dispositivos variados */
+@media (max-width: 400px) {
+  .divForm {
+      width: 90%; /* Ajusta a largura do formulário para caber em telas muito pequenas */
+      padding: 1rem; /* Reduz o padding para mais espaço */
+  }
+
+  .header {
+      flex-direction: column; /* Organiza os elementos do header verticalmente */
+  }
+
+  .buttons {
+      flex-direction: column; /* Ajusta botões para uma coluna em telas pequenas */
+  }
+}
+
+
