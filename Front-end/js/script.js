@@ -198,3 +198,18 @@ document.addEventListener("DOMContentLoaded", function () {
       adjustFontSizeForElements(-2); // Diminui o tamanho da fonte em 2px
     });
 });
+
+// FINAL DO DARK MODE
+
+//hamburguer menu
+let hamburger = document.getElementById('hamburguer');
+let mobileMenu = document.getElementById('mobile');
+let closeButton = document.querySelector('.close-btn');
+
+hamburger.addEventListener('click', function() {
+  mobileMenu.style.left = "0"; // Abre o menu
+});
+
+closeButton.addEventListener('click', function() {
+  mobileMenu.style.left = "-100%"; // Fecha o menu
+});
