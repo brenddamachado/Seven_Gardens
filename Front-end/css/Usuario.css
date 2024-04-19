@@ -327,20 +327,155 @@ footer{
   
 }
 
-/* Resposta para dispositivos móveis */
-@media (max-width: 624px) {
-  .pesquisa {
-      width: 100%;
-  }
+/* inicio DARK MODE */
+body.dark-mode {
+  background-color: #151515;
+}
+body.dark-mode form {
+  background-color: #282828;
+}
 
-  .header ul li {
-      text-align: center;
+
+ body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
+  background: #1E1F1E;
+
+
+}
+
+
+.fa-universal-access, .fa-moon, .fa-sun{
+  color: #7A7979;
+}
+body.dark-mode .sessao{
+  color: #fff;
+}
+
+
+body.dark-mode  .fa-search{
+  color: #070B06;
+}
+
+
+body.dark-mode .card {
+  background-color: #282828;  
+}
+
+
+body.dark-mode .social-icons p{
+  color: #fff;
+}
+
+
+body.dark-mode h3,
+body.dark-mode p{
+  color: #E1F9D7;
+}
+
+
+ body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
+  background-color: #070B06;
+ }
+
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar{
+  background-color: #151515;
+}
+
+
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn, body.dark-mode a {
+  color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+}
+
+
+
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+
+.img_letra {
+  width: 20px;
+}
+
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+
+/* FINAL DO DARK MODE */
+
+
+/* Estilos para telas menores que 768px (tamanho típico de tablets) */
+@media only screen and (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 100%;
   }
 }
 
-@media (max-width: 400px) {
-  .buttons {
-      display: flex;
-      gap: 1rem;
+
+/* Estilos para telas menores que 480px (tamanho típico de smartphones) */
+@media only screen and (max-width: 480px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+
+
+  .card {
+    padding: 10px;
   }
 }
+
+
+
+
