@@ -6,13 +6,13 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
-  transition: 0.5s;
-  background-color: white;
+  background-color: #f4f4f4; /* Cor padrão claro */
+
 }
 
 header {
   background-color: #0f2b05;
+
 }
 .header {
   height: 180px;
@@ -29,12 +29,7 @@ ul {
   list-style-type: none;
   font-size: 20px;
 }
-/* .barra_pesquisa input{
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
 
-} */
 .logo {
   width: 155px;
   height: 200px;
@@ -47,8 +42,7 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
-  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
-}
+  position: relative;}
 #icon {
   width: 35px;
   margin-top: 2px;
@@ -148,6 +142,7 @@ ul {
   text-decoration: none;
 }
 
+
 /* fim do header */
 
 /* inicio do carrossel */
@@ -208,79 +203,15 @@ html {
 .titulopg {
   display: flex;
   justify-content: center;
-  
+
 }
 .titulopg h1 {
   color: #405b39;
 }
-/*css para card de fotos
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-}
+/* fim do carrossel */
 
-.col {
-  flex: 0 0 calc(25% - 30px);
-  max-width: calc(25% - 30px);
-  padding: 0 15px;
-  margin-bottom: 30px;
-}
 
-.col:last-child {
-  margin-right: 0;
-}
-
-.card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.details {
-  padding: 15px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.price {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.buy-btn {
-  background-color: #405b39;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-
-}
-
-.buy-btn:hover {
-  background-color: #0f2b05;
-}
-*/
 
 /* inicio footer */
 
@@ -417,6 +348,7 @@ footer {
   padding: 4px 10px;
 }
 
+
 /* inicio footer */
 footer {
   background-color: #0f2b05;
@@ -512,15 +444,16 @@ footer {
   /* Adicione posicionamento relativo */
 }
 /* inicio DARK MODE */
-
-body.dark-mode form {
-  background-color: #282828;
+body.dark-mode {
+  background-color: #151515;
 }
 
-body.dark-mode .dropbtn, body.dark-mode .opcoes {
+
+ body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
   background: #1E1F1E;
 
 }
+
 
 .fa-universal-access, .fa-moon, .fa-sun{
   color: #7A7979;
@@ -538,23 +471,23 @@ body.dark-mode .login, body.dark-mode  .fa-search{
   background-color: #070B06; 
  }
 
-body.dark-mode .btn_cadastrar,
-body.dark-mode .btn_limpar, body.dark-mode {
-  background-color: #151515;
-}
+
 
 body.dark-mode .conta p,
-body.dark-mode #mensagem,
-body.dark-mode #mensagemNome,
-body.dark-mode #mensagemCpf,
-body.dark-mode #mensagemCep,
-body.dark-mode #mensagemEmail,
-body.dark-mode #mensagemLogin,
-body.dark-mode #mensagemform,
-body.dark-mode .label_login,
-body.dark-mode .menu_btn a,
 body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn  {
   color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+}
+body.dark-mode h1{
+  color: #E1F9D7;
+}
+
+body.dark-mode p{
+  color: #E1F9D7;
+}
+
+body.dark-mode .social-icons p
+{
+  color: #f4f4f4;
 }
 
 
@@ -610,92 +543,173 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 
 
 
-/* Adicione isso no final do seu CSS para as regras de RESPONSIVIDADE */
-
-/* Para telas menores que 768px (por exemplo, smartphones em modo retrato) */
-@media only screen and (max-width: 767px) {
-  .header {
-    height: auto;
-    /* Defina a altura automática para acomodar o conteúdo */
-    flex-direction: column;
-    /* Empilhe os itens verticalmente */
-    align-items: center;
-    /* Alinhe os itens ao centro */
-  }
-
-  .logo {
-    width: 30%;
-    /* Defina a largura do logotipo para 30% do contêiner pai */
-    height: auto;
-    /* Mantenha a proporção */
-    margin-top: 40px;
-  }
-
-  ul {
-    flex-direction: row;
-    /* Agora, os itens da lista serão dispostos horizontalmente */
-    align-items: center;
-    /* Alinhe os itens ao centro verticalmente */
-    margin-left: auto;
-    /* Empurre a lista para o lado direito */
-    margin-top: 10px;
-    /* Adicione espaço acima da lista */
-  }
-
-  li {
-    margin-left: 10px;
-    /* Adicione um espaço entre os itens da lista */
-  }
-
-
-  .carousel-item img {
-    height: 200px;
-    /* Reduza a altura das imagens do carrossel */
-  }
-
-  .col {
-    flex: 0 0 calc(50% - 30px);
-    /* Faça as colunas ocuparem 50% da largura */
-    max-width: calc(50% - 30px);
-    /* Largura máxima de 50% */
-  }
-
-  footer {
-    flex-direction: column;
-    /* Empilhe os itens verticalmente */
-    align-items: center;
-    /* Alinhe os itens ao centro */
-  }
-
-  .social-icons {
-    margin-bottom: 20px;
-    /* Adicione espaço abaixo dos ícones sociais */
-  }
-
-  #produtos {
-    margin-top: 0;
-    /* Reset a margem superior */
-  }
+/* Media queries para responsividade */
+/* Estilo para o menu lateral escondido e animação */
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
 }
 
-/*RESPONSIVIDADE*/
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
 
-/* Para telas menores que 576px (por exemplo, smartphones em modo paisagem) */
-@media only screen and (max-width: 575px) {
-  .pesquisa {
-    width: 100%;
-    /* Faça a barra de pesquisa ocupar a largura total */
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
+
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+ /* Media queries para responsividade */
+/* Media queries para responsividade */
+
+@media (max-width: 915px) {
+  header {
+    width: 920px;
+  }
+  footer{
+    width: 920px;
+  }
+ 
+}
+
+@media (max-width: 766px) {
+  .mobile_i, .icon_mobile {
+    display: block;
   }
 
   .opcoes {
-    font-size: 10px;
-    /* Reduza o tamanho da fonte para os ícones */
+    display: none;
   }
 
-  .carousel-item img {
-    height: 150px;
-    /* Reduza ainda mais a altura das imagens do carrossel */
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
+  .formulario form {
+    margin-left: 120px;
+  }
+
+  .pesquisa-icon {
+    top: 45%;
+  }
+
+  .opcoes {
+    height: auto;
+  }
+
+  .menu_btn {
+    padding: 5px 10px;
+  }
+  .pesquisa-container {
+    left: 80px;
+}
+  
+}
+
+@media (max-width: 624px) {
+
+
+.conta p{
+  margin-top: 10px;
+}
+  .conta {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .sessao {
+    margin-top: 5px;
+  }
+
+  .genero input {
+    margin-left: 8rem;
   }
 }
 
-/* Para telas menores que 768px (por exemplo, smartphones em modo retrato) */
+/* Para celulares pequenos (telas menores que 400px) */
+@media (max-width: 400px) {
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+}
+
+
+
+
+
+
+
