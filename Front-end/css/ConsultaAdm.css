@@ -144,7 +144,7 @@ ul {
 }
 
 
-/* inicio da tabela */
+/* inicio da formulario*/
 form {
   background-color: #fff;
   border-radius: 5px;
@@ -344,6 +344,109 @@ footer {
   background-color: #7ED957; /* Altera a cor de fundo quando o mouse está sobre a categoria */
 }
 
+
+/* inicio DARK MODE */
+
+body.dark-mode form {
+  background-color: #282828;
+}
+
+body.dark-mode .dropbtn, body.dark-mode .opcoes {
+  background: #1E1F1E;
+
+}
+
+.fa-universal-access, .fa-moon, .fa-sun{
+  color: #7A7979;
+}
+body.dark-mode .sessao{
+  color: #fff;
+}
+
+body.dark-mode .login, body.dark-mode  .fa-search{
+
+  color: #070B06;
+}
+
+ body.dark-mode header,   body.dark-mode footer{
+  background-color: #070B06; 
+ }
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar, body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode .conta p,
+body.dark-mode h2,
+body.dark-mode .title,
+body.dark-mode .login,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn  {
+  color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+}
+
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+.fa-chevron-down {
+  display: inline-block; /* ou 'block', dependendo do seu layout */
+}
+/* FINAL DO DARK MODE */
+
+
+
+
+
 /* COMEÇO DA RESPONSIVIDADE DA PÁGINA*/
 @media only screen and (max-width: 767px) {
 .header {
@@ -374,7 +477,7 @@ footer {
 @media only screen and (max-width: 767px) {
   form {
     max-width: 50%; /* Reduz a largura do formulário para 90% da largura da tela */
-    padding: 20px; /* Reduz o preenchimento para 20px */
+    padding: 50px; /* Reduz o preenchimento para 20px */
   }
 
   .input-box {
@@ -385,32 +488,13 @@ footer {
     font-size: 0.9rem; /* Reduz o tamanho da fonte do botão */
   }
 }
-
-/* Responsividade para os produtos */
 @media only screen and (max-width: 767px) {
-  .col {
-    flex: 0 0 calc(50% - 20px); /* Faça as colunas ocuparem 50% da largura */
-    max-width: calc(50% - 20px); /* Largura máxima de 50% */
-    margin-right: 10px; /* Adicione margem à direita para separar as colunas */
-    margin-bottom: 20px; /* Adicione espaço entre as linhas de cartões */
+  #tabelaUsuarios {
+    width: calc(80% - 50px); /* Ajuste a largura da tabela para ocupar 100% menos 20px de margem */
   }
-
-  .card img {
-    width: 100%; /* Faça as imagens dos cartões ocuparem toda a largura do cartão */
-    height: auto; /* Mantenha a proporção */
-  }
-}
-
-/* Responsividade para as categorias */
-@media only screen and (max-width: 767px) {
-  .categorias {
-    left: 0; /* Alinha as categorias à esquerda */
-    margin-left: 0; /* Remove a margem esquerda */
-    width: 100%; /* Define a largura para 100% */
-    text-align: center; /* Centraliza o texto */
-  }
-
-  .categorias li {
-    margin: 5px 0; /* Adiciona espaço entre os itens de categoria */
+  #tabelaUsuarios th,
+  #tabelaUsuarios td {
+    max-width: 100%; /* Reduz a largura do formulário para 90% da largura da tela */
+   
   }
 }
