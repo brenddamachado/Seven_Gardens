@@ -6,11 +6,16 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f4f4f4; /* Cor padrão claro */
+
 }
+
+
+
 
 header {
   background-color: #0f2b05;
+  
 }
 .header {
   height: 180px;
@@ -27,12 +32,7 @@ ul {
   list-style-type: none;
   font-size: 20px;
 }
-/* .barra_pesquisa input{
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-    
-} */
+
 .logo {
   width: 155px;
   height: 200px;
@@ -45,11 +45,11 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
-  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
-}
+  position: relative;}
 #icon {
   width: 35px;
   margin-top: 2px;
+  margin-right: 15px;
   font-size: 20px;
   color: #7ed957;
   border-color: #7ed957;
@@ -60,11 +60,13 @@ ul {
 }
 
 .pesquisa {
-  width: 450px; /* Define o tamanho do input */
+  width: 490px; /* Define o tamanho do input */
   height: 30px;
   border-radius: 7px;
   border: none; /* Remove as bordas */
   background-color: #fbf3dc; /* Define a cor de fundo desejada */
+  margin-top: 75px;
+  margin-left: 30px;
 }
 
 .pesquisa-icon {
@@ -92,42 +94,61 @@ ul {
   padding: 4px 10px;
   text-decoration: none;
 }
-#produtos {
-  font-size: 18px;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+ 
   color: #fbf3dc;
-  transition: margin-top 0.3s; /* Adiciona uma transição para uma animação suave */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
-#produtos:hover {
-  margin-top: 10px; /* Define a margem superior durante o hover */
-}
-
-.categorias {
+.dropdown-content {
   display: none;
   position: absolute;
-  top: calc(100% + 1px); /* Calcula a posição com base na altura do elemento pai */
-  left: 0;
   background-color: #405b39;
-  padding: 10px;
-  margin-left: 150px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
-.categorias li {
-  font-size: 18px;
-  list-style-type: none;
-  margin-bottom: 10px;
-  cursor: pointer; /* Altera o cursor para indicar que os itens são clicáveis */
+.dropdown-content a {
+  font-size: 15px;
+  color: #fbf3dc;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
-.categorias li:hover {
-  background-color: #7ED957; /* Altera a cor de fundo quando o mouse está sobre a categoria */
+.dropdown-content a:hover {
+  background-color: #0f2b05;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.menu_btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.menu_btn a {
+  color: #fbf3dc;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 /* fim do header */
 
 /* formulario */
 .formulario {
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,6 +189,7 @@ ul {
   color: #fff;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 10px;
@@ -258,34 +280,267 @@ footer {
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
 
-@media (max-width: 624px) {
 
-  .pesquisa {
-    width: 100%; /* Ocupa a largura total */
+/* inicio DARK MODE */
+body.dark-mode {
+  background-color: #151515;
+}
+body.dark-mode form {
+  background-color: #282828;
+}
+
+ body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
+  background: #1E1F1E;
+
+}
+
+.fa-universal-access, .fa-moon, .fa-sun{
+  color: #7A7979;
+}
+body.dark-mode .sessao{
+  color: #fff;
+}
+
+body.dark-mode .login, body.dark-mode  .fa-search{
+
+  color: #070B06;
+}
+
+ body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
+  background-color: #070B06; 
+ }
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar{
+  background-color: #151515;
+}
+
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn, body.dark-mode a {
+  color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+}
+
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+/* FINAL DO DARK MODE */
+
+/* Estilo para o menu lateral escondido e animação */
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
+
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+ /* Media queries para responsividade */
+/* Media queries para responsividade */
+
+@media (max-width: 915px) {
+  header {
+    width: 920px;
   }
-  .header ul li {
-    text-align: center;
+  footer{
+    width: 920px;
   }
+  .formulario form{
+    width: 350px;
+    margin-left: 100px;
+  }
+
+    .formulario {
+      display: block;
+      padding: 100px
+    }
+}
+
+@media (max-width: 766px) {
+  .mobile_i, .icon_mobile {
+    display: block;
+  }
+  
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+    
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
   .formulario form {
-    width: 70%;
+    margin-left: 120px;
   }
+
+  .pesquisa-icon {
+    top: 45%;
+  }
+
+  .opcoes {
+    height: auto;
+  }
+
+  .menu_btn {
+    padding: 5px 10px;
+  }
+  .pesquisa-container {
+    left: 80px;
+}
+}
+
+@media (max-width: 624px) {
+ 
+
+.conta p{
+  margin-top: 10px;
+}
   .conta {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     padding: 10px;
   }
+
   .sessao {
     margin-top: 5px;
   }
-  .genero input{
+
+  .genero input {
     margin-left: 8rem;
   }
 }
 
 /* Para celulares pequenos (telas menores que 400px) */
 @media (max-width: 400px) {
-  .buttons{
+  .buttons {
     display: flex;
-   gap: 1rem;
+    gap: 1rem;
   }
+
 }

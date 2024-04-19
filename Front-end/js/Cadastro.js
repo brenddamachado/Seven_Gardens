@@ -20,14 +20,15 @@ const mensagemCPF = document.getElementById("mensagemCPF");
 const mensagemCep = document.getElementById("mensagemCep");
 const mensagemEmail = document.getElementById("mensagemEmail");
 const mensagemLogin = document.getElementById("mensagemLogin");
-const form = document.getElementById('formulario')
+let mensagemNomeMae = document.getElementById("mensagemNomeMae");
+const form = document.getElementById("formulario");
 const limpar = document.getElementById("limpar");
 const comple = document.getElementById("comple");
 const generoInputs = document.querySelectorAll('.genero input[type="radio"]');
 
 const genero = document.querySelector(".genero");
 const data = document.getElementById("data");
-const mensagemform = document.getElementById('mensagemform')
+const mensagemform = document.getElementById("mensagemform");
 // Variáveis de validação
 let validenome = false;
 let validesenha = false;
@@ -36,50 +37,58 @@ let validelogin = false;
 let validecpf = false;
 let validecep = false;
 let valideemail = false;
-
-form.addEventListener('submit', (event) => {
+let valideMae = false;
+let nomeDaMãe = document.getElementById("nomeDamae");
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let isChecked = false;
-  generoInputs.forEach(input => {
+  generoInputs.forEach((input) => {
     if (input.checked) {
       isChecked = true;
     }
   });
 
   if (!isChecked) {
-    mensagem.innerHTML ="Por favor, selecione uma opção de gênero; ";
+    mensagem.innerHTML = "Por favor, selecione uma opção de gênero; ";
   }
-    // Verificar se a data foi selecionada
-    if (!data.value) {
-      mensagem.innerHTML ="Por favor, selecione uma data; ";
-    }
-  if(mensagem.innerHTML === "") {
-   
-    mensagem.innerHTML = 'Cadastrado com sucesso!!';
-    window.location.replace('login.html');
+  // Verificar se a data foi selecionada
+  if (!data.value) {
+    mensagem.innerHTML = "Por favor, selecione uma data; ";
+  }
+  if (mensagem.innerHTML === "") {
+    mensagem.innerHTML = "Cadastrado com sucesso!!";
+    window.location.replace("login.html");
 
     // Não envie o formulário
   } else {
- 
     mensagem.innerHTML = "Campos inválidos";
   }
 });
-
-
-
-
 
 nome.addEventListener("input", () => {
   // Remova caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
 
-  if (nome.value.length >= 15 && nome.value.length < 60) {
-      mensagemNome.innerHTML = "";
-      validenome = true;
+  if (nome.value.length >= 15 && nome.value.length < 80) {
+    mensagemNome.innerHTML = "";
+    validenome = true;
   } else {
-      mensagemNome.innerHTML = "Insira no mínimo 15 caracteres";
-      validenome = false;
+    mensagemNome.innerHTML = "Insira no mínimo 15 caracteres";
+    validenome = false;
+  }
+});
+
+nomeDaMãe.addEventListener("input", () => {
+  // Remova caracteres que não são letras ou espaços
+  nomeDaMãe.value = nomeDaMãe.value.replace(/[^a-zA-Z\s]/g, "");
+
+  if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 80) {
+    mensagemNomeMae.innerHTML = "";
+    validenome = true;
+  } else {
+    mensagemNomeMae.innerHTML = "Insira no mínimo 15 caracteres";
+    validenome = false;
   }
 });
 
@@ -153,15 +162,14 @@ cpf.addEventListener("input", () => {
   const isCPFValid = validarCPF(cpf.value);
 
   if (isCPFValid) {
-      mensagemCPF.innerHTML = ""; // Limpa a mensagem se o CPF for válido
-      cpf.value = isCPFValid; // Define o valor da entrada como o CPF formatado
-      validecpf = true;
+    mensagemCPF.innerHTML = ""; // Limpa a mensagem se o CPF for válido
+    cpf.value = isCPFValid; // Define o valor da entrada como o CPF formatado
+    validecpf = true;
   } else {
-      mensagemCPF.innerHTML = "CPF inválido";
-      validecpf = false;
+    mensagemCPF.innerHTML = "CPF inválido";
+    validecpf = false;
   }
 });
-
 
 $(document).ready(function () {
   //celular
@@ -193,14 +201,14 @@ function preencherEndereco(cep) {
       if (!response.ok) {
         throw new Error("Não foi possível obter os dados do CEP.");
       }
-      validecep=true
+      validecep = true;
       return response.json();
     })
     .then((data) => {
       if (data.erro) {
         mensagemCep.innerHTML = "CEP não encontrado";
-        validecep = false
-        return ;
+        validecep = false;
+        return;
       }
 
       cidadeInput.val(data.localidade);
@@ -218,7 +226,6 @@ function preencherEndereco(cep) {
       mensagemCep.innerHTML = "Erro ao obter dados do CEP";
     });
 }
-
 
 // Evento e função para preencher endereço a partir do CEP
 cepInput.on("input", function () {
@@ -295,6 +302,7 @@ limpar.addEventListener("click", (event) => {
   cidadeInput.val(""); // Limpa o campo de input cidade
   ruaInput.val("");
   bairroInput.val("");
+  nomeDaMãe.value = "";
   // Limpar a seleção dos radios de gênero
   document.querySelectorAll(".genero").forEach((radio) => {
     radio.checked = false;
@@ -309,42 +317,17 @@ limpar.addEventListener("click", (event) => {
   mensagemEmail.innerHTML = "";
   mensagemLogin.innerHTML = "";
   mensagem.innerHTML = "";
+  mensagemNomeMae.innerHTML = "";
 });
 
-let produtos = document.getElementById('produtos');
-let categorias = document.querySelector(".categorias");
-let listaCategorias = document.querySelectorAll(".categoria");
+let hamburger = document.getElementById("hamburguer");
+let mobileMenu = document.getElementById("mobile");
+let closeButton = document.querySelector(".close-btn");
 
-produtos.addEventListener("click", function() {
-  categorias.style.display = categorias.style.display === "block" ? "none" : "block";
+hamburger.addEventListener("click", function () {
+  mobileMenu.style.left = "0"; // Abre o menu
 });
 
-produtos.addEventListener("mouseenter", function() {
-  categorias.style.display = "block";
+closeButton.addEventListener("click", function () {
+  mobileMenu.style.left = "-100%"; // Fecha o menu
 });
-
-produtos.addEventListener("mouseleave", function() {
-  setTimeout(() => {
-    if (!categorias.matches(':hover')) {
-      categorias.style.display = "none";
-    }
-  }, 100);
-});
-
-categorias.addEventListener("mouseenter", function() {
-  categorias.style.display = "block";
-});
-
-categorias.addEventListener("mouseleave", function() {
-  categorias.style.display = "none";
-});
-
-listaCategorias.forEach(function(categoria) {
-  categoria.addEventListener("click", function() {
-    listaCategorias.forEach(function(c) {
-      c.classList.remove("selecionada");
-    });
-    categoria.classList.add("selecionada");
-  });
-});
-
