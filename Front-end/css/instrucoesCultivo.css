@@ -9,17 +9,20 @@ body {
 header {
   background-color: #0f2b05;
 }
+
 .header {
   height: 180px;
 
   display: flex;
   justify-content: space-between;
 }
-ul {
+
+.caminhos {
   padding: 20px;
   display: flex;
   gap: 20px;
 }
+
 .header ul li {
   list-style-type: none;
   font-size: 20px;
@@ -59,7 +62,7 @@ ul {
   position: absolute;
   background-color: #405B39;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -82,6 +85,7 @@ ul {
 .dropdown-content {
   right: -20;
 }
+
 #icon {
   width: 35px;
   margin-top: 2px;
@@ -90,27 +94,33 @@ ul {
   color: #7ED957;
   border-color: #7ED957;
 }
+
 .pesquisa-container {
   position: relative;
   display: inline-block;
 }
 
 .pesquisa {
-  width: 490px; /* Define o tamanho do input */
+  width: 490px;
+  /* Define o tamanho do input */
   height: 30px;
   border-radius: 7px;
-  border: none; /* Remove as bordas */
-  background-color: #FBF3DC; /* Define a cor de fundo desejada */
+  border: none;
+  /* Remove as bordas */
+  background-color: #FBF3DC;
+  /* Define a cor de fundo desejada */
   margin-top: 75px;
   margin-left: 30px;
 }
 
 .pesquisa-icon {
   position: absolute;
-  right: 15px; /* Posiciona o ícone à direita */
+  right: 15px;
+  /* Posiciona o ícone à direita */
   top: 50%;
   transform: translateY(-50%);
 }
+
 .opcoes h2 {
   color: #fbf3dc;
 }
@@ -134,11 +144,13 @@ ul {
   border: none;
   cursor: pointer;
 }
+
 .menu_btn a {
   color: #FBF3DC;
   font-size: 16px;
   text-decoration: none;
 }
+
 /* Estilos para a página de "Instruções de cultivo" */
 .instrucoes-container {
   max-width: 800px;
@@ -154,11 +166,11 @@ ul {
 }
 
 .section:nth-child(even) {
-  background-color: #f2f2f2; /* Adiciona cor de fundo em alternância */
+  background-color: #f2f2f2;
+  /* Adiciona cor de fundo em alternância */
 }
 
-.instrucoes-container h1
-.instrucoes-container h2,
+.instrucoes-container h1 .instrucoes-container h2,
 .instrucoes-container h3 {
   color: #405b39;
   margin-top: 20px;
@@ -172,7 +184,7 @@ ul {
 .card {
   border-radius: 10px;
   padding: 10px;
- /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
 }
 
 .card-item {
@@ -182,7 +194,8 @@ ul {
 }
 
 .card-item:nth-child(even) {
-  background-color: #f7f7f7; /* Adiciona cor de fundo em alternância para os itens */
+  background-color: #f7f7f7;
+  /* Adiciona cor de fundo em alternância para os itens */
 }
 
 .instrucoes-container ol,
@@ -220,13 +233,14 @@ footer {
 
 .divForm {
   width: 100%;
-max-width: 600px;
-background-color: #fff;
-padding: 3rem;
-box-sizing: border-box;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  background-color: #fff;
+  padding: 3rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .form-header {
   text-align: center;
   margin-bottom: 20px;
@@ -287,75 +301,84 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 body.dark-mode {
   background-color: #151515;
 }
+
 body.dark-mode form {
   background-color: #282828;
 }
 
- body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
+body.dark-mode .opcoes,
+body.dark-mode .section_mobile,
+body.dark-mode #mobile,
+body.dark-mode .dropdown-content {
   background: #1E1F1E;
 
 }
 
-body.dark-mode .card-item:nth-child(even){
+body.dark-mode .card-item:nth-child(even) {
   background-color: #282828;
   color: #E1F9D7;
 }
 
-body.dark-mode .card-item{
-  background-color: #282828 ;
-  color:#E1F9D7 ;
+body.dark-mode .card-item {
+  background-color: #282828;
+  color: #E1F9D7;
 }
 
-body.dark-mode section{
+body.dark-mode section {
   background-color: #282828;
 }
 
-.fa-universal-access, .fa-moon, .fa-sun{
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
   color: #7A7979;
 }
-body.dark-mode .sessao{
+
+body.dark-mode .sessao {
   color: #fff;
 }
 
-body.dark-mode h3{
+body.dark-mode h3 {
   color: #E1F9D7;
 }
 
-body.dark-mode .section{
+body.dark-mode .section {
   background-color: #282828;
 }
 
-body.dark-mode h2{
-  color: #E1F9D7 ;
+body.dark-mode h2 {
+  color: #E1F9D7;
 }
 
 body.dark-mode .login li {
   color: #E1F9D7;
 }
 
-body.dark-mode p{
+body.dark-mode p {
   color: #E1F9D7;
 }
 
-body.dark-mode .social-icons p{
+body.dark-mode .social-icons p {
   color: #ffffff;
 }
 
-body.dark-mode h1{
+body.dark-mode h1 {
   color: #E1F9D7;
 }
 
 
-body.dark-mode  .fa-search{
+body.dark-mode .fa-search {
   color: #070B06;
 }
 
- body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
-  background-color: #070B06; 
- }
+body.dark-mode header,
+body.dark-mode footer,
+.dropdown-content a:hover {
+  background-color: #070B06;
+}
 
 body.dark-mode .btn_cadastrar,
-body.dark-mode .btn_limpar{
+body.dark-mode .btn_limpar {
   background-color: #151515;
 }
 
@@ -369,8 +392,13 @@ body.dark-mode #mensagemLogin,
 body.dark-mode #mensagemform,
 body.dark-mode .label_login,
 body.dark-mode .menu_btn a,
-body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn, body.dark-mode a {
-  color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn,
+body.dark-mode a {
+  color: #E1F9D7;
+  /* Cor ajustada para elementos no modo escuro */
 }
 
 
@@ -404,12 +432,13 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   transform: scale(1.2);
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
-footer{
+
+footer {
   background-color: #0f2b05;
   height: 200px;
   flex-direction: column;
   align-items: center;
-  
+
 }
 
 #accessibility-section {
@@ -422,7 +451,7 @@ footer{
 }
 
 #other-things {
-  display: none; 
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -455,32 +484,168 @@ footer{
   font-size: 20px;
 }
 
-@media (max-width: 624px) {
+/* Estilo para o menu lateral escondido e animação */
+#mobile {
+  position: fixed;
+  left: -100%;
+  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
 
+.close-btn {
+  position: absolute;
+  top: 10px;
+  /* Ajuste conforme necessário */
+  right: 10px;
+  /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc;
+  /* Cor do ícone */
+  font-size: 24px;
+  /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc;
+  /* Cor dos links */
+  padding: 10px;
+  /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px;
+  /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc;
+  /* Linha separadora */
+}
+
+.mobile {
+  display: none;
+}
+
+.icon_mobile {
+  display: none;
+}
+
+.section_mobile {
+  display: none;
+}
+
+.fa-times {
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+#hamburguer {
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Media Queries */
+@media (max-width: 898px) {
   .pesquisa {
-    width: 100%; 
+    width: 450px;
   }
-  .header ul li {
-    text-align: center;
+
+
+  header {
+    width: 920px;
   }
-  .divForm .container {
-    width: 70%;
+  footer{
+    width: 920px;
   }
-  .container {
-    min-width: auto;
-  }
-  .cadastrar {
-    width: 50%;
+
+  .logo {
+    width: 125px;
   }
 }
 
-/* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons{
-    display: flex;
-   gap: 1rem;
+@media (max-width: 849px) {
+  .pesquisa {
+    width: 400px;
   }
-  .cadastrar {
-    width: 80%;
+.instrucoes-container{
+  margin-left: 50%;
+}
+}
+
+@media (max-width: 773px) {
+  .pesquisa {
+    width: 350px;
+  }
+
+}
+
+@media (max-width: 766px) {
+
+  .mobile_i,
+  .icon_mobile {
+    display: block;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+  
+  .pesquisa-icon {
+    top: 45%;
+  }
+
+  .opcoes {
+    height: auto;
+  }
+
+  .menu_btn {
+    padding: 5px 10px;
   }
 }
