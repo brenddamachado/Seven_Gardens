@@ -1,5 +1,7 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  outline: 0;
 }
 
 body {
@@ -12,7 +14,6 @@ header {
 
 .header {
   height: 180px;
-
   display: flex;
   justify-content: space-between;
 }
@@ -102,13 +103,10 @@ header {
 
 .pesquisa {
   width: 490px;
-  /* Define o tamanho do input */
   height: 30px;
   border-radius: 7px;
   border: none;
-  /* Remove as bordas */
   background-color: #FBF3DC;
-  /* Define a cor de fundo desejada */
   margin-top: 75px;
   margin-left: 30px;
 }
@@ -116,7 +114,6 @@ header {
 .pesquisa-icon {
   position: absolute;
   right: 15px;
-  /* Posiciona o ícone à direita */
   top: 50%;
   transform: translateY(-50%);
 }
@@ -151,7 +148,6 @@ header {
   text-decoration: none;
 }
 
-/* Estilos para a página de "Instruções de cultivo" */
 .instrucoes-container {
   max-width: 800px;
   margin: 20px auto;
@@ -167,7 +163,6 @@ header {
 
 .section:nth-child(even) {
   background-color: #f2f2f2;
-  /* Adiciona cor de fundo em alternância */
 }
 
 .instrucoes-container h1 .instrucoes-container h2,
@@ -184,7 +179,6 @@ header {
 .card {
   border-radius: 10px;
   padding: 10px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
 }
 
 .card-item {
@@ -195,7 +189,6 @@ header {
 
 .card-item:nth-child(even) {
   background-color: #f7f7f7;
-  /* Adiciona cor de fundo em alternância para os itens */
 }
 
 .instrucoes-container ol,
@@ -269,7 +262,6 @@ footer {
   box-shadow: 1px 1px 4px #0000001c;
 }
 
-/* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" */
 .button-box {
   display: flex;
   justify-content: space-between;
@@ -398,7 +390,6 @@ body.dark-mode .dropbtn,
 body.dark-mode .dropbtn,
 body.dark-mode a {
   color: #E1F9D7;
-  /* Cor ajustada para elementos no modo escuro */
 }
 
 
@@ -410,27 +401,21 @@ body.dark-mode a {
 
 .social-icons p {
   color: #fff;
-  /* Cor do texto */
   text-align: center;
   font-size: 16px;
-  /* Tamanho da fonte */
 
 }
 
 .social-icons .icon {
   display: inline-block;
   margin: 10px 10px 0;
-  /* Adicionando uma margem superior de  */
   font-size: 30px;
-  /* Aumentei o tamanho dos ícones */
   color: #fff;
   transition: transform 0.3s ease;
-  /* Adiciona uma transição suave */
 }
 
 .social-icons .icon:hover {
   transform: scale(1.2);
-  /* Aumenta o tamanho do ícone em 20% no hover */
 }
 
 footer {
@@ -484,17 +469,14 @@ footer {
   font-size: 20px;
 }
 
-/* Estilo para o menu lateral escondido e animação */
 #mobile {
   position: fixed;
   left: -100%;
-  /* Inicialmente fora da tela à esquerda */
   top: 0;
   width: 300px;
   height: 100%;
   background-color: #405b39;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
-  /* Ajuste na sombra para o lado direito */
   transition: left 0.5s;
   z-index: 1000;
   display: flex;
@@ -505,37 +487,42 @@ footer {
 .close-btn {
   position: absolute;
   top: 10px;
-  /* Ajuste conforme necessário */
   right: 10px;
-  /* Posição do ícone no canto superior direito do menu lateral */
   cursor: pointer;
   color: #fbf3dc;
-  /* Cor do ícone */
   font-size: 24px;
-  /* Tamanho do ícone */
+
 }
 
 .dentro_icon {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  /* Espaçamento interno */
+
 }
 
 .dentro_icon a {
   color: #fbf3dc;
-  /* Cor dos links */
   padding: 10px;
-  /* Espaçamento dos links */
   text-decoration: none;
   font-size: 16px;
-  /* Tamanho da fonte */
   border-bottom: 1px solid #fbf3dc;
-  /* Linha separadora */
 }
 
 .mobile {
   display: none;
+}
+
+.card1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 24px;
+}
+
+.card2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 24px;
 }
 
 .icon_mobile {
@@ -552,7 +539,6 @@ footer {
 }
 
 #hamburguer {
-
   width: 35px;
   margin-top: 2px;
   margin-left: 15px;
@@ -566,20 +552,30 @@ footer {
   flex-direction: column;
 }
 
-/* Media Queries */
+@media (max-width: 500px) {
+
+  .instrucoes-container {
+    width: 150% !important;
+    margin-left: 25%;
+  }
+  .card1 {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .card2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
 @media (max-width: 898px) {
   .pesquisa {
     width: 450px;
   }
-
-
-  header {
+  header,
+  footer {
     width: 920px;
   }
-  footer{
-    width: 920px;
-  }
-
   .logo {
     width: 125px;
   }
@@ -589,35 +585,37 @@ footer {
   .pesquisa {
     width: 400px;
   }
-.instrucoes-container{
-  margin-left: 50%;
-}
 }
 
 @media (max-width: 773px) {
   .pesquisa {
     width: 350px;
-  }
 
+  }
+}
+
+@media (max-width: 790px) {
+  .section {
+    width: 100%;
+  }
+  body {
+    width: 100%; 
+  }
 }
 
 @media (max-width: 766px) {
-
   .mobile_i,
   .icon_mobile {
     display: block;
   }
 
-  .opcoes {
+  .opcoes,
+  .navegacao ul li {
     display: none;
   }
 
   #other-things {
     right: 40px;
-  }
-
-  .navegacao ul li {
-    display: none;
   }
 
   .header {
@@ -630,15 +628,20 @@ footer {
     justify-content: space-between;
     align-items: center;
     background-color: #405b39;
-
   }
 
   .dropdown .dropbtn .fa-chevron-down {
     display: none;
   }
-  
+
   .pesquisa-icon {
     top: 45%;
+    left: 140%;
+  }
+
+  .pesquisa {
+    width: 350px;
+    margin-left: 50%;
   }
 
   .opcoes {
@@ -647,5 +650,16 @@ footer {
 
   .menu_btn {
     padding: 5px 10px;
+  }
+
+  .card1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 715px) {
+  .instrucoes-container {
+    margin-left: 5%;
   }
 }
