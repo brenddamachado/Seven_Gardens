@@ -19,6 +19,15 @@
   color: #0f2b05;
 }
 
+.iconCard {
+  width: 60px;
+  padding-right: 10px;
+}
+.icon-clientes{
+  display: flex;
+  justify-content: flex-start;
+}
+
 button {
   background-color: #405b39;
   color: #fff;
