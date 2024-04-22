@@ -475,11 +475,7 @@ body.dark-mode .cadastrar {
     }
 
   }
-.logo {
-  width: 100%; /* Faça a logo ocupar a largura total do contêiner */
-  height: auto; /* Mantenha a proporção */
-  margin-bottom: 20px; /* Adicione espaço abaixo da logo */
-}
+
   ul {
     flex-direction: column; /* Empilhe os itens da lista verticalmente */
     align-items: center; /* Alinhe os itens ao centro */
@@ -518,3 +514,13 @@ body.dark-mode .cadastrar {
    
   }
 }
+@media (max-width: 320px) {
+.logo {
+width: 100px;
+}}
+
+
+@media (max-width: 360px) {
+  .logo {
+  width: 120px;
+  }}
