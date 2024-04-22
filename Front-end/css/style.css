@@ -479,15 +479,6 @@ body.dark-mode .btn_limpar{
 
 body.dark-mode .conta p,
 body.dark-mode h1,
-body.dark-mode #mensagem,
-body.dark-mode #mensagemNome,
-body.dark-mode #mensagemCpf,
-body.dark-mode #mensagemCep,
-body.dark-mode #mensagemEmail,
-body.dark-mode #mensagemLogin,
-body.dark-mode #mensagemform,
-body.dark-mode .label_login,
-body.dark-mode .menu_btn a,
 body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn, body.dark-mode a {
   color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
 }
@@ -619,8 +610,13 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   header {
     width: 920px;
   }
-  footer{
-    width: 920px;
+  footer {
+    flex-direction: column; /* Empilhe os itens verticalmente */
+    align-items: center; /* Alinhe os itens ao centro */
+  }
+
+  .social-icons {
+    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
   }
  
 }
@@ -645,6 +641,14 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   .header {
     justify-content: flex-start;
     height: auto;
+  }
+  footer {
+    flex-direction: column; /* Empilhe os itens verticalmente */
+    align-items: center; /* Alinhe os itens ao centro */
+  }
+
+  .social-icons {
+    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
   }
 
   .section_mobile {
