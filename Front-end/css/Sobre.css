@@ -1,77 +1,95 @@
-
 body {
   margin: 0;
-  
-  font-family: Arial, Helvetica, sans-serif;
-  
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #0f2b05;
+}
 .header {
   height: 180px;
-  background-color: #0f2b05;
+
   display: flex;
   justify-content: space-between;
 }
-
+ul {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+.header ul li {
+  list-style-type: none;
+  font-size: 20px;
+}
+/* .barra_pesquisa input{
+    align-items: center;
+    justify-content: center;
+    margin-top: 25%;
+    
+} */
 .logo {
   width: 155px;
   height: 200px;
 }
 
-.header ul li {
-  list-style-type: none;
-  font-size: 20px;
-}
-
-.navegacao {
+.opcoes {
+  justify-content: space-around;
   display: flex;
-  gap: 20px;
+  background: #405b39;
+  height: 38px;
+  align-items: center;
+  font-size: 12px;
+  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
-
-.navegacao li {
-  list-style-type: none;
+#icon {
+  width: 35px;
+  margin-top: 2px;
+  margin-right: 15px;
   font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+  
 }
-
 .pesquisa-container {
   position: relative;
   display: inline-block;
 }
 
 .pesquisa {
-  width: 490px;
+  width: 490px; /* Define o tamanho do input */
   height: 30px;
   border-radius: 7px;
-  border: none;
-  background-color: #fbf3dc;
+  border: none; /* Remove as bordas */
+  background-color: #fbf3dc; /* Define a cor de fundo desejada */
   margin-top: 75px;
   margin-left: 30px;
 }
 
 .pesquisa-icon {
   position: absolute;
-  right: 15px;
+  right: 15px; /* Posiciona o ícone à direita */
   top: 50%;
   transform: translateY(-50%);
 }
+.opcoes h2 {
+  color: #fbf3dc;
+}
 
 .login {
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+.cadastrar {
   background-color: #405b39;
-
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
-  text-decoration: none;
 }
-
-.home {
-  color: #fbf3dc;
-  border-radius: 7px;
-  padding: 4px 10px;
-  text-decoration: none;
-}
-
-
 
 .dropdown {
   position: relative;
@@ -79,7 +97,7 @@ body {
 }
 
 .dropbtn {
-  color: #fbf3dc;
+  color: #FBF3DC;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
@@ -89,7 +107,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #405b39;
+  background-color: #405B39;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -97,118 +115,101 @@ body {
 
 .dropdown-content a {
   font-size: 15px;
-  color: #fbf3dc;
+  color: #FBF3DC;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: #0f2b05;
+  background-color: #0F2B05;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.opcoes {
-  display: flex;
-  justify-content: space-around;
-  background: #405b39;
-  height: 38px;
-  align-items: center;
-  font-size: 12px;
+.menu_btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
-
-#icon {
-  width: 35px;
-  margin-top: 2px;
-  margin-right: 15px;
-}
-
 .menu_btn a {
-  color: #fbf3dc;
+  color: #FBF3DC;
   font-size: 16px;
   text-decoration: none;
 }
+/* fim do header */
 
-.alinha_container {
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Estilos para o texto "Sobre" e instruções de cultivo */
+.container h1,
+.container h2,
+.container h3,
+.container p {
+  color: #405b39;
+}
+
+.container ol,
+.container ul {
+  color: #333;
+}
+
+.container ol li,
+.container ul li {
+  color: #444;
+}
+
+/* Estilos para as imagens */
+.container {
+  display: flex;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  flex-direction: row;
+  gap: 60px;
+}
+.image-container {
+  margin-top: 20px;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.rounded-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8%;
+  margin-bottom: 10px;
+}
+
+/* inicio footer */
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
   display: flex;
   justify-content: center;
-}
-
-.tabs-container {
-  width: 100%;
-  max-width: 80%;
-  display: flex;
-  margin: 3%;
-  overflow: hidden;
-  border-radius: 16px;
-  background-color: #f4f4f4;
-  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-}
-
-.tab-content-wrapper {
-  overflow-y: hidden;
-  overflow-x: auto;
-  height: 560px;
-  color: #405B39;
-  transition: all 0.45s ease-in-out;
-  padding: 2% 2% 5% 9%;
-  width: 100%;
-  max-width: 80%;
-  flex-direction: column;
-  text-align: left;
- 
-}
-
-.tab-content-wrapper a{
-  text-decoration: none;
-}
-
-.tab-content {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 25px;
-  box-sizing: border-box;
 }
 
-.tabs a {
-  display: flex;
-  text-decoration: none;
-  width: 100%;
-  font-size: 18px;
-  font-weight: 600;
-  color: #405B39;
-  overflow: hidden;
-  text-align: left;
-  justify-content: start;
-  height: 90px;
-  padding: 0px 24px;
-  align-items: center;
-  gap: 5%;
-  margin-left: 10%;
-}
-
-.tabs a:hover {
-  font-weight: 700;
-  color: #0F2B05;
-  border-right: 3px solid #0F2B05;
-}
-
-.container-dados {
-  display: flex;
-  justify-content: space-between;
-}
-/*estilo para form*/
 .divForm {
-width: 60%;
+  width: 100%;
+max-width: 600px;
+background-color: #fff;
 padding: 3rem;
 box-sizing: border-box;
 border-radius: 10px;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-margin-bottom: 15px;
 }
 .form-header {
   text-align: center;
@@ -236,61 +237,36 @@ margin-bottom: 15px;
   border-radius: 7px;
   font-size: 1rem;
   box-shadow: 1px 1px 4px #0000001c;
-  margin-bottom: 10px;
-}
-/* Estilos para tabelas */
-table {
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-collapse: collapse;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-table th, table td {
-  padding: 12px 10px;
- 
-  text-align: center;
-  font-size: 14px;
+/* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" */
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-table th {
+#enviarButton,
+#cadastrarButton {
   background-color: #405b39;
-  color: #f9f9f9;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-/*
-table tbody tr:hover {
-  background-color: #fff;
-}
-*/
-/* Estilos de botão */
-
-
-button {
-  padding: 10px 20px;
-  background-color: #405b39;
-  color: #fff;
+  color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+  font-size: 1rem;
+  margin-bottom: 15px;
 }
 
-button:hover {
-  background-color: #0f2b05;
+#cadastrarButton a {
+  color: white;
+  text-decoration: none;
 }
 
+#enviarButton a {
+  color: white;
+  text-decoration: none;
+}
 
 .social-icons {
   text-align: center;
@@ -318,6 +294,10 @@ button:hover {
   /* Adiciona uma transição suave */
 }
 
+.social-icons p{
+  color: #ffffff;
+}
+
 .social-icons .icon:hover {
   transform: scale(1.2);
   /* Aumenta o tamanho do ícone em 20% no hover */
@@ -330,7 +310,8 @@ footer{
   
 }
 
-/* inicio DARK MODE */
+/* DARK MODE */
+
 body.dark-mode {
   background-color: #151515;
 }
@@ -338,13 +319,10 @@ body.dark-mode form {
   background-color: #282828;
 }
 
-
- body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content{
+ body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
   background: #1E1F1E;
 
-
 }
-
 
 .fa-universal-access, .fa-moon, .fa-sun{
   color: #7A7979;
@@ -353,42 +331,35 @@ body.dark-mode .sessao{
   color: #fff;
 }
 
-
-body.dark-mode  .fa-search {
-  color: #070B06;
+body.dark-mode .login li {
+  color: #E1F9D7;
 }
 
-
-body.dark-mode .tabs-container {
-  background-color: #282828;  
-}
-
-
-body.dark-mode .social-icons p{
-  color: #fff;
-}
-
-
-body.dark-mode h3,
 body.dark-mode p{
   color: #E1F9D7;
 }
 
-body.dark-mode .header{
-  background-color: #070B06;
+body.dark-mode .social-icons p{
+  color: #ffffff;
+}
+
+body.dark-mode h1{
+  color: #E1F9D7;
+}
+
+
+body.dark-mode  .fa-search{
+  color: #070B06;
+}
+
+ body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
+  background-color: #070B06; 
  }
-
-  body.dark-mode footer, .dropdown-content a:hover {
-  background-color: #070B06;
- }
-
-
 
 body.dark-mode .btn_cadastrar,
 body.dark-mode .btn_limpar{
   background-color: #151515;
 }
-
 
 body.dark-mode .conta p,
 body.dark-mode #mensagem,
@@ -405,8 +376,6 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 }
 
 
-
-
 #accessibility-section {
   position: fixed;
   top: 50%;
@@ -417,7 +386,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 }
 
 #other-things {
-  display: none;
+  display: none; 
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -431,11 +400,9 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   transition: all 0.3s ease;
 }
 
-
 .img_letra {
   width: 20px;
 }
-
 
 .fa-universal-access {
   position: fixed;
@@ -447,42 +414,37 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   font-size: 40px;
 }
 
-
 .fa-sun,
 .fa-moon {
   font-size: 20px;
 }
 
+@media (max-width: 624px) {
 
-/* FINAL DO DARK MODE */
-
-
-/* Estilos para telas menores que 768px (tamanho típico de tablets) */
-@media only screen and (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-    align-items: center;
+  .pesquisa {
+    width: 100%; 
   }
-  .card {
-    width: 100%;
+  .header ul li {
+    text-align: center;
   }
-}
-
-
-/* Estilos para telas menores que 480px (tamanho típico de smartphones) */
-@media only screen and (max-width: 480px) {
-  .opcoes {
-    flex-direction: column;
-    align-items: center;
-    font-size: 10px; /* Reduz a fonte para telas menores */
+  .divForm .container {
+    width: 70%;
   }
-
-
-  .card {
-    padding: 10px;
+  .container {
+    min-width: auto;
+  }
+  .cadastrar {
+    width: 50%;
   }
 }
 
-
-
-
+/* Para celulares pequenos (telas menores que 400px) */
+@media (max-width: 400px) {
+  .buttons{
+    display: flex;
+   gap: 1rem;
+  }
+  .cadastrar {
+    width: 80%;
+  }
+}
