@@ -347,7 +347,15 @@ footer {
 
 /* inicio DARK MODE */
 
-body.dark-mode form {
+body.dark-mode, body.dark-mode
+button[type="submit"] {
+  background-color: #151515;
+}
+
+body.dark-mode form,
+body.dark-mode tr, 
+body.dark-mode #tabelaUsuarios th,
+body.dark-mode .modal-content{
   background-color: #282828;
 }
 
@@ -377,23 +385,18 @@ body.dark-mode .btn_limpar, body.dark-mode {
   background-color: #151515;
 }
 
-body.dark-mode .conta p,
+body.dark-mode p,
 body.dark-mode h2,
+body.dark-mode label,
 body.dark-mode .title,
-body.dark-mode .login,
-body.dark-mode #mensagem,
-body.dark-mode #mensagemNome,
-body.dark-mode #mensagemCpf,
-body.dark-mode #mensagemCep,
-body.dark-mode #mensagemEmail,
-body.dark-mode #mensagemLogin,
-body.dark-mode #mensagemform,
-body.dark-mode .label_login,
-body.dark-mode .menu_btn a,
-body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn  {
+body.dark-mode .login 
+  {
   color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
 }
-
+body.dark-mode .cadastrar {
+  color: #070B06;
+  background-color: #E1F9D7;
+}
 
 #accessibility-section {
   position: fixed;
@@ -449,12 +452,12 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 
 /* COMEÇO DA RESPONSIVIDADE DA PÁGINA*/
 @media only screen and (max-width: 767px) {
-.header {
-  height: auto; /* Defina a altura automática para acomodar o conteúdo */
-  flex-direction: column; /* Empilhe os itens verticalmente */
-  align-items: center; /* Alinhe os itens ao centro */
-}
+  .header .paginas li {
 
+      font-size: 15px;
+    }
+
+  }
 .logo {
   width: 100%; /* Faça a logo ocupar a largura total do contêiner */
   height: auto; /* Mantenha a proporção */
@@ -472,7 +475,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   .social-icons {
     margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
   }
-}
+
 /* Responsividade para o formulário */
 @media only screen and (max-width: 767px) {
   form {
