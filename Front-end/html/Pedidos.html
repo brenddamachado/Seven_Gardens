@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Pedidos</title>
+  <link rel="stylesheet" href="../css/Pedidos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" href="../img/iconlogo.ico" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <section class="header">
+      <div>
+        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
+      </div>
+      <nav>
+        <div class="navegacao">
+          <ul>
+            <li class="login">Dashboard</li>
+            <li class="cadastrar">Visualizar Home</li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <section class="opcoes">
+      <h2>Painel de controle</h2>
+    </section>
+  </header>
+
+  <main>
+    <section class="search-filter">
+      <h1>Gerenciamento de Pedidos</h1>
+      <div class="pesquisa-container">
+        <input type="text" id="searchInput" class="pesquisa" onkeyup="filterOrders()"
+          placeholder="Pesquisar pedidos...">
+        <i class="fas fa-search pesquisa-icon"></i>
+      </div>
+    </section>
+
+    <section id="orders-table">
+      <table id="tabelaPedidos">
+        <thead>
+          <tr>
+            <th>ID do Pedido</th>
+            <th>Cliente</th>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aqui o conteúdo da tabela seria preenchido dinamicamente com PHP ou outra tecnologia backend -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <br>
+    <div class="social-icons">
+      <p> Siga-nos nas nossas redes sociais:</p>
+
+      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
+          class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
+          class="fab fa-whatsapp""></i></a>
+  
+  
+      </div>
+    </footer>
+
+    <script src=" ../js/pedidos.js"></script>
+</body>
+
+</html>
