@@ -34,15 +34,18 @@
   <main>
     <section class="search-filter">
       <h1>Gerenciamento de Pedidos</h1>
-      <div class="pesquisa-container">
-        <input type="text" id="searchInput" class="pesquisa" onkeyup="filterOrders()"
-          placeholder="Pesquisar pedidos...">
-        <i class="fas fa-search pesquisa-icon"></i>
-      </div>
+      <div class="divForm">
+      <form id="user-search-form">
+        <h1 class="title">Consulta de usuário</h1><br>
+        <label for="inputPesquisa">Pesquisar por nome:</label>
+        <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
+        <button type="submit">Pesquisar</button>
+      </form>
+    </div>
     </section>
 
     <section id="orders-table">
-      <table id="tabelaPedidos">
+      <table id="tabelaUsuarios">
         <thead>
           <tr>
             <th>ID do Pedido</th>
