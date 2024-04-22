@@ -84,6 +84,9 @@ ul {
 /* fim do header */
 
 /* inicio do form */
+.titulo-section {
+  background-color: #cbcbcb;
+}
 .container {
   display: flex;
   justify-content: center;
@@ -278,6 +281,131 @@ footer {
 #tabelaUsuarios th:last-child,
 #tabelaUsuarios td:last-child {
   border-right: none;
+}
+
+/* Dark mode */
+body.dark-mode form {
+  background-color: #282828;
+}
+
+body.dark-mode .dropbtn,
+body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
+  background: #1e1f1e;
+}
+
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7a7979;
+}
+body.dark-mode .sessao {
+  color: #fff;
+}
+body.dark-mode .cadastrar,
+body.dark-mode .login,
+body.dark-mode .fa-search {
+  color: #070b06;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #070b06;
+}
+body.dark-mode #btn-pesquisar,
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar,
+body.dark-mode {
+  background-color: #151515;
+}
+body.dark-mode .login,
+body.dark-mode .cliqueAqui,
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn, body.dark-mode a {
+  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
+}
+
+body.dark-mode h1{
+  color: #E1F9D7;
+}
+
+body.dark-mode p{
+  color: #E1F9D7;
+}
+body.dark-mode .cliqueAqui a,
+body.dark-mode .social-icons p,
+body.dark-mode .digiteCod{
+  color: #f4f4f4;
+}
+
+body.dark-mode{
+  background-color: #151515;
+}
+
+body.dark-mode .container {
+  background-color: #151515;
+}
+
+body.dark-mode .divForm {
+  background-color: #282828;
+}
+
+body.dark-mode #enviarButton{
+  background-color: #151515;
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
 }
 
 /* Adiciona responsividade */

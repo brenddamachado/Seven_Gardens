@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/Pedidos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="icon" href="../img/iconlogo.ico" type="image/x-icon">
+  <script src="../js/acessibilidade.js"></script>
 </head>
 
 <body>
@@ -33,12 +34,11 @@
 
   <main>
     <div class="container">
-      <h1>Gerenciamento de Pedidos</h1>
       <section id="search-filter">
 
         <div class="divForm">
           <form id="user-search-form">
-            <h1 class="title">Consulta de usuário</h1><br>
+            <h1 class="title">Gerenciamento de Pedidos</h1><br>
             <div class="input-box">
               <label for="inputPesquisa">Pesquisar por nome:</label>
               <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
@@ -46,6 +46,7 @@
             <button type="submit" id="btn-pesquisar">Pesquisar</button>
           </form>
         </div>
+
       </section>
 
       <section id="orders-table">
@@ -66,6 +67,18 @@
       </section>
     </div>
   </main>
+
+  <section id=" accessibility-section">
+    <i class="fas fa-universal-access" id="accessibility-icon"></i>
+    <div id="other-things">
+      <i class="fas fa-moon" id="dark-mode-toggle"></i>
+
+      <i class="fas fa-sun" id="light-mode-toggle"></i>
+      <img class="img_letra" src="../img/aumentartext_1.svg" alt="" srcset="" id="increase-font">
+      </i>
+      <img class="img_letra" src="../img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
+    </div>
+  </section>
 
   <footer>
     <br>
