@@ -606,117 +606,73 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
  /* Media queries para responsividade */
 /* Media queries para responsividade */
 
-@media (max-width: 915px) {
-  header {
-    width: 920px;
-  }
-  footer {
-    flex-direction: column; /* Empilhe os itens verticalmente */
-    align-items: center; /* Alinhe os itens ao centro */
-  }
-
-  .social-icons {
-    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
-  }
- 
-}
-
-@media (max-width: 766px) {
-  .mobile_i, .icon_mobile {
-    display: block;
-  }
-
-  .opcoes {
-    display: none;
-  }
-
-  #other-things {
-    right: 40px;
-  }
-
-  .navegacao ul li {
-    display: none;
-  }
-
+@media only screen and (max-width: 450px) {
+  /* Estilos para ajustar o layout quando a largura da tela for menor que 450px */
   .header {
-    justify-content: flex-start;
-    height: auto;
-  }
-  footer {
-    flex-direction: column; /* Empilhe os itens verticalmente */
-    align-items: center; /* Alinhe os itens ao centro */
+    width: 400px;
   }
 
-  .social-icons {
-    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
-  }
-
-  .section_mobile {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #405b39;
-
-  }
-
-  .dropdown .dropbtn .fa-chevron-down {
-    display: none;
-  }
-
-  .formulario form {
-    margin-left: 120px;
-  }
-
-  .pesquisa-icon {
-    top: 45%;
+  .header .pesquisa-container {
+    margin-bottom: 20px;
   }
 
   .opcoes {
-    height: auto;
-  }
-
-  .menu_btn {
-    padding: 5px 10px;
-  }
-  .pesquisa-container {
-    left: 80px;
-}
-  
-}
-
-@media (max-width: 624px) {
-
-
-.conta p{
-  margin-top: 10px;
-}
-  .conta {
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 10px;
+    text-align: center;
   }
 
-  .sessao {
-    margin-top: 5px;
+  .opcoes .menu_btn {
+    margin-bottom: 10px;
   }
 
-  .genero input {
-    margin-left: 8rem;
+  .pesquisa{
+    width: 30px;
+    margin-top: 50px;
+  }
+
+  ul{
+    margin-bottom: 100px;
+    margin-right: 40px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .navegacao{
+    size: 20px;
+    margin-right: 30px;
   }
 }
-
-/* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons {
-    display: flex;
-    gap: 1rem;
+/* @media only screen and (max-width: 910px) {
+  header{
+    width: 140vh;
+  }
+  footer{
+    width: 140vh;
   }
 
+  img{
+    width: 140vh;
+  }
+} */
+@media only screen and (max-width: 414px) {
+  /* Estilos para ajustar o layout quando a largura da tela for menor que 414px */
+  .header {
+  
+    
+  }
+
+  .header .pesquisa-container {
+    margin-bottom: 20px;
+  }
+
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .opcoes .menu_btn {
+    margin-bottom: 10px;
+  }
 }
-
-
-
-
-
-
-
