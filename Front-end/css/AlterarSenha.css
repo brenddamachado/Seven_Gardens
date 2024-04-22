@@ -1,0 +1,519 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #0f2b05;
+}
+.header {
+  height: 180px;
+
+  display: flex;
+  justify-content: space-between;
+}
+ul {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+.header ul li {
+  list-style-type: none;
+  font-size: 20px;
+}
+/* .barra_pesquisa input{
+    align-items: center;
+    justify-content: center;
+    margin-top: 25%;
+    
+} */
+.logo {
+  width: 155px;
+  height: 200px;
+}
+
+.opcoes {
+  justify-content: space-around;
+  display: flex;
+  background: #405b39;
+  height: 38px;
+  align-items: center;
+  font-size: 12px;
+  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
+}
+#icon {
+  width: 35px;
+  margin-top: 2px;
+  margin-right: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.pesquisa-container {
+  position: relative;
+  display: inline-block;
+}
+
+.pesquisa {
+  width: 490px; /* Define o tamanho do input */
+  height: 30px;
+  border-radius: 7px;
+  border: none; /* Remove as bordas */
+  background-color: #fbf3dc; /* Define a cor de fundo desejada */
+  margin-top: 75px;
+  margin-left: 30px;
+}
+
+.pesquisa-icon {
+  position: absolute;
+  right: 15px; /* Posiciona o ícone à direita */
+  top: 50%;
+  transform: translateY(-50%);
+}
+.opcoes h2 {
+  color: #fbf3dc;
+}
+
+.login {
+  background-color: #405b39;
+
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
+.home {
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  color: #fbf3dc;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #405b39;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  font-size: 15px;
+  color: #fbf3dc;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #0f2b05;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.menu_btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.menu_btn a {
+  color: #fbf3dc;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+/* fim do header */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100svh;
+}
+
+/* inicio footer */
+
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.social-icons p {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+}
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 10px 0;
+  font-size: 30px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+}
+
+.divForm {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 3rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: #0f2b05;
+  margin: 0;
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+.input-box label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-shadow: 1px 1px 4px #0000001c;
+}
+
+/* Estilos para o botão "Enviar" */
+.button-box {
+  float: left;
+  margin-right: 60px;
+  margin-left: 195px;
+  margin-top: 50px;
+}
+
+#enviarButton,
+#cadastrarButton {
+  background-color: #405b39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#cadastrarButton a {
+  color: white;
+  text-decoration: none;
+}
+
+#enviarButton a {
+  color: white;
+  text-decoration: none;
+}
+
+/* DARK MODE  */
+
+body.dark-mode form {
+  background-color: #282828;
+}
+
+
+body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
+  background: #1e1f1e;
+}
+
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7a7979;
+}
+body.dark-mode .sessao {
+  color: #fff;
+}
+
+body.dark-mode .login,
+body.dark-mode .fa-search {
+  color: #070b06;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #070b06;
+}
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar,
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn, body.dark-mode a {
+  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
+}
+
+body.dark-mode h1{
+  color: #E1F9D7;
+}
+
+body.dark-mode p{
+  color: #E1F9D7;
+}
+
+body.dark-mode .footer_p{
+  color: #fff;
+}
+
+body.dark-mode{
+  background-color: #151515;
+}
+
+body.dark-mode .divForm {
+  background-color: #282828;
+}
+
+body.dark-mode #enviarButton{
+  background-color: #151515;
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+/* HAMBURGUER  */
+
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
+
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+
+/* responsividade tablets*/
+@media screen and (max-width: 768px) {
+
+  .mobile_i{
+    display: block;
+  }
+  .icon_mobile{
+    display: block;
+  }
+  
+    .opcoes{
+      display: none;
+    }
+
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li{
+    display: none;
+  }
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+  .section_mobile{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: 
+     #405b39;
+  }
+
+  /* .pesquisa {
+    margin-top: 120px;
+    width: 120%;
+    margin-left: 0;
+  }
+.pesquisa-icon{
+  top: 67%;
+  left: 170px;
+} */
+.pesquisa {
+  width: 80%;
+  margin:40px; 
+}
+
+.pesquisa-icon {
+  position: absolute;
+  bottom: 30px;
+  transform: translateY(-50%);
+}
+.opcoes{
+  height: auto;
+}
+
+  .container,
+  section {
+    width: 100%;
+    padding: 0%;
+    min-width: 0;
+  }
+
+  .dropdown-content {
+    min-width: 0;
+  }
+}
+
+/* Para celulares pequenos (telas menores que 400px) */
+@media (max-width: 400px) {
+ 
+  .logo {
+    width: 100px;
+    height: 130px;
+  }
+}
