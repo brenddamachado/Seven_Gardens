@@ -84,9 +84,19 @@ ul {
 /* fim do header */
 
 /* inicio do form */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100svh;
+  gap: 20px;
+  
+}
 
 .divForm {
-  width: 100%;
+width: 100%;
 max-width: 600px;
 background-color: #fff;
 padding: 3rem;
@@ -121,6 +131,17 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
   box-shadow: 1px 1px 4px #0000001c;
   margin-bottom: 10px;
+}
+
+#btn-pesquisar {
+  background-color: #405b39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 15px;
 }
 
 /*fim form*/

@@ -32,34 +32,39 @@
   </header>
 
   <main>
-    <section class="search-filter">
+    <div class="container">
       <h1>Gerenciamento de Pedidos</h1>
-      <div class="divForm">
-      <form id="user-search-form">
-        <h1 class="title">Consulta de usuário</h1><br>
-        <label for="inputPesquisa">Pesquisar por nome:</label>
-        <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
-        <button type="submit">Pesquisar</button>
-      </form>
-    </div>
-    </section>
+      <section id="search-filter">
 
-    <section id="orders-table">
-      <table id="tabelaUsuarios">
-        <thead>
-          <tr>
-            <th>ID do Pedido</th>
-            <th>Cliente</th>
-            <th>Data</th>
-            <th>Valor</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Aqui o conteúdo da tabela seria preenchido dinamicamente com PHP ou outra tecnologia backend -->
-        </tbody>
-      </table>
-    </section>
+        <div class="divForm">
+          <form id="user-search-form">
+            <h1 class="title">Consulta de usuário</h1><br>
+            <div class="input-box">
+              <label for="inputPesquisa">Pesquisar por nome:</label>
+              <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
+            </div>
+            <button type="submit" id="btn-pesquisar">Pesquisar</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="orders-table">
+        <table id="tabelaUsuarios">
+          <thead>
+            <tr>
+              <th>ID do Pedido</th>
+              <th>Cliente</th>
+              <th>Data</th>
+              <th>Valor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aqui o conteúdo da tabela seria preenchido dinamicamente com PHP ou outra tecnologia backend -->
+          </tbody>
+        </table>
+      </section>
+    </div>
   </main>
 
   <footer>
