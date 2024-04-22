@@ -76,7 +76,7 @@ ul {
   color: #fbf3dc;
 }
 
-.login {
+.cadastro {
   background-color: #405b39;
 
   color: #fbf3dc;
@@ -85,7 +85,7 @@ ul {
   text-decoration: none;
 }
 
-.home {
+.login {
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
