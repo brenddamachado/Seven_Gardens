@@ -2,21 +2,35 @@ function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
+  // Título do documento PDF
   doc.text("Relatório de Clientes", 105, 10, null, null, 'center');
 
-  // Adicionar cabeçalhos de coluna
-  doc.setFontSize(11);
-  doc.text(20, 30, "ID do Cliente");
-  doc.text(70, 30, "Nome");
-  doc.text(120, 30, "Compras");
+  // Cabeçalhos da tabela
+  const headers = ["ID do Cliente", "Nome", "Compras"];
 
-  // Adicionar alguns dados de exemplo
-  doc.text(20, 40, "001");
-  doc.text(70, 40, "João Silva");
-  doc.text(120, 40, "15");
+  // Montando os dados da tabela
+  let rows = [];
+  const table = document.getElementById("tabelaUsuarios").getElementsByTagName("tbody")[0];
+  const trs = table.getElementsByTagName("tr");
 
-  // Adicionar mais linhas aqui como necessário
-  // doc.text(x, y, "Texto");
+  for (let tr of trs) {
+    const tds = tr.getElementsByTagName("td");
+    let row = [];
+    for (let td of tds) {
+      row.push(td.innerText);
+    }
+    rows.push(row);
+  }
+
+  // Adicionar a tabela ao PDF
+  doc.autoTable({
+    head: [headers],
+    body: rows,
+    startY: 20,
+    theme: 'grid',
+    headStyles: { fillColor: [64, 91, 57] }, // Cor de fundo dos cabeçalhos
+    styles: { font: 'courier', fontSize: 11 }
+  });
 
   // Salva o PDF
   doc.save("relatorio-clientes.pdf");
