@@ -351,9 +351,12 @@ body.dark-mode, body.dark-mode
 button[type="submit"] {
   background-color: #151515;
 }
+body.dark-mode #tabelaUsuarios tbody{
+  background-color: #fff;
+  
+}
 
 body.dark-mode form,
-body.dark-mode tr, 
 body.dark-mode #tabelaUsuarios th,
 body.dark-mode .modal-content{
   background-color: #282828;
