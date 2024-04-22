@@ -145,30 +145,40 @@ function usuarioLogado() {
 
 });*/
 
-// DARK MODE
+// DARK MODE 
 document.addEventListener("DOMContentLoaded", function () {
-  // Alternar a visibilidade das opções de acessibilidade
-  document
-    .getElementById("accessibility-icon")
-    .addEventListener("click", function () {
-      var otherThings = document.getElementById("other-things");
-      otherThings.style.display =
-        otherThings.style.display === "none" ? "flex" : "none";
-    });
+    // Verificar se o usuário já selecionou um modo de cor anteriormente
+    const savedMode = localStorage.getItem("mode");
 
-  // Alternar para o modo claro
-  document
-    .getElementById("light-mode-toggle")
-    .addEventListener("click", function () {
-      document.body.classList.remove("dark-mode");
-    });
+    // Se houver um modo salvo, aplicá-lo
+    if (savedMode) {
+      document.body.classList.add(savedMode);
+    }
 
-  // Alternar para o modo escuro
-  document
-    .getElementById("dark-mode-toggle")
-    .addEventListener("click", function () {
-      document.body.classList.add("dark-mode");
-    });
+    // Alternar a visibilidade das opções de acessibilidade
+    document
+      .getElementById("accessibility-icon")
+      .addEventListener("click", function () {
+        var otherThings = document.getElementById("other-things");
+        otherThings.style.display =
+          otherThings.style.display === "none" ? "flex" : "none";
+      });
+
+    // Alternar para o modo claro
+    document
+      .getElementById("light-mode-toggle")
+      .addEventListener("click", function () {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("mode", "light-mode"); // Salvar o modo de cor selecionado
+      });
+
+    // Alternar para o modo escuro
+    document
+      .getElementById("dark-mode-toggle")
+      .addEventListener("click", function () {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("mode", "dark-mode"); // Salvar o modo de cor selecionado
+      });
 
   // Função para ajustar o tamanho da fonte de elementos específicos
   function adjustFontSizeForElements(factor) {
