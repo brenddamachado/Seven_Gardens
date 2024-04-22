@@ -470,7 +470,7 @@ body.dark-mode #enviarButton{
 
 @media (max-width: 915px) {
   header {
-    width: 920px;
+    width: 920px !important;
   }
   footer{
     width: 920px;
@@ -501,11 +501,6 @@ body.dark-mode #enviarButton{
 
   .navegacao ul li {
     display: none;
-  }
-
-  .header {
-    justify-content: flex-start;
-    height: auto;
   }
 
   .section_mobile {
@@ -543,46 +538,27 @@ body.dark-mode #enviarButton{
 
 
 /* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons {
-    display: flex;
-    gap: 1rem;
-  }
 
+@media (max-width: 558px) {
+ footer{
+  margin-top: 700px;
+ }
 }
 
-@media (max-width: 624px) {
- 
- 
+@media (max-width: 918px) {
   .container {
-    min-width: auto;
-  }
-  .cadastrar {
-    width: 50%;
+    width: 142vh;
   }
 }
-
-
-
-
-/* Correções básicas para responsividade */
-body, header, footer, .container {
-  width: 100%; /* Garante que não ultrapassem a largura da tela */
-  margin: 0 auto; /* Centraliza na página */
-  box-sizing: border-box; /* Inclui padding e border na largura total */
-}
-
-
-
-
-
 /* Ajustes específicos para o menu móvel */
 @media (max-width: 766px) {
   .mobile_i, .icon_mobile {
       display: block; /* Mostra o menu hambúrguer e ícones relevantes */
   }
-  
-  .opcoes, .pesquisa-container, .nav_a {
+  .pesquisa{
+    width: 400px;
+  }
+  .opcoes,  .nav_a {
       display: none; /* Oculta opções que não cabem em telas pequenas */
   }
 
@@ -603,13 +579,16 @@ body, header, footer, .container {
       padding: 1rem; /* Reduz o padding para mais espaço */
   }
 
-  .header {
-      flex-direction: column; /* Organiza os elementos do header verticalmente */
-  }
+  
 
   .buttons {
       flex-direction: column; /* Ajusta botões para uma coluna em telas pequenas */
   }
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
 }
 
 
