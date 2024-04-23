@@ -1,20 +1,19 @@
 body {
   margin: 0;
-}
-
-body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
 }
 
+/* Início do header*/
 header {
   background-color: #0f2b05;
 }
 .header {
   height: 180px;
-
   display: flex;
   justify-content: space-between;
 }
+
 ul {
   padding: 20px;
   display: flex;
@@ -24,12 +23,11 @@ ul {
   list-style-type: none;
   font-size: 20px;
 }
-/* .barra_pesquisa input{
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-    
-} */
+
+a {
+  text-decoration: none; /* Remove a linha de sublinhado */
+}
+
 .logo {
   width: 155px;
   height: 200px;
@@ -42,8 +40,9 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
-  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
+  position: relative;
 }
+
 #icon {
   width: 35px;
   margin-top: 2px;
@@ -51,26 +50,26 @@ ul {
   font-size: 20px;
   color: #7ed957;
   border-color: #7ed957;
-  
 }
+
 .pesquisa-container {
   position: relative;
   display: inline-block;
 }
 
 .pesquisa {
-  width: 490px; /* Define o tamanho do input */
+  width: 490px;
   height: 30px;
   border-radius: 7px;
-  border: none; /* Remove as bordas */
-  background-color: #fbf3dc; /* Define a cor de fundo desejada */
+  border: none;
+  background-color: #fbf3dc;
   margin-top: 75px;
   margin-left: 30px;
 }
 
 .pesquisa-icon {
   position: absolute;
-  right: 15px; /* Posiciona o ícone à direita */
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -419,6 +418,71 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   font-size: 20px;
 }
 
+#mobile {
+  position: fixed;
+  left: -100%; /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
+
+.mobile {
+  display: none;
+}
+.icon_mobile {
+  display: none;
+}
+.section_mobile {
+  display: none;
+}
+
+.fa-times {
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer {
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+}
+
+
 @media (max-width: 624px) {
 
   .pesquisa {
@@ -438,6 +502,64 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   }
 }
 
+@media (max-width: 766px) {
+  .mobile_i,
+  .icon_mobile {
+    display: block;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
+  .formulario form {
+    margin-left: 120px;
+  }
+
+  .pesquisa-icon {
+    top: 45%;
+  }
+
+  .opcoes {
+    height: auto;
+  }
+
+  .menu_btn {
+    padding: 5px 10px;
+  }
+  .pesquisa-container {
+    left: 80px;
+  }
+}
+
 /* Para celulares pequenos (telas menores que 400px) */
 @media (max-width: 400px) {
   .buttons{
@@ -446,5 +568,13 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   }
   .cadastrar {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .pesquisa-container,
+  .navegacao {
+    flex-direction: column;
+    align-items: center;
   }
 }

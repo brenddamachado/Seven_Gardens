@@ -14,11 +14,18 @@ header {
   justify-content: space-between;
 }
 
+
+a {
+  text-decoration: none; 
+}
+
+
 ul {
   padding: 20px;
   display: flex;
   gap: 20px;
 }
+
 .header ul li {
   list-style-type: none;
   font-size: 20px;
@@ -320,6 +327,11 @@ body.dark-mode .social-icons p {
 body.dark-mode h1 {
   color: #e1f9d7;
 }
+
+body.dark-mode a {
+  text-decoration: none; 
+}
+
 
 body.dark-mode .cadastrar,
 body.dark-mode .fa-search {
