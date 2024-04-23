@@ -462,6 +462,19 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 
 /* Media queries para responsividade */
 /* Estilo para o menu lateral escondido e animação */
+
+#hamburguer, #icon {
+  display: none;
+}
+
+@media (max-width: 414px) {
+  /* Dentro da media query para dispositivos com largura máxima de 766px */
+  /* Mostre o botão de hambúrguer e o ícone do carrinho */
+  #hamburguer, #icon {
+    display: block;
+  }
+}
+
 #mobile {
   position: fixed;
   left: -100%;  /* Inicialmente fora da tela à esquerda */
@@ -529,22 +542,47 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
  /* Media queries para responsividade */
 /* Media queries para responsividade */
 
-@media (max-width: 915px) {
-  header {
-    width: 920px;
-  }
-  footer {
-    flex-direction: column; /* Empilhe os itens verticalmente */
-    align-items: center; /* Alinhe os itens ao centro */
+/* Para celulares pequenos (telas menores que 400px) */
+@media (max-width: 300px) {
+  .buttons {
+    display: flex;
+    gap: 0.3rem; /* Reduzi ainda mais o espaçamento entre os botões */
   }
 
-  .social-icons {
-    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
+  header {
+    width: 95%; /* Reduzi ainda mais a largura do cabeçalho */
   }
- 
+
+  img.logo {
+    width: 3%; /* Reduzi ainda mais o tamanho do logotipo */
+  }
+
+  body {
+    width: 100%;
+  }
+
+  .pesquisa {
+    width: 20%; /* Reduzi mais a largura do campo de pesquisa */
+  }
+
+  ul.tabs {
+    width: 15%; /* Reduzi ainda mais a largura das guias */
+  }
+
+  .alinha_container {
+    width: 100%;
+    display: block;
+    align-items: center;
+  }
+
+  .tab-content-wrapper {
+    width: 100%;
+    display: block;
+    align-items: center;
+  }
 }
 
-@media (max-width: 766px) {
+@media (min-width: 414px){
   .mobile_i, .icon_mobile {
     display: block;
   }
@@ -553,12 +591,9 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     display: none;
   }
 
-  #other-things {
-    right: 40px;
-  }
-
   .navegacao ul li {
     display: none;
+    margin-right: 3%;
   }
 
   .header {
@@ -566,12 +601,12 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     height: auto;
   }
   footer {
-    flex-direction: column; /* Empilhe os itens verticalmente */
-    align-items: center; /* Alinhe os itens ao centro */
+    flex-direction: column; 
+    align-items: center; 
   }
 
   .social-icons {
-    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
+    margin-bottom: 20px; 
   }
 
   .section_mobile {
@@ -596,6 +631,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 
   .opcoes {
     height: auto;
+    font-size:small;
   }
 
   .menu_btn {
@@ -603,39 +639,93 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   }
   .pesquisa-container {
     left: 80px;
-}
+  }
+    .buttons {
+      display: flex;
+      gap: 0.3rem; 
+    }
   
-}
+    header {
+      width: 95%; 
+    }
+  
+    img.logo {
+      width: 3%; 
+    }
+  
+    body {
+      width: 100%;
+    }
+  
+    .pesquisa {
+      width: 20%; 
+    }
+  
+    ul.tabs {
+      font-size: smaller;
+    }
+    .alinha_container {
+      width: 100%;
+      display: block;
+      align-items: center;
+      margin-left: 20px;
+    }
+  
+    .tab-content-wrapper {
+      width: 70%;
+      display: block;
+      align-items: center;
+      margin-left: 12px;
+    }
+
+    .tabs li{
+      list-style-type: none;
+      font-size: smaller;
+
+    }
+ }
 
 @media (max-width: 624px) {
 
 
-.conta p{
-  margin-top: 10px;
+  .conta p{
+    margin-top: 10px;
+  }
+    .conta {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .sessao {
+      margin-top: 5px;
+    }
+  
+    .genero input {
+      margin-left: 8rem;
+    }
+  }
+
+@media (max-width: 715px) {
+  header {
+    width: 920px;
+  }
+  footer {
+    flex-direction: column; /* Empilhe os itens verticalmente */
+    align-items: center; /* Alinhe os itens ao centro */
+  }
+
+  .social-icons {
+    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
+  }
+ 
 }
-  .conta {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-  }
 
-  .sessao {
-    margin-top: 5px;
-  }
 
-  .genero input {
-    margin-left: 8rem;
-  }
-}
 
-/* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons {
-    display: flex;
-    gap: 1rem;
-  }
 
-}
+
+
 
 
 
