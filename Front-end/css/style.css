@@ -76,7 +76,7 @@ ul {
   color: #fbf3dc;
 }
 
-.login {
+.cadastro {
   background-color: #405b39;
 
   color: #fbf3dc;
@@ -85,7 +85,7 @@ ul {
   text-decoration: none;
 }
 
-.home {
+.login {
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
@@ -175,7 +175,7 @@ html {
 .carousel-item img {
   width: 100%;
   /* Garante que a imagem preencha toda a largura do contêiner */
-  height: 300px;
+  
   /* Mantém a proporção da imagem */
 
 }
@@ -484,7 +484,6 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 }
 
 
-
 #accessibility-section {
   position: fixed;
   top: 50%;
@@ -533,13 +532,11 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 }
 /* FINAL DO DARK MODE */
 
-
-
-
-
 /* Media queries para responsividade */
 /* Estilo para o menu lateral escondido e animação */
-#mobile {
+
+ /* Media queries para responsividade */
+ #mobile {
   position: fixed;
   left: -100%;  /* Inicialmente fora da tela à esquerda */
   top: 0;
@@ -603,120 +600,99 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   display: flex;
   flex-direction: column;
 }
- /* Media queries para responsividade */
-/* Media queries para responsividade */
 
-@media (max-width: 915px) {
-  header {
-    width: 920px;
-  }
-  footer {
-    flex-direction: column; /* Empilhe os itens verticalmente */
-    align-items: center; /* Alinhe os itens ao centro */
-  }
-
-  .social-icons {
-    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
-  }
- 
-}
-
-@media (max-width: 766px) {
-  .mobile_i, .icon_mobile {
-    display: block;
-  }
-
-  .opcoes {
-    display: none;
-  }
-
-  #other-things {
-    right: 40px;
-  }
-
-  .navegacao ul li {
-    display: none;
-  }
-
-  .header {
-    justify-content: flex-start;
-    height: auto;
-  }
-  footer {
-    flex-direction: column; /* Empilhe os itens verticalmente */
-    align-items: center; /* Alinhe os itens ao centro */
-  }
-
-  .social-icons {
-    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
-  }
-
-  .section_mobile {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #405b39;
-
-  }
-
-  .dropdown .dropbtn .fa-chevron-down {
-    display: none;
-  }
-
-  .formulario form {
-    margin-left: 120px;
-  }
-
-  .pesquisa-icon {
-    top: 45%;
-  }
-
-  .opcoes {
-    height: auto;
-  }
-
-  .menu_btn {
-    padding: 5px 10px;
-  }
-  .pesquisa-container {
-    left: 80px;
-}
+  @media (max-width: 766px) {
+    .mobile_i, .icon_mobile {
+      display: block;
+    }
+    
+    .opcoes {
+      display: none;
+    }
   
-}
-
-@media (max-width: 624px) {
-
-
-.conta p{
-  margin-top: 10px;
-}
-  .conta {
-    display: flex;
-    align-items: center;
-    padding: 10px;
+    #other-things {
+      right: 40px;
+    }
+  
+    .navegacao ul li {
+      display: none;
+    }
+  
+    .header {
+      justify-content: flex-start;
+      height: auto;
+    }
+  
+    .section_mobile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #405b39;
+      
+    }
+  
+    .dropdown .dropbtn .fa-chevron-down {
+      display: none;
+    }
+  
+    .formulario form {
+      margin-left: 120px;
+    }
+  
+    .pesquisa-icon {
+      top: 45%;
+    }
+  
+    .opcoes {
+      height: auto;
+    }
+  
+    .menu_btn {
+      padding: 5px 10px;
+    }
+    .pesquisa-container {
+      left: 80px;
+  }
+  .pesquisa{
+    margin-left: -51px;
+    width: 170px;
   }
 
-  .sessao {
-    margin-top: 5px;
-  }
-
-  .genero input {
-    margin-left: 8rem;
-  }
+  .carousel-item img {
+    width: 100%;
+    
 }
 
-/* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons {
-    display: flex;
-    gap: 1rem;
+  }
+  
+  @media screen and (max-width: 900px) and (min-width: 767px){
+    header,footer{
+      width: 910px;
+    }
+
+    .carousel{
+      width: 910px;
+    }
+
+    .pesquisa{
+      width: 300px;
+    }
   }
 
-}
+  @media screen and (max-width: 740px) and (min-width: 364px){
+    .pesquisa{
+      width: 220px;
+    }
+  }
 
+  @media screen and (max-width: 375px) {
+    .pesquisa {
+      width: 150px;
+    }
+  }
 
-
-
-
-
-
+  @media screen and (max-width: 390px) {
+    .pesquisa {
+      width: 180px;
+    }
+  }
