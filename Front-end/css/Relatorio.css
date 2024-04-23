@@ -4,6 +4,7 @@
   padding: 20px;
   background-color: #fff;
   color: #0f2b05;
+  
 }
 
 .btn-download {
@@ -13,6 +14,7 @@
 
 #client-table {
   padding: 20px;
+  min-height: calc(100vh - 300px); /* Ajusta para menos a altura do footer */
 }
 
 #client-table h2 {
@@ -237,6 +239,7 @@ footer{
 }
 
 /* Dark mode */
+body.dark-mode #report-summary,
 body.dark-mode form {
   background-color: #282828;
 }
@@ -293,6 +296,10 @@ body.dark-mode h1{
   color: #E1F9D7;
 }
 
+body.dark-mode #client-table h2 {
+  color: #E1F9D7;
+}
+
 body.dark-mode p{
   color: #E1F9D7;
 }
@@ -309,6 +316,8 @@ body.dark-mode{
 body.dark-mode .container {
   background-color: #151515;
 }
+
+body.dark-mode #btn-pdf,
 body.dark-mode #tabelaUsuarios th,
 body.dark-mode .divForm {
   background-color: #282828;
