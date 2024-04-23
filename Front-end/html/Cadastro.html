@@ -135,59 +135,35 @@
 
         <label for="nasc" class="label_login"> Data de nascimento: </label>
         <input class="input_login" type="date" id="data" name="nasc" />
-
+        <div id="mensagemnascim"></div>
         <div class="genero">
           <label for="sexo" class="label_login"> Genêro:</label>
-          <input
-            type="radio"
-            id="mcisgênero"
-            class="genero"
-            name="genero"
-            value="Mulher cisgênero"
-          />
-          <label class="model" for="mcisgênero">Mulher cisgênero</label>
-          <input
-            type="radio"
-            id="mtransgênero"
-            class="genero"
-            name="genero"
-            value="Mulher transgênero"
-          />
-          <label class="model" for="mtransgênero"> Mulher transgênero</label>
-          <input
-            type="radio"
-            id="hcisgênero"
-            name="genero"
-            class="genero"
-            value="Homem cisgênero"
-          />
-          <label class="model" for="hcisgênero">Homem cisgênero</label>
-          <input
-            type="radio"
-            id="htransgênero"
-            name="genero"
-            class="genero"
-            value="Homem transgênero"
-          />
-          <label class="model" for="htransgênero">Homem transgênero</label>
-          <input
-            type="radio"
-            id="binário"
-            name="genero"
-            value="não-binário"
-            class="genero"
-          />
-          <label class="model" for="binário">não-binário</label>
-          <input
-            type="radio"
-            id="outro"
-            name="genero"
-            value="outro"
-            class="genero"
-          />
-          <label class="model" for="outro">Outros</label>
-        </div>
-
+          <div class="input-group">
+              <input type="radio" id="mcisgênero" class="genero" name="genero" value="Mulher cisgênero" />
+              <label class="model" for="mcisgênero">Mulher cisgênero</label>
+          </div>
+          <div class="input-group">
+              <input type="radio" id="mtransgênero" class="genero" name="genero" value="Mulher transgênero" />
+              <label class="model" for="mtransgênero">Mulher transgênero</label>
+          </div>
+          <div class="input-group">
+              <input type="radio" id="hcisgênero" name="genero" class="genero" value="Homem cisgênero" />
+              <label class="model" for="hcisgênero">Homem cisgênero</label>
+          </div>
+          <div class="input-group">
+              <input type="radio" id="htransgênero" name="genero" class="genero" value="Homem transgênero" />
+              <label class="model" for="htransgênero">Homem transgênero</label>
+          </div>
+          <div class="input-group">
+              <input type="radio" id="binário" name="genero" value="não-binário" class="genero" />
+              <label class="model" for="binário">não-binário</label>
+          </div>
+          <div class="input-group">
+              <input type="radio" id="outro" name="genero" value="outro" class="genero" />
+              <label class="model" for="outro">Outros</label>
+          </div>
+      </div>
+      <div id="mensagemgenero"></div>
         <label for="cpf" id="labelCpf" class="label_login">CPF:</label>
         <input
           class="input_login"
