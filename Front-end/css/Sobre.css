@@ -165,7 +165,7 @@ a {
 }
 
 /* Estilos para as imagens */
-.container {
+.container-sobre-container {
   display: flex;
   max-width: 900px;
   margin: 20px auto;
@@ -561,20 +561,273 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 }
 
 /* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons{
+
+
+
+@media screen and (max-width: 374px) and (min-width: 320px) {
+  .mobile_i,
+  .icon_mobile {
+    display: block;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
     display: flex;
-   gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
   }
-  .cadastrar {
-    width: 80%;
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
   }
+
+  .container-sobre-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+    margin-left: -141px;
+    margin-top: -18px;
 }
 
-@media screen and (max-width: 320px) {
-  .pesquisa-container,
-  .navegacao {
-    flex-direction: column;
-    align-items: center;
+.pesquisa {
+  width: 179px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  background-color: #fbf3dc;
+  margin-top: 85px;
+  margin-left: 37px;
+
+
+p{
+  font-weight: 10;
+  margin-left: 12px;
+}
+
+.container-sobre-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.rounded-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8%;
+  margin-bottom: 10px;
+  margin-right: 129px;
+}
+
+.image-container {
+  margin-top: 20px;
+  text-align: center;
+  width: 103px;
+  height: 103px;
+  overflow: hidden;
+}
+}
+}
+
+
+@media screen and (max-width: 390px) and (min-width: 375px) {
+  .mobile_i,
+  .icon_mobile {
+    display: block;
   }
+
+  .nav_a {
+    display: none;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
+  .container-sobre-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+    margin-left: -141px;
+    margin-top: -18px;
+}
+
+.pesquisa {
+  width: 179px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  background-color: #fbf3dc;
+  margin-top: 85px;
+  margin-left: 37px;
+
+
+p{
+  font-weight: 10;
+  margin-left: 12px;
+}
+
+.container-sobre-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.rounded-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8%;
+  margin-bottom: 10px;
+  margin-right: 129px;
+}
+
+.image-container {
+  margin-top: 20px;
+  text-align: center;
+  width: 103px;
+  height: 103px;
+  overflow: hidden;
+}
+}
+}
+
+@media screen and (max-width: 428px) and (min-width: 391px) {
+  .mobile_i,
+  .icon_mobile {
+    display: block;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
+  .container-sobre-container{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+    margin-left: -141px;
+    margin-top: -18px;
+}
+
+.pesquisa {
+  width: 179px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  background-color: #fbf3dc;
+  margin-top: 85px;
+  margin-left: 37px;
+
+
+p{
+  font-weight: 10;
+  margin-left: 12px;
+}
+
+.container-sobre-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.rounded-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8%;
+  margin-bottom: 10px;
+  margin-right: 129px;
+}
+
+.image-container {
+  margin-top: 20px;
+  text-align: center;
+  width: 103px;
+  height: 103px;
+  overflow: hidden;
+}
+}
 }
