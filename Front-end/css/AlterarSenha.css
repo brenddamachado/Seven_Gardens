@@ -517,3 +517,21 @@ body.dark-mode #enviarButton{
     height: 130px;
   }
 }
+
+@media (min-width: 442px) and (max-width: 768px) {
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+    height: 127px;
+  }
+}
+
+@media (max-width: 436px) {
+ 
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+    height: 127px;
+  }
+  }
+
