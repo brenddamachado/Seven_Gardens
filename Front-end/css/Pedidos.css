@@ -356,7 +356,7 @@ body.dark-mode{
 body.dark-mode .container {
   background-color: #151515;
 }
-
+body.dark-mode #tabelaUsuarios th,
 body.dark-mode .divForm {
   background-color: #282828;
 }
