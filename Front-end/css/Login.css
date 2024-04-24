@@ -287,7 +287,7 @@ body.dark-mode .sessao{
 
 
 /* lupa dark mode */
-body.dark-mode .fa-search{
+body.dark-mode .pesquisa-icon{
 
   color: #070B06;
 }
@@ -307,10 +307,14 @@ body.dark-mode .login{
 
 body.dark-mode .texto_links{
   color: #E1F9D7;
+
+
 }
 
 body.dark-mode .texto_links_2{
   color: #fff;
+
+
 }
 
 
@@ -419,6 +423,7 @@ body.dark-mode .btn_cadastrar, body.dark-mode .btn_limpar{
 
 .texto_links {
   text-align: right;
+
 }
   /* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" 
   .button-box {
@@ -460,78 +465,350 @@ body.dark-mode .btn_cadastrar, body.dark-mode .btn_limpar{
   }
 */
 
+#hamburguer {
 
-  /* responsividade tablets*/
-  @media screen and (max-width: 768px) {
-    .container, section {
-      width: 100%;
-      padding: 0%;
-      min-width: 0;
-    }
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
 
-    .dropdown-content{
-      min-width: 0;
-    }
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+@media screen and (max-width: 374px) and (min-width: 320px) {
+  .mobile_i,
+  .icon_mobile {
+    display: block;
   }
 
 
-  /* responsividade celulare*/
-  @media  (max-width: 500px) {
-    
-    .navegacao ul{
-      margin-left: -200px;
-    }
+  .divForm{
 
-    .container{
-      justify-content: initial;
-      min-width: 0;
-    }
-
-    .pesquisa {
-      width: 300px; /* Define o tamanho do input */
-      height: 30px;    
-      margin-left: 5px; 
-      margin-top: 110px;  
-    }
-
-    .pesquisa-icon{
-      margin-top: 35px; 
-    }
-
-    .opcoes {
-      height: 60px;
-      font-size: 10px;
-    /* Reduza o tamanho da fonte para os ícones */
-    }
-
-    #icon {
-      margin-left: 10px;
-      margin-top: 4px;
-    }
-
-    
-    .dropdown-content{
-      margin-left: 20px;
-    }
-
-    .header, footer {
-      width: 100%;
-      margin: 0px;
-    }
-
-    .divForm {
-      width: 450px;
-      margin-left: 25px;
-    }
-    body{
-      width: 500px;
-    }
-
-    .EsqueceuSenha a {
-      margin-left: 195px;
-    }
-
-    .dropdown-content {
-      min-width: 0;
-    }
+  margin-top: -100px;
+  width: auto;
+  margin-right: 310px;
   }
+
+  .title{
+    margin-left: 0px;
+  }
+
+  .input-box{
+    margin-left: -15px;
+  }
+
+  .buttons{
+    margin-left: -10px;
+  }
+
+  .pesquisa-icon{
+    margin-top: -7px;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
+  .container-sobre-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+    margin-left: -40px;
+    margin-top: -18px;
+  }
+
+  .pesquisa {
+    width: 180px;
+    height: 30px;
+    border-radius: 7px;
+    border: none;
+    background-color: #fbf3dc;
+    margin-top: 85px;
+    margin-left: 77px;
+  }
+
+  .pesquisa p {
+    font-weight: 10;
+    margin-left: 12px;
+  }
+
+  .container-sobre-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rounded-image {
+    width: 81vw;
+    height: 65vh;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-right: 122px;
+  }
+
+  .logo {
+    width: 134px;
+    height: 197px;
+  }
+
+
+}
+
+@media screen and (max-width: 498px) and (min-width: 391px) {
+  .mobile_i,
+  .icon_mobile {
+    display: block;
+  }
+
+
+  .divForm{
+
+  margin-top: -100px;
+  width: auto;
+  margin-right: 310px;
+  }
+
+  .title{
+    margin-left: 0px;
+  }
+
+  .input-box{
+    margin-left: -15px;
+  }
+
+  .buttons{
+    margin-left: -10px;
+  }
+
+  .pesquisa-icon{
+    margin-top: -7px;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
+  .container-sobre-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+    margin-left: -40px;
+    margin-top: -18px;
+  }
+
+  .pesquisa {
+    width: 180px;
+    height: 30px;
+    border-radius: 7px;
+    border: none;
+    background-color: #fbf3dc;
+    margin-top: 85px;
+    margin-left: 77px;
+  }
+
+  .pesquisa p {
+    font-weight: 10;
+    margin-left: 12px;
+  }
+
+  .container-sobre-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rounded-image {
+    width: 81vw;
+    height: 65vh;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-right: 122px;
+  }
+
+  .logo {
+    width: 134px;
+    height: 197px;
+  }
+
+
+}
+
+@media screen and (max-width: 374px) and (min-width: 320px) {
+  .mobile_i,
+  .icon_mobile {
+    display: block;
+  }
+
+
+  .divForm{
+
+  margin-top: -100px;
+  width: auto;
+  margin-right: 310px;
+  }
+
+  .title{
+    margin-left: 0px;
+  }
+
+  .input-box{
+    margin-left: -15px;
+  }
+
+  .buttons{
+    margin-left: -10px;
+  }
+
+  .pesquisa-icon{
+    margin-top: -7px;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #405b39;
+  }
+
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
+  }
+
+  .container-sobre-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pesquisa-container {
+    position: relative;
+    display: inline-block;
+    margin-left: -40px;
+    margin-top: -18px;
+  }
+
+  .pesquisa {
+    width: 180px;
+    height: 30px;
+    border-radius: 7px;
+    border: none;
+    background-color: #fbf3dc;
+    margin-top: 85px;
+    margin-left: 77px;
+  }
+
+  .pesquisa p {
+    font-weight: 10;
+    margin-left: 12px;
+  }
+
+  .container-sobre-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rounded-image {
+    width: 81vw;
+    height: 65vh;
+    object-fit: cover;
+    margin-bottom: 10px;
+    margin-right: 122px;
+  }
+
+  .logo {
+    width: 134px;
+    height: 197px;
+  }
+
+
+}
