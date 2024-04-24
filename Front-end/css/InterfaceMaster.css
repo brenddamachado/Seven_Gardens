@@ -441,6 +441,25 @@ body.dark-mode a {
   }
 }
 
+@media (max-width: 360px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+
+  .header ul li {
+    margin-left: -18px;
+    list-style-type: none;
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
+
+
 @media (max-width: 320px) {
   .opcoes {
     flex-direction: column;
