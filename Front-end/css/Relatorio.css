@@ -4,7 +4,7 @@
   padding: 20px;
   background-color: #fff;
   color: #0f2b05;
-  
+
 }
 
 .btn-download {
@@ -14,7 +14,8 @@
 
 #client-table {
   padding: 20px;
-  min-height: calc(100vh - 300px); /* Ajusta para menos a altura do footer */
+  min-height: calc(100vh - 300px);
+  /* Ajusta para menos a altura do footer */
 }
 
 #client-table h2 {
@@ -25,7 +26,8 @@
   width: 60px;
   padding-right: 10px;
 }
-.icon-clientes{
+
+.icon-clientes {
   display: flex;
   justify-content: flex-start;
 }
@@ -56,21 +58,25 @@ body {
 header {
   background-color: #0f2b05;
 }
+
 .header {
   height: 180px;
 
   display: flex;
   justify-content: space-between;
 }
-ul {
+
+.paginas {
   padding: 20px;
   display: flex;
   gap: 20px;
 }
-.header ul li {
+
+.header .paginas li {
   list-style-type: none;
   font-size: 20px;
 }
+
 
 .logo {
   width: 155px;
@@ -84,39 +90,22 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
-}
-
-#icon {
-  width: 35px;
-  margin-top: 2px;
-  font-size: 20px;
-  color: #7ED957;
-  border-color: #7ED957;
-}
-.pesquisa-container {
   position: relative;
-  display: inline-block;
+  /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
 
-.pesquisa {
-  width: 450px; 
-  height: 30px;
-  border-radius: 7px;
-  border: none; /* Remove as bordas */
-  background-color: #FBF3DC;
+a {
+  color: inherit;
+  text-decoration: none;
+  /* Remove o sublinhado */
 }
 
-.pesquisa-icon {
-  position: absolute;
-  right: 15px; /* Posiciona o ícone à direita */
-  top: 50%;
-  transform: translateY(-50%);
-}
 .opcoes h2 {
   color: #fbf3dc;
 }
 
 .login {
+  text-decoration: none;
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
@@ -124,6 +113,7 @@ ul {
 
 
 .cadastrar {
+  text-decoration: none;
   background-color: #405b39;
   color: #fbf3dc;
   border-radius: 7px;
@@ -134,7 +124,7 @@ ul {
 
 /* inicio footer */
 footer {
-  
+
   background-color: #0f2b05;
   height: 200px;
   position: relative;
@@ -173,13 +163,14 @@ footer {
   transform: scale(1.2);
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
-footer{
-    background-color: #0f2b05;
-    height: 200px;
-    flex-direction: column;
-    /* Empilhe os itens verticalmente */
-    align-items: center;
-    /* Alinhe os itens ao centro */
+
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  flex-direction: column;
+  /* Empilhe os itens verticalmente */
+  align-items: center;
+  /* Alinhe os itens ao centro */
 }
 
 .social-icons {
@@ -190,8 +181,9 @@ footer{
 /**/
 
 #tabelaUsuarios {
-  margin: 0 auto; 
-  width: 38%; /* Você pode ajustar a largura conforme necessário */
+  margin: 0 auto;
+  width: 38%;
+  /* Você pode ajustar a largura conforme necessário */
   border-collapse: collapse;
   background-color: #fff;
   border-radius: 10px;
@@ -206,6 +198,7 @@ footer{
   border-bottom: 1px solid #e0e0e0;
   text-align: center;
 }
+
 /* Estilos para a tabela de usuario */
 #tabelaUsuarios th {
   background-color: #405b39;
@@ -245,7 +238,9 @@ body.dark-mode form {
 }
 
 body.dark-mode .dropbtn,
-body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
+body.dark-mode .opcoes,
+body.dark-mode .section_mobile,
+body.dark-mode #mobile {
   background: #1e1f1e;
 }
 
@@ -254,9 +249,11 @@ body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
 .fa-sun {
   color: #7a7979;
 }
+
 body.dark-mode .sessao {
   color: #fff;
 }
+
 body.dark-mode .cadastrar,
 body.dark-mode .login,
 body.dark-mode .fa-search {
@@ -267,12 +264,14 @@ body.dark-mode header,
 body.dark-mode footer {
   background-color: #070b06;
 }
+
 body.dark-mode #btn-pesquisar,
 body.dark-mode .btn_cadastrar,
 body.dark-mode .btn_limpar,
 body.dark-mode {
   background-color: #151515;
 }
+
 body.dark-mode .login,
 body.dark-mode .cliqueAqui,
 body.dark-mode .conta p,
@@ -288,11 +287,13 @@ body.dark-mode .menu_btn a,
 body.dark-mode label,
 body.dark-mode .home,
 body.dark-mode .dropbtn,
-body.dark-mode .dropbtn, body.dark-mode a {
-  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
+body.dark-mode .dropbtn,
+body.dark-mode a {
+  color: #e1f9d7;
+  /* Cor ajustada para elementos no modo escuro */
 }
 
-body.dark-mode h1{
+body.dark-mode h1 {
   color: #E1F9D7;
 }
 
@@ -300,16 +301,17 @@ body.dark-mode #client-table h2 {
   color: #E1F9D7;
 }
 
-body.dark-mode p{
+body.dark-mode p {
   color: #E1F9D7;
 }
+
 body.dark-mode .cliqueAqui a,
 body.dark-mode .social-icons p,
-body.dark-mode .digiteCod{
+body.dark-mode .digiteCod {
   color: #f4f4f4;
 }
 
-body.dark-mode{
+body.dark-mode {
   background-color: #151515;
 }
 
@@ -323,7 +325,7 @@ body.dark-mode .divForm {
   background-color: #282828;
 }
 
-body.dark-mode #enviarButton{
+body.dark-mode #enviarButton {
   background-color: #151515;
 }
 
@@ -370,4 +372,94 @@ body.dark-mode #enviarButton{
   font-size: 20px;
 }
 
+/* Inicio da resposividade*/
+@media (max-width: 768px) {
+  .conteudo {
+    width: 75% !important;
 
+  }
+
+  .header .paginas li {
+
+    font-size: 15px;
+  }
+
+}
+
+@media (max-width: 1059px) {
+  .conteudo {
+    width: 55%;
+  }
+}
+
+@media (max-width: 544px) {
+  .conteudo {
+    width: 95% !important;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .logo {
+    width: 100px;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .logo {
+    width: 120px;
+  }
+}
+@media (max-width: 434px) {
+  .logo {
+    width: 120px;
+  }
+}
+
+/* Estilos para telas pequenas */
+@media only screen and (max-width: 600px) {
+  #client-table {
+    padding: 0 10px;
+  }
+  #report-summary {
+    margin-top: 20px; 
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  .btn-download {
+    text-align: center;
+  }
+}
+
+/* Estilos para telas médias e grandes */
+@media only screen and (min-width: 601px) {
+  #client-table {
+    padding: 0 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 12px;
+  }
+
+  .btn-download {
+    text-align: right;
+  }
+}
