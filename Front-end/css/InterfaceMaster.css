@@ -41,8 +41,8 @@ ul {
   width: 35px;
   margin-top: 2px;
   font-size: 20px;
-  color: #7ED957;
-  border-color: #7ED957;
+  color: #7ed957;
+  border-color: #7ed957;
 }
 .pesquisa-container {
   position: relative;
@@ -50,11 +50,11 @@ ul {
 }
 
 .pesquisa {
-  width: 450px; 
+  width: 450px;
   height: 30px;
   border-radius: 7px;
   border: none; /* Remove as bordas */
-  background-color: #FBF3DC;
+  background-color: #fbf3dc;
 }
 
 .pesquisa-icon {
@@ -73,7 +73,6 @@ ul {
   padding: 4px 10px;
 }
 
-
 .cadastrar {
   background-color: #405b39;
   color: #fbf3dc;
@@ -85,7 +84,6 @@ ul {
 
 /* inicio footer */
 footer {
-  
   background-color: #0f2b05;
   height: 200px;
   position: relative;
@@ -96,8 +94,6 @@ footer {
 
 .social-icons {
   text-align: center;
-
-
 }
 
 .social-icons p {
@@ -106,7 +102,6 @@ footer {
   text-align: center;
   font-size: 16px;
   /* Tamanho da fonte */
-
 }
 
 .social-icons .icon {
@@ -124,13 +119,13 @@ footer {
   transform: scale(1.2);
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
-footer{
-    background-color: #0f2b05;
-    height: 200px;
-    flex-direction: column;
-    /* Empilhe os itens verticalmente */
-    align-items: center;
-    /* Alinhe os itens ao centro */
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  flex-direction: column;
+  /* Empilhe os itens verticalmente */
+  align-items: center;
+  /* Alinhe os itens ao centro */
 }
 
 .social-icons {
@@ -138,15 +133,9 @@ footer{
   /* Adicione espaço abaixo dos ícones sociais */
 }
 
-
-
-
-
 dialog::backdrop {
   background-color: rgba(13, 35, 6, 0.5);
 }
-
-
 
 /* Estilos da modal de adicionar produto */
 dialog {
@@ -310,41 +299,47 @@ body.dark-mode form {
   background-color: #282828;
 }
 
- body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content {
-  background: #1E1F1E;
-
+body.dark-mode .opcoes,
+body.dark-mode .section_mobile,
+body.dark-mode #mobile,
+body.dark-mode .dropdown-content {
+  background: #1e1f1e;
 }
 
-.fa-universal-access, .fa-moon, .fa-sun{
-  color: #7A7979;
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7a7979;
 }
-body.dark-mode .sessao{
+body.dark-mode .sessao {
   color: #fff;
 }
 
-body.dark-mode  .fa-search{
-  color: #070B06;
+body.dark-mode .fa-search {
+  color: #070b06;
 }
 
 body.dark-mode .card {
-  background-color: #282828;  
+  background-color: #282828;
 }
 
-body.dark-mode .social-icons p{
+body.dark-mode .social-icons p {
   color: #fff;
 }
 
-body.dark-mode h3, 
-body.dark-mode p{
-  color: #E1F9D7;
-} 
+body.dark-mode h3,
+body.dark-mode p {
+  color: #e1f9d7;
+}
 
- body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
-  background-color: #070B06; 
- }
+body.dark-mode header,
+body.dark-mode footer,
+.dropdown-content a:hover {
+  background-color: #070b06;
+}
 
 body.dark-mode .btn_cadastrar,
-body.dark-mode .btn_limpar{
+body.dark-mode .btn_limpar {
   background-color: #151515;
 }
 
@@ -358,10 +353,13 @@ body.dark-mode #mensagemLogin,
 body.dark-mode #mensagemform,
 body.dark-mode .label_login,
 body.dark-mode .menu_btn a,
-body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode .dropbtn, body.dark-mode a {
-  color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn,
+body.dark-mode a {
+  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
 }
-
 
 #accessibility-section {
   position: fixed;
@@ -373,7 +371,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 }
 
 #other-things {
-  display: none; 
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -415,6 +413,11 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     align-items: center;
   }
 
+  .header ul li {
+    list-style-type: none;
+    font-size: 13px;
+  }
+
   .card {
     width: 100%;
   }
@@ -426,6 +429,82 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     flex-direction: column;
     align-items: center;
     font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+
+  .header ul li {
+    list-style-type: none;
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+
+  .header ul li {
+    margin-left: -18px;
+    list-style-type: none;
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+
+  .header ul li {
+    margin-left: -18px;
+    list-style-type: none;
+    font-size: 10px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 413px) and (min-width: 375px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+
+  .header ul li {
+    list-style-type: none;
+    font-size: 13px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 428px) and (min-width: 414px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+
+  .header ul li {
+    list-style-type: none;
+    font-size: 16px;
   }
 
   .card {
