@@ -542,71 +542,115 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
  /* Media queries para responsividade */
 /* Media queries para responsividade */
 
-/* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 300px) {
-  .buttons {
-    display: flex;
-    gap: 0.3rem; /* Reduzi ainda mais o espaçamento entre os botões */
-  }
-
-  header {
-    width: 95%; /* Reduzi ainda mais a largura do cabeçalho */
-  }
-
-  img.logo {
-    width: 3%; /* Reduzi ainda mais o tamanho do logotipo */
-  }
-
-  body {
-    width: 100%;
-  }
-
-  .pesquisa {
-    width: 20%; /* Reduzi mais a largura do campo de pesquisa */
-  }
-
-  ul.tabs {
-    width: 15%; /* Reduzi ainda mais a largura das guias */
-  }
-
-  .alinha_container {
-    width: 100%;
-    display: block;
-    align-items: center;
-  }
-
-  .tab-content-wrapper {
-    width: 100%;
-    display: block;
-    align-items: center;
-  }
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
 }
 
-@media (min-width: 414px){
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
+
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+/*fim do css*/
+
+
+/* Para celulares pequenos (telas menores que 400px) */
+
+/* Ajustes adicionais para melhor visualização em dispositivos variados */
+@media (max-width: 400px) {
+  .divForm {
+      width: 90%; /* Ajusta a largura do formulário para caber em telas muito pequenas */
+      padding: 1rem; /* Reduz o padding para mais espaço */
+  }
+
+  
+
+  .buttons {
+      flex-direction: column; /* Ajusta botões para uma coluna em telas pequenas */
+  }
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+}
+
+@media (max-width: 558px) {
+  footer{
+   margin-top: 700px;
+  }
+ }
+
+ @media (max-width: 766px) {
   .mobile_i, .icon_mobile {
     display: block;
   }
-
+  
   .opcoes {
     display: none;
   }
 
+  #other-things {
+    right: 40px;
+  }
+
   .navegacao ul li {
     display: none;
-    margin-right: 3%;
-  }
-
-  .header {
-    justify-content: flex-start;
-    height: auto;
-  }
-  footer {
-    flex-direction: column; 
-    align-items: center; 
-  }
-
-  .social-icons {
-    margin-bottom: 20px; 
   }
 
   .section_mobile {
@@ -614,14 +658,14 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     justify-content: space-between;
     align-items: center;
     background-color: #405b39;
-
+    
   }
 
   .dropdown .dropbtn .fa-chevron-down {
     display: none;
   }
 
-  .formulario form {
+  .divForm form {
     margin-left: 120px;
   }
 
@@ -631,7 +675,6 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 
   .opcoes {
     height: auto;
-    font-size:small;
   }
 
   .menu_btn {
@@ -639,87 +682,56 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   }
   .pesquisa-container {
     left: 80px;
+}
+}
+
+/* Ajustes específicos para o menu móvel */
+@media (max-width: 766px) {
+  .mobile_i, .icon_mobile {
+      display: block; /* Mostra o menu hambúrguer e ícones relevantes */
   }
-    .buttons {
-      display: flex;
-      gap: 0.3rem; 
-    }
-  
-    header {
-      width: 95%; 
-    }
-  
-    img.logo {
-      width: 3%; 
-    }
-  
-    body {
-      width: 100%;
-    }
-  
-    .pesquisa {
-      width: 20%; 
-    }
-  
-    ul.tabs {
-      font-size: smaller;
-    }
-    .alinha_container {
-      width: 100%;
-      display: block;
-      align-items: center;
-      margin-left: 20px;
-    }
-  
-    .tab-content-wrapper {
-      width: 70%;
-      display: block;
-      align-items: center;
-      margin-left: 12px;
-    }
-
-    .tabs li{
-      list-style-type: none;
-      font-size: smaller;
-
-    }
- }
-
-@media (max-width: 624px) {
-
-
-  .conta p{
-    margin-top: 10px;
+  .pesquisa{
+    width: 400px;
   }
-    .conta {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-    }
-  
-    .sessao {
-      margin-top: 5px;
-    }
-  
-    .genero input {
-      margin-left: 8rem;
-    }
+  .opcoes,  .nav_a {
+      display: none; /* Oculta opções que não cabem em telas pequenas */
   }
 
-@media (max-width: 715px) {
+  #mobile {
+      display: block; /* Mostra o menu lateral */
+      left: 0; /* Ajusta a posição para ser visível */
+  }
+
+  .section_mobile {
+      display: flex; /* Garante que o menu mobile seja exibido corretamente */
+  }
+}
+
+@media (max-width: 915px) {
   header {
+    width: 920px !important;
+  }
+  footer{
     width: 920px;
   }
-  footer {
-    flex-direction: column; /* Empilhe os itens verticalmente */
-    align-items: center; /* Alinhe os itens ao centro */
+  .divForm form{
+    width: 350px;
+    margin-left: 100px;
   }
 
-  .social-icons {
-    margin-bottom: 20px; /* Adicione espaço abaixo dos ícones sociais */
-  }
- 
+    .divForm {
+      display: block;
+      padding: 100px
+    }
 }
+
+@media (max-width: 918px) {
+  .container {
+    width: 142vh;
+  }
+}
+
+
 
 
 
