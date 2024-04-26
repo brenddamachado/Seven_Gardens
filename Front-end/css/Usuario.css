@@ -473,6 +473,10 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   #hamburguer, #icon {
     display: block;
   }
+
+  footer{
+    width: 400px;
+  }
 }
 
 #mobile {
@@ -613,6 +617,24 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 
 /* Ajustes adicionais para melhor visualização em dispositivos variados */
 @media (max-width: 400px) {
+
+  .pesquisa-container{
+    width: 30%;
+    margin-right: 100%;
+  }
+
+  .pesquisa{
+    width: 3%;
+    margin-right: 200%;
+  }
+
+  .pesquisa-icon{
+    width: 12px;
+  }
+  header li{
+    text-align: center;
+    margin-right: 30%;
+  }
   .divForm {
       width: 90%; /* Ajusta a largura do formulário para caber em telas muito pequenas */
       padding: 1rem; /* Reduz o padding para mais espaço */
@@ -620,13 +642,6 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 
   
 
-  .buttons {
-      flex-direction: column; /* Ajusta botões para uma coluna em telas pequenas */
-  }
-  .buttons {
-    display: flex;
-    gap: 1rem;
-  }
 
 }
 
@@ -649,9 +664,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     right: 40px;
   }
 
-  .navegacao ul li {
-    display: none;
-  }
+
 
   .section_mobile {
     display: flex;
@@ -670,7 +683,8 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   }
 
   .pesquisa-icon {
-    top: 45%;
+    top: 52%;
+
   }
 
   .opcoes {
@@ -681,9 +695,19 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     padding: 5px 10px;
   }
   .pesquisa-container {
-    left: 80px;
+    left: 50px;
+  }
+
+  .logo{
+    width: 125px;
+    height: 200px;
+  }
+
+  footer{
+    width: 390px;
+  }
 }
-}
+
 
 /* Ajustes específicos para o menu móvel */
 @media (max-width: 766px) {
@@ -691,7 +715,7 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
       display: block; /* Mostra o menu hambúrguer e ícones relevantes */
   }
   .pesquisa{
-    width: 400px;
+    width: 120px;
   }
   .opcoes,  .nav_a {
       display: none; /* Oculta opções que não cabem em telas pequenas */
@@ -705,14 +729,13 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   .section_mobile {
       display: flex; /* Garante que o menu mobile seja exibido corretamente */
   }
+
+
 }
 
 @media (max-width: 915px) {
   header {
     width: 920px !important;
-  }
-  footer{
-    width: 920px;
   }
   .divForm form{
     width: 350px;
@@ -730,16 +753,3 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     width: 142vh;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
