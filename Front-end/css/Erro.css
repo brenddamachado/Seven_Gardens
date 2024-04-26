@@ -6,6 +6,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.login {
+  background-color: #405b39;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
+.home {
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
 header {
   background-color: #0f2b05;
 }
@@ -419,32 +434,170 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   font-size: 20px;
 }
 
-@media (max-width: 624px) {
-
-  .pesquisa {
-    width: 100%; 
-  }
-  .header ul li {
-    text-align: center;
-  }
-  .divForm .container {
-    width: 70%;
-  }
-  .container {
-    min-width: auto;
-  }
-  .cadastrar {
-    width: 50%;
-  }
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
 }
 
-/* Para celulares pequenos (telas menores que 400px) */
-@media (max-width: 400px) {
-  .buttons{
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+}
+
+
+
+.rounded-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8%;
+  margin-bottom: 10px;
+}
+
+h1{
+  margin-left: 20px;
+}
+
+p{
+  margin-left: 15px;
+}
+
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.pesquisa-icon{
+ margin-bottom: -3px;
+
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+
+/* responsividade tablets*/
+@media screen and (max-width: 768px) {
+
+  .mobile_i{
+    display: block;
+  }
+  .icon_mobile{
+    display: block;
+  }
+  
+    .opcoes{
+      display: none;
+    }
+
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li{
+    display: none;
+  }
+  .header {
+    justify-content: flex-start;
+    height: auto;
+  }
+  .section_mobile{
+    display: block;
     display: flex;
-   gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: 
+     #405b39;
   }
-  .cadastrar {
-    width: 80%;
+
+  /* .pesquisa {
+    margin-top: 120px;
+    width: 120%;
+    margin-left: 0;
+  }
+.pesquisa-icon{
+  top: 67%;
+  left: 170px;
+} */
+.pesquisa {
+  width: 80%;
+  margin:40px; 
+}
+
+.pesquisa-icon{
+  margin-top: -11px;
+}
+
+.pesquisa-icon {
+  position: absolute;
+  bottom: 30px;
+  transform: translateY(-50%);
+}
+.opcoes{
+  height: auto;
+}
+
+  .container,
+  section {
+    width: 100%;
+    padding: 0%;
+    min-width: 0;
+  }
+
+  .dropdown-content {
+    min-width: 0;
   }
 }
+
+
+
+
+
