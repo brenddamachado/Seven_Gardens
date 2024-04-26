@@ -42,29 +42,23 @@ let nomeDaMãe = document.getElementById("nomeDamae");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  let isChecked = false;
-  generoInputs.forEach((input) => {
-    if (input.checked) {
-      isChecked = true;
-    }
-  });
+  // Verificação de Gênero
+  let isChecked = Array.from(generoInputs).some(input => input.checked);
 
-  if (!isChecked) {
-    mensagem.innerHTML = "Por favor, selecione uma opção de gênero; ";
-  }
-  // Verificar se a data foi selecionada
-  if (!data.value) {
-    mensagem.innerHTML = "Por favor, selecione uma data; ";
-  }
-  if (mensagem.innerHTML === "") {
-    mensagem.innerHTML = "Cadastrado com sucesso!!";
-    window.location.replace("login.html");
-
-    // Não envie o formulário
+  // Validação de Campos
+  if (!nome.value || !validenome || !senha.value || !validesenha || 
+      !senha2.value || !validesenha2 || !cpf.value || !validecpf || 
+      !emailInput.value || !valideemail || !login.value || !validelogin || 
+      !data.value || !isChecked) {
+    mensagemform.innerHTML = "Por favor, preencha todos os campos obrigatórios corretamente.";
+    window.scrollTo(0, 0); // Isso rola a página para o topo
   } else {
-    mensagem.innerHTML = "Campos inválidos";
+    mensagemform.innerHTML = "Cadastrado com sucesso!!";
+    // Substituir por lógica de redirecionamento ou outra lógica de negócio aqui
+    window.location.replace("login.html");
   }
 });
+
 
 nome.addEventListener("input", () => {
   // Remova caracteres que não são letras ou espaços
