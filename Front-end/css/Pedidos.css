@@ -37,6 +37,12 @@ ul {
   font-size: 12px;
 }
 
+.navegacao a{
+  text-decoration: none;
+  color: #fbf3dc;
+  cursor: pointer;
+}
+
 #icon {
   width: 35px;
   margin-top: 2px;
@@ -408,13 +414,172 @@ body.dark-mode #enviarButton{
   font-size: 20px;
 }
 
-/* Adiciona responsividade */
-@media (max-width: 768px) {
-  #orders-table {
-      width: 95%; /* Mais largura em dispositivos menores para melhor leitura */
+#mobile {
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+  cursor: pointer;
+}
+
+.mobile{
+  display: none;
+}
+.icon_mobile{
+  display: none;
+}
+.section_mobile{
+  display: none;
+}
+
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+/*fim do css*/
+
+
+
+
+
+/* Para celulares pequenos (telas menores que 400px) */
+
+
+  .mobile_i, .icon_mobile {
+      display: block; /* Mostra o menu hambúrguer e ícones relevantes */
+  }
+  .pesquisa{
+    width: 400px;
+  }
+  .opcoes,  .nav_a {
+      display: none; /* Oculta opções que não cabem em telas pequenas */
   }
 
-  .pesquisa {
-      width: 100%; /* Ajusta a largura da barra de pesquisa para ocupar todo o espaço disponível */
+  #mobile {
+      display: block; /* Mostra o menu lateral */
+      left: 0; /* Ajusta a posição para ser visível */
   }
+
+  .section_mobile {
+      display: flex; /* Garante que o menu mobile seja exibido corretamente */
+  }
+
+/* Ajustes adicionais para melhor visualização em dispositivos variados */
+@media (max-width: 400px) {
+
+  
+header{
+  width: 100%;
+
+}
+
+.logo{
+  width: 120px;
+}
+
+.navegacao{
+  margin-left: -22px;
+}
+
+#search-filter{
+  margin-left: -44px;
+}
+
+.divForm{
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 3rem;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: -120px;
+}
+
+
+ 
+
+#tabelaUsuarios thead,
+  #tabelaUsuarios tbody,
+  #tabelaUsuarios th,
+  #tabelaUsuarios td,
+  #tabelaUsuarios tr {
+    display: block;
+    margin-right: 260px;
+   
+  }
+  
+  #tabelaUsuarios{
+    margin-top: 23px;
+  }
+  #tabelaUsuarios tr {
+    margin-bottom: 1em;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o conteúdo dentro da tabela */
+  }
+
+  
+  #tabelaUsuarios td {
+    border: none; /* Remove as bordas das células */
+    border-bottom: 1px solid #ccc; /* Adiciona uma linha horizontal entre as linhas da tabela */
+    text-align: left; /* Alinha o texto à esquerda */
+    padding-left: 50%;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o conteúdo dentro da tabela */ /* Adiciona espaço entre o início da célula e o conteúdo */
+  }
+
+  #tabelaUsuarios td::before {
+    content: attr(data-label); /* Adiciona o conteúdo dos atributos "data-label" como texto antes do conteúdo real da célula */
+    font-weight: bold; /* Deixa o texto em negrito */
+    display: inline-block; /* Permite a quebra de linha */
+    width: 45%; /* Largura do rótulo */
+    margin-left: -50%; /* Move o rótulo para a esquerda */
+    white-space: nowrap; /* Impede a quebra de linha */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o conteúdo dentro da tabela */
+  }
+
 }
