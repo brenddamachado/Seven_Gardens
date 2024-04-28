@@ -765,3 +765,21 @@ footer {
     width: 100px;
   }
 }
+
+@media (max-width: 944px) and (min-width: 917px){
+  .pesquisa{
+    width: 420px;
+  }
+}
+
+@media (max-width: 854px) and (min-width:  835px){
+  .pesquisa{
+    width: 370px;
+  }
+}
+
+@media (max-width:778px) and (min-width: 766px){
+  .pesquisa{
+    width: 300px;
+  }
+}
