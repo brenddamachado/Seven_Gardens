@@ -126,6 +126,7 @@ header {
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
+  text-decoration: none;
 }
 
 
@@ -134,6 +135,9 @@ header {
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
+
+    text-decoration: none;
+
 }
 
 .menu_btn {
@@ -391,7 +395,9 @@ body.dark-mode .dropbtn,
 body.dark-mode a {
   color: #E1F9D7;
 }
-
+body.dark-mode .cadastrar{
+  color: #070B06;
+}
 
 .social-icons {
   text-align: center;
@@ -552,65 +558,110 @@ footer {
   flex-direction: column;
 }
 
-@media (max-width: 500px) {
 
-  .instrucoes-container {
-    width: 150% !important;
-    margin-left: 25%;
+@media (max-width: 415px) {
+  header {
+    width: auto;
+    justify-content: flex-start;
+    /* Alinhar o conteúdo à esquerda */
   }
-  .card1 {
-    display: grid !important;
-    grid-template-columns: repeat(1, 1fr) !important;
-  }
-  .card2 {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr) !important;
-  }
-}
 
-@media (max-width: 898px) {
   .pesquisa {
-    width: 450px;
+    width: 200px;
   }
-  header,
-  footer {
-    width: 920px;
+
+  .pesquisa-container {
+    margin-right: 55px;
+    left: 0 !important;
   }
+
   .logo {
-    width: 125px;
+    width: 120px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+
+  .pesquisa-icon {
+    top: 50% !important;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .cliqueAqui {
+    display: block;
+    /* Mostrar elemento */
   }
 }
 
-@media (max-width: 849px) {
+/* Estilos para telas até 320px */
+@media (max-width: 320px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .pesquisa {
+    width: 150px !important;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .card2 {
+
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+
+  .card1 {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .section{
+    padding: 5px;
+  }
+}
+
+/* Estilos para telas entre 321px e 428px */
+@media (max-width: 428px) and (min-width: 321px) {
+  .pesquisa {
+    width: 190px !important;
+  }
+
+  .card2 {
+
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+
+  .section {
+    padding: 5px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Estilos para telas entre 885px e 917px */
+@media (max-width: 917px) and (min-width: 885px) {
   .pesquisa {
     width: 400px;
   }
 }
 
-@media (max-width: 773px) {
-  .pesquisa {
-    width: 350px;
-
-  }
-}
-
-@media (max-width: 790px) {
-  .section {
-    width: 100%;
-  }
-  body {
-    width: 100%; 
-  }
-}
-
+/* Estilos para telas até 766px */
 @media (max-width: 766px) {
+
   .mobile_i,
   .icon_mobile {
     display: block;
   }
 
-  .opcoes,
-  .navegacao ul li {
+  .opcoes {
     display: none;
   }
 
@@ -618,9 +669,8 @@ footer {
     right: 40px;
   }
 
-  .header {
-    justify-content: flex-start;
-    height: auto;
+  .navegacao ul li {
+    display: none;
   }
 
   .section_mobile {
@@ -630,18 +680,10 @@ footer {
     background-color: #405b39;
   }
 
-  .dropdown .dropbtn .fa-chevron-down {
+  .nav_a,
+  .dropdown .dropbtn .fa-chevron-down,
+  nav {
     display: none;
-  }
-
-  .pesquisa-icon {
-    top: 45%;
-    left: 140%;
-  }
-
-  .pesquisa {
-    width: 350px;
-    margin-left: 50%;
   }
 
   .opcoes {
@@ -652,14 +694,92 @@ footer {
     padding: 5px 10px;
   }
 
+
+
+  .header {
+    justify-content: flex-start;
+
+  }
+
+  .logo {
+    width: 130px;
+  }
+}
+
+/* Estilos para telas menores que 885px */
+@media (max-width: 885px) {
+  .pesquisa {
+    width: 400px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+}
+
+/* Estilos para telas entre 768px e 835px */
+@media (max-width: 835px) and (min-width: 767px) {
+  .pesquisa {
+    width: 350px;
+  }
+
+
+  .navegacao ul {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pesquisa {
+    width: 350px;
+  }
+}
+
+@media (max-width: 529px) and (min-width: 429px) {
+  .pesquisa {
+    width: 250px;
+  }
+
+  .card2 {
+
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+
+  .section {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 647px) {
   .card1 {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 715px) {
-  .instrucoes-container {
-    margin-left: 5%;
+@media (max-width: 370px){
+  .card1 {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .logo{
+    width: 100px;
+  }
+}
+
+@media (max-width: 944px) and (min-width: 917px){
+  .pesquisa{
+    width: 420px;
+  }
+}
+
+@media (max-width: 854px) and (min-width:  835px){
+  .pesquisa{
+    width: 370px;
+  }
+}
+
+@media (max-width:778px) and (min-width: 766px){
+  .pesquisa{
+    width: 300px;
   }
 }

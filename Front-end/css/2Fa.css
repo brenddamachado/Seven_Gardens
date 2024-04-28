@@ -9,27 +9,25 @@ body {
 header {
   background-color: #0f2b05;
 }
+
 .header {
   height: 180px;
 
   display: flex;
   justify-content: space-between;
 }
+
 ul {
   padding: 20px;
   display: flex;
   gap: 20px;
 }
+
 .header ul li {
   list-style-type: none;
   font-size: 20px;
 }
-/* .barra_pesquisa input{
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-    
-} */
+
 .logo {
   width: 155px;
   height: 200px;
@@ -42,8 +40,10 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
-  position: relative; /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
+  position: relative;
+  /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
+
 #icon {
   width: 35px;
   margin-top: 2px;
@@ -51,29 +51,35 @@ ul {
   font-size: 20px;
   color: #7ed957;
   border-color: #7ed957;
-  
+
 }
+
 .pesquisa-container {
   position: relative;
   display: inline-block;
 }
 
 .pesquisa {
-  width: 490px; /* Define o tamanho do input */
+  width: 490px;
+  /* Define o tamanho do input */
   height: 30px;
   border-radius: 7px;
-  border: none; /* Remove as bordas */
-  background-color: #fbf3dc; /* Define a cor de fundo desejada */
+  border: none;
+  /* Remove as bordas */
+  background-color: #fbf3dc;
+  /* Define a cor de fundo desejada */
   margin-top: 75px;
   margin-left: 30px;
 }
 
 .pesquisa-icon {
   position: absolute;
-  right: 15px; /* Posiciona o ícone à direita */
+  right: 15px;
+  /* Posiciona o ícone à direita */
   top: 50%;
   transform: translateY(-50%);
 }
+
 .opcoes h2 {
   color: #fbf3dc;
 }
@@ -100,7 +106,7 @@ ul {
 }
 
 .dropbtn {
- 
+
   color: #fbf3dc;
   padding: 10px 20px;
   font-size: 16px;
@@ -138,6 +144,7 @@ ul {
   border: none;
   cursor: pointer;
 }
+
 .menu_btn a {
   color: #fbf3dc;
   font-size: 16px;
@@ -153,7 +160,7 @@ ul {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  min-width: 100svh;
+  min-width: 100vh;
   background-color: #f4f4f4;
 }
 
@@ -169,13 +176,14 @@ footer {
 
 .divForm {
   width: 100%;
-max-width: 600px;
-background-color: #fff;
-padding: 3rem;
-box-sizing: border-box;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  background-color: #fff;
+  padding: 3rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .form-header {
   text-align: center;
   margin-bottom: 20px;
@@ -269,12 +277,13 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transform: scale(1.2);
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
-footer{
+
+footer {
   background-color: #0f2b05;
   height: 200px;
   flex-direction: column;
   align-items: center;
-  
+
 }
 
 /*css da página alterar senha*/
@@ -283,7 +292,9 @@ body.dark-mode form {
 }
 
 body.dark-mode .dropbtn,
-body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
+body.dark-mode .opcoes,
+body.dark-mode .section_mobile,
+body.dark-mode #mobile {
   background: #1e1f1e;
 }
 
@@ -292,6 +303,7 @@ body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
 .fa-sun {
   color: #7a7979;
 }
+
 body.dark-mode .sessao {
   color: #fff;
 }
@@ -326,24 +338,27 @@ body.dark-mode .menu_btn a,
 body.dark-mode label,
 body.dark-mode .home,
 body.dark-mode .dropbtn,
-body.dark-mode .dropbtn, body.dark-mode a {
-  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
+body.dark-mode .dropbtn,
+body.dark-mode a {
+  color: #e1f9d7;
+  /* Cor ajustada para elementos no modo escuro */
 }
 
-body.dark-mode h1{
+body.dark-mode h1 {
   color: #E1F9D7;
 }
 
-body.dark-mode p{
+body.dark-mode p {
   color: #E1F9D7;
 }
+
 body.dark-mode .cliqueAqui a,
 body.dark-mode .social-icons p,
-body.dark-mode .digiteCod{
+body.dark-mode .digiteCod {
   color: #f4f4f4;
 }
 
-body.dark-mode{
+body.dark-mode {
   background-color: #151515;
 }
 
@@ -355,7 +370,7 @@ body.dark-mode .divForm {
   background-color: #282828;
 }
 
-body.dark-mode #enviarButton{
+body.dark-mode #enviarButton {
   background-color: #151515;
 }
 
@@ -404,56 +419,71 @@ body.dark-mode #enviarButton{
 
 #mobile {
   position: fixed;
-  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  left: -100%;
+  /* Inicialmente fora da tela à esquerda */
   top: 0;
   width: 300px;
   height: 100vh;
   background-color: #405b39;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  /* Ajuste na sombra para o lado direito */
   transition: left 0.5s;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   padding-top: 60px;
 }
+
 .close-btn {
   position: absolute;
-  top: 10px; /* Ajuste conforme necessário */
-  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  top: 10px;
+  /* Ajuste conforme necessário */
+  right: 10px;
+  /* Posição do ícone no canto superior direito do menu lateral */
   cursor: pointer;
-  color: #fbf3dc; /* Cor do ícone */
-  font-size: 24px; /* Tamanho do ícone */
+  color: #fbf3dc;
+  /* Cor do ícone */
+  font-size: 24px;
+  /* Tamanho do ícone */
 }
 
 .dentro_icon {
   display: flex;
   flex-direction: column;
-  padding: 20px; /* Espaçamento interno */
+  padding: 20px;
+  /* Espaçamento interno */
 }
 
 .dentro_icon a {
-  color: #fbf3dc; /* Cor dos links */
-  padding: 10px; /* Espaçamento dos links */
+  color: #fbf3dc;
+  /* Cor dos links */
+  padding: 10px;
+  /* Espaçamento dos links */
   text-decoration: none;
-  font-size: 16px; /* Tamanho da fonte */
-  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
+  font-size: 16px;
+  /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc;
+  /* Linha separadora */
 }
 
-.mobile{
-  display: none;
-}
-.icon_mobile{
-  display: none;
-}
-.section_mobile{
+.mobile {
   display: none;
 }
 
-.fa-times{
+.icon_mobile {
+  display: none;
+}
+
+.section_mobile {
+  display: none;
+}
+
+.fa-times {
   color: #7ed957;
   border-color: #7ed957;
 }
-#hamburguer{
+
+#hamburguer {
 
   width: 35px;
   margin-top: 2px;
@@ -462,35 +492,97 @@ body.dark-mode #enviarButton{
   color: #7ed957;
   border-color: #7ed957;
 }
-.dentro_icon{
+
+.dentro_icon {
   display: flex;
   flex-direction: column;
 }
-/*fim do css*/
 
-@media (max-width: 915px) {
-  header {
-    width: 920px !important;
-  }
-  footer{
-    width: 920px;
-  }
-  .divForm form{
-    width: 350px;
-    margin-left: 100px;
-  }
-
-    .divForm {
-      display: block;
-      padding: 100px
-    }
+.cliqueAqui {
+  gap: 10px;
 }
 
+/*fim do css*/
+/* Estilos para telas até 415px */
+@media (max-width: 415px) {
+  header {
+    width: auto;
+    justify-content: flex-start;
+    /* Alinhar o conteúdo à esquerda */
+  }
+
+  .pesquisa {
+    width: 200px;
+  }
+
+  .pesquisa-container {
+    margin-right: 55px;
+    left: 0 !important;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+
+  .pesquisa-icon {
+    top: 50% !important;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .cliqueAqui {
+    display: block;
+    /* Mostrar elemento */
+  }
+}
+
+/* Estilos para telas até 320px */
+@media (max-width: 320px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .pesquisa {
+    width: 150px !important;
+  }
+
+  .nav_a {
+    display: none;
+  }
+}
+
+/* Estilos para telas entre 321px e 428px */
+@media (max-width: 428px) and (min-width: 321px) {
+  .pesquisa {
+    width: 190px !important;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Estilos para telas entre 885px e 917px */
+@media (max-width: 917px) and (min-width: 885px) {
+  .pesquisa {
+    width: 400px;
+  }
+}
+
+/* Estilos para telas até 766px */
 @media (max-width: 766px) {
-  .mobile_i, .icon_mobile {
+
+  .mobile_i,
+  .icon_mobile {
     display: block;
   }
-  
+
   .opcoes {
     display: none;
   }
@@ -508,19 +600,11 @@ body.dark-mode #enviarButton{
     justify-content: space-between;
     align-items: center;
     background-color: #405b39;
-    
   }
 
+  .nav_a,
   .dropdown .dropbtn .fa-chevron-down {
     display: none;
-  }
-
-  .divForm form {
-    margin-left: 120px;
-  }
-
-  .pesquisa-icon {
-    top: 45%;
   }
 
   .opcoes {
@@ -530,65 +614,53 @@ body.dark-mode #enviarButton{
   .menu_btn {
     padding: 5px 10px;
   }
-  .pesquisa-container {
-    left: 80px;
-}
-}
 
 
 
-/* Para celulares pequenos (telas menores que 400px) */
+  .header {
+    justify-content: flex-start;
 
-@media (max-width: 558px) {
- footer{
-  margin-top: 700px;
- }
-}
+  }
 
-@media (max-width: 918px) {
-  .container {
-    width: 142vh;
+  .logo {
+    width: 130px;
   }
 }
-/* Ajustes específicos para o menu móvel */
-@media (max-width: 766px) {
-  .mobile_i, .icon_mobile {
-      display: block; /* Mostra o menu hambúrguer e ícones relevantes */
-  }
-  .pesquisa{
+
+/* Estilos para telas menores que 885px */
+@media (max-width: 885px) {
+  .pesquisa {
     width: 400px;
   }
-  .opcoes,  .nav_a {
-      display: none; /* Oculta opções que não cabem em telas pequenas */
-  }
 
-  #mobile {
-      display: block; /* Mostra o menu lateral */
-      left: 0; /* Ajusta a posição para ser visível */
-  }
-
-  .section_mobile {
-      display: flex; /* Garante que o menu mobile seja exibido corretamente */
+  .container {
+    min-width: 0;
   }
 }
 
-/* Ajustes adicionais para melhor visualização em dispositivos variados */
-@media (max-width: 400px) {
-  .divForm {
-      width: 90%; /* Ajusta a largura do formulário para caber em telas muito pequenas */
-      padding: 1rem; /* Reduz o padding para mais espaço */
+/* Estilos para telas entre 768px e 835px */
+@media (max-width: 835px) and (min-width: 767px) {
+  .pesquisa {
+    width: 350px;
   }
 
-  
-
-  .buttons {
-      flex-direction: column; /* Ajusta botões para uma coluna em telas pequenas */
-  }
-  .buttons {
-    display: flex;
-    gap: 1rem;
+  .container {
+    min-width: 0;
   }
 
+  .navegacao ul {
+    gap: 5px;
+  }
 }
 
+@media (max-width: 768px) {
+  .pesquisa {
+    width: 350px;
+  }
+}
 
+@media (max-width: 529px ) and (min-width: 429px) {
+  .pesquisa{
+    width: 250px;
+  }
+}

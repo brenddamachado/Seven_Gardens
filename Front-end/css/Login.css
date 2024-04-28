@@ -202,6 +202,57 @@
     background-color: #f4f4f4;
   }
   
+  /* acessibilidade */
+
+  #accessibility-section {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
+  
+  #other-things {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: fixed;
+    padding: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 60px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
+  
+  .img_letra {
+    width: 20px;
+  }
+
+  .fa-universal-access {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    font-size: 40px;
+  }
+
+  .fa-universal-access, .fa-moon, .fa-sun{
+    color: #7A7979;
+  }
+
+  
+  
+  .fa-sun,
+  .fa-moon {
+    font-size: 20px;
+  }
+
   /* inicio footer */
   
   footer {
@@ -213,6 +264,78 @@
     align-items: center;
   }
   
+  /* inicio DARK MODE */
+body.dark-mode .container{
+  background-color: #151515;
+}
+body.dark-mode form {
+  background-color: #282828;
+}
+
+ body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile, body.dark-mode .dropdown-content, body.dark-mode .dropbtn{
+  background: #1E1F1E;
+
+}
+
+.fa-universal-access, .fa-moon, .fa-sun{
+  color: #7A7979;
+}
+body.dark-mode .sessao{
+  color: #fff;
+}
+
+
+
+/* lupa dark mode */
+body.dark-mode .pesquisa-icon{
+
+  color: #070B06;
+}
+
+ body.dark-mode header,   body.dark-mode footer, .dropdown-content a:hover {
+  background-color: #070B06; 
+ }
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar{
+  background-color: #070B06;
+}
+
+body.dark-mode .login{
+  color: #070B06;
+}
+
+body.dark-mode .texto_links{
+  color: #E1F9D7;
+
+
+}
+
+body.dark-mode .texto_links_2{
+  color: #fff;
+
+
+}
+
+
+body.dark-mode .title,
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .menu_btn a,
+body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn{
+  color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+}
+
+body.dark-mode .btn_cadastrar, body.dark-mode .btn_limpar{
+  color: #fff;
+}
+
   .social-icons {
     text-align: center;
   }
@@ -260,8 +383,10 @@
   }
   
   .input-box label {
+    display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    margin-top: 30px;
   }
   
   .input-box input {
@@ -300,119 +425,390 @@
 
 .texto_links {
   text-align: right;
+gap: 10px;
+display: flex;
+flex-direction: column;
 }
-  /* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" 
-  .button-box {
-    float: left;
-    margin-right: 5px;
-    margin-top: 15px;
+body.dark-mode form {
+  background-color: #282828;
+}
+
+body.dark-mode .dropbtn,
+body.dark-mode .opcoes,
+body.dark-mode .section_mobile,
+body.dark-mode #mobile {
+  background: #1e1f1e;
+}
+
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7a7979;
+}
+
+body.dark-mode .sessao {
+  color: #fff;
+}
+
+body.dark-mode .login,
+body.dark-mode .fa-search {
+  color: #070b06;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #070b06;
+}
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar,
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode .cliqueAqui,
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn,
+body.dark-mode a {
+  color: #e1f9d7;
+  /* Cor ajustada para elementos no modo escuro */
+}
+
+body.dark-mode h1 {
+  color: #E1F9D7;
+}
+
+body.dark-mode p {
+  color: #E1F9D7;
+}
+
+body.dark-mode .cliqueAqui a,
+body.dark-mode .social-icons p,
+body.dark-mode .digiteCod {
+  color: #f4f4f4;
+}
+
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode .container {
+  background-color: #151515;
+}
+
+body.dark-mode .divForm {
+  background-color: #282828;
+}
+
+body.dark-mode #enviarButton {
+  background-color: #151515;
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+#mobile {
+  position: fixed;
+  left: -100%;
+  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  /* Ajuste conforme necessário */
+  right: 10px;
+  /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc;
+  /* Cor do ícone */
+  font-size: 24px;
+  /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc;
+  /* Cor dos links */
+  padding: 10px;
+  /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px;
+  /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc;
+  /* Linha separadora */
+}
+
+.mobile {
+  display: none;
+}
+
+.icon_mobile {
+  display: none;
+}
+
+.section_mobile {
+  display: none;
+}
+
+.fa-times {
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+#hamburguer {
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+}
+
+.redicionamento p{
+  margin-top: 10px;
+font-size: 15px;
+}
+@media (max-width: 415px) {
+  header {
+    width: auto;
+    justify-content: flex-start;
+    /* Alinhar o conteúdo à esquerda */
   }
 
-  #limparButton{
-    background-color: #8D9776 ;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 40px;
+  .pesquisa {
+    width: 200px;
   }
-  
-  #enviarButton,
-  #cadastrarButton {
+
+  .pesquisa-container {
+    margin-right: 55px;
+    left: 0 !important;
+  }
+
+  .logo {
+    width: 100px !important;
+  }
+
+  .container {
+    min-width: 0;
+  }
+
+  .pesquisa-icon {
+    top: 50% !important;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .cliqueAqui {
+    display: block;
+    /* Mostrar elemento */
+  }
+}
+
+/* Estilos para telas até 320px */
+@media (max-width: 320px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .pesquisa {
+    width: 150px !important;
+  }
+
+  .nav_a {
+    display: none;
+  }
+  .divForm{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+/* Estilos para telas entre 321px e 428px */
+@media (max-width: 428px) and (min-width: 321px) {
+  .pesquisa {
+    width: 190px !important;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Estilos para telas entre 885px e 917px */
+@media (max-width: 917px) and (min-width: 885px) {
+  .pesquisa {
+    width: 400px;
+  }
+}
+
+/* Estilos para telas até 766px */
+@media (max-width: 766px) {
+
+  .mobile_i,
+  .icon_mobile {
+    display: block;
+  }
+
+  .opcoes {
+    display: none;
+  }
+
+  #other-things {
+    right: 40px;
+  }
+
+  .navegacao ul li {
+    display: none;
+  }
+
+  .section_mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #405b39;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
   }
-  
-  #cadastrarButton a {
-    color: white;
-    text-decoration: none;
+
+  .nav_a,
+  .dropdown .dropbtn .fa-chevron-down {
+    display: none;
   }
-  
-  #enviarButton a {
-    color: white;
-    text-decoration: none;
+
+  .opcoes {
+    height: auto;
   }
-*/
 
-
-  /* responsividade tablets*/
-  @media screen and (max-width: 768px) {
-    .container, section {
-      width: 100%;
-      padding: 0%;
-      min-width: 0;
-    }
-
-    .dropdown-content{
-      min-width: 0;
-    }
+  .menu_btn {
+    padding: 5px 10px;
   }
 
 
-  /* responsividade celulare*/
-  @media  (max-width: 500px) {
-    
-    .navegacao ul{
-      margin-left: -200px;
-    }
 
-    .container{
-      justify-content: initial;
-      min-width: 0;
-    }
+  .header {
+    justify-content: flex-start;
 
-    .pesquisa {
-      width: 300px; /* Define o tamanho do input */
-      height: 30px;    
-      margin-left: 5px; 
-      margin-top: 110px;  
-    }
-
-    .pesquisa-icon{
-      margin-top: 35px; 
-    }
-
-    .opcoes {
-      height: 60px;
-      font-size: 10px;
-    /* Reduza o tamanho da fonte para os ícones */
-    }
-
-    #icon {
-      margin-left: 10px;
-      margin-top: 4px;
-    }
-
-    
-    .dropdown-content{
-      margin-left: 20px;
-    }
-
-    .header, footer {
-      width: 100%;
-      margin: 0px;
-    }
-
-    .divForm {
-      width: 450px;
-      margin-left: 25px;
-    }
-    body{
-      width: 500px;
-    }
-
-    .EsqueceuSenha a {
-      margin-left: 195px;
-    }
-
-    .dropdown-content {
-      min-width: 0;
-    }
   }
+
+  .logo {
+    width: 130px;
+  }
+}
+
+/* Estilos para telas menores que 885px */
+@media (max-width: 885px) {
+  .pesquisa {
+    width: 400px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+}
+
+/* Estilos para telas entre 768px e 835px */
+@media (max-width: 835px) and (min-width: 767px) {
+  .pesquisa {
+    width: 350px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+
+  .navegacao ul {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pesquisa {
+    width: 350px;
+  }
+}
+
+@media (max-width: 529px ) and (min-width: 429px) {
+  .pesquisa{
+    width: 250px;
+  }
+}
+.conta {
+  display: flex;
+  justify-content: flex-end;
+}
