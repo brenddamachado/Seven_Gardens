@@ -49,8 +49,10 @@ header {
 
 a {
   color: inherit;
-  text-decoration: none; /* Remove o sublinhado */
+  text-decoration: none;
+  /* Remove o sublinhado */
 }
+
 .opcoes h2 {
   color: #fbf3dc;
 }
@@ -193,8 +195,8 @@ input[type="text"] {
 }
 
 /* inicio DARK MODE */
-body.dark-mode, body.dark-mode
-button[type="submit"] {
+body.dark-mode,
+body.dark-mode button[type="submit"] {
   background-color: #151515;
 }
 
@@ -328,7 +330,13 @@ footer {
 
     font-size: 15px;
   }
- 
+
+  .logo {
+    width: 120px;
+  }
+
+
+
 }
 
 @media (max-width: 1059px) {
@@ -345,12 +353,39 @@ footer {
 
 
 @media (max-width: 320px) {
-.logo {
-width: 100px;
-}}
+  .logo {
+    width: 100px;
+  }
+}
 
 
 @media (max-width: 360px) {
   .logo {
-  width: 120px;
-  }}
+    width: 120px;
+  }
+}
+
+@media (max-width: 445px) {
+  .paginas {
+    gap: 0;
+  }
+
+  .logo {
+    width: 98px;
+  }
+
+  .navegação {
+    margin-right: 14px;
+  }
+}
+
+@media (max-width: 340px) {
+  .header .paginas li { font-size: 12px;}
+
+  .navegação {
+    margin-right: 18px;
+  }
+  .logo {
+    width: 90px;
+  }
+}
