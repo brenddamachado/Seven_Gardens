@@ -437,6 +437,26 @@ body.dark-mode a {
   }
 }
 
+@media only screen and (max-width: 320px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px; /* Reduz a fonte para telas menores */
+  }
+  .header ul li  {
+    padding: 8px 16px; /* Reduz o padding para tornar os botões menores */
+    font-size: 12px;/* Reduz o tamanho da fonte para caber melhor */
+  }
+
+.card {
+  padding: 10px;
+}
+.logo {
+  width: 100px;
+  height: 149px;
+}
+}
+
 
 /* Estilos para telas menores que 480px (tamanho típico de smartphones) */
 @media only screen and (max-width: 480px) {
@@ -445,6 +465,10 @@ body.dark-mode a {
     align-items: center;
     font-size: 10px; /* Reduz a fonte para telas menores */
   }
+  .logo {
+    width: 100px;
+    height: 149px;
+}
 
   @media only screen and (max-width: 480px) {
     .header ul li  {
