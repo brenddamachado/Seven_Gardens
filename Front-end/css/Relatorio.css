@@ -384,6 +384,12 @@ body.dark-mode #enviarButton {
     font-size: 15px;
   }
 
+  .logo {
+    width: 120px;
+  }
+
+
+
 }
 
 @media (max-width: 1059px) {
@@ -406,14 +412,46 @@ body.dark-mode #enviarButton {
 }
 
 
+
 @media (max-width: 360px) {
   .logo {
-    width: 120px;
+    width: 90px !important;
   }
 }
-@media (max-width: 434px) {
+@media (max-width: 768px) {
+.conteudo {
+  width: 75% !important;
+
+}
+
+.header .paginas li {
+
+  font-size: 15px;
+}
+
+
+@media (max-width: 445px) {
+  .paginas {
+    gap: 0;
+  }
+
   .logo {
-    width: 120px;
+    width: 98px;
+  }
+
+  .navegação {
+    margin-right: 14px;
+  }
+}
+
+@media (max-width: 340px) {
+  .header .paginas li { font-size: 12px;}
+
+  .navegação {
+    margin-right: 18px;
+  }
+  .logo {
+    width: 90px;
   }
 }
 
