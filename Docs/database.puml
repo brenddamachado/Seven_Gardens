@@ -1,0 +1,56 @@
+@startuml
+
+' hide the spot
+' hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "User" as user {
+  *id : number <<generated>>
+  --
+  *name : text
+  *email: text
+  *first_name: text
+  *birth_date: date
+  *sex: text
+  *phone_number: number
+  *document_number: number
+  *password: text
+}
+
+entity "Address" as address {
+  *id : number <<generated>>
+  *user_id: <<FK>>
+  --
+  
+  *zip_code: text
+  *number: number
+  *street: text
+  *district: text
+  *city: text
+}
+
+
+
+entity "Role" as role {
+  *id : number <<generated>>
+  --
+  *name : text
+}
+
+entity "UserRole" as user_role {
+  *id_user : number <<FK>>
+  *id_role: number <<FK>>
+  --
+  
+}
+
+
+
+
+user }|..|| user_role
+role }|..|| user_role
+
+
+@enduml
