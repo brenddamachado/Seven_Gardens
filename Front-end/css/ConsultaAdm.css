@@ -601,7 +601,6 @@ footer {
 }
 
 
-
 @media (max-width: 360px) {
   .logo {
     width: 90px !important;
@@ -617,6 +616,22 @@ footer {
 
   font-size: 15px;
 }
+
+  @media (max-width: 315px) {
+    .logo {
+      width: 80px !important;
+    }
+  }
+  @media (max-width: 768px) {
+  .conteudo {
+    width: 75% !important;
+
+  }
+
+  .header .paginas li {
+
+    font-size: 15px;
+  }
 
 
 @media (max-width: 445px) {
@@ -653,3 +668,4 @@ footer {
       width: 90px;
     }
   }
+  
