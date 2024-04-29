@@ -488,55 +488,68 @@ body.dark-mode #enviarButton{
 /* Para celulares pequenos (telas menores que 400px) */
 
 
-  .mobile_i, .icon_mobile {
-      display: block; /* Mostra o menu hambúrguer e ícones relevantes */
-  }
-  .pesquisa{
-    width: 400px;
-  }
-  .opcoes,  .nav_a {
-      display: none; /* Oculta opções que não cabem em telas pequenas */
-  }
-
-  #mobile {
-      display: block; /* Mostra o menu lateral */
-      left: 0; /* Ajusta a posição para ser visível */
-  }
-
-  .section_mobile {
-      display: flex; /* Garante que o menu mobile seja exibido corretamente */
-  }
-
-/* Ajustes adicionais para melhor visualização em dispositivos variados */
-@media (max-width: 400px) {
-
   
+/* Ajustes adicionais para melhor visualização em dispositivos variados */
+
+@media (max-width: 480px) {
+
+.mobile_i, .icon_mobile {
+  display: block; /* Mostra o menu hambúrguer e ícones relevantes */
+}
+.pesquisa{
+  width: 400px;
+}
+.opcoes,  .nav_a {
+  display: none; /* Oculta opções que não cabem em telas pequenas */
+}
+
+#mobile {
+    display: block; /* Mostra o menu lateral */
+    left: 0; /* Ajusta a posição para ser visível */
+}
+
+.section_mobile {
+    display: flex; 
+    flex-wrap: wrap;
+    background: #405b39;
+}
 header{
   width: 100%;
 
 }
+footer{
+  width: 100%;
+}
 
 .logo{
   width: 120px;
+  display: flex; 
+  flex-wrap: wrap;
 }
 
 .navegacao{
-  margin-left: -22px;
+  margin-left: -36px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #search-filter{
   margin-left: -44px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .divForm{
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     background-color: #fff;
     padding: 3rem;
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-left: -120px;
+    font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
+    margin-top: 9%;
 }
 
 
@@ -544,21 +557,40 @@ header{
 
 #tabelaUsuarios thead,
   #tabelaUsuarios tbody,
-  #tabelaUsuarios th,
   #tabelaUsuarios td,
   #tabelaUsuarios tr {
     display: block;
     margin-right: 260px;
-   
+    font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
+  }
+  
+  #tabelaUsuarios th{
+    flex-grow: 1;
+    flex-basis: 200;
+    display: block;
+    margin-right: 260px;
+    font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
   }
   
   #tabelaUsuarios{
-    margin-top: 23px;
+    margin-top: 9%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 38%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    margin-left: 70px;
+    margin-bottom: 9%;
   }
   #tabelaUsuarios tr {
     margin-bottom: 1em;
     margin: 0 auto; /* Centraliza horizontalmente */
     text-align: center; /* Centraliza o conteúdo dentro da tabela */
+    font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
   }
 
   
@@ -583,3 +615,170 @@ header{
   }
 
 }
+
+/* tablets */
+@media (min-width: 768px) {
+
+  .mobile_i, .icon_mobile {
+    display: block; /* Mostra o menu hambúrguer e ícones relevantes */
+  }
+  .pesquisa{
+    width: 400px;
+  }
+  .opcoes,  .nav_a {
+    display: none; /* Oculta opções que não cabem em telas pequenas */
+  }
+
+  .dentro_icon a {
+    color: #fbf3dc;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 26px;
+    border-bottom: 1px solid #fbf3dc;
+    cursor: pointer;
+}
+  
+  #mobile {
+      display: block; /* Mostra o menu lateral */
+      left: 0; /* Ajusta a posição para ser visível */
+      width: 55%;
+      font-size: large;
+  }
+  
+  .section_mobile {
+      display: flex; 
+      flex-wrap: wrap;
+      background: #405b39;
+      padding-top: 22px;
+      padding-bottom: 22px;
+  }
+  header{
+    width: 100%;
+  
+  }
+  .header ul li {
+    list-style-type: none;
+    font-size: 27px;
+  }
+  .social-icons p {
+    font-size: 27px;
+}
+  .cadastrar {
+    background-color: #405b39;
+    color: #fbf3dc;
+    border-radius: 7px;
+    padding: 4px 10px;
+    font-size: 27px;
+}
+  footer{
+    width: 100%;
+  }
+  
+  .logo{
+    width: 150px;
+    display: flex; 
+    flex-wrap: wrap;
+  }
+  
+  .navegacao{
+    font-size: x-large;
+    margin-left: -27px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #search-filter{
+    margin-left: -44px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .divForm {
+    width: 301%;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 3rem;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: -120px;
+    font-size: large;
+  }
+
+  #btn-pesquisar {
+    background-color: #405b39;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  
+   
+  
+  #tabelaUsuarios thead,
+    #tabelaUsuarios tbody,
+    #tabelaUsuarios td,
+    #tabelaUsuarios tr {
+      display: block;
+      margin-right: 260px;
+     
+    }
+    
+    #tabelaUsuarios th{
+      flex-grow: 1;
+      flex-basis: 200;
+      margin-right: 260px;
+ 
+    }
+    
+    #tabelaUsuarios{
+      margin-top: 9%;
+      display: flex;
+      flex-wrap: wrap;
+      width: 47%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      margin-left: 17%;
+    }
+    #tabelaUsuarios tr {
+      margin-bottom: 1em;
+      margin: 0 auto; /* Centraliza horizontalmente */
+      text-align: center; /* Centraliza o conteúdo dentro da tabela */
+      font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
+    }
+  
+    
+    #tabelaUsuarios td {
+      border: none; /* Remove as bordas das células */
+      border-bottom: 1px solid #ccc; /* Adiciona uma linha horizontal entre as linhas da tabela */
+      text-align: left; /* Alinha o texto à esquerda */
+      padding-left: 50%;
+      margin: 0 auto; /* Centraliza horizontalmente */
+      text-align: center; /* Centraliza o conteúdo dentro da tabela */ /* Adiciona espaço entre o início da célula e o conteúdo */
+    }
+  
+    #tabelaUsuarios td::before {
+      content: attr(data-label); /* Adiciona o conteúdo dos atributos "data-label" como texto antes do conteúdo real da célula */
+      font-weight: bold; /* Deixa o texto em negrito */
+      display: inline-block; /* Permite a quebra de linha */
+      width: 45%; /* Largura do rótulo */
+      margin-left: -50%; /* Move o rótulo para a esquerda */
+      white-space: nowrap; /* Impede a quebra de linha */
+      margin: 0 auto; /* Centraliza horizontalmente */
+      text-align: center; /* Centraliza o conteúdo dentro da tabela */
+    }
+  
+  
+  
+}
+
+
+
