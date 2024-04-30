@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/04/2024 às 03:38
+-- Tempo de geração: 01/05/2024 às 00:36
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `sevengardens`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `endereco_completo`
+--
+
+CREATE TABLE `endereco_completo` (
+  `idEndereco` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `logradouro` varchar(255) NOT NULL,
+  `numero` varchar(10) NOT NULL,
+  `complemento` varchar(255) DEFAULT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(50) NOT NULL,
+  `cep` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -129,7 +147,6 @@ CREATE TABLE `usuario` (
   `cpf` varchar(14) NOT NULL,
   `email` varchar(100) NOT NULL,
   `telefone_celular` varchar(11) NOT NULL,
-  `endereco_completo` varchar(255) NOT NULL,
   `user_name` varchar(50) NOT NULL,
   `senha` varchar(255) NOT NULL,
   `tipo_usuario` enum('Cliente','Colaborador','Master') NOT NULL,
@@ -139,6 +156,13 @@ CREATE TABLE `usuario` (
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `endereco_completo`
+--
+ALTER TABLE `endereco_completo`
+  ADD PRIMARY KEY (`idEndereco`),
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
 -- Índices de tabela `funcionario`
@@ -201,6 +225,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de tabela `endereco_completo`
+--
+ALTER TABLE `endereco_completo`
+  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
@@ -251,6 +281,12 @@ ALTER TABLE `usuario`
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `endereco_completo`
+--
+ALTER TABLE `endereco_completo`
+  ADD CONSTRAINT `endereco_completo_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Restrições para tabelas `funcionario`
