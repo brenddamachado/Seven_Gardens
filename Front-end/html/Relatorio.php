@@ -56,20 +56,33 @@
         </thead>
         <tbody>
           <?php
-          $data = include('../PHP/conexaorelatorio.php'); // Isto inclui e executa o arquivo, e $data recebe o array retornado
+          include('../PHP/connect.php'); // Inclui e executa o arquivo, conectando ao banco de dados
+
+          $sql = "SELECT idUsuario, nome_completo FROM usuario"; // Consulta SQL para buscar os usuários
+          $result = $conn->query($sql);
+
+          $data = [];
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              $data[] = $row; // Adiciona cada linha do resultado ao array $data
+            }
+          }
 
           if (!empty($data)) {
             foreach ($data as $row) {
               echo "<tr>";
-              echo "<td>" . $row['idUsuario'] . "</td>"; // Ajuste o nome do campo conforme seu banco de dados
-              echo "<td>" . $row['nome_completo'] . "</td>"; // Ajuste o nome do campo conforme seu banco de dados
-              echo "<td>Compras</td>"; // Modifique conforme necessário
+              echo "<td>" . $row['idUsuario'] . "</td>";
+              echo "<td>" . $row['nome_completo'] . "</td>";
+              echo "<td>Compras</td>"; // Ajuste conforme necessário
               echo "</tr>";
             }
           } else {
-            echo "<tr><td colspan='3'>Nenhum resultado encontrado</td></tr>";
+            echo "<tr><td colspan='3'>Nenhum resultado encontrado</td></tr>"; // Exibe esta mensagem se $data estiver vazio
           }
+
+          return $data; // Retorna o array $data para uso em outro lugar, se necessário
           ?>
+
         </tbody>
       </table>
 
