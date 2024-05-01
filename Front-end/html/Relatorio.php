@@ -43,8 +43,7 @@
 
     <section id="client-table">
       <div class="icon-clientes">
-        <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes"
-          class="iconCard" />
+        <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
         <h2>Lista de Clientes</h2>
       </div>
       <table id="tabelaUsuarios">
@@ -56,27 +55,24 @@
           </tr>
         </thead>
         <tbody>
-          <!-- PHP para preencher a tabela 
           <?php
-          // Inclui o arquivo fetchData.php para buscar os dados do banco de dados
-          include 'fetchData.php';
+          $data = include('../PHP/conexaorelatorio.php'); // Isto inclui e executa o arquivo, e $data recebe o array retornado
 
-          // Realiza a requisição ao arquivo PHP para obter os dados
-          $json_data = file_get_contents('fetchData.php');
-          $data = json_decode($json_data, true);
-
-          // Preenche a tabela com os dados obtidos
-          foreach ($data as $row) {
-            echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['nome'] . "</td>";
-            echo "<td>" . $row['compras'] . "</td>";
-            echo "</tr>";
+          if (!empty($data)) {
+            foreach ($data as $row) {
+              echo "<tr>";
+              echo "<td>" . $row['idUsuario'] . "</td>"; // Ajuste o nome do campo conforme seu banco de dados
+              echo "<td>" . $row['nome_completo'] . "</td>"; // Ajuste o nome do campo conforme seu banco de dados
+              echo "<td>Compras</td>"; // Modifique conforme necessário
+              echo "</tr>";
+            }
+          } else {
+            echo "<tr><td colspan='3'>Nenhum resultado encontrado</td></tr>";
           }
           ?>
--->
         </tbody>
       </table>
+
       <div class="btn-download">
         <button onclick="downloadPDF()">Baixar PDF</button>
       </div>
@@ -88,12 +84,9 @@
     <div class="social-icons">
       <p> Siga-nos nas nossas redes sociais:</p>
 
-      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
-          class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-        class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-          class="fab fa-whatsapp""></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i class="fab fa-whatsapp""></i></a>
 
 
     </div>
