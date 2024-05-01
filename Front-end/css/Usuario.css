@@ -459,6 +459,89 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 /* FINAL DO DARK MODE */
 
 
+#mobile {
+  position: fixed;
+  left: -100%;
+  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  /* Ajuste conforme necessário */
+  right: 10px;
+  /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc;
+  /* Cor do ícone */
+  font-size: 24px;
+  /* Tamanho do ícone */
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  /* Espaçamento interno */
+}
+
+.dentro_icon a {
+  color: #fbf3dc;
+  /* Cor dos links */
+  padding: 10px;
+  /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px;
+  /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc;
+  /* Linha separadora */
+}
+
+.mobile {
+  display: none;
+}
+li{
+  list-style-type: none;
+}
+.icon_mobile {
+  display: none;
+}
+
+.section_mobile {
+  display: none;
+}
+
+.fa-times {
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+#hamburguer {
+
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* Media queries para responsividade */
 /* Estilo para o menu lateral escondido e animação */
@@ -614,48 +697,121 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
 
 
 /* Para celulares pequenos (telas menores que 400px) */
+/*fim do css*/
+/* Estilos para telas até 415px */
 
-/* Ajustes adicionais para melhor visualização em dispositivos variados */
-@media (max-width: 400px) {
-
-  .pesquisa-container{
-    width: 30%;
-    margin-right: 100%;
-  }
-
+@media (max-width: 936px){
   .pesquisa{
-    width: 3%;
-    margin-right: 200%;
+    width: 450px;
   }
 
-  .pesquisa-icon{
-    width: 12px;
+  .tabs{
+    display: flex;
+    flex-direction: row;
+   
   }
-  header li{
-    text-align: center;
-    margin-right: 30%;
-  }
-  .divForm {
-      width: 90%; /* Ajusta a largura do formulário para caber em telas muito pequenas */
-      padding: 1rem; /* Reduz o padding para mais espaço */
-  }
+.tabs-container{
+  flex-direction: column;
+}
+ 
+.tab-content-wrapper {
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: auto; 
+  color: #405B39;
 
+  padding: 0;
+  width: 100%;
+  max-width: 98%;
   
 
 
 }
 
-@media (max-width: 558px) {
-  footer{
-   margin-top: 700px;
+.tabs a {
+  padding:  0 13px;
+  font-size: 15px;
+}
+}
+@media (max-width: 415px) {
+  header {
+    width: auto;
+    justify-content: flex-start;
+    /* Alinhar o conteúdo à esquerda */
   }
- }
 
- @media (max-width: 766px) {
-  .mobile_i, .icon_mobile {
+  .pesquisa {
+    width: 200px;
+  }
+
+  .pesquisa-container {
+    margin-right: 55px;
+    left: 0 !important;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+
+  .pesquisa-icon {
+    top: 50% !important;
+  }
+
+  .nav_a {
+    display: none;
+  }
+
+  .cliqueAqui {
+    display: block;
+    /* Mostrar elemento */
+  }
+}
+
+/* Estilos para telas até 320px */
+@media (max-width: 320px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .pesquisa {
+    width: 150px !important;
+  }
+
+  .nav_a {
+    display: none;
+  }
+}
+
+/* Estilos para telas entre 321px e 428px */
+@media (max-width: 428px) and (min-width: 321px) {
+  .pesquisa {
+    width: 190px !important;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Estilos para telas entre 885px e 917px */
+@media (max-width: 917px) and (min-width: 885px) {
+  .pesquisa {
+    width: 400px;
+  }
+}
+
+/* Estilos para telas até 766px */
+@media (max-width: 766px) {
+
+  .mobile_i,
+  .icon_mobile {
     display: block;
   }
-  
+
   .opcoes {
     display: none;
   }
@@ -664,27 +820,20 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
     right: 40px;
   }
 
-
+  .navegacao ul li {
+    display: none;
+  }
 
   .section_mobile {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #405b39;
-    
   }
 
+  .nav_a,
   .dropdown .dropbtn .fa-chevron-down {
     display: none;
-  }
-
-  .divForm form {
-    margin-left: 120px;
-  }
-
-  .pesquisa-icon {
-    top: 52%;
-
   }
 
   .opcoes {
@@ -694,62 +843,59 @@ body.dark-mode label,body.dark-mode .home,body.dark-mode .dropbtn,body.dark-mode
   .menu_btn {
     padding: 5px 10px;
   }
-  .pesquisa-container {
-    left: 50px;
+
+
+
+  .header {
+    justify-content: flex-start;
+
   }
 
-  .logo{
-    width: 125px;
-    height: 200px;
+  .logo {
+    width: 130px;
   }
-
-  footer{
-    width: 390px;
-  }
+  
 }
 
-
-/* Ajustes específicos para o menu móvel */
-@media (max-width: 766px) {
-  .mobile_i, .icon_mobile {
-      display: block; /* Mostra o menu hambúrguer e ícones relevantes */
-  }
-  .pesquisa{
-    width: 120px;
-  }
-  .opcoes,  .nav_a {
-      display: none; /* Oculta opções que não cabem em telas pequenas */
+/* Estilos para telas menores que 885px */
+@media (max-width: 885px) {
+  .pesquisa {
+    width: 320px;
   }
 
-  #mobile {
-      display: block; /* Mostra o menu lateral */
-      left: 0; /* Ajusta a posição para ser visível */
-  }
-
-  .section_mobile {
-      display: flex; /* Garante que o menu mobile seja exibido corretamente */
-  }
-
-
-}
-
-@media (max-width: 915px) {
-  header {
-    width: 920px !important;
-  }
-  .divForm form{
-    width: 350px;
-    margin-left: 100px;
-  }
-
-    .divForm {
-      display: block;
-      padding: 100px
-    }
-}
-
-@media (max-width: 918px) {
   .container {
-    width: 142vh;
+    min-width: 0;
+  }
+}
+
+/* Estilos para telas entre 768px e 835px */
+@media (max-width: 835px) and (min-width: 767px) {
+  .pesquisa {
+    width: 350px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+
+  .navegacao ul {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pesquisa {
+    width: 350px;
+  }
+}
+
+@media (max-width: 529px ) and (min-width: 429px) {
+  .pesquisa{
+    width: 250px;
+  }
+}
+@media (max-width: 796px){
+  .logo{
+    width: 100px;
   }
 }
