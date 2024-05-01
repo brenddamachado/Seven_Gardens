@@ -7,17 +7,20 @@ body {
 header {
   background-color: #0f2b05;
 }
+
 .header {
   height: 180px;
 
   display: flex;
   justify-content: space-between;
 }
+
 ul {
   padding: 20px;
   display: flex;
   gap: 20px;
 }
+
 .header ul li {
   list-style-type: none;
   font-size: 20px;
@@ -44,6 +47,7 @@ ul {
   color: #7ed957;
   border-color: #7ed957;
 }
+
 .pesquisa-container {
   position: relative;
   display: inline-block;
@@ -53,16 +57,19 @@ ul {
   width: 450px;
   height: 30px;
   border-radius: 7px;
-  border: none; /* Remove as bordas */
+  border: none;
+  /* Remove as bordas */
   background-color: #fbf3dc;
 }
 
 .pesquisa-icon {
   position: absolute;
-  right: 15px; /* Posiciona o ícone à direita */
+  right: 15px;
+  /* Posiciona o ícone à direita */
   top: 50%;
   transform: translateY(-50%);
 }
+
 .opcoes h2 {
   color: #fbf3dc;
 }
@@ -119,6 +126,7 @@ footer {
   transform: scale(1.2);
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
+
 footer {
   background-color: #0f2b05;
   height: 200px;
@@ -193,6 +201,7 @@ dialog {
   justify-content: space-between;
   align-items: center;
 }
+
 #add_colaborador,
 #add_produto,
 #cancelar_add {
@@ -204,6 +213,7 @@ dialog {
   cursor: pointer;
   font-size: 1rem;
 }
+
 #add_colaborador:hover,
 #add_produto:hover,
 #cancelar_add:hover {
@@ -264,6 +274,10 @@ dialog {
   color: #405b39;
 }
 
+a {
+  text-decoration: none;
+}
+
 .card button {
   background-color: #405b39;
   color: #fff;
@@ -295,7 +309,9 @@ dialog {
 body.dark-mode {
   background-color: #151515;
 }
-body.dark-mode form {
+
+body.dark-mode #modalAdicionarProduto,
+body.dark-mode #modalAdicionarColaborador {
   background-color: #282828;
 }
 
@@ -311,11 +327,13 @@ body.dark-mode .dropdown-content {
 .fa-sun {
   color: #7a7979;
 }
+
 body.dark-mode .sessao {
   color: #fff;
 }
 
-body.dark-mode .fa-search {
+body.dark-mode .fa-search,
+body.dark-mode .cadastrar {
   color: #070b06;
 }
 
@@ -357,8 +375,12 @@ body.dark-mode label,
 body.dark-mode .home,
 body.dark-mode .dropbtn,
 body.dark-mode .dropbtn,
-body.dark-mode a {
-  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
+body.dark-mode a,
+body.dark-mode .title,
+body.dark-mode .painel,
+body.dark-mode .login {
+  color: #e1f9d7;
+  /* Cor ajustada para elementos no modo escuro */
 }
 
 #accessibility-section {
@@ -414,24 +436,36 @@ body.dark-mode a {
     flex-direction: column;
     align-items: center;
   }
-  @media only screen and (max-width: 768px) {
-   .header ul li {
-      padding: 8px 16px; /* Reduz o padding para tornar os botões menores */
-      font-size: 13px; /* Reduz o tamanho da fonte para caber melhor */
-    }
+
+  .header ul li {
+    padding: 8px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 13px;
+    /* Reduz o tamanho da fonte para caber melhor */
   }
+
+  .logo {
+    width: 135px;
+  }
+
   .card {
     width: 100%;
   }
 }
 
-
+@media (max-width: 332px) {
+  .logo{
+    width: 70px !important;
+  }
+}
 @media only screen and (max-width: 390px) {
   .header ul li {
-    padding: 8px 12px; /* Reduz o padding para tornar os botões menores */
-    font-size: 3px; /* Reduz o tamanho da fonte para caber melhor */
+    padding: 8px 12px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 3px;
+    /* Reduz o tamanho da fonte para caber melhor */
   }
-  
+
   .card {
     padding: 10px;
   }
@@ -441,40 +475,53 @@ body.dark-mode a {
   .opcoes {
     flex-direction: column;
     align-items: center;
-    font-size: 10px; /* Reduz a fonte para telas menores */
-  }
-  .header ul li  {
-    padding: 8px 16px; /* Reduz o padding para tornar os botões menores */
-    font-size: 12px;/* Reduz o tamanho da fonte para caber melhor */
+    font-size: 10px;
+    /* Reduz a fonte para telas menores */
   }
 
-.card {
-  padding: 10px;
-}
-.logo {
-  width: 100px;
-  height: 149px;
-}
+  .header ul li {
+    padding: 8px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 12px;
+    /* Reduz o tamanho da fonte para caber melhor */
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 70px !important;
+    height: 149px;
+  }
 }
 
-
+ @media (max-width: 389px) {
+  .logo{
+    width: 80px !important;
+  }
+} 
 /* Estilos para telas menores que 480px (tamanho típico de smartphones) */
 @media only screen and (max-width: 480px) {
   .opcoes {
     flex-direction: column;
     align-items: center;
-    font-size: 10px; /* Reduz a fonte para telas menores */
+    font-size: 10px;
+    /* Reduz a fonte para telas menores */
   }
+
   .logo {
     width: 100px;
-    height: 149px;
-}
 
-  @media only screen and (max-width: 480px) {
-    .header ul li  {
-      padding: 8px 16px; /* Reduz o padding para tornar os botões menores */
-      font-size: 12px;/* Reduz o tamanho da fonte para caber melhor */
-    }
+  }
+
+
+  .header ul li {
+    padding: 8px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 12px;
+    /* Reduz o tamanho da fonte para caber melhor */
+  }
 
   .card {
     padding: 10px;
@@ -483,22 +530,28 @@ body.dark-mode a {
 
 
 @media only screen and (max-width: 375px) {
-  .header ul li  {
-    padding: 8px 16px; /* Reduz o padding para tornar os botões menores */
-    font-size: 10px;/* Reduz o tamanho da fonte para caber melhor */
+  .header ul li {
+    padding: 8px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 10px;
+    /* Reduz o tamanho da fonte para caber melhor */
   }
 
-.card {
-  padding: 10px;
-}}
+  .card {
+    padding: 10px;
+  }
+}
 
 @media only screen and (max-width: 360px) {
-  .header ul li  {
-    padding: 6px 16px; /* Reduz o padding para tornar os botões menores */
-    font-size: 8px;/* Reduz o tamanho da fonte para caber melhor */
+  .header ul li {
+    padding: 6px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 8px;
+    /* Reduz o tamanho da fonte para caber melhor */
   }
 
-.card {
-  padding: 10px;
-}}
+  .card {
+    padding: 10px;
+  }
+
 }
