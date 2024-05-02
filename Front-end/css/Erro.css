@@ -43,12 +43,6 @@ header {
   font-size: 20px;
 }
 
-/* .barra_pesquisa input{
-    align-items: center;
-    justify-content: center;
-    margin-top: 25%;
-    
-} */
 .logo {
   width: 155px;
   height: 200px;
@@ -62,7 +56,6 @@ header {
   align-items: center;
   font-size: 12px;
   position: relative;
-  /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
 
 #icon {
@@ -82,13 +75,10 @@ header {
 
 .pesquisa {
   width: 490px;
-  /* Define o tamanho do input */
   height: 30px;
   border-radius: 7px;
   border: none;
-  /* Remove as bordas */
   background-color: #fbf3dc;
-  /* Define a cor de fundo desejada */
   margin-top: 75px;
   margin-left: 30px;
 }
@@ -96,7 +86,6 @@ header {
 .pesquisa-icon {
   position: absolute;
   right: 15px;
-  /* Posiciona o ícone à direita */
   top: 50%;
   transform: translateY(-50%);
 }
@@ -111,12 +100,6 @@ header {
   padding: 4px 10px;
 }
 
-.cadastrar {
-  background-color: #405b39;
-  color: #fbf3dc;
-  border-radius: 7px;
-  padding: 4px 10px;
-}
 
 .dropdown {
   position: relative;
@@ -166,296 +149,6 @@ header {
   color: #FBF3DC;
   font-size: 16px;
   text-decoration: none;
-}
-
-/* fim do header */
-
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-
-/* Estilos para o texto "Sobre" e instruções de cultivo */
-.container h1,
-.container h2,
-.container h3,
-.container p {
-  color: #405b39;
-}
-
-.container ol,
-.container ul {
-  color: #333;
-}
-
-.container ol li,
-.container ul li {
-  color: #444;
-}
-
-/* Estilos para as imagens */
-.container {
-  display: flex;
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 0 20px;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  flex-direction: row;
-  gap: 60px;
-}
-
-.image-container {
-  margin-top: 20px;
-  text-align: center;
-  width: 400px;
-  height: 400px;
-  overflow: hidden;
-}
-
-
-/* inicio footer */
-footer {
-  background-color: #0f2b05;
-  height: 200px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.divForm {
-  width: 100%;
-  max-width: 600px;
-  background-color: #fff;
-  padding: 3rem;
-  box-sizing: border-box;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.title {
-  color: #0f2b05;
-  margin: 0;
-}
-
-.input-box {
-  margin-bottom: 15px;
-}
-
-.input-box label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 7px;
-  font-size: 1rem;
-  box-shadow: 1px 1px 4px #0000001c;
-}
-
-/* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" */
-.button-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#enviarButton,
-#cadastrarButton {
-  background-color: #405b39;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-
-#cadastrarButton a {
-  color: white;
-  text-decoration: none;
-}
-
-#enviarButton a {
-  color: white;
-  text-decoration: none;
-}
-
-.social-icons {
-  text-align: center;
-
-
-}
-
-.social-icons p {
-  color: #fff;
-  /* Cor do texto */
-  text-align: center;
-  font-size: 16px;
-  /* Tamanho da fonte */
-
-}
-
-.social-icons .icon {
-  display: inline-block;
-  margin: 10px 10px 0;
-  /* Adicionando uma margem superior de  */
-  font-size: 30px;
-  /* Aumentei o tamanho dos ícones */
-  color: #fff;
-  transition: transform 0.3s ease;
-  /* Adiciona uma transição suave */
-}
-
-.social-icons p {
-  color: #ffffff;
-}
-
-.social-icons .icon:hover {
-  transform: scale(1.2);
-  /* Aumenta o tamanho do ícone em 20% no hover */
-}
-
-footer {
-  background-color: #0f2b05;
-  height: 200px;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-/* DARK MODE */
-
-body.dark-mode {
-  background-color: #151515;
-}
-
-body.dark-mode form {
-  background-color: #282828;
-}
-
-body.dark-mode .opcoes,
-body.dark-mode .section_mobile,
-body.dark-mode #mobile,
-body.dark-mode .dropdown-content {
-  background: #1E1F1E;
-
-}
-
-.fa-universal-access,
-.fa-moon,
-.fa-sun {
-  color: #7A7979;
-}
-
-body.dark-mode .sessao {
-  color: #fff;
-}
-
-body.dark-mode .login li {
-  color: #E1F9D7;
-}
-
-body.dark-mode p {
-  color: #E1F9D7;
-}
-
-body.dark-mode .social-icons p {
-  color: #ffffff;
-}
-
-body.dark-mode h1 {
-  color: #E1F9D7;
-}
-
-
-body.dark-mode .fa-search, body.dark-mode .login {
-  color: #070B06;
-}
-
-body.dark-mode header,
-body.dark-mode footer,
-.dropdown-content a:hover {
-  background-color: #070B06;
-}
-
-body.dark-mode .btn_cadastrar,
-body.dark-mode .btn_limpar {
-  background-color: #151515;
-}
-
-body.dark-mode .conta p,
-body.dark-mode #mensagem,
-body.dark-mode #mensagemNome,
-body.dark-mode #mensagemCpf,
-body.dark-mode #mensagemCep,
-body.dark-mode #mensagemEmail,
-body.dark-mode #mensagemLogin,
-body.dark-mode #mensagemform,
-body.dark-mode .label_login,
-body.dark-mode .menu_btn a,
-body.dark-mode label,
-body.dark-mode .home,
-body.dark-mode .dropbtn,
-body.dark-mode .dropbtn,
-body.dark-mode a {
-  color: #E1F9D7;
-  /* Cor ajustada para elementos no modo escuro */
-}
-
-
-#accessibility-section {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 2px;
-  z-index: 9999;
-  transition: all 0.3s ease;
-}
-
-#other-things {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  position: fixed;
-  padding: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 60px;
-  z-index: 9999;
-  transition: all 0.3s ease;
-}
-
-.img_letra {
-  width: 20px;
-}
-
-.fa-universal-access {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 20px;
-  z-index: 9999;
-  transition: all 0.3s ease;
-  font-size: 40px;
-}
-
-.fa-sun,
-.fa-moon {
-  font-size: 20px;
 }
 
 #mobile {
@@ -567,6 +260,202 @@ p {
 .dentro_icon {
   display: flex;
   flex-direction: column;
+}
+
+/* fim do header */
+
+.container {
+  display: flex;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  flex-direction: row;
+  gap: 60px;
+}
+
+/* Estilos para o texto "Sobre" e "instruções de cultivo" */
+.container h1,
+.container h2,
+.container h3,
+.container p {
+  color: #405b39;
+}
+
+.container ol,
+.container ul {
+  color: #333;
+}
+
+.container ol li,
+.container ul li {
+  color: #444;
+}
+
+/* Estilos para as imagens */
+
+
+.image-container {
+  margin-top: 20px;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+}
+
+
+/* inicio footer */
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.social-icons p {
+  color: #fff;
+  /* Cor do texto */
+  text-align: center;
+  font-size: 16px;
+  /* Tamanho da fonte */
+
+}
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 10px 0;
+  /* Adicionando uma margem superior de  */
+  font-size: 30px;
+  /* Aumentei o tamanho dos ícones */
+  color: #fff;
+  transition: transform 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.social-icons p {
+  color: #ffffff;
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+  /* Aumenta o tamanho do ícone em 20% no hover */
+}
+
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+/* DARK MODE */
+
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode .opcoes,
+body.dark-mode .section_mobile,
+body.dark-mode #mobile,
+body.dark-mode .dropdown-content {
+  background: #1E1F1E;
+
+}
+
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7A7979;
+}
+
+body.dark-mode .sessao {
+  color: #fff;
+}
+
+body.dark-mode .login li {
+  color: #E1F9D7;
+}
+
+body.dark-mode p {
+  color: #E1F9D7;
+}
+
+body.dark-mode .social-icons p {
+  color: #ffffff;
+}
+
+body.dark-mode h1 {
+  color: #E1F9D7;
+}
+
+
+body.dark-mode .fa-search, body.dark-mode .login {
+  color: #070B06;
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+.dropdown-content a:hover {
+  background-color: #070B06;
+}
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar {
+  background-color: #151515;
+}
+
+
+body.dark-mode .menu_btn a,
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn,
+body.dark-mode a {
+  color: #E1F9D7;
+  /* Cor ajustada para elementos no modo escuro */
 }
 
 /* Estilos para telas até 415px */
