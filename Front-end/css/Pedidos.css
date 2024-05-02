@@ -650,6 +650,14 @@ body.dark-mode #enviarButton{
     align-items: center;
     background-color: #405b39;
   }
+
+  #tabelaUsuarios th, #tabelaUsuarios td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+}
 }
 
 /* Estilos para telas até 320px */
@@ -679,6 +687,14 @@ body.dark-mode #enviarButton{
     align-items: center;
     background-color: #405b39;
   }
+
+  #tabelaUsuarios th, #tabelaUsuarios td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+}
 }
 
 /* Estilos para telas entre 321px e 428px */
@@ -706,6 +722,14 @@ body.dark-mode #enviarButton{
     align-items: center;
     background-color: #405b39;
   }
+
+  #tabelaUsuarios th, #tabelaUsuarios td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+}
 }
 
 /* Estilos para telas entre 885px e 917px */
@@ -799,6 +823,14 @@ body.dark-mode #enviarButton{
   .pesquisa{
     width: 250px;
   }
+
+  #tabelaUsuarios th, #tabelaUsuarios td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+}
 }
 @media (max-width: 796px){
   .logo{
