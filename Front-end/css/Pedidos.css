@@ -485,463 +485,326 @@ body.dark-mode #enviarButton{
 
 
 
-/* Para celulares pequenos (telas menores que 400px) */
-
-
-  
-/* Ajustes adicionais para melhor visualização em dispositivos variados */
-
-@media (max-width: 480px) {
-
-.mobile_i, .icon_mobile {
-  display: block; /* Mostra o menu hambúrguer e ícones relevantes */
+#hamburguer, #icon {
+  display: none;
 }
-.pesquisa{
-  width: 400px;
-}
-.opcoes,  .nav_a {
-  display: none; /* Oculta opções que não cabem em telas pequenas */
+
+@media (max-width: 414px) {
+  /* Dentro da media query para dispositivos com largura máxima de 766px */
+  /* Mostre o botão de hambúrguer e o ícone do carrinho */
+  #hamburguer, #icon {
+    display: block;
+  }
+
+  footer{
+    width: 400px;
+  }
 }
 
 #mobile {
-    display: block; /* Mostra o menu lateral */
-    left: 0; /* Ajusta a posição para ser visível */
-}
-
-.section_mobile {
-    display: flex; 
-    flex-wrap: wrap;
-    background: #405b39;
-}
-header{
-  width: 100%;
-
-}
-footer{
-  width: 100%;
-}
-
-.logo{
-  width: 120px;
-  display: flex; 
-  flex-wrap: wrap;
-}
-
-.navegacao{
-  margin-left: -36px;
+  position: fixed;
+  left: -100%;  /* Inicialmente fora da tela à esquerda */
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
+  transition: left 0.5s;
+  z-index: 1000;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
+  cursor: pointer;
+  color: #fbf3dc; /* Cor do ícone */
+  font-size: 24px; /* Tamanho do ícone */
 }
 
-#search-filter{
-  margin-left: -44px;
+.dentro_icon {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 20px; /* Espaçamento interno */
 }
 
-.divForm{
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 3rem;
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: -120px;
-    font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
-    margin-top: 9%;
+.dentro_icon a {
+  color: #fbf3dc; /* Cor dos links */
+  padding: 10px; /* Espaçamento dos links */
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
 }
 
-
- 
-
-#tabelaUsuarios thead,
-  #tabelaUsuarios tbody,
-  #tabelaUsuarios td,
-  #tabelaUsuarios tr {
-    display: block;
-    margin-right: 260px;
-    font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
-  }
-  
-  #tabelaUsuarios th{
-    flex-grow: 1;
-    flex-basis: 200;
-    display: block;
-    margin-right: 260px;
-    font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
-  }
-  
-  #tabelaUsuarios{
-    margin-top: 9%;
-    display: flex;
-    flex-wrap: wrap;
-    width: 38%;
-    border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    align-items: center;
-    margin-left: 70px;
-    margin-bottom: 9%;
-  }
-  #tabelaUsuarios tr {
-    margin-bottom: 1em;
-    margin: 0 auto; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o conteúdo dentro da tabela */
-    font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
-  }
-
-  
-  #tabelaUsuarios td {
-    border: none; /* Remove as bordas das células */
-    border-bottom: 1px solid #ccc; /* Adiciona uma linha horizontal entre as linhas da tabela */
-    text-align: left; /* Alinha o texto à esquerda */
-    padding-left: 50%;
-    margin: 0 auto; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o conteúdo dentro da tabela */ /* Adiciona espaço entre o início da célula e o conteúdo */
-  }
-
-  #tabelaUsuarios td::before {
-    content: attr(data-label); /* Adiciona o conteúdo dos atributos "data-label" como texto antes do conteúdo real da célula */
-    font-weight: bold; /* Deixa o texto em negrito */
-    display: inline-block; /* Permite a quebra de linha */
-    width: 45%; /* Largura do rótulo */
-    margin-left: -50%; /* Move o rótulo para a esquerda */
-    white-space: nowrap; /* Impede a quebra de linha */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o conteúdo dentro da tabela */
-  }
-
+#mobile{
+  display: block;
+}
+.icon_mobile{
+  display: block;
+}
+.section_mobile{
+  display: block;
 }
 
-/* tablets */
-@media (min-width: 768px) {
+.fa-times{
+  color: #7ed957;
+  border-color: #7ed957;
+}
+#hamburguer{
 
-  .mobile_i, .icon_mobile {
-    display: block; /* Mostra o menu hambúrguer e ícones relevantes */
-  }
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+.dentro_icon{
+  display: flex;
+  flex-direction: column;
+}
+ /* Media queries para responsividade */
+/* Media queries para responsividade */
+
+/* Para celulares pequenos (telas menores que 400px) */
+/*fim do css*/
+/* Estilos para telas até 415px */
+
+@media (max-width: 936px){
   .pesquisa{
+    width: 450px;
+  }
+
+  .tabs{
+    display: flex;
+    flex-direction: row;
+   
+  }
+.tabs-container{
+  flex-direction: column;
+}
+ 
+.tab-content-wrapper {
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: auto; 
+  color: #405B39;
+
+  padding: 0;
+  width: 100%;
+  max-width: 98%;
+  
+
+
+}
+
+.tabs a {
+  padding:  0 13px;
+  font-size: 15px;
+}
+}
+@media (max-width: 415px) {
+  header {
+    width: auto;
+    justify-content: flex-start;
+    /* Alinhar o conteúdo à esquerda */
+  }
+
+  .pesquisa {
+    width: 200px;
+  }
+
+  .pesquisa-container {
+    margin-right: 55px;
+    left: 0 !important;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+
+  .pesquisa-icon {
+    top: 50% !important;
+  }
+
+  .cliqueAqui {
+    display: block;
+    /* Mostrar elemento */
+  }
+
+  #hamburguer, #icon {
+    display: block;
+  }
+
+  .icon_mobile {
+    display: block;
+  }
+  .section_mobile {
+    display: flex;
+    align-items: center;
+    background-color: #405b39;
+  }
+}
+
+/* Estilos para telas até 320px */
+@media (max-width: 320px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .pesquisa {
+    width: 150px !important;
+  }
+
+  .opcoes{
+    display:none;
+  }
+
+  #hamburguer, #icon {
+    display: block;
+  }
+
+  .icon_mobile {
+    display: block;
+  }
+  .section_mobile {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #405b39;
+  }
+}
+
+/* Estilos para telas entre 321px e 428px */
+@media (max-width: 428px) and (min-width: 321px) {
+  .pesquisa {
+    width: 190px !important;
+  }
+
+  .opcoes{
+    display:none;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+
+  #hamburguer, #icon {
+    display: block;
+  }
+
+  .icon_mobile {
+    display: block;
+  }
+  .section_mobile {
+    display: flex;
+    align-items: center;
+    background-color: #405b39;
+  }
+}
+
+/* Estilos para telas entre 885px e 917px */
+@media (max-width: 917px) and (min-width: 885px) {
+  .pesquisa {
     width: 400px;
   }
-  .opcoes,  .nav_a {
-    display: none; /* Oculta opções que não cabem em telas pequenas */
+
+  #hamburguer, #icon {
+    display: block;
   }
 
-  .dentro_icon a {
-    color: #fbf3dc;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 26px;
-    border-bottom: 1px solid #fbf3dc;
-    cursor: pointer;
-}
-  
-  #mobile {
-      display: block; /* Mostra o menu lateral */
-      left: 0; /* Ajusta a posição para ser visível */
-      width: 55%;
-      font-size: large;
+  .icon_mobile {
+    display: block;
   }
-  
   .section_mobile {
-      display: flex; 
-      flex-wrap: wrap;
-      background: #405b39;
-      padding-top: 22px;
-      padding-bottom: 22px;
-  }
-  header{
-    width: 100%;
-  
-  }
-  .header ul li {
-    list-style-type: none;
-    font-size: 27px;
-  }
-  .social-icons p {
-    font-size: 27px;
-}
-  .cadastrar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     background-color: #405b39;
-    color: #fbf3dc;
-    border-radius: 7px;
-    padding: 4px 10px;
-    font-size: 27px;
+  }
 }
-  footer{
-    width: 100%;
+
+/* Estilos para telas até 766px */
+@media (max-width: 766px) and (min-width: 429px){
+
+
+  .opcoes {
+    display: none;
+  }
+
+
+  .header {
+    justify-content: flex-start;
+
+  }
+
+  .logo {
+    width: 130px;
+  }
+
+  #hamburguer, #icon {
+    display: block;
+  }
+
+  .icon_mobile {
+    display: block;
+  }
+  .section_mobile {
+    display: flex;
+    align-items: center;
+    background-color: #405b39;
   }
   
+  
+}
+
+/* Estilos para telas menores que 885px */
+@media (max-width: 885px) {
+  .pesquisa {
+    width: 320px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+}
+
+/* Estilos para telas entre 768px e 835px */
+@media (max-width: 835px) and (min-width: 767px) {
+  .pesquisa {
+    width: 350px;
+  }
+
+  .container {
+    min-width: 0;
+  }
+
+  .navegacao ul {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pesquisa {
+    width: 350px;
+  }
+}
+
+@media (max-width: 529px ) and (min-width: 429px) {
+  .pesquisa{
+    width: 250px;
+  }
+}
+@media (max-width: 796px){
   .logo{
-    width: 150px;
-    display: flex; 
-    flex-wrap: wrap;
+    width: 100px;
   }
-  
-  .navegacao{
-    font-size: x-large;
-    margin-left: -27px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  #search-filter{
-    margin-left: -44px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .divForm {
-    width: 301%;
-    max-width: 900px;
-    background-color: #fff;
-    padding: 3rem;
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: -120px;
-    font-size: large;
-  }
-
-  #btn-pesquisar {
-    background-color: #405b39;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-  }
-  
-  
-   
-  
-  #tabelaUsuarios thead,
-    #tabelaUsuarios tbody,
-    #tabelaUsuarios td,
-    #tabelaUsuarios tr {
-      display: block;
-      margin-right: 260px;
-     
-    }
-    
-    #tabelaUsuarios th{
-      flex-grow: 1;
-      flex-basis: 200;
-      margin-right: 260px;
- 
-    }
-    
-    #tabelaUsuarios{
-      margin-top: 9%;
-      display: flex;
-      flex-wrap: wrap;
-      width: 47%;
-      border-collapse: collapse;
-      background-color: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      align-items: center;
-      margin-left: 17%;
-    }
-    #tabelaUsuarios tr {
-      margin-bottom: 1em;
-      margin: 0 auto; /* Centraliza horizontalmente */
-      text-align: center; /* Centraliza o conteúdo dentro da tabela */
-      font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
-    }
-  
-    
-    #tabelaUsuarios td {
-      border: none; /* Remove as bordas das células */
-      border-bottom: 1px solid #ccc; /* Adiciona uma linha horizontal entre as linhas da tabela */
-      text-align: left; /* Alinha o texto à esquerda */
-      padding-left: 50%;
-      margin: 0 auto; /* Centraliza horizontalmente */
-      text-align: center; /* Centraliza o conteúdo dentro da tabela */ /* Adiciona espaço entre o início da célula e o conteúdo */
-    }
-  
-    #tabelaUsuarios td::before {
-      content: attr(data-label); /* Adiciona o conteúdo dos atributos "data-label" como texto antes do conteúdo real da célula */
-      font-weight: bold; /* Deixa o texto em negrito */
-      display: inline-block; /* Permite a quebra de linha */
-      width: 45%; /* Largura do rótulo */
-      margin-left: -50%; /* Move o rótulo para a esquerda */
-      white-space: nowrap; /* Impede a quebra de linha */
-      margin: 0 auto; /* Centraliza horizontalmente */
-      text-align: center; /* Centraliza o conteúdo dentro da tabela */
-    }
-  
-  
-  
 }
 
-@media (min-width: 1280px){
 
-    .mobile_i, .icon_mobile {
-      display: block; /* Mostra o menu hambúrguer e ícones relevantes */
-    }
-    .pesquisa{
-      width: 400px;
-    }
-    .opcoes,  .nav_a {
-      display: none; /* Oculta opções que não cabem em telas pequenas */
-    }
   
-    .dentro_icon a {
-      color: #fbf3dc;
-      padding: 10px;
-      text-decoration: none;
-      font-size: 26px;
-      border-bottom: 1px solid #fbf3dc;
-      cursor: pointer;
-  }
-    
-    #mobile {
-        display: block; /* Mostra o menu lateral */
-        left: 0; /* Ajusta a posição para ser visível */
-        width: 55%;
-        font-size: large;
-    }
-    
-    .section_mobile {
-        display: flex; 
-        flex-wrap: wrap;
-        background: #405b39;
-        padding-top: 22px;
-        padding-bottom: 22px;
-    }
-    header{
-      width: 100%;
-    
-    }
-    .header ul li {
-      list-style-type: none;
-      font-size: 37px;
-  }
-
-    .social-icons p {
-      font-size: 37px;
-  }
-    .cadastrar {
-      background-color: #405b39;
-      color: #fbf3dc;
-      border-radius: 7px;
-      padding: 4px 10px;
-      font-size: 27px;
-  }
-    footer{
-      width: 100%;
-    }
-    
-    .logo{
-      width: 170px;
-      display: flex; 
-      flex-wrap: wrap;
-    }
-    
-    .navegacao{
-      font-size: x-large;
-      margin-left: -27px;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    
-    #search-filter{
-      margin-left: -44px;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    
-    .divForm {
-      width: 701%;
-      max-width: 900px;
-      background-color: #fff;
-      padding: 3rem;
-      box-sizing: border-box;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-left: -120px;
-      font-size: large;
-    }
-  
-    #btn-pesquisar {
-      background-color: #405b39;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-    }
-    
-    
-     
-    
-    #tabelaUsuarios thead,
-      #tabelaUsuarios tbody,
-      #tabelaUsuarios td,
-      #tabelaUsuarios tr {
-        display: block;
-        margin-right: 260px;
-       
-      }
-      
-      #tabelaUsuarios th{
-        flex-grow: 1;
-        flex-basis: 200;
-        margin-right: 260px;
-   
-      }
-      
-      #tabelaUsuarios{
-        margin-top: 9%;
-        display: flex;
-        flex-wrap: wrap;
-        width: 47%;
-        border-collapse: collapse;
-        background-color: #fff;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        align-items: center;
-        margin-left: 17%;
-      }
-      #tabelaUsuarios tr {
-        margin-bottom: 1em;
-        margin: 0 auto; /* Centraliza horizontalmente */
-        text-align: center; /* Centraliza o conteúdo dentro da tabela */
-        font-size: clamp(1.75 em, 1 em + 3 vw, 2.5em);
-      }
-    
-      
-      #tabelaUsuarios td {
-        border: none; /* Remove as bordas das células */
-        border-bottom: 1px solid #ccc; /* Adiciona uma linha horizontal entre as linhas da tabela */
-        text-align: left; /* Alinha o texto à esquerda */
-        padding-left: 50%;
-        margin: 0 auto; /* Centraliza horizontalmente */
-        text-align: center; /* Centraliza o conteúdo dentro da tabela */ /* Adiciona espaço entre o início da célula e o conteúdo */
-      }
-    
-      #tabelaUsuarios td::before {
-        content: attr(data-label); /* Adiciona o conteúdo dos atributos "data-label" como texto antes do conteúdo real da célula */
-        font-weight: bold; /* Deixa o texto em negrito */
-        display: inline-block; /* Permite a quebra de linha */
-        width: 45%; /* Largura do rótulo */
-        margin-left: -50%; /* Move o rótulo para a esquerda */
-        white-space: nowrap; /* Impede a quebra de linha */
-        margin: 0 auto; /* Centraliza horizontalmente */
-        text-align: center; /* Centraliza o conteúdo dentro da tabela */
-      }
-    
-    
-    
-  
-}
-
