@@ -1,0 +1,557 @@
+body {
+  margin: 0;
+  background-color: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #0f2b05;
+}
+
+.header {
+  height: 180px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.header ul li {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+.logo {
+  width: 155px;
+  height: 200px;
+}
+
+.opcoes {
+  justify-content: space-around;
+  display: flex;
+  background: #405b39;
+  height: 38px;
+  align-items: center;
+  font-size: 12px;
+}
+
+#icon {
+  width: 35px;
+  margin-top: 2px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+.pesquisa-container {
+  position: relative;
+  display: inline-block;
+}
+
+.pesquisa {
+  width: 450px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  /* Remove as bordas */
+  background-color: #fbf3dc;
+}
+
+.pesquisa-icon {
+  position: absolute;
+  right: 15px;
+  /* Posiciona o ícone à direita */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.opcoes h2 {
+  color: #fbf3dc;
+}
+
+.login {
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+.cadastrar {
+  background-color: #405b39;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+/* fim do header */
+
+/* inicio footer */
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.social-icons p {
+  color: #fff;
+  /* Cor do texto */
+  text-align: center;
+  font-size: 16px;
+  /* Tamanho da fonte */
+}
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 10px 0;
+  /* Adicionando uma margem superior de  */
+  font-size: 30px;
+  /* Aumentei o tamanho dos ícones */
+  color: #fff;
+  transition: transform 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+  /* Aumenta o tamanho do ícone em 20% no hover */
+}
+
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  flex-direction: column;
+  /* Empilhe os itens verticalmente */
+  align-items: center;
+  /* Alinhe os itens ao centro */
+}
+
+.social-icons {
+  margin-bottom: 20px;
+  /* Adicione espaço abaixo dos ícones sociais */
+}
+
+dialog::backdrop {
+  background-color: rgba(13, 35, 6, 0.5);
+}
+
+/* Estilos da modal de adicionar produto */
+dialog {
+  border: none;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 3rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+.input-box label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-box input,
+.input-box textarea,
+.input-box select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-shadow: 1px 1px 4px #0000001c;
+}
+
+.input-box select {
+  padding: 10px 0;
+}
+
+#previewImage {
+  max-height: 200px;
+  margin-top: 10px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: #0f2b05;
+  margin: 0;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#add_colaborador,
+#add_produto,
+#cancelar_add {
+  background-color: #405b39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#add_colaborador:hover,
+#add_produto:hover,
+#cancelar_add:hover {
+  background-color: #0f2b05;
+}
+
+#add_produto a,
+#cancelar_add a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Estilizando o botão "Escolher arquivo" */
+.custom-file-input input[type="file"] {
+  display: none;
+}
+
+.custom-file-input button {
+  background-color: #405b39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-file-input button:hover {
+  background-color: #0f2b05;
+}
+
+/* Estilo para os cards */
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+  text-align: center;
+}
+
+.card {
+  background-color: #fff;
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  color: #0f2b05;
+  margin-top: 0;
+}
+
+.card p {
+  color: #405b39;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card button {
+  background-color: #405b39;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.card button:hover {
+  background-color: #0f2b05;
+}
+
+.button.secondary {
+  background-color: #8d9776;
+}
+
+.button.secondary:hover {
+  background-color: #242923;
+}
+
+.iconCard {
+  width: 40%;
+}
+
+/* inicio DARK MODE */
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode #modalAdicionarProduto,
+body.dark-mode #modalAdicionarColaborador {
+  background-color: #282828;
+}
+
+body.dark-mode .opcoes,
+body.dark-mode .section_mobile,
+body.dark-mode #mobile,
+body.dark-mode .dropdown-content {
+  background: #1e1f1e;
+}
+
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7a7979;
+}
+
+body.dark-mode .sessao {
+  color: #fff;
+}
+
+body.dark-mode .fa-search,
+body.dark-mode .cadastrar {
+  color: #070b06;
+}
+
+body.dark-mode .card {
+  background-color: #282828;
+}
+
+body.dark-mode .social-icons p {
+  color: #fff;
+}
+
+body.dark-mode h3,
+body.dark-mode p {
+  color: #e1f9d7;
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+.dropdown-content a:hover {
+  background-color: #070b06;
+}
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar {
+  background-color: #151515;
+}
+
+body.dark-mode .conta p,
+body.dark-mode #mensagem,
+body.dark-mode #mensagemNome,
+body.dark-mode #mensagemCpf,
+body.dark-mode #mensagemCep,
+body.dark-mode #mensagemEmail,
+body.dark-mode #mensagemLogin,
+body.dark-mode #mensagemform,
+body.dark-mode .label_login,
+body.dark-mode .menu_btn a,
+body.dark-mode label,
+body.dark-mode .home,
+body.dark-mode .dropbtn,
+body.dark-mode .dropbtn,
+body.dark-mode a,
+body.dark-mode .title,
+body.dark-mode .painel,
+body.dark-mode .login {
+  color: #e1f9d7;
+  /* Cor ajustada para elementos no modo escuro */
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+/* FINAL DO DARK MODE */
+
+
+
+/* Estilos para telas menores que 768px (tamanho típico de tablets) */
+@media only screen and (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header ul li {
+    padding: 8px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 13px;
+    /* Reduz o tamanho da fonte para caber melhor */
+  }
+
+  .logo {
+    width: 135px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 332px) {
+  .logo{
+    width: 70px !important;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .header ul li {
+    padding: 8px 12px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 3px;
+    /* Reduz o tamanho da fonte para caber melhor */
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    /* Reduz a fonte para telas menores */
+  }
+
+  .header ul li {
+    padding: 8px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 12px;
+    /* Reduz o tamanho da fonte para caber melhor */
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 70px !important;
+    height: 149px;
+  }
+}
+
+ @media (max-width: 389px) {
+  .logo{
+    width: 80px !important;
+  }
+} 
+/* Estilos para telas menores que 480px (tamanho típico de smartphones) */
+@media only screen and (max-width: 480px) {
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    /* Reduz a fonte para telas menores */
+  }
+
+  .logo {
+    width: 100px;
+
+  }
+
+
+  .header ul li {
+    padding: 8px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 12px;
+    /* Reduz o tamanho da fonte para caber melhor */
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
+
+
+@media only screen and (max-width: 375px) {
+  .header ul li {
+    padding: 8px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 10px;
+    /* Reduz o tamanho da fonte para caber melhor */
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .header ul li {
+    padding: 6px 16px;
+    /* Reduz o padding para tornar os botões menores */
+    font-size: 8px;
+    /* Reduz o tamanho da fonte para caber melhor */
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+}
