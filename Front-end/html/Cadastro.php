@@ -17,6 +17,9 @@
   </head>
 
   <body>
+
+  
+
     <header>
       <section class="header">
         <div>
@@ -105,14 +108,14 @@
     </header>
 
     <section class="formulario">
-      <form id="formulario" action="#">
+      <form id="formulario" action="/Front-end/html/Cadastro.php" method="POST">
         <div id="mensagemform"></div>
         <label class="label_login" for="nome" id="labelNome"> Nome:</label>
         <input
           class="input_login"
           type="text"
           id="nome"
-          name="nome"
+          name="nome_completo"
           maxlength="80"
           autofocus
           placeholder="Digite o seu nome "
@@ -126,7 +129,7 @@
           class="input_login"
           type="text"
           id="nomeDamae"
-          name="nome"
+          name="nome_materno"
           maxlength="80"
           autofocus
           placeholder="Digite o seu nome "
@@ -134,32 +137,32 @@
         <div id="mensagemNomeMae"></div>
 
         <label for="nasc" class="label_login"> Data de nascimento: </label>
-        <input class="input_login" type="date" id="data" name="nasc" />
+        <input class="input_login" type="date" id="data" name="data_nascimento" />
         <div id="mensagemnascim"></div>
         <div class="genero">
           <label for="sexo" class="label_login"> Genêro:</label>
           <div class="input-group">
-              <input type="radio" id="mcisgênero" class="genero" name="genero" value="Mulher cisgênero" />
+              <input type="radio" id="mcisgênero" class="genero" name="sexo" value="Mulher cisgênero" />
               <label class="model" for="mcisgênero">Mulher cisgênero</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="mtransgênero" class="genero" name="genero" value="Mulher transgênero" />
+              <input type="radio" id="mtransgênero" class="genero" name="sexo" value="Mulher transgênero" />
               <label class="model" for="mtransgênero">Mulher transgênero</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="hcisgênero" name="genero" class="genero" value="Homem cisgênero" />
+              <input type="radio" id="hcisgênero" name="sexo" class="genero" value="Homem cisgênero" />
               <label class="model" for="hcisgênero">Homem cisgênero</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="htransgênero" name="genero" class="genero" value="Homem transgênero" />
+              <input type="radio" id="htransgênero" name="sexo" class="genero" value="Homem transgênero" />
               <label class="model" for="htransgênero">Homem transgênero</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="binário" name="genero" value="não-binário" class="genero" />
+              <input type="radio" id="binário" name="sexo" value="não-binário" class="genero" />
               <label class="model" for="binário">não-binário</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="outro" name="genero" value="outro" class="genero" />
+              <input type="radio" id="outro" name="sexo" value="outro" class="genero" />
               <label class="model" for="outro">Outros</label>
           </div>
       </div>
@@ -182,7 +185,7 @@
           class="input_login"
           type="tel"
           id="numero"
-          name="numeroCelular"
+          name="telefone_celular"
           placeholder="(xx) xxxxx-xxxx"
           maxlength="14"
         />
