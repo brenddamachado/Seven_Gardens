@@ -84,25 +84,26 @@
     <div class="form-header">
       <h2 class="title">Adicione um novo colaborador</h2>
     </div>
-    <form>
+    <form action="../../Back-end/CadastroColaborador.php" method="post">
       <div class="input-box">
+        <input type="hidden" name="acao" value="cadastrar">
         <label for="nomeColaborador">Nome completo:</label>
-        <input type="text" id="nomeColaborador" required>
+        <input type="text" id="nomeColaborador"  name="nome_completo"  required>
       </div>
 
       <div class="input-box">
         <label for="emailColaborador">E-mail:</label>
-        <input type="email" id="emailColaborador" required>
+        <input type="email" id="emailColaborador"  name="email" required>
       </div>
 
       <div class="input-box">
         <label for="telefoneColaborador">Telefone celular:</label>
-        <input type="tel" id="telefoneColaborador" required>
+        <input type="tel" id="telefoneColaborador" name="telefone_celular" required>
       </div>
 
       <div class="input-box">
         <label for="enderecoColaborador">Endereço completo:</label>
-        <input type="text" id="enderecoColaborador" required>
+        <input type="text" id="enderecoColaborador" name="endereco_completo" required>
       </div>
 
       <!-- Seus botões de envio e cancelamento -->
