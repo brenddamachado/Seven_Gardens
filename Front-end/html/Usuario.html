@@ -20,11 +20,13 @@
                 <input type="search" class="pesquisa" />
                 <label class="pesquisa-icon"><i class="fas fa-search"></i></label>
             </div>
-            <nav>
-                <ul class="navegacao">
-                    <li><p class="home">Olá, [nome do usuário]</p></li>
-                </ul>
-            </nav>
+
+
+
+                <p >Olá, [nome do usuário]</p>
+
+        
+
         </div>
         <section class="opcoes">
             <div class="dropdown">
@@ -45,47 +47,41 @@
             </div>
         </section>
         <section class="section_mobile">
-            <div class="mobile_i">  <i id="hamburguer" class="fa fa-bars"></i></div>
+            <div class="mobile_i"> <i id="hamburguer" class="fa fa-bars"></i></div>
 
-         <section id="mobile" class="mobile">
+            <section id="mobile" class="mobile">
 
-             <div id="dentro_icon" class="dentro_icon">
-               <div class="close-btn"><i class="fas fa-times"></i></div>
-               <a href="../index.html">Home</a>
+                <div id="dentro_icon" class="dentro_icon">
+                    <div class="close-btn"><i class="fas fa-times"></i></div>
+                    <a href="../index.html">Home</a>
+                    <a href="#"> Enxertos</a>
+                    <a href="#"> Naturais (De semente) </a>
+                    <a href="#">Especiais</a>
+                    <a href="#">Insumos</a>
+                    <a href="../html/instrucoesCultivo.html">Instruções de Cultivo</a>
+                    <a href="../html/Contato.html">Contato</a>
+                    <a href="../html/Sobre.html">Sobre</a>
+                    <a href="../html/Login.html">Sair</a>
+                </div>
 
-               <a href="../html/Login.html">Login</a>
-
-                   <a href="#"> Enxertos</a>
-                   <a href="#"> Naturais (De semente) </a>
-                   <a href="#">Especiais</a>
-                   <a href="#">Insumos</a>
-                 <a href="../html/instrucoesCultivo.html">Instruções de Cultivo</a>
-                 <a href="../html/Contato.html">Contato</a>
-                 <a href="../html/Sobre.html">Sobre</a>
-
-             </div>
-
-           </section> 
-            <img
-             src="../img/iconecar.svg"
-             alt="Ícone do carrinho de compras"
-             id="icon"
-             class="icon_mobile"
-           />
-     </section>
+            </section>
+            <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" />
+        </section>
 
     </header>
 
     <div class="alinha_container">
         <div class="tabs-container">
-            <ul class="tabs">
-                <li><a href="#tab1-content">Meu painel</a></li>
-                <li><a href="#tab2-content">Pedidos</a></li>
-                <li><a href="#tab3-content">Endereços</a></li>
-                <li><a href="#tab4-content">Detalhes da conta</a></li>
-                <li><a href="#tab5-content">Segurança</a></li>
-                <li><a href="#tab6-content">Log out</a></li>
-            </ul>
+            <div class="opcoes_tabs">
+                <ul class="tabs">
+                    <li><a href="#tab1-content">Meu painel</a></li>
+                    <li><a href="#tab2-content">Pedidos</a></li>
+                    <li><a href="#tab3-content">Endereços</a></li>
+                    <li><a href="#tab4-content">Detalhes da conta</a></li>
+                    <li><a href="#tab5-content">Segurança</a></li>
+                    <li><a href="#tab6-content">Log out</a></li>
+                </ul>
+            </div>
             <div class="tab-content-wrapper">
                 <section id="tab1-content" class="tab-content">
                     <h2>Meu painel</h2>
@@ -96,11 +92,11 @@
                     <table id="tabelaPedidos">
                         <thead>
                             <tr>
-                                <th>Pedido #</th>
-                                <th>Data</th>
-                                <th>Itens</th>
-                                <th>Total</th>
-                                <th></th>
+                                <th class="atributos">Pedido #</th>
+                                <th class="atributos">Data</th>
+                                <th class="atributos">Itens</th>
+                                <th class="atributos">Total</th>
+                                <th class="atributos"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -129,7 +125,7 @@
                                 <th>CEP</th>
                                 <th>Rua</th>
                                 <th>Complemento</th>
-                                <th>Ações</th>
+                                <th class="acoes">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -138,7 +134,7 @@
                                 <td>01234-567</td>
                                 <td>Rua das Flores, 123</td>
                                 <td>Apto 101</td>
-                                <td>
+                                <td class="botoes">
                                     <button>Editar</button>
                                     <button>Excluir</button>
                                 </td>
@@ -238,7 +234,7 @@
             <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-                    class="fab fa-whatsapp"></i></a>   
+                    class="fab fa-whatsapp"></i></a>
         </div>
     </footer>
     <script src=" ../js/Usuario.js"></script>
