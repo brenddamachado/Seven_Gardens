@@ -44,6 +44,12 @@ body {
   transform: translateY(-50%);
 }
 
+.boasvindas {
+  color: #7ed957;
+  font-weight: bold;
+  padding: 15px;
+}
+
 .login {
   background-color: #405b39;
 
