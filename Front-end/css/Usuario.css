@@ -22,8 +22,6 @@ body {
   font-size: 20px;
 }
 
-
-
 .pesquisa-container {
   position: relative;
   display: inline-block;
@@ -61,8 +59,6 @@ body {
   padding: 4px 10px;
   text-decoration: none;
 }
-
-
 
 .dropdown {
   position: relative;
@@ -111,7 +107,7 @@ body {
   font-size: 12px;
 }
 
-#icon {
+#icon-car {
   width: 35px;
   margin-top: 2px;
   margin-right: 15px;
@@ -123,10 +119,6 @@ body {
   text-decoration: none;
 }
 
-.alinha_container {
-  display: flex;
-  justify-content: center;
-}
 
 .tabs-container {
   width: 100%;
@@ -165,28 +157,29 @@ body {
   box-sizing: border-box;
 }
 
-.tabs a {
+.tabs {
   display: flex;
-  text-decoration: none;
-  width: 100%;
-  font-size: 18px;
-  font-weight: 600;
-  color: #0f2b05;
-  overflow: hidden;
-  text-align: left;
-  justify-content: start;
-  height: 90px;
-  padding: 0px 24px;
-  align-items: center;
-  gap: 5%;
-  margin-left: 10%;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 0;
 }
 
-.tabs a:hover {
-  font-weight: 700;
-  color: #405B39;
-  border-right: 3px solid #0F2B05;
+.tabs a {
+  transition: background-color 0.3s ease;
+  color: #fbf3dc; /* Cor normal */
+  padding: 10px 15px;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #405b39; /* Cor de fundo normal */
 }
+
+.tabs a.active {
+  color: #0f2b05; /* Cor do texto quando ativo */
+  background-color: #fbf3dc; /* Cor de fundo quando ativo */
+}
+
+
 
 .container-dados {
   display: flex;
@@ -195,6 +188,7 @@ body {
 
 /*estilo para form*/
 .divForm {
+  background-color: #fff;
   width: 60%;
   padding: 3rem;
   box-sizing: border-box;
@@ -269,6 +263,55 @@ table tbody tr:hover {
 */
 /* Estilos de botão */
 
+/* codigo teste*/
+
+/* Estilo geral */
+.container-principal {
+  display: flex;
+  height: calc(100vh - 240px); /* ajustar conforme o header e footer */
+  background-color: #f4f4f4;
+}
+
+/* Barra Lateral */
+.barra-lateral {
+  width: 200px;
+  background-color: #405b39;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+}
+
+.barra-lateral a {
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.barra-lateral a:hover, .barra-lateral a.active {
+  background-color: #0f2b05;
+  border-radius: 5px;
+}
+
+/* Conteúdo Principal */
+.conteudo-principal {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.secao {
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/*fim teste*/
 
 button {
   padding: 10px 20px;
@@ -327,10 +370,13 @@ footer {
 }
 
 /* inicio DARK MODE */
+body.dark-mode .container-principal,
 body.dark-mode {
   background-color: #151515;
 }
 
+body.dark-mode .barra-lateral,
+body.dark-mode .secao,
 body.dark-mode form {
   background-color: #282828;
 }
@@ -341,8 +387,6 @@ body.dark-mode .section_mobile,
 body.dark-mode #mobile,
 body.dark-mode .dropdown-content {
   background: #1E1F1E;
-
-
 }
 
 
@@ -371,12 +415,16 @@ body.dark-mode .social-icons p {
   color: #fff;
 }
 
-
+body.dark-mode .title,
+body.dark-mode h1,
+body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode p {
   color: #E1F9D7;
 }
 
+body.dark-mode .barra-lateral a:hover, 
+body.dark-mode .barra-lateral a.active,
 body.dark-mode .header {
   background-color: #070B06;
 }
@@ -392,19 +440,7 @@ body.dark-mode button {
   background-color: #151515;
 }
 
-body.dark-mode .title {
-  color: #405B39;
-}
-
 body.dark-mode .conta p,
-body.dark-mode #mensagem,
-body.dark-mode #mensagemNome,
-body.dark-mode #mensagemCpf,
-body.dark-mode #mensagemCep,
-body.dark-mode #mensagemEmail,
-body.dark-mode #mensagemLogin,
-body.dark-mode #mensagemform,
-body.dark-mode .label_login,
 body.dark-mode .menu_btn a,
 body.dark-mode label,
 body.dark-mode .home,
@@ -957,14 +993,7 @@ li {
     justify-content: center;
   }
 
-  /* .acoes{
-  height: 100px;
-  display: flex;
-  /* flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-
-} */
+ 
   .botoes {
     display: flex;
     flex-direction: column;
