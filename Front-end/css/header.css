@@ -22,6 +22,12 @@ header {
   text-decoration: none;
 }
 
+.login a,
+.cadastrar a {
+  color: #fbf3dc;
+  text-decoration: none;
+}
+
 
 .cadastrar {
   background-color: #405b39;
@@ -131,15 +137,22 @@ header {
 }
 
 .menu_btn {
-  padding: 10px 20px;
+  text-align: center;
+  min-width: 120px; /* Definindo um tamanho mínimo para os botões */
+  padding: 10px 20px; /* Adicionando um preenchimento uniforme */
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .menu_btn a {
   color: #FBF3DC;
   font-size: 16px;
   text-decoration: none;
+}
+
+.menu_btn:hover {
+  background-color: #395533; /* Cor de fundo alterada para o hover */
 }
 
 @media (max-width: 415px) {
