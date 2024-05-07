@@ -18,7 +18,43 @@
 
   <body>
 
-  
+  <?php 
+// Assegure-se de que este arquivo contém as credenciais corretas para acessar o banco de dados
+include("../PHP/connect.php"); 
+
+// Captura dos dados do formulário
+if (isset($_POST['cadastrar'])) {
+    $nome_completo = $_POST['nome_completo'];
+    $nome_materno = $_POST['nome_materno'];
+    $data_nascimento = $_POST['data_nascimento'];
+    $genero = $_POST['genero'];
+    $cpf = $_POST['cpf'];
+    $email = $_POST['email'];
+    $telefone_celular = $_POST['telefone_celular'];
+    $endereco_completo = $_POST['cep'] . " " . $_POST['cidade'] . " " . $_POST['bairro'] . " " . $_POST['rua'] . " " . $_POST['numero'] . " " . $_POST['complemento'];
+    $user_name = $_POST['login'];
+    $senha = $_POST['senha'];
+    $tipo_usuario = 'Cliente'; // Isso é um exemplo, você pode querer adicionar um campo no formulário para especificar o tipo do usuário
+    $ativado = true;
+
+    // Verificação de e-mail único
+    $verify_query = mysqli_query($conn, "SELECT email FROM usuario WHERE email='$email'");
+
+    if(mysqli_num_rows($verify_query) !=0 ){
+      echo "Este e-mail está em uso, por favor, tente outro.";
+  } else {
+      // Inserir usuário no banco de dados
+      $query = "INSERT INTO usuario (nome_completo, nome_materno, data_nascimento, genero, cpf, telefone_celular, cep, cidade, bairro, rua, numero, complemento, user_name, email, senha) 
+                VALUES ('$nome_completo', '$nome_materno', '$data_nascimento', '$genero', '$cpf', '$telefone_celular', '$cep', '$cidade', '$bairro', '$rua', '$numero', '$complemento', '$login', '$email', '$senha')";
+      if(mysqli_query($conn, $query)){
+          echo "Usuário cadastrado com sucesso!";
+      } else{
+          echo "Erro ao cadastrar o usuário. Por favor, tente novamente.";
+      }
+  }
+}
+
+?>
 
     <header>
       <section class="header">
@@ -108,7 +144,7 @@
     </header>
 
     <section class="formulario">
-      <form id="formulario" action="/Front-end/html/Cadastro.php" method="POST">
+      <form id="formulario" action="Cadastro.php" method="POST" onsubmit="return formulario();">
         <div id="mensagemform"></div>
         <label class="label_login" for="nome" id="labelNome"> Nome:</label>
         <input
@@ -142,27 +178,27 @@
         <div class="genero">
           <label for="sexo" class="label_login"> Genêro:</label>
           <div class="input-group">
-              <input type="radio" id="mcisgênero" class="genero" name="sexo" value="Mulher cisgênero" />
+              <input type="radio" id="mcisgênero" class="genero" name="genero" value="Mulher cisgênero" />
               <label class="model" for="mcisgênero">Mulher cisgênero</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="mtransgênero" class="genero" name="sexo" value="Mulher transgênero" />
+              <input type="radio" id="mtransgênero" class="genero" name="genero" value="Mulher transgênero" />
               <label class="model" for="mtransgênero">Mulher transgênero</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="hcisgênero" name="sexo" class="genero" value="Homem cisgênero" />
+              <input type="radio" id="hcisgênero" name="genero" class="genero" value="Homem cisgênero" />
               <label class="model" for="hcisgênero">Homem cisgênero</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="htransgênero" name="sexo" class="genero" value="Homem transgênero" />
+              <input type="radio" id="htransgênero" name="genero" class="genero" value="Homem transgênero" />
               <label class="model" for="htransgênero">Homem transgênero</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="binário" name="sexo" value="não-binário" class="genero" />
+              <input type="radio" id="binário" name="genero" value="não-binário" class="genero" />
               <label class="model" for="binário">não-binário</label>
           </div>
           <div class="input-group">
-              <input type="radio" id="outro" name="sexo" value="outro" class="genero" />
+              <input type="radio" id="outro" name="genero" value="outro" class="genero" />
               <label class="model" for="outro">Outros</label>
           </div>
       </div>
@@ -189,7 +225,6 @@
           placeholder="(xx) xxxxx-xxxx"
           maxlength="14"
         />
-
         <label class="label_login" for="ende" class="form" id="labelCep">
           Cep:</label
         >
@@ -289,7 +324,6 @@
           />
           <i id="verSenha" class="far fa-eye"></i>
         </div>
-
         <label
           class="label_login"
           id="labelConfirmacao"
@@ -312,11 +346,11 @@
         </div>
         <div class="conta">
           <p>Já possui uma conta?</p>
-          <a href="Login.html" class="sessao">Iniciar sessão</a>
+          <a href="login.php" class="sessao">Iniciar sessão</a>
         </div>
         <div id="mensagem"></div>
         <div class="buttons">
-          <button class="btn_cadastrar" type="submit" id="cadastrar">
+          <button class="btn_cadastrar" type="submit" id="cadastrar" name="cadastrar">
             Cadastrar
           </button>
           <button class="btn_limpar" id="limpar">Limpar</button>
