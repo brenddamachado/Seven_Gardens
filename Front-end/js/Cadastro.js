@@ -25,7 +25,7 @@ const form = document.getElementById("formulario");
 const limpar = document.getElementById("limpar");
 const comple = document.getElementById("comple");
 const generoInputs = document.querySelectorAll('.genero input[type="radio"]');
-
+const estado = document.getElementById('estado')
 const genero = document.querySelector(".genero");
 const data = document.getElementById("data");
 const mensagemform = document.getElementById("mensagemform");
@@ -39,6 +39,7 @@ let validecep = false;
 let valideemail = false;
 let valideMae = false;
 let nomeDaMãe = document.getElementById("nomeDamae");
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -185,9 +186,7 @@ function validarEmail(email) {
     mensagemEmail.innerHTML = "inválido";
     valideemail = false;
   }
-}
-
-function preencherEndereco(cep) {
+}function preencherEndereco(cep) {
   const url = `https://viacep.com.br/ws/${cep}/json/`;
 
   fetch(url)
@@ -195,19 +194,20 @@ function preencherEndereco(cep) {
       if (!response.ok) {
         throw new Error("Não foi possível obter os dados do CEP.");
       }
-      validecep = true;
       return response.json();
     })
     .then((data) => {
       if (data.erro) {
         mensagemCep.innerHTML = "CEP não encontrado";
-        validecep = false;
         return;
       }
 
       cidadeInput.val(data.localidade);
       ruaInput.val(data.logradouro);
       bairroInput.val(data.bairro);
+
+      // Atualizar o estado no select
+      $('#estado').val(data.uf); // Utilizando a chave 'uf' que é fornecida pelo ViaCEP
 
       // Remover estilos CSS das labels
       $("#labelRua, #labelCidade, #labelBairro").removeAttr("style");
@@ -233,6 +233,7 @@ cepInput.on("input", function () {
     cidadeInput.val("");
     ruaInput.val("");
     bairroInput.val("");
+    $('#estado').val(''); // Limpar o campo de estado se o CEP não estiver completo
   }
 });
 
@@ -303,7 +304,7 @@ limpar.addEventListener("click", (event) => {
   });
 
   data.value = "";
-
+  $('#estado').val('');
   // Limpar mensagens de validação também, se necessário
   mensagemNome.innerHTML = "";
   mensagemCPF.innerHTML = "";
