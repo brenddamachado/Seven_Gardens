@@ -293,6 +293,25 @@ a {
   background-color: #0f2b05;
 }
 
+.card .card-button {
+  background-color: #405b39;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.card .card-button:hover {
+  background-color: #0f2b05;
+}
+
+
 .button.secondary {
   background-color: #8d9776;
 }
