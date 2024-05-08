@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interface Master</title>
+  <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="../css/InterfaceMaster.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
@@ -19,7 +20,7 @@
         <div class="navegacao">
           <ul>
             <li class="login">Dashboard</li>
-            <li class="cadastrar"><a  class="cadastrar" href="../index.html">Visualizar Home</a></li>
+            <li class="cadastrar"><a class="cadastrar" href="../index.html">Visualizar Home</a></li>
           </ul>
         </div>
       </nav>
@@ -126,39 +127,40 @@
       <button onclick="abrirModalAdicionarProduto()">Cadastrar</button>
     </div>
     <div class="card">
+      <h3>Cadastrar Colaborador</h3>
+      <img src="../img/teste verde.svg" alt="Ícone de adicionar novo colaborador" class="iconCard" />
+      <p>Adicione novos Colaboradores para administrar.</p>
+      <button onclick="abrirModalCadastroColaborador()">Cadastrar</button>
+    </div>
+    <div class="card">
       <h3>Meus Clientes</h3>
       <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes"
         class="iconCard" />
       <p>Gerencie e acompanhe seus clientes.</p>
-      <button onclick="verClientes()">Ver Clientes</button>
+      <a href="ConsultaAdm.html" class="card-button">Ver Clientes</a>
     </div>
     <div class="card">
       <h3>Histórico</h3>
       <img src="../img/historico.svg" alt="Ícone de histórico para visualizar o histórico de acesso dos usuários"
         class="iconCard" />
       <p>Histórico de acesso dos usuários.</p>
-      <button onclick="verHistorico()">Ver Histórico</button>
+      <a href="Log.html" class="card-button">Ver Histórico</a>
     </div>
     <div class="card">
       <h3>Pedidos</h3>
       <img src="../img/pedidos.svg" alt="Ícone de lista de pedidos para visualizar e gerenciar pedidos pendentes"
         class="iconCard" />
       <p>Visualize e gerencie pedidos pendentes.</p>
-      <button onclick="verPedidos()">Ver Pedidos</button>
+      <a href="Pedidos.html" class="card-button">Ver Pedidos</a>
     </div>
     <div class="card">
       <h3>Relatórios</h3>
       <img src="../img/teste verde.svg" alt="Ícone de relatórios para análises detalhadas com relatórios completos"
         class="iconCard" />
       <p>Análises detalhadas com relatórios completos.</p>
-      <button onclick="verRelatorios()">Ver Relatórios</button>
+      <a href="Relatorio.php" class="card-button">Ver Relatórios</a>
     </div>
-    <div class="card">
-      <h3>Cadastrar Colaborador</h3>
-      <img src="../img/teste verde.svg" alt="Ícone de adicionar novo colaborador" class="iconCard" />
-      <p>Adicione novos Colaboradores para administrar.</p>
-      <button onclick="abrirModalCadastroColaborador()">Cadastrar</button>
-    </div>
+
 
     <div class="card">
       <h3>Sair</h3>
@@ -225,28 +227,7 @@
     }
   </script>
 
-          <script>
-
-            function verClientes() {
-              alert('Função para visualizar clientes.');
-            }
-
-            function verHistorico() {
-              alert('Função para visualizar histórico.');
-            }
-
-            function verPedidos() {
-              alert('Função para visualizar pedidos.');
-            }
-
-            function verRelatorios() {
-              alert('Função para visualizar relatórios.');
-            }
-
-            function sair() {
-              alert('Função para sair.');
-            }
-          </script>
+          
           <script src=" ../js/acessibilidade.js"></script>
 
           <script>
