@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Interface Master</title>
   <link rel="stylesheet" href="../css/InterfaceMaster.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
@@ -19,14 +19,14 @@
         <div class="navegacao">
           <ul>
             <li class="login">Dashboard</li>
-            <li class="cadastrar">Visualizar Home</li>
+            <li class="cadastrar"><a  class="cadastrar" href="../index.html">Visualizar Home</a></li>
           </ul>
         </div>
       </nav>
     </section>
 
     <section class="opcoes">
-      <h2>Painel de controle</h2>
+      <h2 class="painel">Painel de controle</h2>
     </section>
   </header>
 
@@ -79,6 +79,42 @@
     </form>
   </dialog>
 
+  <!-- Diálogo Modal para Adicionar Colaborador -->
+  <dialog id="modalAdicionarColaborador">
+    <div class="form-header">
+      <h2 class="title">Adicione um novo colaborador</h2>
+    </div>
+    <form>
+      <div class="input-box">
+        <label for="nomeColaborador">Nome completo:</label>
+        <input type="text" id="nomeColaborador" required>
+      </div>
+
+      <div class="input-box">
+        <label for="emailColaborador">E-mail:</label>
+        <input type="email" id="emailColaborador" required>
+      </div>
+
+      <div class="input-box">
+        <label for="telefoneColaborador">Telefone celular:</label>
+        <input type="tel" id="telefoneColaborador" required>
+      </div>
+
+      <div class="input-box">
+        <label for="enderecoColaborador">Endereço completo:</label>
+        <input type="text" id="enderecoColaborador" required>
+      </div>
+
+      <!-- Seus botões de envio e cancelamento -->
+      <div class="button-box">
+        <button type="submit" id="add_colaborador">Adicionar</button>
+        <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+
+
   <!--cards -->
   <section class="card-container">
     <div class="card">
@@ -117,6 +153,13 @@
       <button onclick="verRelatorios()">Ver Relatórios</button>
     </div>
     <div class="card">
+      <h3>Cadastrar Colaborador</h3>
+      <img src="../img/teste verde.svg" alt="Ícone de adicionar novo colaborador" class="iconCard" />
+      <p>Adicione novos Colaboradores para administrar.</p>
+      <button onclick="abrirModalCadastroColaborador()">Cadastrar</button>
+    </div>
+
+    <div class="card">
       <h3>Sair</h3>
       <img src="../img/sair.svg" alt="Ícone de saída para encerrar a sessão e sair da plataforma" class="iconCard" />
       <p>Encerre a sessão e saia da plataforma.</p>
@@ -128,7 +171,7 @@
   <section id="accessibility-section">
     <i class="fas fa-universal-access" id="accessibility-icon"></i>
     <div id="other-things">
-       <i class="fas fa-moon" id="dark-mode-toggle"></i>
+      <i class="fas fa-moon" id="dark-mode-toggle"></i>
 
       <i class="fas fa-sun" id="light-mode-toggle"></i>
       <img class="img_letra" src="../img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
@@ -181,30 +224,48 @@
     }
   </script>
 
+          <script>
 
-  <script>
+            function verClientes() {
+              alert('Função para visualizar clientes.');
+            }
 
-    function verClientes() {
-      alert('Função para visualizar clientes.');
-    }
+            function verHistorico() {
+              alert('Função para visualizar histórico.');
+            }
 
-    function verHistorico() {
-      alert('Função para visualizar histórico.');
-    }
+            function verPedidos() {
+              alert('Função para visualizar pedidos.');
+            }
 
-    function verPedidos() {
-      alert('Função para visualizar pedidos.');
-    }
+            function verRelatorios() {
+              alert('Função para visualizar relatórios.');
+            }
 
-    function verRelatorios() {
-      alert('Função para visualizar relatórios.');
-    }
+            function sair() {
+              alert('Função para sair.');
+            }
+          </script>
+          <script src=" ../js/acessibilidade.js"></script>
 
-    function sair() {
-      alert('Função para sair.');
-    }
-  </script>
-  <script src="../js/acessibilidade.js"></script>
+          <script>
+            // Função para abrir a modal de cadastro de colaborador
+            function abrirModalCadastroColaborador() {
+              var modal = document.getElementById("modalAdicionarColaborador");
+              if (modal) {
+                modal.showModal();
+              }
+            }
+
+            // Função para fechar a modal de cadastro de colaborador
+            function fecharModalCadastroColaborador() {
+              var modal = document.getElementById("modalAdicionarColaborador");
+              if (modal) {
+                modal.close();
+              }
+            }
+          </script>
+
 </body>
 
 </html>
