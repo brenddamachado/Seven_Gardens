@@ -59,7 +59,7 @@
           include('../PHP/connect.php'); // Inclui e executa o arquivo, conectando ao banco de dados com PDO
 
           $sql = "SELECT idUsuario, nome_completo FROM usuario"; // Consulta SQL para buscar os usuários
-          $stmt = $conn->prepare($sql);
+          $stmt = $pdo->prepare($sql);  // Alterado para usar $pdo
           $stmt->execute();
 
           $data = $stmt->fetchAll(PDO::FETCH_ASSOC); // Busca todos os dados e retorna como array associativo
@@ -76,6 +76,7 @@
             echo "<tr><td colspan='3'>Nenhum resultado encontrado</td></tr>"; // Exibe esta mensagem se $data estiver vazio
           }
           ?>
+
         </tbody>
 
       </table>
