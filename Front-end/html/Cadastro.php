@@ -1,7 +1,8 @@
 <?php
-include('../PHP/connect.php');
+include('../PHP/connect.php'); // Assegure-se de que este caminho está correto.
 
-$erroEmail = ""; // Inicializa a variável para armazenar a mensagem de erro do e-mail
+$erroEmail = "";
+$mensagemSucesso = "";
 
 // Função para verificar se o email já existe no banco de dados
 function emailExists($email, $pdo)
@@ -63,12 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $userId = createUser($data, $pdo);
     createAddress($data, $userId, $pdo);
+    $mensagemSucesso = "Usuário cadastrado com sucesso!";
   }
 }
 
 // Encerra a conexão
 $pdo = null;
 ?>
+
 
 
 <!DOCTYPE html>

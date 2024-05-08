@@ -47,10 +47,10 @@ form.addEventListener("submit", (event) => {
   let isChecked = Array.from(generoInputs).some(input => input.checked);
 
   // Validação de Campos
-  if (!nome.value || !validenome || !senha.value || !validesenha || 
-      !senha2.value || !validesenha2 || !cpf.value || !validecpf || 
-      !emailInput.value || !valideemail || !login.value || !validelogin || 
-      !data.value || !isChecked) {
+  if (!nome.value || !validenome || !senha.value || !validesenha ||
+    !senha2.value || !validesenha2 || !cpf.value || !validecpf ||
+    !emailInput.value || !valideemail || !login.value || !validelogin ||
+    !data.value || !isChecked) {
     mensagemform.innerHTML = "Por favor, preencha todos os campos obrigatórios corretamente.";
     window.scrollTo(0, 0); // Isso rola a página para o topo
   } else {
@@ -186,7 +186,7 @@ function validarEmail(email) {
     mensagemEmail.innerHTML = "inválido";
     valideemail = false;
   }
-}function preencherEndereco(cep) {
+} function preencherEndereco(cep) {
   const url = `https://viacep.com.br/ws/${cep}/json/`;
 
   fetch(url)
