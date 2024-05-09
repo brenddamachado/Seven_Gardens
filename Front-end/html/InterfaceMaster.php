@@ -86,15 +86,18 @@
       <h2 class="title">Adicione um novo colaborador</h2>
     </div>
     <form action="../../Back-end/CadastroColaborador.php" method="post">
+
+    <div id="responseMessage" style="display: none;"></div>
+
       <div class="input-box">
         <input type="hidden" name="acao" value="cadastrar">
         <label for="nomeColaborador">Nome completo:</label>
-        <input type="text" id="nomeColaborador"  name="nome_completo"  required>
+        <input type="text" id="nomeColaborador" name="nome_completo" required>
       </div>
 
       <div class="input-box">
         <label for="emailColaborador">E-mail:</label>
-        <input type="email" id="emailColaborador"  name="email" required>
+        <input type="email" id="emailColaborador" name="email" required>
       </div>
 
       <div class="input-box">
@@ -121,8 +124,7 @@
   <section class="card-container">
     <div class="card">
       <h3>Cadastrar Produto</h3>
-      <img src="../img/addProduto.svg" alt="Ícone de adição de produtos para cadastrar novos produtos"
-        class="iconCard" />
+      <img src="../img/addProduto.svg" alt="Ícone de adição de produtos para cadastrar novos produtos" class="iconCard" />
       <p>Adicione novos produtos ao seu catálogo.</p>
       <button onclick="abrirModalAdicionarProduto()">Cadastrar</button>
     </div>
@@ -134,29 +136,25 @@
     </div>
     <div class="card">
       <h3>Meus Clientes</h3>
-      <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes"
-        class="iconCard" />
+      <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
       <p>Gerencie e acompanhe seus clientes.</p>
       <a href="ConsultaAdm.html" class="card-button">Ver Clientes</a>
     </div>
     <div class="card">
       <h3>Histórico</h3>
-      <img src="../img/historico.svg" alt="Ícone de histórico para visualizar o histórico de acesso dos usuários"
-        class="iconCard" />
+      <img src="../img/historico.svg" alt="Ícone de histórico para visualizar o histórico de acesso dos usuários" class="iconCard" />
       <p>Histórico de acesso dos usuários.</p>
       <a href="Log.html" class="card-button">Ver Histórico</a>
     </div>
     <div class="card">
       <h3>Pedidos</h3>
-      <img src="../img/pedidos.svg" alt="Ícone de lista de pedidos para visualizar e gerenciar pedidos pendentes"
-        class="iconCard" />
+      <img src="../img/pedidos.svg" alt="Ícone de lista de pedidos para visualizar e gerenciar pedidos pendentes" class="iconCard" />
       <p>Visualize e gerencie pedidos pendentes.</p>
       <a href="Pedidos.html" class="card-button">Ver Pedidos</a>
     </div>
     <div class="card">
       <h3>Relatórios</h3>
-      <img src="../img/teste verde.svg" alt="Ícone de relatórios para análises detalhadas com relatórios completos"
-        class="iconCard" />
+      <img src="../img/teste verde.svg" alt="Ícone de relatórios para análises detalhadas com relatórios completos" class="iconCard" />
       <p>Análises detalhadas com relatórios completos.</p>
       <a href="Relatorio.php" class="card-button">Ver Relatórios</a>
     </div>
@@ -188,12 +186,9 @@
     <div class="social-icons">
       <p> Siga-nos nas nossas redes sociais:</p>
 
-      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
-          class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-        class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-          class="fab fa-whatsapp""></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i class="fab fa-whatsapp""></i></a>
 
 
     </div>
@@ -247,6 +242,44 @@
               }
             }
           </script>
+
+ <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
+ <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();  // Impede o envio tradicional do formulário
+
+        const formData = new FormData(this);
+        const responseMessageElement = document.getElementById('responseMessage');  // Elemento para mostrar mensagens de resposta
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())  // Assume que o servidor responde com JSON
+        .then(data => {
+            responseMessageElement.textContent = data.message;  // Define a mensagem de resposta
+            responseMessageElement.style.display = 'block';  // Torna o elemento visível
+            responseMessageElement.style.color = data.success ? 'green' : 'red';  // Muda a cor baseada no sucesso
+
+            if (data.success) {
+                // Opcional: Limpa o formulário após sucesso
+                form.reset();
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+            responseMessageElement.style.display = 'block';
+            responseMessageElement.style.color = 'red';  // Cor vermelha para erros
+        });
+    });
+});
+</script>
+
+
 
 </body>
 
