@@ -56,21 +56,29 @@
         </thead>
         <tbody>
           <?php
-          $data = include('../PHP/conexaorelatorio.php'); // Isto inclui e executa o arquivo, e $data recebe o array retornado
+          include('../PHP/connect.php'); // Inclui e executa o arquivo, conectando ao banco de dados com PDO
+
+          $sql = "SELECT idUsuario, nome_completo FROM usuario"; // Consulta SQL para buscar os usuários
+          $stmt = $pdo->prepare($sql);  // Alterado para usar $pdo
+          $stmt->execute();
+
+          $data = $stmt->fetchAll(PDO::FETCH_ASSOC); // Busca todos os dados e retorna como array associativo
 
           if (!empty($data)) {
             foreach ($data as $row) {
               echo "<tr>";
-              echo "<td>" . $row['idUsuario'] . "</td>"; // Ajuste o nome do campo conforme seu banco de dados
-              echo "<td>" . $row['nome_completo'] . "</td>"; // Ajuste o nome do campo conforme seu banco de dados
-              echo "<td>Compras</td>"; // Modifique conforme necessário
+              echo "<td>" . htmlspecialchars($row['idUsuario']) . "</td>"; // Usar htmlspecialchars para evitar XSS
+              echo "<td>" . htmlspecialchars($row['nome_completo']) . "</td>";
+              echo "<td>Compras</td>"; // Ajuste conforme necessário
               echo "</tr>";
             }
           } else {
-            echo "<tr><td colspan='3'>Nenhum resultado encontrado</td></tr>";
+            echo "<tr><td colspan='3'>Nenhum resultado encontrado</td></tr>"; // Exibe esta mensagem se $data estiver vazio
           }
           ?>
+
         </tbody>
+
       </table>
 
       <div class="btn-download">
