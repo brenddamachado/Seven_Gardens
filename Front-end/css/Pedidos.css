@@ -7,21 +7,25 @@ body {
 header {
   background-color: #0f2b05;
 }
+
 .header {
   height: 180px;
 
   display: flex;
   justify-content: space-between;
 }
-ul {
+
+.paginas {
   padding: 20px;
   display: flex;
   gap: 20px;
 }
-.header ul li {
+
+.header .paginas li {
   list-style-type: none;
   font-size: 20px;
 }
+
 
 .logo {
   width: 155px;
@@ -35,45 +39,22 @@ ul {
   height: 38px;
   align-items: center;
   font-size: 12px;
-}
-
-.navegacao a{
-  text-decoration: none;
-  color: #fbf3dc;
-  cursor: pointer;
-}
-
-#icon {
-  width: 35px;
-  margin-top: 2px;
-  font-size: 20px;
-  color: #7ED957;
-  border-color: #7ED957;
-}
-.pesquisa-container {
   position: relative;
-  display: inline-block;
+  /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
 
-.pesquisa {
-  width: 450px; 
-  height: 30px;
-  border-radius: 7px;
-  border: none; /* Remove as bordas */
-  background-color: #FBF3DC;
+a {
+  color: inherit;
+  text-decoration: none;
+  /* Remove o sublinhado */
 }
 
-.pesquisa-icon {
-  position: absolute;
-  right: 15px; /* Posiciona o ícone à direita */
-  top: 50%;
-  transform: translateY(-50%);
-}
 .opcoes h2 {
   color: #fbf3dc;
 }
 
 .login {
+  text-decoration: none;
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
@@ -81,6 +62,7 @@ ul {
 
 
 .cadastrar {
+  text-decoration: none;
   background-color: #405b39;
   color: #fbf3dc;
   border-radius: 7px;
@@ -89,60 +71,49 @@ ul {
 
 /* fim do header */
 
-/* inicio do form */
-.titulo-section {
-  background-color: #cbcbcb;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  min-width: 100svh;
-  gap: 20px;
-  
-}
 
-.divForm {
-width: 100%;
-max-width: 600px;
-background-color: #fff;
-padding: 3rem;
-box-sizing: border-box;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.form-header {
-  text-align: center;
-  margin-bottom: 20px;
+/* inicio da formulario*/
+form {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  margin: 0 auto;
+  /* Isso centralizará o formulário na página */
+  max-width: 400px;
+  /* Defina a largura máxima para evitar que o formulário se estenda demais */
+  margin-bottom: 50px;
+  margin-top: 150px;
 }
 
 .title {
   color: #0f2b05;
   margin: 0;
+  font-size: 25px;
 }
 
 .input-box {
   margin-bottom: 15px;
 }
 
-.input-box label {
+label {
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.input-box input {
+input[type="text"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 7px;
   font-size: 1rem;
   box-shadow: 1px 1px 4px #0000001c;
-  margin-bottom: 10px;
 }
 
-#btn-pesquisar {
+button[type="submit"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #405b39;
   color: white;
   border: none;
@@ -153,96 +124,40 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
 }
 
-/*fim form*/
-
-/* inicio footer */
-footer {
-  
-  background-color: #0f2b05;
-  height: 200px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+button[type="submit"]:hover {
+  background-color: #112a08;
 }
 
-
-
-
-.social-icons {
+th {
+  background-color: #405b39;
+  color: #fbf3dc;
+  padding: 15px;
+  /* Aumenta o padding para deixar mais espaçado */
   text-align: center;
-
-
+  /* Centraliza o texto horizontalmente */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  text-transform: uppercase;
+  /* Transforma o texto em maiúsculas */
+  border-bottom: 2px solid #ccc;
+  /* Adiciona uma borda inferior */
+  border-radius: 1px;
+  /* Adiciona bordas arredondadas */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  /* Adiciona uma sombra suave */
+  transition: background-color 0.3s ease;
+  /* Adiciona transição suave ao fundo */
 }
 
-.social-icons p {
-  color: #fff;
-  /* Cor do texto */
-  text-align: center;
-  font-size: 16px;
-  /* Tamanho da fonte */
-
+th:hover {
+  background-color: #e0e0e0;
+  /* Muda a cor de fundo quando hover */
 }
 
-.social-icons .icon {
-  display: inline-block;
-  margin: 10px 10px 0;
-  /* Adicionando uma margem superior de  */
-  font-size: 30px;
-  /* Aumentei o tamanho dos ícones */
-  color: #fff;
-  transition: transform 0.3s ease;
-  /* Adiciona uma transição suave */
-}
-
-.social-icons .icon:hover {
-  transform: scale(1.2);
-  /* Aumenta o tamanho do ícone em 20% no hover */
-}
-
-
-.social-icons {
-  margin-bottom: 20px;
-  /* Adicione espaço abaixo dos ícones sociais */
-}
-
-
-/* Estilos para a seção de filtro de pesquisa */
-.search-filter {
-  text-align: center;
-  padding: 20px;
-  background-color: #fff;
-  color: #0f2b05;
-}
-
-.pesquisa-container {
-  position: relative;
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.pesquisa {
-  width: 450px; 
-  height: 30px;
-  border-radius: 7px;
-  border: none;
-  padding: 5px 20px;
-  background-color: #FBF3DC;
-}
-
-.pesquisa-icon {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #405b39;
-  cursor: pointer;
-}
-
-/* Estilos para o contêiner da tabela */
 #tabelaUsuarios {
-  margin: 0 auto; 
-  width: 38%; /* Você pode ajustar a largura conforme necessário */
+  margin: 0 auto;
+  width: 38%;
+  /* Você pode ajustar a largura conforme necessário */
   border-collapse: collapse;
   background-color: #fff;
   border-radius: 10px;
@@ -257,6 +172,7 @@ footer {
   border-bottom: 1px solid #e0e0e0;
   text-align: center;
 }
+
 /* Estilos para a tabela de usuario */
 #tabelaUsuarios th {
   background-color: #405b39;
@@ -289,86 +205,188 @@ footer {
   border-right: none;
 }
 
-/* Dark mode */
-body.dark-mode form {
+h1 {
+  color: #405b39;
+  text-align: center;
+  margin-top: 50px;
+  /* Adiciona um espaçamento superior */
+
+}
+
+header {
+  margin-bottom: 40px;
+  /* Adicione margem inferior ao header para separá-lo do conteúdo abaixo */
+}
+
+
+
+/* inicio footer */
+footer {
+  margin-top: 400px;
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
+
+}
+
+.social-icons {
+  text-align: center;
+
+
+}
+.social-icons p {
+  color:#fff;
+
+
+}
+
+.social {
+  color: #fff;
+  /* Cor do texto */
+  text-align: center;
+  font-size: 16px;
+  /* Tamanho da fonte */
+
+}
+
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 20px 0;
+  /* Adicionando uma margem superior de  */
+  font-size: 30px;
+  /* Aumentei o tamanho dos ícones */
+  color: #fff;
+  transition: transform 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+  /* Aumenta o tamanho do ícone em 20% no hover */
+}
+
+
+.contact-info {
+  text-align: right;
+  color: #fff;
+  /* Alterei a cor do texto */
+  margin-right: 20px;
+  /* Adicionei margem à direita para afastar do lado direito do footer */
+}
+
+.contact-info p {
+  margin: 3px 0;
+  /* Ajustei a margem superior e inferior */
+  font-size: 16px;
+  /* Aumentei o tamanho da fonte */
+}
+
+#produtos {
+  font-size: 18px;
+  color: #fbf3dc;
+  transition: margin-top 0.3s;
+  /* Adiciona uma transição para uma animação suave */
+}
+
+#produtos:hover {
+  margin-top: 10px;
+  /* Define a margem superior durante o hover */
+}
+
+.categorias {
+  display: none;
+  position: absolute;
+  top: calc(100% + 1px);
+  /* Calcula a posição com base na altura do elemento pai */
+  left: 0;
+  background-color: #405b39;
+  padding: 10px;
+  margin-left: 150px;
+}
+
+.categorias li {
+  font-size: 18px;
+  list-style-type: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  /* Altera o cursor para indicar que os itens são clicáveis */
+}
+
+.categorias li:hover {
+  background-color: #7ED957;
+  /* Altera a cor de fundo quando o mouse está sobre a categoria */
+}
+
+
+/* inicio DARK MODE */
+
+body.dark-mode,
+body.dark-mode button[type="submit"] {
+  background-color: #151515;
+}
+
+body.dark-mode #tabelaUsuarios tbody {
+  background-color: #fff;
+
+}
+body.dark-mode .social{
+
+  color: #fff;  
+}
+
+
+body.dark-mode form,
+body.dark-mode #tabelaUsuarios th,
+body.dark-mode .modal-content {
   background-color: #282828;
 }
 
 body.dark-mode .dropbtn,
-body.dark-mode .opcoes, body.dark-mode .section_mobile, body.dark-mode #mobile {
-  background: #1e1f1e;
+body.dark-mode .opcoes {
+  background: #1E1F1E;
+
 }
 
 .fa-universal-access,
 .fa-moon,
 .fa-sun {
-  color: #7a7979;
+  color: #7A7979;
 }
+
 body.dark-mode .sessao {
   color: #fff;
 }
-body.dark-mode .cadastrar,
+
 body.dark-mode .login,
 body.dark-mode .fa-search {
-  color: #070b06;
+
+  color: #070B06;
 }
 
 body.dark-mode header,
 body.dark-mode footer {
-  background-color: #070b06;
+  background-color: #070B06;
 }
-body.dark-mode #btn-pesquisar,
+
 body.dark-mode .btn_cadastrar,
 body.dark-mode .btn_limpar,
 body.dark-mode {
   background-color: #151515;
 }
-body.dark-mode .login,
-body.dark-mode .cliqueAqui,
-body.dark-mode .conta p,
-body.dark-mode #mensagem,
-body.dark-mode #mensagemNome,
-body.dark-mode #mensagemCpf,
-body.dark-mode #mensagemCep,
-body.dark-mode #mensagemEmail,
-body.dark-mode #mensagemLogin,
-body.dark-mode #mensagemform,
-body.dark-mode .label_login,
-body.dark-mode .menu_btn a,
+
+body.dark-mode p,
+body.dark-mode h2,
 body.dark-mode label,
-body.dark-mode .home,
-body.dark-mode .dropbtn,
-body.dark-mode .dropbtn, body.dark-mode a {
-  color: #e1f9d7; /* Cor ajustada para elementos no modo escuro */
-}
-
-body.dark-mode h1{
+body.dark-mode .title,
+body.dark-mode .login {
   color: #E1F9D7;
+  /* Cor ajustada para elementos no modo escuro */
 }
 
-body.dark-mode p{
-  color: #E1F9D7;
-}
-body.dark-mode .cliqueAqui a,
-body.dark-mode .social-icons p,
-body.dark-mode .digiteCod{
-  color: #f4f4f4;
-}
-
-body.dark-mode{
-  background-color: #151515;
-}
-
-body.dark-mode .container {
-  background-color: #151515;
-}
-body.dark-mode #tabelaUsuarios th,
-body.dark-mode .divForm {
-  background-color: #282828;
-}
-
-body.dark-mode #enviarButton{
-  background-color: #151515;
+body.dark-mode .cadastrar {
+  color: #070B06;
+  background-color: #E1F9D7;
 }
 
 #accessibility-section {
@@ -414,429 +432,225 @@ body.dark-mode #enviarButton{
   font-size: 20px;
 }
 
-#mobile {
-  position: fixed;
-  left: -100%;  /* Inicialmente fora da tela à esquerda */
-  top: 0;
-  width: 300px;
-  height: 100vh;
-  background-color: #405b39;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
-  transition: left 0.5s;
-  z-index: 1000;
-  display: flex;
+.fa-chevron-down {
+  display: inline-block;
+  /* ou 'block', dependendo do seu layout */
+}
+
+/* FINAL DO DARK MODE */
+
+
+
+
+
+/* COMEÇO DA RESPONSIVIDADE DA PÁGINA*/
+
+footer {
   flex-direction: column;
-  padding-top: 60px;
-}
-.close-btn {
-  position: absolute;
-  top: 10px; /* Ajuste conforme necessário */
-  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
-  cursor: pointer;
-  color: #fbf3dc; /* Cor do ícone */
-  font-size: 24px; /* Tamanho do ícone */
+  /* Empilhe os itens verticalmente */
+  align-items: center;
+  /* Alinhe os itens ao centro */
 }
 
-.dentro_icon {
-  display: flex;
-  flex-direction: column;
-  padding: 20px; /* Espaçamento interno */
+.social-icons {
+  margin-bottom: 20px;
+  /* Adicione espaço abaixo dos ícones sociais */
 }
 
-.dentro_icon a {
-  color: #fbf3dc; /* Cor dos links */
-  padding: 10px; /* Espaçamento dos links */
-  text-decoration: none;
-  font-size: 16px; /* Tamanho da fonte */
-  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
-  cursor: pointer;
-}
-
-.mobile{
-  display: none;
-}
-.icon_mobile{
-  display: none;
-}
-.section_mobile{
-  display: none;
-}
-
-.fa-times{
-  color: #7ed957;
-  border-color: #7ed957;
-}
-#hamburguer{
-
-  width: 35px;
-  margin-top: 2px;
-  margin-left: 15px;
-  font-size: 20px;
-  color: #7ed957;
-  border-color: #7ed957;
-}
-.dentro_icon{
-  display: flex;
-  flex-direction: column;
-}
-/*fim do css*/
-
-
-
-
-
-#hamburguer, #icon {
-  display: none;
-}
-
-@media (max-width: 414px) {
-  /* Dentro da media query para dispositivos com largura máxima de 766px */
-  /* Mostre o botão de hambúrguer e o ícone do carrinho */
-  #hamburguer, #icon {
-    display: block;
+/* Responsividade para o formulário */
+@media only screen and (max-width: 767px) {
+  form {
+    max-width: 70%;
+    /* Reduz a largura do formulário para 90% da largura da tela */
+    padding: 50px;
+    /* Reduz o preenchimento para 20px */
+    
   }
 
-  footer{
-    width: 400px;
+  .input-box {
+    margin-bottom: 5px;
+    /* Reduz a margem inferior para 10px */
+  }
+
+  button[type="submit"] {
+    font-size: 0.9rem;
+    /* Reduz o tamanho da fonte do botão */
+  }
+}
+/* Responsividade do input para dispositivos móveis */
+
+/* Estilo para telas menores que 768px */
+@media only screen and (max-width: 768px) {
+  /* Estilo para o input */
+  #inputPesquisa {
+    width: 50%; /* Ocupar toda a largura disponível */
   }
 }
 
-#mobile {
-  position: fixed;
-  left: -100%;  /* Inicialmente fora da tela à esquerda */
-  top: 0;
-  width: 300px;
-  height: 100%;
-  background-color: #405b39;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5); /* Ajuste na sombra para o lado direito */
-  transition: left 0.5s;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  padding-top: 60px;
-}
-.close-btn {
-  position: absolute;
-  top: 10px; /* Ajuste conforme necessário */
-  right: 10px; /* Posição do ícone no canto superior direito do menu lateral */
-  cursor: pointer;
-  color: #fbf3dc; /* Cor do ícone */
-  font-size: 24px; /* Tamanho do ícone */
-}
-
-.dentro_icon {
-  display: flex;
-  flex-direction: column;
-  padding: 20px; /* Espaçamento interno */
-}
-
-.dentro_icon a {
-  color: #fbf3dc; /* Cor dos links */
-  padding: 10px; /* Espaçamento dos links */
-  text-decoration: none;
-  font-size: 16px; /* Tamanho da fonte */
-  border-bottom: 1px solid #fbf3dc; /* Linha separadora */
-}
-
-#mobile{
-  display: block;
-}
-.icon_mobile{
-  display: block;
-}
-.section_mobile{
-  display: block;
-}
-
-.fa-times{
-  color: #7ed957;
-  border-color: #7ed957;
-}
-#hamburguer{
-
-  width: 35px;
-  margin-top: 2px;
-  margin-left: 15px;
-  font-size: 20px;
-  color: #7ed957;
-  border-color: #7ed957;
-}
-.dentro_icon{
-  display: flex;
-  flex-direction: column;
-}
- /* Media queries para responsividade */
-/* Media queries para responsividade */
-
-/* Para celulares pequenos (telas menores que 400px) */
-/*fim do css*/
-/* Estilos para telas até 415px */
-
-@media (max-width: 936px){
-  .pesquisa{
-    width: 450px;
+/* Estilo para telas menores que 576px */
+@media only screen and (max-width: 576px) {
+  /* Ajuste de largura menor para telas ainda mais estreitas, se necessário */
+  #inputPesquisa {
+    width: 50%; /* Ocupar 90% da largura disponível */
   }
-
-  .tabs{
-    display: flex;
-    flex-direction: row;
-   
-  }
-.tabs-container{
-  flex-direction: column;
 }
- 
-.tab-content-wrapper {
-  overflow-y: hidden;
-  overflow-x: auto;
-  height: auto; 
-  color: #405B39;
 
-  padding: 0;
-  width: 100%;
-  max-width: 98%;
+
+/* Responsividade para dispositivos móveis */
+
+/* Estilo para telas menores que 768px */
+@media only screen and (max-width: 768px) {
+  /* Estilo para o formulário */
+  #user-search-form {
+    padding: 20px; /* Adapte o espaçamento conforme necessário */
+  }
   
-
-
+  #user-search-form label,
+  #user-search-form input{
+    width: 100%; /* Ocupar toda a largura disponível */
+    margin-bottom: 10px; /* Espaçamento entre os elementos */
+  }
+  
+  #tabelaUsuarios {
+    overflow-x: auto; /* Adicionar barra de rolagem horizontal se necessário */
+  }
+  
+  #tabelaUsuarios th,
+  #tabelaUsuarios td {
+    font-size: 14px; /* Tamanho da fonte menor para melhorar a legibilidade em telas menores */
+    padding: 8px; /* Espaçamento interno */
+  }
 }
 
-.tabs a {
-  padding:  0 13px;
-  font-size: 15px;
+/* Estilo para telas menores que 576px */
+@media only screen and (max-width: 576px) {
+  /* Ajuste de fonte menor para telas ainda mais estreitas, se necessário */
+  #tabelaUsuarios th,
+  #tabelaUsuarios td {
+    font-size: 12px;
+  }
 }
+/* Estilo do titulo do form para telas menores que 768px */
+@media only screen and (max-width: 768px) {
+  /* Estilo para o título */
+  .title {
+    font-size: 24px; /* Tamanho da fonte menor para telas menores */
+    margin-bottom: 20px; /* Espaçamento inferior maior para separar do conteúdo abaixo */
+  }
 }
-@media (max-width: 415px) {
-  header {
-    width: auto;
-    justify-content: flex-start;
-    /* Alinhar o conteúdo à esquerda */
+
+/* Estilo para telas menores que 576px */
+@media only screen and (max-width: 576px) {
+  /* Ajuste de fonte menor para telas ainda mais estreitas, se necessário */
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .conteudo {
+    width: 75% !important;
+
   }
 
-  .pesquisa {
-    width: 200px;
-  }
+  .header .paginas li {
 
-  .pesquisa-container {
-    margin-right: 55px;
-    left: 0 !important;
+    font-size: 15px;
   }
 
   .logo {
     width: 120px;
   }
 
-  .container {
-    min-width: 0;
-  }
 
-  .pesquisa-icon {
-    top: 50% !important;
-  }
 
-  .cliqueAqui {
-    display: block;
-    /* Mostrar elemento */
-  }
-
-  #hamburguer, #icon {
-    display: block;
-  }
-
-  .icon_mobile {
-    display: block;
-  }
-  .section_mobile {
-    display: flex;
-    align-items: center;
-    background-color: #405b39;
-  }
-
-  #tabelaUsuarios th, #tabelaUsuarios td {
-    padding: 15px;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: center;
-    display: grid;
-    justify-items: center;
-}
 }
 
-/* Estilos para telas até 320px */
+@media (max-width: 1059px) {
+  .conteudo {
+    width: 55%;
+  }
+}
+
+@media (max-width: 544px) {
+  .conteudo {
+    width: 95% !important;
+  }
+}
+
+
 @media (max-width: 320px) {
-  .title {
-    font-size: 1rem;
-  }
-
-  .pesquisa {
-    width: 150px !important;
-  }
-
-  .opcoes{
-    display:none;
-  }
-
-  #hamburguer, #icon {
-    display: block;
-  }
-
-  .icon_mobile {
-    display: block;
-  }
-  .section_mobile {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    background-color: #405b39;
-  }
-
-  #tabelaUsuarios th, #tabelaUsuarios td {
-    padding: 15px;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: center;
-    display: grid;
-    justify-items: center;
-}
-}
-
-/* Estilos para telas entre 321px e 428px */
-@media (max-width: 428px) and (min-width: 321px) {
-  .pesquisa {
-    width: 190px !important;
-  }
-
-  .opcoes{
-    display:none;
-  }
-  .title {
-    font-size: 1.8rem;
-  }
-
-  #hamburguer, #icon {
-    display: block;
-  }
-
-  .icon_mobile {
-    display: block;
-  }
-  .section_mobile {
-    display: flex;
-    align-items: center;
-    background-color: #405b39;
-  }
-
-  #tabelaUsuarios th, #tabelaUsuarios td {
-    padding: 15px;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: center;
-    display: grid;
-    justify-items: center;
-}
-}
-
-/* Estilos para telas entre 885px e 917px */
-@media (max-width: 917px) and (min-width: 885px) {
-  .pesquisa {
-    width: 400px;
-  }
-
-  #hamburguer, #icon {
-    display: block;
-  }
-
-  .icon_mobile {
-    display: block;
-  }
-  .section_mobile {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: #405b39;
-  }
-}
-
-/* Estilos para telas até 766px */
-@media (max-width: 766px) and (min-width: 429px){
-
-
-  .opcoes {
-    display: none;
-  }
-
-
-  .header {
-    justify-content: flex-start;
-
-  }
-
   .logo {
-    width: 130px;
-  }
-
-  #hamburguer, #icon {
-    display: block;
-  }
-
-  .icon_mobile {
-    display: block;
-  }
-  .section_mobile {
-    display: flex;
-    align-items: center;
-    background-color: #405b39;
-  }
-  
-  
-}
-
-/* Estilos para telas menores que 885px */
-@media (max-width: 885px) {
-  .pesquisa {
-    width: 320px;
-  }
-
-  .container {
-    min-width: 0;
-  }
-}
-
-/* Estilos para telas entre 768px e 835px */
-@media (max-width: 835px) and (min-width: 767px) {
-  .pesquisa {
-    width: 350px;
-  }
-
-  .container {
-    min-width: 0;
-  }
-
-  .navegacao ul {
-    gap: 5px;
-  }
-}
-
-@media (max-width: 768px) {
-  .pesquisa {
-    width: 350px;
-  }
-}
-
-@media (max-width: 529px ) and (min-width: 429px) {
-  .pesquisa{
-    width: 250px;
-  }
-
-  #tabelaUsuarios th, #tabelaUsuarios td {
-    padding: 15px;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: center;
-    display: grid;
-    justify-items: center;
-}
-}
-@media (max-width: 796px){
-  .logo{
     width: 100px;
   }
 }
 
 
+@media (max-width: 360px) {
+  .logo {
+    width: 90px !important;
+  }
+}
+@media (max-width: 768px) {
+.conteudo {
+  width: 75% !important;
+
+}
+
+.header .paginas li {
+
+  font-size: 15px;
+}
+
+  @media (max-width: 315px) {
+    .logo {
+      width: 80px !important;
+    }
+  }
+  @media (max-width: 768px) {
+  .conteudo {
+    width: 75% !important;
+
+  }
+
+  .header .paginas li {
+
+    font-size: 15px;
+  }
+
+
+@media (max-width: 445px) {
+  .paginas {
+    gap: 0;
+  }
+
+  .logo {
+    width: 98px;
+  }
+
+  .navegação {
+    margin-right: 14px;
+  }
+}
+
+@media (max-width: 340px) {
+  .header .paginas li { font-size: 12px;}
+
+  .navegação {
+    margin-right: 18px;
+  }
+  .logo {
+    width: 90px;
+  }
+}
+  @media (max-width: 352px) {
+    .header .paginas li { font-size: 12px;}
+
+    .navegação {
+      margin-right: 18px;
+    }
+    .logo {
+      width: 90px;
+    }
+  }
   
