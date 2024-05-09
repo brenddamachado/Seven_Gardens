@@ -170,7 +170,14 @@ $pdo = null;
 
   <section class="formulario">
 
-    <form id="formulario" action="Cadastro.php" method="POST" onsubmit="return formulario();">
+    <form id="formulario" method="POST">
+      <?php if (!empty($erroEmail)) : ?>
+        <div style="color: red;"><?= $erroEmail ?></div>
+      <?php endif; ?>
+
+      <?php if (!empty($mensagemSucesso)) : ?>
+        <div style="color: green;"><?= $mensagemSucesso ?></div>
+      <?php endif; ?>
       <div id="mensagemform"></div>
       <label class="label_login" for="nome" id="labelNome"> Nome:</label>
       <input class="input_login" type="text" id="nome" name="nome_completo" maxlength="80" autofocus placeholder="Digite o seu nome " />
@@ -279,11 +286,6 @@ $pdo = null;
         E-mail:</label>
       <input class="input_login" type="email" id="email" name="email" placeholder="Digite um e-mail" />
       <div id="mensagemEmail"></div>
-      <?php if ($erroEmail) : ?>
-        <div style="color: red;"><?= $erroEmail ?></div>
-      <?php endif; ?>
-
-
       <label class="label_login" id="labelSenha" for="senha" class="form">
         Senha:</label>
       <div class="password-container">

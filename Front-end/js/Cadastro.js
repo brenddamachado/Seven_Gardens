@@ -40,25 +40,23 @@ let valideemail = false;
 let valideMae = false;
 let nomeDaMãe = document.getElementById("nomeDamae");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
 
-  // Verificação de Gênero
+form.addEventListener("submit", (event) => {
   let isChecked = Array.from(generoInputs).some(input => input.checked);
 
-  // Validação de Campos
   if (!nome.value || !validenome || !senha.value || !validesenha ||
     !senha2.value || !validesenha2 || !cpf.value || !validecpf ||
     !emailInput.value || !valideemail || !login.value || !validelogin ||
     !data.value || !isChecked) {
     mensagemform.innerHTML = "Por favor, preencha todos os campos obrigatórios corretamente.";
     window.scrollTo(0, 0); // Isso rola a página para o topo
+    event.preventDefault(); // Impede o envio do formulário apenas se houver erro
   } else {
     mensagemform.innerHTML = "Cadastrado com sucesso!!";
-    // Substituir por lógica de redirecionamento ou outra lógica de negócio aqui
-    window.location.replace("login.html");
+    // Se a lógica de redirecionamento estiver correta, o form será enviado.
   }
 });
+
 
 
 nome.addEventListener("input", () => {
