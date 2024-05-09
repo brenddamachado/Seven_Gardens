@@ -31,52 +31,62 @@
     </section>
   </header>
 
+
   <!-- Diálogo Modal para Adicionar Produto -->
   <dialog id="modalAdicionarProduto">
     <div class="form-header">
       <h2 class="title">Adicione um produto</h2>
     </div>
-    <form action="../../Back-end/cadastrar_produto.php" enctype="multipart/form-data">
+    <form action="../../Back-end/cadastrar_produto.php" method="POST" enctype="multipart/form-data">
       <div class="input-box">
         <label for="nomeProduto">Nome do Produto:</label>
-        <input type="text" id="nomeProduto" required>
+        <input type="text" id="nomeProduto" name="nomeProduto" required>
       </div>
 
       <div class="input-box">
         <label for="precoProduto">Preço:</label>
-        <input type="number" id="precoProduto" min="0" step="0.01" required>
+        <input type="number" id="precoProduto" name="precoProduto" min="0" step="0.01" required>
       </div>
 
       <div class="input-box">
         <label for="descricaoProduto">Descrição:</label>
-        <textarea id="descricaoProduto" rows="4" required></textarea>
+        <textarea id="descricaoProduto" name="descricaoProduto" rows="4" required></textarea>
       </div>
 
       <div class="input-box">
-        <label for="tipoProduto">Tipo:</label>
-        <select id="tipoProduto" required>
+        <label for="categoriaProduto">Categoria:</label>
+        <select id="categoriaProduto" name="categoriaProduto" required>
           <option value="singelas">Singelas</option>
           <option value="dobradas">Dobradas</option>
         </select>
       </div>
+
+      <div class="input-box">
+        <label for="subcategoriaProduto">Subcategoria:</label>
+        <input type="text" id="subcategoriaProduto" name="subcategoriaProduto" required>
+      </div>
+
       <div class="input-box">
         <label for="imagemProduto">Imagem do Produto:</label>
         <div class="custom-file-input">
-          <input type="file" id="imagemProduto" accept="image/*" onchange="previewImg(event)" required>
+          <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*" onchange="previewImg(event)" required>
           <button type="button" onclick="document.getElementById('imagemProduto').click()">Escolher arquivo</button>
         </div>
       </div>
 
       <!-- Área de pré-visualização da imagem -->
       <div id="previewContainer">
-        <img id="previewImage" src="#">
+        <img id="previewImage" src="#" alt="Imagem de pré-visualização" style="display:none;">
       </div>
 
       <!-- Seus botões de envio e cancelamento -->
       <div class="button-box">
         <button type="submit" id="add_produto">Adicionar</button>
-        <button type="button" onclick="fecharModalAdicionarProduto()" id="cancelar_add">Cancelar</button>
+        <button type="button" onclick="document.getElementById('modalAdicionarProduto').close()" id="cancelar_add">Cancelar</button>
       </div>
+
+      <!-- Elemento para mensagem de resposta -->
+      <div id="responseMessageProduto" style="display:none;"></div>
     </form>
   </dialog>
 
@@ -87,7 +97,7 @@
     </div>
     <form action="../../Back-end/CadastroColaborador.php" method="post">
 
-    <div id="responseMessage" style="display: none;"></div>
+      <div id="responseMessage" style="display: none;"></div>
 
       <div class="input-box">
         <input type="hidden" name="acao" value="cadastrar">
@@ -194,7 +204,7 @@
     </div>
   </footer>
 
-  <!-- JavaScript para Controlar o Diálogo Modal e Pré-visualização da Imagem -->
+  <!-- JavaScript para Controlar o Diálogo Modal e Pré-visualização da Imagem 
   <script>
     const modalAdicionarProduto = document.getElementById('modalAdicionarProduto');
     const previewImage = document.getElementById('previewImage');
@@ -221,7 +231,7 @@
       }
     }
   </script>
-
+-->
           
           <script src=" ../js/acessibilidade.js"></script>
 
@@ -243,77 +253,103 @@
             }
           </script>
 
- <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
- <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
+          <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();  // Impede o envio tradicional do formulário
+              form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Impede o envio tradicional do formulário
 
-        const formData = new FormData(this);
-        const responseMessageElement = document.getElementById('responseMessage');  // Elemento para mostrar mensagens de resposta
+                const formData = new FormData(this);
+                const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
 
-        fetch(this.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())  // Assume que o servidor responde com JSON
-        .then(data => {
-            responseMessageElement.textContent = data.message;  // Define a mensagem de resposta
-            responseMessageElement.style.display = 'block';  // Torna o elemento visível
-            responseMessageElement.style.color = data.success ? 'green' : 'red';  // Muda a cor baseada no sucesso
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                  })
+                  .then(response => response.json()) // Assume que o servidor responde com JSON
+                  .then(data => {
+                    responseMessageElement.textContent = data.message; // Define a mensagem de resposta
+                    responseMessageElement.style.display = 'block'; // Torna o elemento visível
+                    responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
 
-            if (data.success) {
-                // Opcional: Limpa o formulário após sucesso
+                    if (data.success) {
+                      // Opcional: Limpa o formulário após sucesso
+                      form.reset();
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Erro:', error);
+                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = 'red'; // Cor vermelha para erros
+                  });
+              });
+            });
+          </script>
+
+
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const modalAdicionarProduto = document.getElementById('modalAdicionarProduto');
+              const form = modalAdicionarProduto.querySelector('form');
+              const previewImage = document.getElementById('previewImage');
+              const responseMessageElement = document.getElementById('responseMessageProduto');
+
+              window.abrirModalAdicionarProduto = function() {
+                modalAdicionarProduto.showModal();
+              };
+
+              window.fecharModalAdicionarProduto = function() {
+                modalAdicionarProduto.close();
                 form.reset();
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            responseMessageElement.textContent = 'Erro ao enviar o formulário.';
-            responseMessageElement.style.display = 'block';
-            responseMessageElement.style.color = 'red';  // Cor vermelha para erros
-        });
-    });
-});
-</script>
+                previewImage.src = "#";
+                previewImage.style.display = 'none';
+                responseMessageElement.style.display = 'none';
+              };
 
-<!-- Cadastro de produtos script -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('modalAdicionarProduto').querySelector('form'); // Alterado para o ID do formulário de cadastro de produtos
+              document.getElementById('imagemProduto').addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                  };
+                  reader.readAsDataURL(file);
+                }
+              });
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();  // Impede o envio tradicional do formulário
+              form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
 
-        const formData = new FormData(this);
-        const responseMessageElement = document.getElementById('responseMessageProduto');  // Alterado para o ID do elemento de mensagem de resposta para produtos
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    responseMessageElement.textContent = data.message;
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = data.success ? 'green' : 'red';
+                    if (data.success) {
+                      form.reset();
+                      previewImage.src = "#";
+                      previewImage.style.display = 'none';
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Erro:', error);
+                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = 'red';
+                  });
+              });
+            });
+          </script>
 
-        fetch(this.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())  // Assume que o servidor responde com JSON
-        .then(data => {
-            responseMessageElement.textContent = data.message;  // Define a mensagem de resposta
-            responseMessageElement.style.display = 'block';  // Torna o elemento visível
-            responseMessageElement.style.color = data.success ? 'green' : 'red';  // Muda a cor baseada no sucesso
-
-            if (data.success) {
-                // Opcional: Limpa o formulário após sucesso
-                form.reset();
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            responseMessageElement.textContent = 'Erro ao enviar o formulário.';
-            responseMessageElement.style.display = 'block';
-            responseMessageElement.style.color = 'red';  // Cor vermelha para erros
-        });
-    });
-});
-</script>
 
 
 </body>

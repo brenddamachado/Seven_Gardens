@@ -1,11 +1,11 @@
 <?php
 header('Content-Type: application/json');  // Informa ao navegador que a resposta será em JSON
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include('../Front-end/PHP/connect.php');  // Inclui e executa o arquivo, conectando ao banco de dados com PDO
 
     // Verifica se todas as variáveis estão definidas antes de acessá-las
-    if (isset($_POST["nomeProduto"], $_POST["precoProduto"], $_POST["descricaoProduto"], $_POST["tipoProduto"], $_FILES["imagemProduto"])) {
+    if (isset($_POST["nomeProduto"], $_POST["precoProduto"], $_POST["descricaoProduto"], $_POST["categoriaProduto"], $_POST["subcategoriaProduto"], $_FILES["imagemProduto"])) {
         $nome = $_POST["nomeProduto"];
         $preco = $_POST["precoProduto"];
         $descricao = $_POST["descricaoProduto"];
@@ -39,3 +39,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         echo json_encode(['success' => false, 'message' => 'Todos os campos do formulário devem ser preenchidos.']);
     }
     // Não é necessário fechar a conexão PDO explicitamente
+}
