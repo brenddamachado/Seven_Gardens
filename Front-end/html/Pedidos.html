@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerenciamento de Pedidos</title>
-  <link rel="stylesheet" href="../css/Pedidos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="icon" href="../img/iconlogo.ico" type="image/x-icon">
-  <script src="../js/acessibilidade.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedidos</title>
+  <link rel="stylesheet" href="../css/Pedidos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
@@ -19,104 +17,76 @@
       </div>
       <nav>
         <div class="navegacao">
-          <ul>
-            <li class="login"><a href="../html/InterfaceMaster.html">Dashboard</li>
-            <li class="cadastrar"><a href="../index.html">Visualizar Home</li></ul></a>
+          <ul class="paginas">
+            <li class="login"><a href="../html/InterfaceMaster.html">Dashboard</a></li>
+            <li class="cadastrar"> <a href="../index.html">Visualizar Home</a></li>
           </ul>
         </div>
       </nav>
     </section>
-
     <section class="opcoes">
       <h2>Painel de controle</h2>
     </section>
-    <section class="section_mobile">
-      <div class="mobile_i">  <i id="hamburguer" class="fa fa-bars"></i></div>
-
-   <section id="mobile" class="mobile">
-
-       <div id="dentro_icon" class="dentro_icon">
-         <div class="close-btn"><i class="fas fa-times"></i></div>
-            <a href="../index.html">Home</a>
-             <a href="#"> Enxertos</a>
-             <a href="#"> Naturais (De semente) </a>
-             <a href="#">Especiais</a>
-             <a href="#">Insumos</a>
-           <a href="../html/instrucoesCultivo.html">Instruções de Cultivo</a>
-           <a href="../html/Contato.html">Contato</a>
-           <a href="../html/Sobre.html">Sobre</a>
-
-       </div>
-
-     </section> 
-</section>
   </header>
 
-  <main>
-    <div class="container">
-      <section id="search-filter">
 
-        <div class="divForm">
-          <form id="user-search-form">
-            <h1 class="title">Gerenciamento de Pedidos</h1><br>
-            <div class="input-box">
-              <label for="inputPesquisa">Pesquisar por nome:</label>
-              <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
-            </div>
-            <button type="submit" id="btn-pesquisar">Pesquisar</button>
-          </form>
-        </div>
 
-      </section>
+<form id="user-search-form">
+  <h1 class="title">Gerenciamento de Pedidos</h1><br>
+  <label for="inputPesquisa">Pesquisar por nome:</label>
+  <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
+  <button type="submit">Pesquisar</button>
+</form>
 
-      <section id="orders-table">
-        <table id="tabelaUsuarios">
-          <thead>
-            <tr>
-              <th>ID do Pedido</th>
-              <th>Cliente</th>
-              <th>Data</th>
-              <th>Valor</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Aqui o conteúdo da tabela seria preenchido dinamicamente com PHP ou outra tecnologia backend -->
-          </tbody>
-        </table>
-      </section>
-    </div>
-  </main>
+<table id="tabelaUsuarios">
+  <thead>
+    <tr>
+      <th>ID pedido</th>
+       <th>Cliente</th>
+       <th>Data</th>
+       <th>Valor</th>
+       <th>Status</th>
+      <!-- Adicione mais colunas conforme necessário -->
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Os resultados da consulta serão exibidos aqui -->
+  </tbody>
+</table>
 
-  <section id=" accessibility-section">
+
+
+
+<!-- ACESSIBILIDADES -->
+  <section id="accessibility-section">
     <i class="fas fa-universal-access" id="accessibility-icon"></i>
     <div id="other-things">
-      <i class="fas fa-moon" id="dark-mode-toggle"></i>
 
       <i class="fas fa-sun" id="light-mode-toggle"></i>
-      <img class="img_letra" src="../img/aumentartext_1.svg" alt="" srcset="" id="increase-font">
-      </i>
+      <i class="fas fa-moon" id="dark-mode-toggle"></i>
+      <img class="img_letra" src="../img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
       <img class="img_letra" src="../img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
     </div>
   </section>
-
-  <footer>
-    <br>
+  <!-- ACESSIBILIDADES -->
+<footer>
+  <br>
+   <p class="social"> Siga-nos nas nossas redes sociais:</p>
+  
     <div class="social-icons">
-      <p> Siga-nos nas nossas redes sociais:</p>
-
-      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
-          class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-        class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-          class="fab fa-whatsapp""></i></a>
+      
+        <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="icon"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="icon"><i class="fab fa-whatsapp""></i></a>
+      
+      
+    </div>
   
-  
-      </div>
-    </footer>
+</footer>
 
-    <script src=" ../js/pedidos.js"></script>
+<script src="../js/pedidos.js"></script>
+<script src="../js/acessibilidade.js"></script>
 </body>
 
 </html>
