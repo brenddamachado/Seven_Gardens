@@ -87,10 +87,9 @@
     </div>
     <form action="../../Back-end/CadastroColaborador.php" method="post">
 
-    <div id="responseMessage" style="display: none;"></div>
+      <div id="responseMessage" style="display: none;"></div>
 
       <div class="input-box">
-        <input type="hidden" name="acao" value="cadastrar">
         <label for="nomeColaborador">Nome completo:</label>
         <input type="text" id="nomeColaborador" name="nome_completo" required>
       </div>
@@ -106,17 +105,22 @@
       </div>
 
       <div class="input-box">
-        <label for="enderecoColaborador">Endereço completo:</label>
-        <input type="text" id="enderecoColaborador" name="endereco_completo" required>
+        <label for="userNameColaborador">Nome de Usuário:</label>
+        <input type="text" id="userNameColaborador" name="user_name" required>
       </div>
 
-      <!-- Seus botões de envio e cancelamento -->
+      <div class="input-box">
+        <label for="senhaColaborador">Senha:</label>
+        <input type="password" id="senhaColaborador" name="senha" required>
+      </div>
+
       <div class="button-box">
         <button type="submit" id="add_colaborador">Adicionar</button>
         <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
       </div>
     </form>
   </dialog>
+
 
 
 
@@ -243,41 +247,41 @@
             }
           </script>
 
- <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
- <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
+          <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();  // Impede o envio tradicional do formulário
+              form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Impede o envio tradicional do formulário
 
-        const formData = new FormData(this);
-        const responseMessageElement = document.getElementById('responseMessage');  // Elemento para mostrar mensagens de resposta
+                const formData = new FormData(this);
+                const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
 
-        fetch(this.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())  // Assume que o servidor responde com JSON
-        .then(data => {
-            responseMessageElement.textContent = data.message;  // Define a mensagem de resposta
-            responseMessageElement.style.display = 'block';  // Torna o elemento visível
-            responseMessageElement.style.color = data.success ? 'green' : 'red';  // Muda a cor baseada no sucesso
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                  })
+                  .then(response => response.json()) // Assume que o servidor responde com JSON
+                  .then(data => {
+                    responseMessageElement.textContent = data.message; // Define a mensagem de resposta
+                    responseMessageElement.style.display = 'block'; // Torna o elemento visível
+                    responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
 
-            if (data.success) {
-                // Opcional: Limpa o formulário após sucesso
-                form.reset();
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            responseMessageElement.textContent = 'Erro ao enviar o formulário.';
-            responseMessageElement.style.display = 'block';
-            responseMessageElement.style.color = 'red';  // Cor vermelha para erros
-        });
-    });
-});
-</script>
+                    if (data.success) {
+                      // Opcional: Limpa o formulário após sucesso
+                      form.reset();
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Erro:', error);
+                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = 'red'; // Cor vermelha para erros
+                  });
+              });
+            });
+          </script>
 
 
 
