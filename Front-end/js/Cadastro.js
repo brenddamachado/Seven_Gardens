@@ -109,39 +109,10 @@ senha2.addEventListener("input", () => {
   }
 });
 
-var modal = document.getElementById("myModal");
 
-// Pega o elemento <span> que fecha o modal
-var span = document.getElementsByClassName("close")[0];
 
-// Função para abrir o modal
-function openModal() {
-  modal.style.display = "block";
-}
 
-// Função para fechar o modal
-function closeModal() {
-  modal.style.display = "none";
-}
 
-// Quando o usuário clica em <span> (x), fecha o modal
-span.onclick = function() {
-  closeModal();
-}
-
-// Quando o usuário clica em qualquer lugar fora do modal, fecha-o
-window.onclick = function(event) {
-  if (event.target == modal) {
-    closeModal();
-  }
-}
-
- $(document).ready(function () {
-    $(".close").click(function () {
-      $("#myModal").hide();
-      window.location.href = "Login.html"; // Redireciona para a página de login
-    });
-  });
 
 function validarCPF(cpf) {
   // Verificar se o CPF tem 11 dígitos
@@ -345,7 +316,62 @@ limpar.addEventListener("click", (event) => {
   mensagemLogin.innerHTML = "";
   mensagem.innerHTML = "";
   mensagemNomeMae.innerHTML = "";
+
+  function openModal() {
+    modal.style.display = "block";
+    
+    // Set a timer to close the modal after 3000 milliseconds (3 seconds)
+    setTimeout(function () {
+      closeModalAndRedirect();
+    }, 3000); // Adjust the time as needed
+  }
+  
+  function closeModal() {
+    modal.style.display = "none";
+  }
+  
+  var modal = document.getElementById("myModal");
+  
+  // Pega o elemento <span> que fecha o modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // Função para fechar o modal
+  function closeModal() {
+    modal.style.display = "none";
+  }
+  
+  // Quando o usuário clica em <span> (x), fecha o modal
+  span.onclick = function() {
+    closeModal();
+  }
+  
+  // Quando o usuário clica em qualquer lugar fora do modal, fecha-o
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+  
+  $(document).ready(function () {
+    $(".close").click(function () {
+      $("#myModal").hide();
+      window.location.href = "Login.html"; // Redireciona para a página de login
+    });
+  });
+  
+  function closeModalAndRedirect() {
+    modal.style.display = "none";
+    window.location.href = "Login.html"; // Redireciona para a página de login
+  }
+  
+  
 });
+
+
+
+// parte 2 modal
+
+
 
 let hamburger = document.getElementById("hamburguer");
 let mobileMenu = document.getElementById("mobile");
