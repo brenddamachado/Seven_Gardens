@@ -70,6 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
+
+
 // Encerra a conexão
 $pdo = null;
 ?>
@@ -94,14 +96,15 @@ $pdo = null;
 <body>
 
 <!-- O Modal -->
-<?php if ($showModal): ?>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p><?php echo $mensagemSucesso; ?></p>
-      </div>
-    </div>
-  <?php endif; ?>
+<div id="myModal" class="modal" style="<?php echo $showModal ? 'display: block;' : 'display: none;'; ?>">
+
+  <!-- Conteúdo do modal -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Usuário cadastrado com sucesso!</p>
+  </div>
+
+</div>
 
 <header>
   <section class="header">
