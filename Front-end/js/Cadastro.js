@@ -109,6 +109,40 @@ senha2.addEventListener("input", () => {
   }
 });
 
+var modal = document.getElementById("myModal");
+
+// Pega o elemento <span> que fecha o modal
+var span = document.getElementsByClassName("close")[0];
+
+// Função para abrir o modal
+function openModal() {
+  modal.style.display = "block";
+}
+
+// Função para fechar o modal
+function closeModal() {
+  modal.style.display = "none";
+}
+
+// Quando o usuário clica em <span> (x), fecha o modal
+span.onclick = function() {
+  closeModal();
+}
+
+// Quando o usuário clica em qualquer lugar fora do modal, fecha-o
+window.onclick = function(event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+
+ $(document).ready(function () {
+    $(".close").click(function () {
+      $("#myModal").hide();
+      window.location.href = "Login.html"; // Redireciona para a página de login
+    });
+  });
+
 function validarCPF(cpf) {
   // Verificar se o CPF tem 11 dígitos
   if (cpf.length !== 11) {
