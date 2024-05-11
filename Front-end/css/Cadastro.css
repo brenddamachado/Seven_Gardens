@@ -11,6 +11,29 @@ body {
 
 }
 
+/* campos do alert */
+.container-alert {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+/* campos do alert */
+.alert-success {
+  padding: 15px;
+  border: 1px solid #d4edda;
+  border-radius: 5px;
+  color: #155724;
+  background-color: #d4edda;
+}
+/* campos do alert */
+.alert-danger {
+  padding: 15px;
+  border: 1px solid #f8d7da;
+  border-radius: 5px;
+  color: #721c24;
+  background-color: #f8d7da;
+}
+
 
 
 

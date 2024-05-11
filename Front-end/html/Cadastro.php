@@ -3,7 +3,8 @@ include('../PHP/connect.php'); // Assegure-se de que este caminho está correto.
 
 $erroEmail = "";
 $mensagemSucesso = "";
-$showModal = false;
+$showAlert = false;
+$showAlertError = false;
 
 // Função para verificar se o email já existe no banco de dados
 function emailExists($email, $pdo)
@@ -62,13 +63,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Checa se o email já existe
   if (emailExists($data['email'], $pdo)) {
     $erroEmail = "E-mail já cadastrado!";
+    $showAlertError = true;
   } else {
     $userId = createUser($data, $pdo);
     createAddress($data, $userId, $pdo);
     $mensagemSucesso = "Usuário cadastrado com sucesso!";
-    $showModal = true;
+    $showAlert = true;
   }
 }
+
 
 
 
@@ -94,17 +97,6 @@ $pdo = null;
 </head>
 
 <body>
-
-<!-- O Modal -->
-<div id="myModal" class="modal" style="<?php echo $showModal ? 'display: block;' : 'display: none;'; ?>">
-
-  <!-- Conteúdo do modal -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Usuário cadastrado com sucesso!</p>
-  </div>
-
-</div>
 
 <header>
   <section class="header">
@@ -181,6 +173,28 @@ $pdo = null;
   </section>
 
 </header>
+
+<?php if ($showAlert): ?>
+<script>
+  setTimeout(function() {
+    window.location.href = "Login.html";
+  }, 3000); // 3000 milissegundos = 3 segundos
+</script>
+<?php endif; ?>
+
+<!-- Alerta de sucesso -->
+<div class="container-alert" style="<?php echo $showAlert ? 'display: block;' : 'display: none;'; ?>">
+  <div class="alert alert-success">
+    <strong>Successo!</strong> <?php echo $mensagemSucesso; ?>
+  </div>
+</div>
+
+<!-- Alerta de erro -->
+<div class="container-alert" style="<?php echo $showAlertError ? 'display: block;' : 'display: none;'; ?>">
+  <div class="alert alert-danger">
+    <strong>Error!</strong> <?php echo $erroEmail; ?>
+  </div>
+</div>
 
 <section class="formulario">
 
