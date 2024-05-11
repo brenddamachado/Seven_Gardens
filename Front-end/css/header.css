@@ -273,3 +273,15 @@ header {
    Estas media queries foram mantidas vazias pois as classes específicas mencionadas anteriormente foram removidas. Ajuste conforme a necessidade para outras classes existentes ou remova se não for necessário. 
 }
 */
+
+@media(max-width: 842px){
+  .menu_btn{
+    min-width: 0px !important;
+  }
+}
+
+@media (max-width: 380px){
+  .logo{
+    width: 100px;
+  }
+}
