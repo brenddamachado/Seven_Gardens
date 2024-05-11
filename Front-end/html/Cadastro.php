@@ -173,6 +173,7 @@ $pdo = null;
 
 </header>
 
+<!-- quando o usuario for cadastrar jogar direto pra página de login. -->
 <?php if ($showAlert): ?>
 <script>
   setTimeout(function() {
