@@ -33,14 +33,25 @@ try {
   }
 
   if ($respostaUsuario === $respostaEsperada) {
-    echo json_encode(['success' => true, 'message' => 'Resposta correta. Acesso concedido.']);
+    echo json_encode([
+      'success' => true,
+      'message' => 'Resposta correta. Acesso concedido.',
+      'userType' => $_SESSION['usuario_tipo']  // Asumindo que o tipo de usuário está armazenado na sessão
+    ]);
   } else {
     $_SESSION['attempts'] = ($_SESSION['attempts'] ?? 0) + 1;
     if ($_SESSION['attempts'] >= 3) {
       session_destroy();
-      echo json_encode(['success' => false, 'message' => '3 tentativas sem sucesso! Favor realizar Login novamente.', 'attemptsFailed' => true]);
+      echo json_encode([
+        'success' => false,
+        'message' => '3 tentativas sem sucesso! Favor realizar Login novamente.',
+        'attemptsFailed' => true
+      ]);
     } else {
-      echo json_encode(['success' => false, 'message' => 'Resposta incorreta.']);
+      echo json_encode([
+        'success' => false,
+        'message' => 'Resposta incorreta.'
+      ]);
     }
   }
 } catch (PDOException $e) {
