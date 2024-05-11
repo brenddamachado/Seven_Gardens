@@ -1,3 +1,5 @@
+<?php include '../../Back-end/processoLogin.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,29 +17,26 @@
 <body>
   <?php include('header.php'); ?>
   <div class="container" id="divLogin">
-    <form class="divForm" action="javascript:validaLogin()">
+    <form class="divForm" id="loginForm" action="#" method="POST">
       <div class="form-header">
         <h1 class="title">Login</h1>
       </div>
 
-
       <div class="input-box">
-        <label for="E-mail">E-mail:</label>
-        <input type="text" id="email" placeholder="seuemail@exemplo.com">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
       </div>
 
       <div class="input-box">
-        <label for="Senha">Senha:</label>
-        <input type="password" id="senha" placeholder="Digite sua senha aqui" maxlength="8" minlength="8">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha aqui" minlength="8" maxlength="8" required>
       </div>
 
       <div class="buttons">
-        <button class="btn_cadastrar" type="submit" id="cadastrar">
-          Entrar
-        </button>
-        <button class="btn_limpar" id="limparButton" type="button" value="Limpar Campos"
-          onclick="limparCampos()">Limpar</button>
+        <button type="submit" class="btn_cadastrar">Entrar</button>
+        <button type="button" class="btn_limpar" onclick="limparCampos()">Limpar</button>
       </div>
+
 
       <div class="texto_links">
         <div class="redicionamento">
@@ -50,9 +49,6 @@
           </p>
         </div>
       </div>
-
-
-
     </form>
 
   </div>

@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
   // Alternar a visibilidade das opções de acessibilidade
   document.getElementById('accessibility-icon').addEventListener('click', function () {
