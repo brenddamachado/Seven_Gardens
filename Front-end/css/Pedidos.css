@@ -502,7 +502,7 @@ footer {
 @media only screen and (max-width: 768px) {
   /* Estilo para o formulário */
   #user-search-form {
-    padding: 20px; /* Adapte o espaçamento conforme necessário */
+    padding: 40px; /* Adapte o espaçamento conforme necessário */
   }
   
   #user-search-form label,
@@ -652,5 +652,5 @@ footer {
     .logo {
       width: 90px;
     }
-  }
-  
+  }}  
+}
