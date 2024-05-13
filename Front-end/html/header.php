@@ -11,7 +11,7 @@
     <nav>
       <div class="navegacao">
         <ul class="caminhos">
-          <li class="cadastrar"> <a href="Cadastro.html">Cadastro</a></li>
+          <li class="cadastrar"> <a href="Cadastro.php">Cadastro</a></li>
           <li class="login"> <a href="Login.html">Login</a></li>
         </ul>
       </div>
@@ -55,7 +55,7 @@
       <div id="dentro_icon" class="dentro_icon">
         <div class="close-btn"><i class="fas fa-times"></i></div>
         <a href="../index.html">Home</a>
-
+<a href="Login.html">Login</a>
         <a href="Cadastro.html">Cadastro</a>
 
         <a href="#"> Enxertos</a>

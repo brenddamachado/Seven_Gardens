@@ -14,18 +14,22 @@
 
 <body>
     <header>
-        <div class="header">
-            <img class="logo" src="../img/logoatual.svg" alt="Logo" />
-            <div class="pesquisa-container">
-                <input type="search" class="pesquisa" />
-                <label class="pesquisa-icon"><i class="fas fa-search"></i></label>
+        <section class="header">
+            <div>
+                <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
             </div>
-            <nav>
-                <ul class="navegacao">
-                    <li><a class="home" href="../index.html">Olá, [nome do usuário]</a></li>
-                </ul>
+
+            <div class="pesquisa-container">
+                <input type="search" name="" id="" class="pesquisa" />
+                <div for="" class="pesquisa-icon"><i class="fas fa-search"></i></div>
+            </div>
+            <nav class="nav_a">
+                <div class="boasvindas">
+                    <span>Bem vindo(a) # !</span>
+                </div>
             </nav>
-        </div>
+        </section>
+
         <section class="opcoes">
             <div class="dropdown">
                 <div class="dropbtn">
@@ -38,150 +42,175 @@
                     <a href="#">Insumos</a>
                 </div>
             </div>
-            <div class="menu_btn"><a href="../Front-end/html/instrucoesCultivo.html">Instruções de Cultivo</a></div>
-            <div class="menu_btn"><a href="#">Contato</a></div>
-            <div class="menu_btn"><a href="../Front-end/html/Sobre.html">Sobre</a></div>
-            <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
+
+            <div class="menu_btn">
+                <a href="instrucoesCultivo.html">Instruções de Cultivo</a>
             </div>
+            <div class="menu_btn">
+                <a href="Contato.html">Contato</a>
+            </div>
+            <div class="menu_btn">
+                <a href="Sobre.html">Sobre</a>
+            </div>
+            <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon-car" />
+
+        </section>
+        <section class="section_mobile">
+            <div class="mobile_i"> <i id="hamburguer" class="fa fa-bars"></i></div>
+
+            <section id="mobile" class="mobile">
+
+                <div id="dentro_icon" class="dentro_icon">
+                    <div class="close-btn"><i class="fas fa-times"></i></div>
+                    <a href="../index.html">Home</a>
+
+                    <a href="Login.html">Login</a>
+
+                    <a href="#"> Enxertos</a>
+                    <a href="#"> Naturais (De semente) </a>
+                    <a href="#">Especiais</a>
+                    <a href="#">Insumos</a>
+                    <a href="instrucoesCultivo.html">Instruções de Cultivo</a>
+                    <a href="Contato.html">Contato</a>
+                    <a href="Sobre.html">Sobre</a>
+
+                </div>
+
+            </section>
+            <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" />
+        </section>
+
     </header>
 
-    <div class="alinha_container">
-        <div class="tabs-container">
-            <ul class="tabs">
-                <li><a href="#tab1-content">Meu painel</a></li>
-                <li><a href="#tab2-content">Pedidos</a></li>
-                <li><a href="#tab3-content">Endereços</a></li>
-                <li><a href="#tab4-content">Detalhes da conta</a></li>
-                <li><a href="#tab5-content">Segurança</a></li>
-                <li><a href="#tab6-content">Log out</a></li>
-            </ul>
-            <div class="tab-content-wrapper">
-                <section id="tab1-content" class="tab-content">
-                    <h2>Meu painel</h2>
-                    <p>Olá, [nome do usuário] <a href="#">Sair</a></p>
-                </section>
-                <section id="tab2-content" class="tab-content">
-                    <h2>Seus Pedidos</h2>
-                    <table id="tabelaPedidos">
-                        <thead>
-                            <tr>
-                                <th>Pedido #</th>
-                                <th>Data</th>
-                                <th>Itens</th>
-                                <th>Total</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1234</td>
-                                <td>01/04/2024</td>
-                                <td>
-                                    <ul>
-                                        <li>Produto 1</li>
-                                        <li>Produto 2</li>
-                                        <li>Produto 3</li>
-                                    </ul>
-                                </td>
-                                <td>R$ 100,00</td>
-                                <td><button>Ver detalhes</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                <section id="tab3-content" class="tab-content">
-                    <h2>Endereços</h2>
-                    <table id="tabelaEnderecos">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>CEP</th>
-                                <th>Rua</th>
-                                <th>Complemento</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>João Silva</td>
-                                <td>01234-567</td>
-                                <td>Rua das Flores, 123</td>
-                                <td>Apto 101</td>
-                                <td>
-                                    <button>Editar</button>
-                                    <button>Excluir</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                <section id="tab4-content" class="tab-content">
+    <div class="container-principal">
+        <div class="barra-lateral">
+            <a href="#tab1-content" class="active">Meu Painel</a>
+            <a href="#tab2-content">Pedidos</a>
+            <a href="#tab3-content">Endereços</a>
+            <a href="#tab4-content">Detalhes da Conta</a>
+            <a href="#tab5-content">Segurança</a>
+            <a href="#tab6-content">Log out</a>
+        </div>
+        <div class="conteudo-principal">
+            <section id="tab1-content" class="secao">
+                <h2>Meu Painel</h2>
+                <p>Olá, [nome do usuário] <a href="../index.html">Sair</a></p>
+            </section>
+            <section id="tab2-content" class="secao">
+                <h2>Seus Pedidos</h2>
+                <table id="tabelaPedidos">
+                    <thead>
+                        <tr>
+                            <th class="atributos">Pedido #</th>
+                            <th class="atributos">Data</th>
+                            <th class="atributos">Itens</th>
+                            <th class="atributos">Total</th>
+                            <th class="atributos"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1234</td>
+                            <td>01/04/2024</td>
+                            <td>
+                                <ul>
+                                    <li>Produto 1</li>
+                                    <li>Produto 2</li>
+                                    <li>Produto 3</li>
+                                </ul>
+                            </td>
+                            <td>R$ 100,00</td>
+                            <td><button>Ver detalhes</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="tab3-content" class="secao">
+                <h2>Endereços</h2>
+                <table id="tabelaEnderecos">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CEP</th>
+                            <th>Rua</th>
+                            <th>Complemento</th>
+                            <th class="acoes">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>01234-567</td>
+                            <td>Rua das Flores, 123</td>
+                            <td>Apto 101</td>
+                            <td class="botoes">
+                                <button>Editar</button>
+                                <button>Excluir</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="tab4-content" class="secao">
 
-                    <!-- Formulário de Alteração de Dados Pessoais -->
-                    <div class="divForm">
-                        <form>
-                            <div class="form-header">
-                                <h2 class="title">Detalhes da conta</h2>
-                            </div>
-                            <div class="container-dados">
-                                <div class="dados-pessoais">
-                                    <h3 class="title">Alteração de dados</h3>
-                                    <div class="input-box">
-                                        <label for="nome">Nome:</label>
-                                        <input type="text" id="nome" name="nome" placeholder="Digite o seu nome">
-                                    </div>
-                                    <div class="input-box">
-                                        <label for="sobrenome">Sobrenome:</label>
-                                        <input type="text" id="sobrenome" name="sobrenome"
-                                            placeholder="Digite o seu sobrenome">
-                                    </div>
-                                    <div class="input-box">
-                                        <label for="email">E-mail:</label>
-                                        <input type="email" id="email" name="email" placeholder="Digite um e-mail">
-                                    </div>
-                                    <button type="submit" class="btn_salvar">Salvar alterações</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-
-
-
-                </section>
-                <section id="tab5-content" class="tab-content">
-                    <!-- Formulário de Alteração de Senha -->
-                    <div class="divForm">
-                        <form>
-                            <div class="form-header">
-                                <h2 class="title">Alteração de senha</h2>
-                            </div>
-                            <div class="alteracao-senha">
+                <!-- Formulário de Alteração de Dados Pessoais -->
+                <div class="divForm">
+                    <form>
+                        <div class="form-header">
+                            <h2 class="title">Detalhes da conta</h2>
+                        </div>
+                        <div class="container-dados">
+                            <div class="dados-pessoais">
+                                <h3 class="title">Alteração de dados</h3>
                                 <div class="input-box">
-                                    <label for="senha">Nova senha:</label>
-                                    <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha">
-                                    <i class="far fa-eye" id="verSenha"></i>
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome">
                                 </div>
                                 <div class="input-box">
-                                    <label for="senha2">Confirmação da nova senha:</label>
-                                    <input type="password" id="senha2" name="senha2"
-                                        placeholder="Confirme sua nova senha">
-                                    <i class="far fa-eye" id="verConfirme"></i>
+                                    <label for="sobrenome">Sobrenome:</label>
+                                    <input type="text" id="sobrenome" name="sobrenome"
+                                        placeholder="Digite o seu sobrenome">
+                                </div>
+                                <div class="input-box">
+                                    <label for="email">E-mail:</label>
+                                    <input type="email" id="email" name="email" placeholder="Digite um e-mail">
                                 </div>
                                 <button type="submit" class="btn_salvar">Salvar alterações</button>
                             </div>
-                        </form>
-                    </div>
-                </section>
-                <section id="tab6-content" class="tab-content">
-                    <h2>Deseja sair?</h2>
-                    <button class="btn_sair">Sair</button>
-                    <h2>Deseja excluir sua conta?</h2>
-                    <button class="btn_excluir">Excluir conta</button>
-                </section>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section id="tab5-content" class="secao">
+                <!-- Formulário de Alteração de Senha -->
+                <div class="divForm">
+                    <form>
+                        <div class="form-header">
+                            <h2 class="title">Alteração de senha</h2>
+                        </div>
+                        <div class="alteracao-senha">
+                            <div class="input-box">
+                                <label for="senha">Nova senha:</label>
+                                <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha">
+                                <i class="far fa-eye" id="verSenha"></i>
+                            </div>
+                            <div class="input-box">
+                                <label for="senha2">Confirmação da nova senha:</label>
+                                <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha">
+                                <i class="far fa-eye" id="verConfirme"></i>
+                            </div>
+                            <button type="submit" class="btn_salvar">Salvar alterações</button>
+                            <div>
+                                <p>Deseja excluir sua conta?</p>
+                                <button class="btn_excluir">Excluir conta</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
 
-            </div>
         </div>
+    </div>
     </div>
 
     <section id="accessibility-section">
@@ -207,7 +236,7 @@
             <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-                    class="fab fa-whatsapp"></i></a>   
+                    class="fab fa-whatsapp"></i></a>
         </div>
     </footer>
     <script src=" ../js/Usuario.js"></script>
