@@ -2,48 +2,44 @@ document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById('loginForm');
 
   loginForm.addEventListener('submit', function (event) {
-    event.preventDefault();  // Prevenir o envio padrão do formulário
-
-    const email = document.getElementById('email').value;
+    event.preventDefault();
+    const userName = document.getElementById('userName').value;
     const password = document.getElementById('password').value;
 
-    // Validar comprimento e caracteres do nome de usuário e senha
-    if (!/^[a-zA-Z]{6}$/.test(email)) {
-      alert('O nome de usuário deve ter exatamente 6 caracteres alfabéticos.');
-      return;
-    }
-    if (!/^[a-zA-Z]{8}$/.test(password)) {
-      alert('A senha deve ter exatamente 8 caracteres alfabéticos.');
+    if (!/^[a-zA-Z]{6}$/.test(userName) || !/^[a-zA-Z]{8}$/.test(password)) {
+      document.getElementById('errorMessages').textContent = 'Usuário ou senha formatados incorretamente.';
       return;
     }
 
-    // Preparar dados para envio
     const formData = new FormData();
-    formData.append('email', email);
+    formData.append('userName', userName);
     formData.append('password', password);
 
-    // Enviar os dados para o servidor via AJAX
-    fetch('Login.php', {
+    fetch('../../Back-end/processoLogin.php', {
       method: 'POST',
       body: formData
     })
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          // Redirecionar para a página de 2FA, caso necessário
-          window.location.href = '2FA.php';
+          window.location.href = '2Fa.php';
         } else {
-          alert(data.message);  // Exibir mensagem de erro
+          document.getElementById('errorMessages').textContent = data.message;
         }
       })
-      .catch(error => console.error('Erro ao enviar o formulário:', error));
+      .catch(error => {
+        console.error('Erro ao enviar o formulário:', error);
+        document.getElementById('errorMessages').textContent = 'Erro ao processar a solicitação.';
+      });
   });
 });
 
+
 function limparCampos() {
-  document.getElementById('email').value = '';
+  document.getElementById('userName').value = '';
   document.getElementById('password').value = '';
 }
+
 
 
 

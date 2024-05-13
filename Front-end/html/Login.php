@@ -1,4 +1,5 @@
-<?php include '../../Back-end/processoLogin.php'; ?>
+<?php require '../../Front-end/PHP/connect.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,13 +24,13 @@
       </div>
 
       <div class="input-box">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+        <label for="userName">Nome de usuário:</label>
+        <input type="text" id="userName" name="userName" placeholder="Digite seu nome de usuário" required minlength="6" maxlength="6" pattern="[A-Za-z]{6}">
       </div>
 
       <div class="input-box">
         <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" placeholder="Digite sua senha aqui" minlength="8" maxlength="8" required>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" minlength="8" maxlength="8" required pattern="[A-Za-z]{8}">
       </div>
 
       <div class="buttons">

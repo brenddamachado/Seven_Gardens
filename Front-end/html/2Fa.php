@@ -1,5 +1,7 @@
-<?php include '../../Back-end/processo2Fa.php'; ?>
-
+<?php
+session_start();
+$securityQuestion = $_SESSION['security_question'] ?? 'Pergunta não encontrada';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,32 +13,28 @@
   <link rel="stylesheet" href="../css/2Fa.css" />
   <link rel="stylesheet" href="../css/header.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-
 </head>
 
 <body>
-  <?php include('header.php'); ?>
-
+  <?php include('header.php');
+  ?>
   <div class="container" id="divLogin">
-    <form class="divForm" id="2faForm" action="#" method="POST">
+    <form class="divForm" id="2faForm" method="POST">
       <div class="form-header">
         <h1 class="title">Pergunta de segurança</h1>
       </div>
-
       <div class="digiteCod">
         Para garantir a segurança da sua conta, precisamos verificar sua identidade por meio de uma pergunta de segurança. Por favor, responda à pergunta abaixo:
-      </div><br>
-      <p id="securityQuestion">[Texto da pergunta será inserido aqui]</p>
-
+      </div><br />
+      <p id="securityQuestion"><?php echo htmlspecialchars($securityQuestion); ?></p>
       <div class="input-box">
         <label for="resposta">Por favor, insira sua resposta abaixo:</label>
         <input type="text" id="resposta" name="resposta" placeholder="Sua resposta aqui." required>
         <span id="mensagemErro" style="color: red;"></span>
+        <div id="errorMessages" style="color: red;"></div>
       </div>
-
       <div class="button-box">
         <button type="submit" id="enviarButton">Enviar</button>
       </div>
