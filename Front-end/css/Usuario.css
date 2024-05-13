@@ -5,126 +5,6 @@ body {
 
 }
 
-.header {
-  height: 180px;
-  background-color: #0f2b05;
-  display: flex;
-  justify-content: space-between;
-}
-
-.logo {
-  width: 155px;
-  height: 200px;
-}
-
-.header ul li {
-  list-style-type: none;
-  font-size: 20px;
-}
-
-.pesquisa-container {
-  position: relative;
-  display: inline-block;
-}
-
-.pesquisa {
-  width: 490px;
-  height: 30px;
-  border-radius: 7px;
-  border: none;
-  background-color: #fbf3dc;
-  margin-top: 75px;
-  margin-left: 30px;
-}
-
-.pesquisa-icon {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.boasvindas {
-  color: #7ed957;
-  font-weight: bold;
-  padding: 15px;
-}
-
-.login {
-  background-color: #405b39;
-
-  color: #fbf3dc;
-  border-radius: 7px;
-  padding: 4px 10px;
-  text-decoration: none;
-}
-
-.home {
-  color: #fbf3dc;
-  border-radius: 7px;
-  padding: 4px 10px;
-  text-decoration: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  color: #fbf3dc;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #405b39;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  font-size: 15px;
-  color: #fbf3dc;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #0f2b05;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.opcoes {
-  display: flex;
-  justify-content: space-around;
-  background: #405b39;
-  height: 38px;
-  align-items: center;
-  font-size: 12px;
-}
-
-#icon-car {
-  width: 35px;
-  margin-top: 2px;
-  margin-right: 15px;
-}
-
-.menu_btn a {
-  color: #fbf3dc;
-  font-size: 16px;
-  text-decoration: none;
-}
-
 
 .tabs-container {
   width: 100%;
@@ -167,22 +47,26 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0;
 }
 
 .tabs a {
   transition: background-color 0.3s ease;
-  color: #fbf3dc; /* Cor normal */
+  color: #fbf3dc;
+  /* Cor normal */
   padding: 10px 15px;
   display: inline-block;
   text-decoration: none;
-  background-color: #405b39; /* Cor de fundo normal */
+  background-color: #405b39;
+  /* Cor de fundo normal */
 }
 
 .tabs a.active {
-  color: #0f2b05; /* Cor do texto quando ativo */
-  background-color: #fbf3dc; /* Cor de fundo quando ativo */
+  color: #0f2b05;
+  /* Cor do texto quando ativo */
+  background-color: #fbf3dc;
+  /* Cor de fundo quando ativo */
 }
 
 
@@ -274,7 +158,8 @@ table tbody tr:hover {
 /* Estilo geral */
 .container-principal {
   display: flex;
-  height: calc(100vh - 240px); /* ajustar conforme o header e footer */
+  height: calc(100vh - 240px);
+  /* ajustar conforme o header e footer */
   background-color: #f4f4f4;
 }
 
@@ -286,7 +171,7 @@ table tbody tr:hover {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .barra-lateral a {
@@ -297,7 +182,8 @@ table tbody tr:hover {
   text-decoration: none;
 }
 
-.barra-lateral a:hover, .barra-lateral a.active {
+.barra-lateral a:hover,
+.barra-lateral a.active {
   background-color: #0f2b05;
   border-radius: 5px;
 }
@@ -429,7 +315,7 @@ body.dark-mode p {
   color: #E1F9D7;
 }
 
-body.dark-mode .barra-lateral a:hover, 
+body.dark-mode .barra-lateral a:hover,
 body.dark-mode .barra-lateral a.active,
 body.dark-mode .header {
   background-color: #070B06;
@@ -440,7 +326,8 @@ body.dark-mode footer,
   background-color: #070B06;
 }
 
-body.dark-mode .conteudo-principal, body.dark-mode .divForm{
+body.dark-mode .conteudo-principal,
+body.dark-mode .divForm {
   background-color: #282828;
 }
 
@@ -464,7 +351,8 @@ body.dark-mode a {
 }
 
 body.dark-mode a:hover {
-  color: #405B39;;
+  color: #405B39;
+  ;
 
 
 }
@@ -700,9 +588,6 @@ li {
 
 
 @media (max-width: 936px) {
-  .pesquisa {
-    width: 450px;
-  }
 
   .tabs {
     display: flex;
@@ -740,38 +625,17 @@ li {
   }
 }
 
-@media (max-width: 414px) {
 
-
-}
 
 @media (max-width: 415px) {
-  header {
-    width: auto;
-    justify-content: flex-start;
-    /* Alinhar o conteúdo à esquerda */
-  }
 
-  .pesquisa {
-    width: 200px;
-  }
 
-  .pesquisa-container {
-    margin-right: 55px;
-    left: 0 !important;
-  }
 
-  .logo {
-    width: 120px;
-  }
 
   .container {
     min-width: 0;
   }
 
-  .pesquisa-icon {
-    top: 50% !important;
-  }
 
 }
 
@@ -781,18 +645,13 @@ li {
     font-size: 1rem;
   }
 
-  .pesquisa {
-    width: 150px !important;
-  }
+
 
 
 }
 
 /* Estilos para telas entre 321px e 428px */
 @media (max-width: 428px) and (min-width: 321px) {
-  .pesquisa {
-    width: 190px !important;
-  }
 
   .opcoes {
     display: none;
@@ -829,14 +688,6 @@ li {
   }
 }
 
-/* Estilos para telas entre 885px e 917px */
-@media (max-width: 917px) and (min-width: 885px) {
-  .pesquisa {
-    width: 400px;
-  }
-
-
-}
 
 /* Estilos para telas até 766px */
 @media (max-width: 766px) {
@@ -856,14 +707,6 @@ li {
     margin-right: 50px;
   }
 
-  .header {
-    justify-content: flex-start;
-
-  }
-
-  .logo {
-    width: 130px;
-  }
 
   #hamburguer,
   #icon {
@@ -884,23 +727,19 @@ li {
     justify-content: space-between;
   }
 
-  nav{
+  nav {
     position: fixed;
     right: 20px;
   }
 
- 
 
-  .pesquisa{
-    width: 290px;
-  }
 
-  .boasvindas{
+  .boasvindas {
     position: fixed;
     right: 20px;
   }
 
- 
+
 
 
 
@@ -910,9 +749,6 @@ li {
 
 /* Estilos para telas menores que 885px */
 @media (max-width: 885px) {
-  .pesquisa {
-    width: 320px;
-  }
 
   .container {
     min-width: 0;
@@ -921,15 +757,13 @@ li {
 
 /* Estilos para telas entre 768px e 835px */
 @media (max-width: 835px) and (min-width: 767px) {
-  .pesquisa {
-    width: 350px;
-  }
+
 
   .container {
     min-width: 0;
   }
 
- 
+
 
   .tabs a {
     padding: 0 5px !important;
@@ -939,18 +773,11 @@ li {
 
 }
 
-@media (max-width: 768px) {
-  .pesquisa {
-    width: 350px;
-  }
-}
+
 
 @media (max-width: 698px) and (min-width: 678px) {
-  .pesquisa {
-    width: 250px;
-  }
 
-  .divForm{
+  .divForm {
     box-sizing: border-box;
   }
 
@@ -958,114 +785,116 @@ li {
     display: flex;
     flex-direction: column;
     gap: 0px;
-}
-
-table{
-  display: flex;
-}
-
-thead{
-  display: flex;
-}
-
-tbody {
-  gap: 2px;
-  display: flex;
-}
-
-ul{
-  display: flex;
-}
-
-button{
-  margin-top: -3px;
-}
-
-.botoes{
-  display: flex;
-}
-
-.botoes button {
-  font-size: 11px;
-  margin-right: 10px; /* Adiciona espaçamento à direita de cada botão */
-}
-#tabelaPedidos th {
-/* Adiciona uma linha na parte inferior das células do cabeçalho */
-  padding: 8px; /* Adiciona um espaçamento interno */
-  height: 31px;
-}
-
-#tabelaPedidos td {
-  /* Adiciona uma linha na parte inferior das células de dados */
-  padding: 8px; /* Adiciona um espaçamento interno */
-  height: 31px;
-}
-
-}
-
-
-
-
-@media (max-width: 677px) and (min-width: 645px){
-  .pesquisa {
-    width: 250px;
   }
+
+  table {
+    display: flex;
+  }
+
+  thead {
+    display: flex;
+  }
+
+  tbody {
+    gap: 2px;
+    display: flex;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  button {
+    margin-top: -3px;
+  }
+
+  .botoes {
+    display: flex;
+  }
+
+  .botoes button {
+    font-size: 11px;
+    margin-right: 10px;
+    /* Adiciona espaçamento à direita de cada botão */
+  }
+
+  #tabelaPedidos th {
+    /* Adiciona uma linha na parte inferior das células do cabeçalho */
+    padding: 8px;
+    /* Adiciona um espaçamento interno */
+    height: 31px;
+  }
+
+  #tabelaPedidos td {
+    /* Adiciona uma linha na parte inferior das células de dados */
+    padding: 8px;
+    /* Adiciona um espaçamento interno */
+    height: 31px;
+  }
+
+}
+
+
+
+
+@media (max-width: 677px) and (min-width: 645px) {
 
   tr {
     display: flex;
     flex-direction: column;
     gap: 0px;
-}
-
-table{
-  display: flex;
-}
-
-thead{
-  display: flex;
-}
-
-tbody {
-  gap: 2px;
-  display: flex;
-}
-
-ul{
-  display: flex;
-}
-
-button{
-  margin-top: -3px;
-}
-
-.botoes{
-  display: flex;
-}
-
-.botoes button {
-  font-size: 11px;
-  margin-right: 10px; /* Adiciona espaçamento à direita de cada botão */
-}
-#tabelaPedidos th {
-/* Adiciona uma linha na parte inferior das células do cabeçalho */
-  padding: 8px; /* Adiciona um espaçamento interno */
-  height: 31px;
-}
-
-#tabelaPedidos td {
-  /* Adiciona uma linha na parte inferior das células de dados */
-  padding: 8px; /* Adiciona um espaçamento interno */
-  height: 31px;
-}
-
-}
-
-@media (max-width: 644px) and (min-width: 620px){
-  .pesquisa {
-    width: 250px;
   }
 
-  .divForm{
+  table {
+    display: flex;
+  }
+
+  thead {
+    display: flex;
+  }
+
+  tbody {
+    gap: 2px;
+    display: flex;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  button {
+    margin-top: -3px;
+  }
+
+  .botoes {
+    display: flex;
+  }
+
+  .botoes button {
+    font-size: 11px;
+    margin-right: 10px;
+    /* Adiciona espaçamento à direita de cada botão */
+  }
+
+  #tabelaPedidos th {
+    /* Adiciona uma linha na parte inferior das células do cabeçalho */
+    padding: 8px;
+    /* Adiciona um espaçamento interno */
+    height: 31px;
+  }
+
+  #tabelaPedidos td {
+    /* Adiciona uma linha na parte inferior das células de dados */
+    padding: 8px;
+    /* Adiciona um espaçamento interno */
+    height: 31px;
+  }
+
+}
+
+@media (max-width: 644px) and (min-width: 620px) {
+
+  .divForm {
     width: 317px;
     box-sizing: border-box;
   }
@@ -1074,64 +903,62 @@ button{
     display: flex;
     flex-direction: column;
     gap: 0px;
-}
-
-table{
-  display: flex;
-}
-
-thead{
-  display: flex;
-}
-
-tbody {
-  gap: 2px;
-  display: flex;
-}
-
-ul{
-  display: flex;
-}
-
-button{
-  margin-top: -3px;
-}
-
-.botoes{
-  display: flex;
-}
-
-.botoes button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  margin-right: 10px; 
-  width: 60px;
-  height: 30px;/* Adiciona espaçamento à direita de cada botão */
-}
-#tabelaPedidos th {
-/* Adiciona uma linha na parte inferior das células do cabeçalho */
-  padding: 8px; /* Adiciona um espaçamento interno */
-  height: 31px;
-}
-
-#tabelaPedidos td {
-  /* Adiciona uma linha na parte inferior das células de dados */
-  padding: 8px; /* Adiciona um espaçamento interno */
-  height: 31px;
-}
-
-}
-
-
-
-
-@media (max-width: 796px) {
-  .logo {
-    width: 100px;
   }
+
+  table {
+    display: flex;
+  }
+
+  thead {
+    display: flex;
+  }
+
+  tbody {
+    gap: 2px;
+    display: flex;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  button {
+    margin-top: -3px;
+  }
+
+  .botoes {
+    display: flex;
+  }
+
+  .botoes button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    margin-right: 10px;
+    width: 60px;
+    height: 30px;
+    /* Adiciona espaçamento à direita de cada botão */
+  }
+
+  #tabelaPedidos th {
+    /* Adiciona uma linha na parte inferior das células do cabeçalho */
+    padding: 8px;
+    /* Adiciona um espaçamento interno */
+    height: 31px;
+  }
+
+  #tabelaPedidos td {
+    /* Adiciona uma linha na parte inferior das células de dados */
+    padding: 8px;
+    /* Adiciona um espaçamento interno */
+    height: 31px;
+  }
+
 }
+
+
+
 
 @media (max-width:880px) {
   .tabs a {
@@ -1178,7 +1005,7 @@ button{
     flex-direction: row;
     justify-content: center;
   }
- 
+
   .botoes {
     display: flex;
     flex-direction: column;
@@ -1188,9 +1015,9 @@ button{
     width: 100%;
   }
 
- h2{
-  font-size: 14px;
- }
+  h2 {
+    font-size: 14px;
+  }
 
   .atributos {
     width: 100px;
@@ -1199,64 +1026,66 @@ button{
   .tabs li a {
     font-size: 20px;
   }
-.tab-content{
-  margin-top: 25%;
-}
 
-.pesquisa {
-  width: 250px;
-}
+  .tab-content {
+    margin-top: 25%;
+  }
 
-tr {
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-}
 
-table{
-display: flex;
-}
+  tr {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
 
-thead{
-display: flex;
-}
+  table {
+    display: flex;
+  }
 
-tbody {
-gap: 2px;
-display: flex;
-}
+  thead {
+    display: flex;
+  }
 
-ul{
-display: flex;
-}
+  tbody {
+    gap: 2px;
+    display: flex;
+  }
 
-button{
-margin-top: -3px;
-}
+  ul {
+    display: flex;
+  }
 
-.botoes{
-display: flex;
-}
+  button {
+    margin-top: -3px;
+  }
 
-.botoes button {
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 11px;
-margin-right: 10px; 
-width: 60px;
-height: 30px;/* Adiciona espaçamento à direita de cada botão */
-}
-#tabelaPedidos th {
-/* Adiciona uma linha na parte inferior das células do cabeçalho */
-padding: 8px; /* Adiciona um espaçamento interno */
-height: 31px;
-}
+  .botoes {
+    display: flex;
+  }
 
-#tabelaPedidos td {
-/* Adiciona uma linha na parte inferior das células de dados */
-padding: 8px; /* Adiciona um espaçamento interno */
-height: 31px;
-}
+  .botoes button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    margin-right: 10px;
+    width: 60px;
+    height: 30px;
+    /* Adiciona espaçamento à direita de cada botão */
+  }
+
+  #tabelaPedidos th {
+    /* Adiciona uma linha na parte inferior das células do cabeçalho */
+    padding: 8px;
+    /* Adiciona um espaçamento interno */
+    height: 31px;
+  }
+
+  #tabelaPedidos td {
+    /* Adiciona uma linha na parte inferior das células de dados */
+    padding: 8px;
+    /* Adiciona um espaçamento interno */
+    height: 31px;
+  }
 
 }

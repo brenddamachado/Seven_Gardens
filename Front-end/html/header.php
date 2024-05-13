@@ -12,7 +12,7 @@
       <div class="navegacao">
         <ul class="caminhos">
           <li class="cadastrar"> <a href="Cadastro.php">Cadastro</a></li>
-          <li class="login"> <a href="Login.html">Login</a></li>
+          <li class="login"> <a href="Login.php">Login</a></li>
         </ul>
       </div>
     </nav>
@@ -36,10 +36,10 @@
       <a href="../../index.html">Home</a>
     </div>
     <div class="menu_btn">
-      <a href="instrucoesCultivo.html">Instruções de Cultivo</a>
+      <a href="instrucoesCultivo.php">Instruções de Cultivo</a>
     </div>
     <div class="menu_btn">
-      <a href="Contato.html">Contato</a>
+      <a href="Contato.php">Contato</a>
     </div>
     <div class="menu_btn">
       <a href="Sobre.html">Sobre</a>
@@ -55,15 +55,16 @@
       <div id="dentro_icon" class="dentro_icon">
         <div class="close-btn"><i class="fas fa-times"></i></div>
         <a href="../index.html">Home</a>
-<a href="Login.html">Login</a>
-        <a href="Cadastro.html">Cadastro</a>
+           <a href="Cadastro.php">Cadastro</a>
+<a href="Login.php">Login</a>
+     
 
         <a href="#"> Enxertos</a>
         <a href="#"> Naturais (De semente) </a>
         <a href="#">Especiais</a>
         <a href="#">Insumos</a>
-        <a href="instrucoesCultivo.html">Instruções de Cultivo</a>
-        <a href="Contato.html">Contato</a>
+        <a href="instrucoesCultivo.php">Instruções de Cultivo</a>
+        <a href="Contato.php">Contato</a>
         <a href="Sobre.html">Sobre</a>
 
       </div>
