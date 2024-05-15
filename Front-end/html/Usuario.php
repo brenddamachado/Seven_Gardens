@@ -17,6 +17,7 @@
 <body>
 <?php include('header.php'); ?>
     <div class="container-principal">
+       
         <div class="barra-lateral">
             <a href="#tab1-content" class="active">Meu Painel</a>
             <a href="#tab2-content">Pedidos</a>
@@ -25,6 +26,7 @@
             <a href="#tab5-content">Segurança</a>
             <a href="#tab6-content">Log out</a>
         </div>
+ 
         <div class="conteudo-principal">
             <section id="tab1-content" class="secao">
                 <h2>Meu Painel</h2>
@@ -125,13 +127,18 @@
                         <div class="alteracao-senha">
                             <div class="input-box">
                                 <label for="senha">Nova senha:</label>
-                                <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha">
-                                <i class="far fa-eye" id="verSenha"></i>
+                                <div class="input-wrapper">
+                                    <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha">
+                                    <i class="far fa-eye" id="verSenha"></i>
+                                </div>
                             </div>
                             <div class="input-box">
                                 <label for="senha2">Confirmação da nova senha:</label>
-                                <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha">
-                                <i class="far fa-eye" id="verConfirme"></i>
+                                <div class="input-wrapper">
+                                    <input type="password" id="senha2" name="senha2"
+                                        placeholder="Confirme sua nova senha">
+                                    <i class="far fa-eye" id="verConfirme"></i>
+                                </div>
                             </div>
                             <button type="submit" class="btn_salvar">Salvar alterações</button>
                             <div>
@@ -143,7 +150,10 @@
                 </div>
             </section>
 
+
         </div>
+
+    </div>
     </div>
 
 
