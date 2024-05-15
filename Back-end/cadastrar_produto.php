@@ -9,16 +9,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome = $_POST["nomeProduto"];
         $preco = $_POST["precoProduto"];
         $descricao = $_POST["descricaoProduto"];
-        $categoria = $_POST["categoriaProduto"]; // Adicionado
-        $subcategoria = $_POST["subcategoriaProduto"]; // Adicionado
+        $categoria = $_POST["categoriaProduto"];
+        $subcategoria = $_POST["subcategoriaProduto"];
 
         // Diretório onde as imagens serão armazenadas
-        $diretorio = "C:/xampp/htdocs/Seven_Gardens/Front-end/img/";
+        $diretorio = "C:/xampp/htdocs/Seven_Gardens/Front-end/img-produtos/";
 
         // Informações do arquivo enviado
-        $nomeArquivo = $_FILES["imagemProduto"]["name"];
+        $nomeArquivo = basename($_FILES["imagemProduto"]["name"]); // basename para evitar path traversal
         $caminhoTemporario = $_FILES["imagemProduto"]["tmp_name"];
         $caminhoFinal = $diretorio . $nomeArquivo;
+
+        // Caminho relativo para uso na web
+        $caminhoWeb = "Front-end/img-produtos/" . $nomeArquivo;
 
         // Move o arquivo para o diretório desejado
         if (move_uploaded_file($caminhoTemporario, $caminhoFinal)) {
@@ -27,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $pdo->prepare($sql);
 
             // Tenta executar a consulta
-            if ($stmt->execute([$nome, $preco, $descricao, $categoria, $subcategoria, $caminhoFinal])) {
+            if ($stmt->execute([$nome, $preco, $descricao, $categoria, $subcategoria, $caminhoWeb])) {
                 echo json_encode(['success' => true, 'message' => 'Produto cadastrado com sucesso!']);
             } else {
                 echo json_encode(['success' => false, 'message' => 'Erro ao cadastrar produto: ' . $stmt->errorInfo()[2]]);
