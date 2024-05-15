@@ -134,13 +134,14 @@
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       // Consulta SQL para selecionar os produtos
-      $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria FROM produto";
+      $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
       $stmt = $pdo->query($sql);
 
       if ($stmt->rowCount() > 0) {
         // Exibir os cards dos produtos
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           echo "<div class='produto-card'>";
+          echo "<img src='" . $row["imagem"] . "' alt='Imagem do produto'>";
           echo "<h3>" . $row["nome"] . "</h3>";
           echo "<p>Preço: R$ " . $row["preco"] . "</p>";
           echo "<p>" . $row["descricao"] . "</p>";
