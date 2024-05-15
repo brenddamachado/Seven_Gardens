@@ -1,5 +1,4 @@
 
-
 // Início do Carrossel
 let slideIndex = 0; // Índice do slide atual
 
@@ -147,38 +146,38 @@ function usuarioLogado() {
 
 // DARK MODE 
 document.addEventListener("DOMContentLoaded", function () {
-    // Verificar se o usuário já selecionou um modo de cor anteriormente
-    const savedMode = localStorage.getItem("mode");
+  // Verificar se o usuário já selecionou um modo de cor anteriormente
+  const savedMode = localStorage.getItem("mode");
 
-    // Se houver um modo salvo, aplicá-lo
-    if (savedMode) {
-      document.body.classList.add(savedMode);
-    }
+  // Se houver um modo salvo, aplicá-lo
+  if (savedMode) {
+    document.body.classList.add(savedMode);
+  }
 
-    // Alternar a visibilidade das opções de acessibilidade
-    document
-      .getElementById("accessibility-icon")
-      .addEventListener("click", function () {
-        var otherThings = document.getElementById("other-things");
-        otherThings.style.display =
-          otherThings.style.display === "none" ? "flex" : "none";
-      });
+  // Alternar a visibilidade das opções de acessibilidade
+  document
+    .getElementById("accessibility-icon")
+    .addEventListener("click", function () {
+      var otherThings = document.getElementById("other-things");
+      otherThings.style.display =
+        otherThings.style.display === "none" ? "flex" : "none";
+    });
 
-    // Alternar para o modo claro
-    document
-      .getElementById("light-mode-toggle")
-      .addEventListener("click", function () {
-        document.body.classList.remove("dark-mode");
-        localStorage.setItem("mode", "light-mode"); // Salvar o modo de cor selecionado
-      });
+  // Alternar para o modo claro
+  document
+    .getElementById("light-mode-toggle")
+    .addEventListener("click", function () {
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem("mode", "light-mode"); // Salvar o modo de cor selecionado
+    });
 
-    // Alternar para o modo escuro
-    document
-      .getElementById("dark-mode-toggle")
-      .addEventListener("click", function () {
-        document.body.classList.add("dark-mode");
-        localStorage.setItem("mode", "dark-mode"); // Salvar o modo de cor selecionado
-      });
+  // Alternar para o modo escuro
+  document
+    .getElementById("dark-mode-toggle")
+    .addEventListener("click", function () {
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("mode", "dark-mode"); // Salvar o modo de cor selecionado
+    });
 
   // Função para ajustar o tamanho da fonte de elementos específicos
   function adjustFontSizeForElements(factor) {
@@ -216,13 +215,14 @@ let hamburger = document.getElementById('hamburguer');
 let mobileMenu = document.getElementById('mobile');
 let closeButton = document.querySelector('.close-btn');
 
-hamburger.addEventListener('click', function() {
+hamburger.addEventListener('click', function () {
   mobileMenu.style.left = "0"; // Abre o menu
 });
 
-closeButton.addEventListener('click', function() {
+closeButton.addEventListener('click', function () {
   mobileMenu.style.left = "-100%"; // Fecha o menu
 });
+
 
 
 

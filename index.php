@@ -60,7 +60,7 @@
       <div class="menu_btn">
         <a href="/Front-end/html/Sobre.php">Sobre</a>
       </div>
-      <img src="/Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
+      <img src="../Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
 
     </section>
     <section class="section_mobile">
@@ -85,7 +85,7 @@
         </div>
 
       </section>
-      <img src="/Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" />
+      <img src="img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" />
     </section>
 
   </header>
@@ -110,7 +110,7 @@
       <span class="close">&times;</span>
       <h2>Meu Carrinho</h2>
       <div id="itensCarrinho"></div>
-      <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div> 
+      <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
       <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
     </div>
   </div>
@@ -122,13 +122,13 @@
   <hr>
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
-    
-  <?php
+
+    <?php
     $host = 'localhost';
     $dbname = 'sevengardens';
     $username = 'root';
     $password = '';
-    
+
     try {
       $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -138,32 +138,32 @@
       $stmt = $pdo->query($sql);
 
       if ($stmt->rowCount() > 0) {
-          // Exibir os cards dos produtos
-          while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-              echo "<div class='produto-card'>";
-              echo "<h3>" . $row["nome"] . "</h3>";
-              echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-              echo "<p>" . $row["descricao"] . "</p>";
-              echo "<p>Categoria: " . $row["categoria"] . "</p>";
-              echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
-              echo "<button class='comprar-btn'>Comprar</button>";
-              // Adicione aqui o resto dos atributos do produto, conforme necessário
-              echo "</div>";
-          }
+        // Exibir os cards dos produtos
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          echo "<div class='produto-card'>";
+          echo "<h3>" . $row["nome"] . "</h3>";
+          echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+          echo "<p>" . $row["descricao"] . "</p>";
+          echo "<p>Categoria: " . $row["categoria"] . "</p>";
+          echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+          echo "<button class='comprar-btn'>Comprar</button>";
+          // Adicione aqui o resto dos atributos do produto, conforme necessário
+          echo "</div>";
+        }
       } else {
-          echo "0 resultados";
+        echo "0 resultados";
       }
     } catch (PDOException $e) {
       // Redireciona para a página de erro na pasta Front-end
       header('Location: ../Front-end/Erro.html');
       exit;
     }
-    
+
     // Fecha a conexão
     $pdo = null;
     ?>
   </div>
-  
+
   <!-- Fim do Bloco de Produtos -->
 
   <div id="itensCarrinho" class="carrinho">
