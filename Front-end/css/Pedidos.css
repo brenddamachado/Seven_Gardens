@@ -1,0 +1,657 @@
+body {
+  margin: 0;
+  background-color: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #0f2b05;
+}
+
+.header {
+  height: 180px;
+
+  
+  display: flex;
+  justify-content: space-between;
+}
+
+.paginas {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.header .paginas li {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+
+.logo {
+  width: 155px;
+  height: 200px;
+}
+
+.opcoes {
+  justify-content: space-around;
+  display: flex;
+  background: #405b39;
+  height: 38px;
+  align-items: center;
+  font-size: 12px;
+  position: relative;
+  /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  /* Remove o sublinhado */
+}
+
+.opcoes h2 {
+  color: #fbf3dc;
+}
+
+.login {
+  text-decoration: none;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+
+.cadastrar {
+  text-decoration: none;
+  background-color: #405b39;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+/* fim do header */
+
+
+/* inicio da formulario*/
+form {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  margin: 0 auto;
+  /* Isso centralizará o formulário na página */
+  max-width: 400px;
+  /* Defina a largura máxima para evitar que o formulário se estenda demais */
+  margin-bottom: 50px;
+  margin-top: 150px;
+}
+
+.title {
+  color: #0f2b05;
+  margin: 0;
+  font-size: 25px;
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-shadow: 1px 1px 4px #0000001c;
+}
+
+button[type="submit"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #405b39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+button[type="submit"]:hover {
+  background-color: #112a08;
+}
+
+th {
+  background-color: #405b39;
+  color: #fbf3dc;
+  padding: 15px;
+  /* Aumenta o padding para deixar mais espaçado */
+  text-align: center;
+  /* Centraliza o texto horizontalmente */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  text-transform: uppercase;
+  /* Transforma o texto em maiúsculas */
+  border-bottom: 2px solid #ccc;
+  /* Adiciona uma borda inferior */
+  border-radius: 1px;
+  /* Adiciona bordas arredondadas */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  /* Adiciona uma sombra suave */
+  transition: background-color 0.3s ease;
+  /* Adiciona transição suave ao fundo */
+}
+
+th:hover {
+  background-color: #e0e0e0;
+  /* Muda a cor de fundo quando hover */
+}
+
+#tabelaUsuarios {
+  margin: 0 auto;
+  width: 38%;
+  /* Você pode ajustar a largura conforme necessário */
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+#tabelaUsuarios th,
+#tabelaUsuarios td {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+/* Estilos para a tabela de usuario */
+#tabelaUsuarios th {
+  background-color: #405b39;
+  color: #f9f9f9;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tabelaUsuarios tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#tabelaUsuarios tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+#tabelaUsuarios tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#tabelaUsuarios th:first-child,
+#tabelaUsuarios td:first-child {
+  border-left: none;
+}
+
+#tabelaUsuarios th:last-child,
+#tabelaUsuarios td:last-child {
+  border-right: none;
+}
+
+h1 {
+  color: #405b39;
+  text-align: center;
+  margin-top: 50px;
+  /* Adiciona um espaçamento superior */
+
+}
+
+header {
+  margin-bottom: 40px;
+  /* Adicione margem inferior ao header para separá-lo do conteúdo abaixo */
+}
+
+
+
+/* inicio footer */
+footer {
+  margin-top: 400px;
+  background-color: #0f2b05;
+  height: 200px;
+  position: relative;
+
+}
+
+.social-icons {
+  text-align: center;
+
+
+}
+.social-icons p {
+  color:#fff;
+
+
+}
+
+.social {
+  color: #fff;
+  /* Cor do texto */
+  text-align: center;
+  font-size: 16px;
+  /* Tamanho da fonte */
+
+}
+
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 20px 0;
+  /* Adicionando uma margem superior de  */
+  font-size: 30px;
+  /* Aumentei o tamanho dos ícones */
+  color: #fff;
+  transition: transform 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+  /* Aumenta o tamanho do ícone em 20% no hover */
+}
+
+
+.contact-info {
+  text-align: right;
+  color: #fff;
+  /* Alterei a cor do texto */
+  margin-right: 20px;
+  /* Adicionei margem à direita para afastar do lado direito do footer */
+}
+
+.contact-info p {
+  margin: 3px 0;
+  /* Ajustei a margem superior e inferior */
+  font-size: 16px;
+  /* Aumentei o tamanho da fonte */
+}
+
+#produtos {
+  font-size: 18px;
+  color: #fbf3dc;
+  transition: margin-top 0.3s;
+  /* Adiciona uma transição para uma animação suave */
+}
+
+#produtos:hover {
+  margin-top: 10px;
+  /* Define a margem superior durante o hover */
+}
+
+.categorias {
+  display: none;
+  position: absolute;
+  top: calc(100% + 1px);
+  /* Calcula a posição com base na altura do elemento pai */
+  left: 0;
+  background-color: #405b39;
+  padding: 10px;
+  margin-left: 150px;
+}
+
+.categorias li {
+  font-size: 18px;
+  list-style-type: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  /* Altera o cursor para indicar que os itens são clicáveis */
+}
+
+.categorias li:hover {
+  background-color: #7ED957;
+  /* Altera a cor de fundo quando o mouse está sobre a categoria */
+}
+
+
+/* inicio DARK MODE */
+
+body.dark-mode,
+body.dark-mode button[type="submit"] {
+  background-color: #151515;
+}
+
+body.dark-mode #tabelaUsuarios tbody {
+  background-color: #fff;
+
+}
+body.dark-mode .social{
+
+  color: #fff;  
+}
+
+
+body.dark-mode form,
+body.dark-mode #tabelaUsuarios th,
+body.dark-mode .modal-content {
+  background-color: #282828;
+}
+
+body.dark-mode .dropbtn,
+body.dark-mode .opcoes {
+  background: #1E1F1E;
+
+}
+
+.fa-universal-access,
+.fa-moon,
+.fa-sun {
+  color: #7A7979;
+}
+
+body.dark-mode .sessao {
+  color: #fff;
+}
+
+body.dark-mode .login,
+body.dark-mode .fa-search {
+
+  color: #070B06;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #070B06;
+}
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar,
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode p,
+body.dark-mode h2,
+body.dark-mode label,
+body.dark-mode .title,
+body.dark-mode .login {
+  color: #E1F9D7;
+  /* Cor ajustada para elementos no modo escuro */
+}
+
+body.dark-mode .cadastrar {
+  color: #070B06;
+  background-color: #E1F9D7;
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+.fa-chevron-down {
+  display: inline-block;
+  /* ou 'block', dependendo do seu layout */
+}
+
+/* FINAL DO DARK MODE */
+
+
+
+
+
+/* COMEÇO DA RESPONSIVIDADE DA PÁGINA*/
+
+footer {
+  flex-direction: column;
+  /* Empilhe os itens verticalmente */
+  align-items: center;
+  /* Alinhe os itens ao centro */
+}
+
+.social-icons {
+  margin-bottom: 20px;
+  /* Adicione espaço abaixo dos ícones sociais */
+}
+
+/* Responsividade para o formulário */
+@media only screen and (max-width: 767px) {
+  form {
+    max-width: 70%;
+    /* Reduz a largura do formulário para 90% da largura da tela */
+    padding: 50px;
+    /* Reduz o preenchimento para 20px */
+    
+  }
+
+  .input-box {
+    margin-bottom: 5px;
+    /* Reduz a margem inferior para 10px */
+  }
+
+  button[type="submit"] {
+    font-size: 0.9rem;
+    /* Reduz o tamanho da fonte do botão */
+  }
+}
+/* Responsividade do input para dispositivos móveis */
+
+/* Estilo para telas menores que 768px */
+@media only screen and (max-width: 768px) {
+  /* Estilo para o input */
+  #inputPesquisa {
+    width: 50%; /* Ocupar toda a largura disponível */
+  }
+}
+
+/* Estilo para telas menores que 576px */
+@media only screen and (max-width: 576px) {
+  /* Ajuste de largura menor para telas ainda mais estreitas, se necessário */
+  #inputPesquisa {
+    width: 50%; /* Ocupar 90% da largura disponível */
+  }
+}
+
+
+/* Responsividade para dispositivos móveis */
+
+/* Estilo para telas menores que 768px */
+@media only screen and (max-width: 768px) {
+  /* Estilo para o formulário */
+  #user-search-form {
+    padding: 40px; /* Adapte o espaçamento conforme necessário */
+  }
+  
+  #user-search-form label,
+  #user-search-form input{
+    width: 100%; /* Ocupar toda a largura disponível */
+    margin-bottom: 10px; /* Espaçamento entre os elementos */
+  }
+  
+  #tabelaUsuarios {
+    overflow-x: auto; /* Adicionar barra de rolagem horizontal se necessário */
+  }
+  
+  #tabelaUsuarios th,
+  #tabelaUsuarios td {
+    font-size: 14px; /* Tamanho da fonte menor para melhorar a legibilidade em telas menores */
+    padding: 8px; /* Espaçamento interno */
+  }
+}
+
+/* Estilo para telas menores que 576px */
+@media only screen and (max-width: 576px) {
+  /* Ajuste de fonte menor para telas ainda mais estreitas, se necessário */
+  #tabelaUsuarios th,
+  #tabelaUsuarios td {
+    font-size: 12px;
+  }
+}
+/* Estilo do titulo do form para telas menores que 768px */
+@media only screen and (max-width: 768px) {
+  /* Estilo para o título */
+  .title {
+    font-size: 24px; /* Tamanho da fonte menor para telas menores */
+    margin-bottom: 20px; /* Espaçamento inferior maior para separar do conteúdo abaixo */
+  }
+}
+
+/* Estilo para telas menores que 576px */
+@media only screen and (max-width: 576px) {
+  /* Ajuste de fonte menor para telas ainda mais estreitas, se necessário */
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .conteudo {
+    width: 75% !important;
+
+  }
+
+  .header .paginas li {
+
+    font-size: 15px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+
+
+}
+
+@media (max-width: 1059px) {
+  .conteudo {
+    width: 55%;
+  }
+}
+
+@media (max-width: 544px) {
+  .conteudo {
+    width: 95% !important;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .logo {
+    width: 100px;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .logo {
+    width: 90px !important;
+  }
+}
+@media (max-width: 768px) {
+.conteudo {
+  width: 75% !important;
+
+}
+
+.header .paginas li {
+
+  font-size: 15px;
+}
+
+  @media (max-width: 315px) {
+    .logo {
+      width: 80px !important;
+    }
+  }
+  @media (max-width: 768px) {
+  .conteudo {
+    width: 75% !important;
+
+  }
+
+  .header .paginas li {
+
+    font-size: 15px;
+  }
+
+
+@media (max-width: 445px) {
+  .paginas {
+    gap: 0;
+  }
+
+  .logo {
+    width: 98px;
+  }
+
+  .navegação {
+    margin-right: 14px;
+  }
+}
+
+@media (max-width: 340px) {
+  .header .paginas li { font-size: 12px;}
+
+  .navegação {
+    margin-right: 18px;
+  }
+  .logo {
+    width: 90px;
+  }
+}
+  @media (max-width: 352px) {
+    .header .paginas li { font-size: 12px;}
+
+    .navegação {
+      margin-right: 18px;
+    }
+    .logo {
+      width: 90px;
+    }
+  }}  
+}
