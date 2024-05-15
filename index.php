@@ -60,7 +60,7 @@
       <div class="menu_btn">
         <a href="/Front-end/html/Sobre.php">Sobre</a>
       </div>
-      <img src="../Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
+      <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
 
     </section>
     <section class="section_mobile">
@@ -85,7 +85,7 @@
         </div>
 
       </section>
-      <img src="img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" />
+      <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" />
     </section>
 
   </header>
@@ -93,12 +93,12 @@
   <div class="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="/Front-end/img/banner1.svg" alt="Imagem 1">
+        <img src="Front-end/img/banner1.svg" alt="Imagem 1">
       </div>
-      <div class="/Front-end/img/banner2.svg" alt="Imagem 2">
+      <div class="Front-end/img/banner2.svg" alt="Imagem 2">
       </div>
       <div class="carousel-item">
-        <img src="/Front-end/img/banner3.svg" alt="Imagem 3">
+        <img src="Front-end/img/banner3.svg" alt="Imagem 3">
       </div>
     </div>
     <button class="carousel-prev" onclick="prevSlide()"></button>
