@@ -18,20 +18,32 @@ document.addEventListener('DOMContentLoaded', function () {
         method: 'POST',
         body: formData
       })
-        .then(response => {
-          console.log('Resposta bruta:', response.clone().text()); // Clona a resposta para logar o texto bruto.
-          return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-          // sua lógica aqui
+          if (data.success) {
+            switch (data.userType) {
+              case 'Cliente':
+                window.location.href = 'Usuario.html';
+                break;
+              case 'Colaborador':
+              case 'Master':
+                window.location.href = 'InterfaceMaster.html';
+                break;
+              default:
+                mensagemErro.textContent = 'Tipo de usuário não reconhecido!';
+            }
+          } else {
+            mensagemErro.textContent = data.message; // Mostra mensagem de erro retornada pelo servidor.
+          }
         })
         .catch(error => {
           console.error('Erro ao enviar o formulário:', error);
+          mensagemErro.textContent = 'Erro ao processar a solicitação.'; // Mensagem genérica para erro de conexão.
         });
-
     });
   }
 });
+
 
 
 
