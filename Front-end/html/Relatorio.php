@@ -43,8 +43,7 @@
 
     <section id="client-table">
       <div class="icon-clientes">
-        <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes"
-          class="iconCard" />
+        <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
         <h2>Lista de Clientes</h2>
       </div>
       <table id="tabelaUsuarios">
@@ -56,27 +55,32 @@
           </tr>
         </thead>
         <tbody>
-          <!-- PHP para preencher a tabela 
           <?php
-          // Inclui o arquivo fetchData.php para buscar os dados do banco de dados
-          include 'fetchData.php';
+          include('../PHP/connect.php'); // Inclui e executa o arquivo, conectando ao banco de dados com PDO
 
-          // Realiza a requisição ao arquivo PHP para obter os dados
-          $json_data = file_get_contents('fetchData.php');
-          $data = json_decode($json_data, true);
+          $sql = "SELECT idUsuario, nome_completo FROM usuario"; // Consulta SQL para buscar os usuários
+          $stmt = $pdo->prepare($sql);  // Alterado para usar $pdo
+          $stmt->execute();
 
-          // Preenche a tabela com os dados obtidos
-          foreach ($data as $row) {
-            echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['nome'] . "</td>";
-            echo "<td>" . $row['compras'] . "</td>";
-            echo "</tr>";
+          $data = $stmt->fetchAll(PDO::FETCH_ASSOC); // Busca todos os dados e retorna como array associativo
+
+          if (!empty($data)) {
+            foreach ($data as $row) {
+              echo "<tr>";
+              echo "<td>" . htmlspecialchars($row['idUsuario']) . "</td>"; // Usar htmlspecialchars para evitar XSS
+              echo "<td>" . htmlspecialchars($row['nome_completo']) . "</td>";
+              echo "<td>Compras</td>"; // Ajuste conforme necessário
+              echo "</tr>";
+            }
+          } else {
+            echo "<tr><td colspan='3'>Nenhum resultado encontrado</td></tr>"; // Exibe esta mensagem se $data estiver vazio
           }
           ?>
--->
+
         </tbody>
+
       </table>
+
       <div class="btn-download">
         <button onclick="downloadPDF()">Baixar PDF</button>
       </div>
@@ -88,12 +92,9 @@
     <div class="social-icons">
       <p> Siga-nos nas nossas redes sociais:</p>
 
-      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
-          class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-        class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-          class="fab fa-whatsapp""></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i class="fab fa-whatsapp""></i></a>
 
 
     </div>

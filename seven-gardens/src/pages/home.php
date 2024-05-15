@@ -1,8 +1,0 @@
-<?php
-?>
-
-<html>
-
-home
-
-</html>

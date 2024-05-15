@@ -693,7 +693,7 @@ body.dark-mode a {
   flex-direction: column;
 }
 
-@media (max-width: 766px) {
+@media (max-width: 767px) {
 
   .mobile_i,
   .icon_mobile {
@@ -753,7 +753,7 @@ body.dark-mode a {
 
   .pesquisa {
     margin-left: -51px;
-    width: 170px;
+    width: 350px;
   }
 
   .carousel-item img {
@@ -779,9 +779,13 @@ body.dark-mode a {
   }
 }
 
-@media screen and (max-width: 740px) and (min-width: 364px) {
-  .pesquisa {
-    width: 180px;
+@media (max-width: 573px) {
+  .logo {
+    width: 120px !important;
+  }
+
+  .pesquisa{
+    width: 210px;
   }
 }
 
@@ -805,5 +809,11 @@ body.dark-mode a {
 @media screen and (max-width: 390px) {
   .pesquisa {
     width: 180px;
+  }
+}
+
+@media (max-width:917px) and (min-width: 901px){
+  .pesquisa{
+    width: 300px;
   }
 }

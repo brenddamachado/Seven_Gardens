@@ -4,58 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Contato</title>
   <link rel="stylesheet" href="../css/Contato.css" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
-  <header>
-    <section class="header">
-      <div>
-        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
-      </div>
-
-      <div class="pesquisa-container">
-        <input type="search" name="" id="" class="pesquisa" />
-        <label for="" class="pesquisa-icon"><i class="fas fa-search"></i></label>
-      </div>
-      <nav>
-        <div class="navegacao">
-          <ul>
-            <li class="login">Login</li>
-            <li class="cadastrar">Cadastro</li>
-          </ul>
-        </div>
-      </nav>
-    </section>
-
-    <section class="opcoes">
-      <div class="dropdown">
-        <div class="dropbtn">
-          <span class="prod_dropdown">Produtos</span> <i class="fas fa-chevron-down"> </i>
-        </div>
-        <div class="dropdown-content">
-          <a href="#"> Enxertos</a>
-          <a href="#"> Naturais (De semente) </a>
-          <a href="#">Especiais</a>
-          <a href="#">Insumos</a>
-        </div>
-      </div>
-
-      <div class="menu_btn">
-        <a href="/Front-end/html/instrucoesCultivo.html">Instruções de Cultivo</a>
-      </div>
-      <div class="menu_btn">
-        <a href="#">Contato</a>
-      </div>
-      <div class="menu_btn">
-        <a href="/Front-end/html/Sobre.html">Sobre</a>
-      </div>
-
-      <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
-    </section>
-  </header>
+  <?php include('header.php'); ?>
 
   <main class="contact-container">
     <section class="contact-form">
@@ -109,15 +66,13 @@
     <div class="social-icons">
       <p> Siga-nos nas nossas redes sociais:</p>
 
-      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
-          class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-        class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-          class="fab fa-whatsapp""></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i class="fab fa-whatsapp""></i></a>
     </div>
   </footer>
-  <script src=" ../js/acessibilidade.js"></script>
+  <script src=" ../js/Contato.js"></script>
+          <script src=" ../js/acessibilidade.js"></script>
 </body>
 
 </html>

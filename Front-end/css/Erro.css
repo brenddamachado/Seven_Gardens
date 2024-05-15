@@ -1,112 +1,58 @@
-* {
+body {
   margin: 0;
- 
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
-
-
 }
 
 
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
 
-/* formulario */
-.formulario {
+/* Estilos para o texto "Sobre" e instruções de cultivo */
+.container h1,
+.container h2,
+.container h3,
+.container p {
+  color: #405b39;
+}
+
+.container ol,
+.container ul {
+  color: #333;
+}
+
+.container ol li,
+.container ul li {
+  color: #444;
+}
+
+/* Estilos para as imagens */
+.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  flex-direction: row;
+  gap: 60px;
 }
 
-/* Estilo para o formulário dentro da seção */
-.formulario form {
-  width: 35%;
-  max-width: 600px;
-  padding: 3rem;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.image-container {
+  margin-top: 20px;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
 }
 
-/* Estilo para os rótulos */
-.label_login {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  margin-top: 30px;
-}
-
-/* Estilo para os campos de entrada */
-.input_login {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Estilo para os botões */
-.btn_cadastrar,
-.btn_limpar {
-  padding: 10px 20px;
-  background-color: #405b39;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
-}
-
-/* Estilo para o container de senha com ícone de olho */
-.password-container {
-  position: relative;
-}
-
-/* Estilo para o ícone de olho */
-.fa-eye {
-  position: absolute;
-  top: 30%;
-  font-size: 20px;
-  right: 10px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 2;
-  /* para garantir que o ícone fique sobre o input */
-}
-
-
-/* Estilo para cada item de gênero */
-.genero label {
-  margin-bottom: 5px;
-  /* Adiciona um espaçamento entre cada item */
-}
-
-#mensagem,
-#mensagemNome,
-#mensagemCpf,
-#mensagemCep,
-#mensagemEmail,
-#mensagemLogin,
-#mensagemform {
-  margin-bottom: 10px;
-  color: #0f2b05;
-}
-
-.conta {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.sessao {
-  margin-left: 5px;
-}
 
 /* inicio footer */
-
 footer {
   background-color: #0f2b05;
   height: 200px;
@@ -116,8 +62,11 @@ footer {
   align-items: center;
 }
 
+
 .social-icons {
   text-align: center;
+
+
 }
 
 .social-icons p {
@@ -126,6 +75,7 @@ footer {
   text-align: center;
   font-size: 16px;
   /* Tamanho da fonte */
+
 }
 
 .social-icons .icon {
@@ -139,13 +89,25 @@ footer {
   /* Adiciona uma transição suave */
 }
 
+.social-icons p {
+  color: #ffffff;
+}
+
 .social-icons .icon:hover {
   transform: scale(1.2);
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
 
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  flex-direction: column;
+  align-items: center;
 
-/* inicio DARK MODE */
+}
+
+/* DARK MODE */
+
 body.dark-mode {
   background-color: #151515;
 }
@@ -157,7 +119,7 @@ body.dark-mode form {
 body.dark-mode .opcoes,
 body.dark-mode .section_mobile,
 body.dark-mode #mobile,
-body.dark-mode .dropdown-content,body.dark-mode .dropdown-content a {
+body.dark-mode .dropdown-content {
   background: #1E1F1E;
 
 }
@@ -172,9 +134,24 @@ body.dark-mode .sessao {
   color: #fff;
 }
 
-body.dark-mode .login,
-body.dark-mode .fa-search {
+body.dark-mode .login li {
+  color: #E1F9D7;
+}
 
+body.dark-mode p {
+  color: #E1F9D7;
+}
+
+body.dark-mode .social-icons p {
+  color: #ffffff;
+}
+
+body.dark-mode h1 {
+  color: #E1F9D7;
+}
+
+
+body.dark-mode .fa-search{
   color: #070B06;
 }
 
@@ -252,16 +229,13 @@ body.dark-mode a {
   font-size: 20px;
 }
 
-/* FINAL DO DARK MODE */
-
-/* Estilo para o menu lateral escondido e animação */
 #mobile {
   position: fixed;
   left: -100%;
   /* Inicialmente fora da tela à esquerda */
   top: 0;
   width: 300px;
-  height: 100%;
+  height: 100vh;
   background-color: #405b39;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   /* Ajuste na sombra para o lado direito */
@@ -304,6 +278,31 @@ body.dark-mode a {
   /* Linha separadora */
 }
 
+
+
+.rounded-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8%;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+.container_ajuste {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+p {
+  margin-left: 15px;
+}
+
 .mobile {
   display: none;
 }
@@ -314,6 +313,11 @@ body.dark-mode a {
 
 .section_mobile {
   display: none;
+}
+
+.pesquisa-icon {
+  margin-bottom: -3px;
+
 }
 
 .fa-times {
@@ -335,135 +339,75 @@ body.dark-mode a {
   display: flex;
   flex-direction: column;
 }
-body.dark-mode .dropdown-content a:hover{
-  background-color: #395533;
-}
-/* Media queries para responsividade */
-/* Estilos para telas até 766px */
 
+/* Estilos para telas até 415px */
 @media (max-width: 415px) {
- 
-  .formulario form {
-    width: auto;
+
+  .image-container {
+    width: 350px;
+    height: 330px;
   }
 
- 
-  .conta {
-    display: block;
-  }
 
-  .buttons {
-    display: flex;
-    gap: 10px;
-
-  }
 
 }
 
-
+/* Estilos para telas até 320px */
 @media (max-width: 320px) {
-
-
-
-  .formulario form {
-    width: auto !important;
+  .image-container {
+    width: 250px;
+    height: 330px;
   }
 
-  .buttons {
+ 
+
+  .container h1 {
+    font-size: 23px;
+  }
+
+
+  .container_ajuste {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
   }
-
+ 
 }
 
 /* Estilos para telas entre 321px e 428px */
 @media (max-width: 428px) and (min-width: 321px) {
- 
-  .formulario form {
-    width: auto !important;
-  }
-  .buttons {
-    display: flex;
-    gap: 10px;
 
+  .container h1 {
+    font-size: 27px;
   }
 
-  .conta {
-    display: block;
+  .image-container {
+    width: 300px;
+    height: 330px;
   }
-
-
+  .container p {
+    font-size: 20px;
+  }
 }
 
-@media (max-width: 917px) and (min-width: 885px) {
-  
-  .buttons {
-    display: flex;
-    gap: 10px;
 
-  }
-  .formulario form {
-    width: 50%;
-  }
 
-}
-
+/* Estilos para telas menores que 885px */
 @media (max-width: 885px) {
- 
-  .buttons {
-    display: flex;
-    gap: 5px;
 
-  }
-  .formulario form {
-    width: 45%;
-  }
 
   .container {
     min-width: 0;
   }
-
 }
 
 /* Estilos para telas entre 768px e 835px */
 @media (max-width: 835px) and (min-width: 767px) {
-  
-  .formulario form {
-    width: 50%;
+
+  .container {
+    min-width: 0;
   }
-  .buttons {
-    display: flex;
-    gap: 5px;
-
-  }
-
-}
-
-@media (max-width: 768px) {
-
-  .buttons {
-    display: flex;
-    gap: 5px;
-
-  }
-
-
-  .conta {
-    display: block;
-  }
-}
-
-@media (max-width: 529px) and (min-width: 429px) {
-
-  .formulario form {
-    width: 70%;
-  }
-  .buttons {
-    display: flex;
-    gap: 10px;
-
-  }
-
 
 }
