@@ -225,6 +225,50 @@ html {
 
 /* fim do carrossel */
 
+/*inicio do bloco de produtos*/
+.bloco-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribui os cards igualmente na linha */
+}
+
+.produto-card {
+  width: calc(25% - 20px); /* Define a largura de cada card, considerando o espaçamento */
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  
+  transition: margin-top 0.3s;
+  /* Adiciona uma transição para uma animação suave */
+}
+
+.produto-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.produto-card p {
+  margin-bottom: 8px;
+}
+
+
+.comprar-btn {
+  background-color: #405b39; /* Cor de fundo verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comprar-btn[type="submit"]:hover {
+  background-color: #112a08; /* Altera a cor de fundo ao passar o mouse */
+}
 
 
 /* inicio footer */

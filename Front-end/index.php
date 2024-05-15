@@ -126,136 +126,50 @@
     <h1>Destaques</h1>
   </span>
   <hr>
-  <!-- Bloco de Produtos 
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="card">
-          <img src="img/flor.jpg" alt="Produto 1">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 50,00</span><br>
-            <button class="buy-btn" data-id="1" data-img="img/flor.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="img/flor1.jpg" alt="Produto 2">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 60,00</span><br>
-            <button class="buy-btn" data-id="2" data-img="img/flor1.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="img/flor2.jpg" alt="Produto 3">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 70,00</span><br>
-            <button class="buy-btn" data-id="3" data-img="img/flor2.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="img/flor3.jpg" alt="Produto 4">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 80,00</span><br>
-            <button class="buy-btn" data-id="4" data-img="img/flor3.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="card">
-          <img src="imagem5.jpg" alt="Produto 5">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 90,00</span><br>
-            <button class="buy-btn" data-id="5" data-img="img/flor4.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="imagem6.jpg" alt="Produto 6">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 100,00</span><br>
-            <button class="buy-btn" data-id="6" data-img="img/flor5.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="imagem7.jpg" alt="Produto 7">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 110,00</span><br>
-            <button class="buy-btn" data-id="7" data-img="img/flor6.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="imagem8.jpg" alt="Produto 8">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 120,00</span><br>
-            <button class="buy-btn" data-id="8" data-img="img/flor7.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="card">
-          <img src="imagem9.jpg" alt="Produto 9">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 130,00</span><br>
-            <button class="buy-btn" data-id="9" data-img="img/flor8.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="imagem10.jpg" alt="Produto 10">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 140,00</span><br>
-            <button class="buy-btn" data-id="10" data-img="img/flor9.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="imagem11.jpg" alt="Produto 11">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$ 150,00</span><br>
-            <button class="buy-btn" data-id="11" data-img="img/flor10.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="imagem12.jpg" alt="Produto 12">
-          <div class="details">
-            <span class="name">Nome da Plantinha</span><br>
-            <span class="price">R$160,00</span><br>
-            <button class="buy-btn" data-id="12" data-img="img/flor1.jpg">Comprar</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- inicio Bloco de Produtos -->
+  <div class="bloco-produtos">
+    
+  <?php
+    $host = 'localhost';
+    $dbname = 'sevengardens';
+    $username = 'root';
+    $password = '';
+    
+    try {
+      $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  </div>-->
+      // Consulta SQL para selecionar os produtos
+      $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria FROM produto";
+      $stmt = $pdo->query($sql);
+
+      if ($stmt->rowCount() > 0) {
+          // Exibir os cards dos produtos
+          while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+              echo "<div class='produto-card'>";
+              echo "<h3>" . $row["nome"] . "</h3>";
+              echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+              echo "<p>" . $row["descricao"] . "</p>";
+              echo "<p>Categoria: " . $row["categoria"] . "</p>";
+              echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+              echo "<button class='comprar-btn'>Comprar</button>";
+              // Adicione aqui o resto dos atributos do produto, conforme necessário
+              echo "</div>";
+          }
+      } else {
+          echo "0 resultados";
+      }
+    } catch (PDOException $e) {
+      // Redireciona para a página de erro na pasta Front-end
+      header('Location: ../Front-end/Erro.html');
+      exit;
+    }
+    
+    // Fecha a conexão
+    $pdo = null;
+    ?>
+  </div>
+  
   <!-- Fim do Bloco de Produtos -->
 
   <div id="itensCarrinho" class="carrinho">
