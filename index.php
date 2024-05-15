@@ -123,47 +123,47 @@
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
 
-    <?php
-    $host = 'localhost';
-    $dbname = 'sevengardens';
-    $username = 'root';
-    $password = '';
+  <?php
+$host = 'localhost';
+$dbname = 'sevengardens';
+$username = 'root';
+$password = '';
 
-    try {
-      $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      // Consulta SQL para selecionar os produtos
-      $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
-      $stmt = $pdo->query($sql);
+    // Consulta SQL para selecionar os produtos
+    $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
+    $stmt = $pdo->query($sql);
 
-      if ($stmt->rowCount() > 0) {
+    if ($stmt->rowCount() > 0) {
         // Exibir os cards dos produtos
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          echo "<div class='produto-card'>";
-          echo "<img src='" . $row["imagem"] . "' alt='Imagem do produto'>";
-          echo "<h3>" . $row["nome"] . "</h3>";
-          echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-          echo "<p>" . $row["descricao"] . "</p>";
-          echo "<p>Categoria: " . $row["categoria"] . "</p>";
-          echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
-          echo "<button class='comprar-btn'>Comprar</button>";
-          // Adicione aqui o resto dos atributos do produto, conforme necessário
-          echo "</div>";
+            echo "<div class='produto-card'>";
+            echo "<img src='" . $row["imagem"] . "' alt='Imagem do produto'>";
+            echo "<h3>" . $row["nome"] . "</h3>";
+            echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+            echo "<p>" . $row["descricao"] . "</p>";
+            echo "<p>Categoria: " . $row["categoria"] . "</p>";
+            echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+            echo "<button class='comprar-btn'>Comprar</button>";
+            // Adicione aqui o resto dos atributos do produto, conforme necessário
+            echo "</div>";
         }
-      } else {
+    } else {
         echo "0 resultados";
-      }
-    } catch (PDOException $e) {
-      // Redireciona para a página de erro na pasta Front-end
-      header('Location: ../Front-end/Erro.html');
-      exit;
     }
+} catch (PDOException $e) {
+    // Redireciona para a página de erro na pasta Front-end
+    header('Location: ../Front-end/Erro.html');
+    exit;
+}
 
-    // Fecha a conexão
-    $pdo = null;
-    ?>
-  </div>
+// Fecha a conexão
+$pdo = null;
+?>
+
 
   <!-- Fim do Bloco de Produtos -->
 
