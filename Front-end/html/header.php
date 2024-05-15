@@ -42,7 +42,7 @@
       <a href="Contato.php">Contato</a>
     </div>
     <div class="menu_btn">
-      <a href="Sobre.html">Sobre</a>
+      <a href="Sobre.php">Sobre</a>
     </div>
     <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
 
@@ -55,9 +55,9 @@
       <div id="dentro_icon" class="dentro_icon">
         <div class="close-btn"><i class="fas fa-times"></i></div>
         <a href="../index.html">Home</a>
-           <a href="Cadastro.php">Cadastro</a>
-<a href="Login.php">Login</a>
-     
+        <a href="Cadastro.php">Cadastro</a>
+        <a href="Login.php">Login</a>
+
 
         <a href="#"> Enxertos</a>
         <a href="#"> Naturais (De semente) </a>

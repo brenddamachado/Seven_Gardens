@@ -35,18 +35,17 @@
         <button class="btn_cadastrar" type="submit" id="cadastrar">
           Entrar
         </button>
-        <button class="btn_limpar" id="limparButton" type="button" value="Limpar Campos"
-          onclick="limparCampos()">Limpar</button>
+        <button class="btn_limpar" id="limparButton" type="button" value="Limpar Campos" onclick="limparCampos()">Limpar</button>
       </div>
 
       <div class="texto_links">
         <div class="redicionamento">
           <p>Já possui uma conta?
-            <a href="Cadastro.html" class="sessao">Criar conta</a>
+            <a href="Cadastro.php" class="sessao">Criar conta</a>
           </p>
         </div>
         <div class="redicionamento">
-          <p>Esqueceu sua senha? <a class="texto_links_2" href="AlterarSenha.html">Altere aqui</a>
+          <p>Esqueceu sua senha? <a class="texto_links_2" href="AlterarSenha.php">Altere aqui</a>
           </p>
         </div>
       </div>
