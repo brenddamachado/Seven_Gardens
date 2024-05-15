@@ -56,34 +56,29 @@
         </thead>
         <tbody>
           <?php
-          include('../PHP/connect.php'); // Inclui e executa o arquivo, conectando ao banco de dados
+          include('../PHP/connect.php'); // Inclui e executa o arquivo, conectando ao banco de dados com PDO
 
           $sql = "SELECT idUsuario, nome_completo FROM usuario"; // Consulta SQL para buscar os usuários
-          $result = $conn->query($sql);
+          $stmt = $pdo->prepare($sql);  // Alterado para usar $pdo
+          $stmt->execute();
 
-          $data = [];
-          if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-              $data[] = $row; // Adiciona cada linha do resultado ao array $data
-            }
-          }
+          $data = $stmt->fetchAll(PDO::FETCH_ASSOC); // Busca todos os dados e retorna como array associativo
 
           if (!empty($data)) {
             foreach ($data as $row) {
               echo "<tr>";
-              echo "<td>" . $row['idUsuario'] . "</td>";
-              echo "<td>" . $row['nome_completo'] . "</td>";
+              echo "<td>" . htmlspecialchars($row['idUsuario']) . "</td>"; // Usar htmlspecialchars para evitar XSS
+              echo "<td>" . htmlspecialchars($row['nome_completo']) . "</td>";
               echo "<td>Compras</td>"; // Ajuste conforme necessário
               echo "</tr>";
             }
           } else {
             echo "<tr><td colspan='3'>Nenhum resultado encontrado</td></tr>"; // Exibe esta mensagem se $data estiver vazio
           }
-
-          return $data; // Retorna o array $data para uso em outro lugar, se necessário
           ?>
 
         </tbody>
+
       </table>
 
       <div class="btn-download">
