@@ -14,7 +14,6 @@ body {
   overflow: hidden;
   border-radius: 16px;
   background-color: #fff;
-  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
 }
 
 .tab-content-wrapper {
@@ -54,19 +53,15 @@ body {
 .tabs a {
   transition: background-color 0.3s ease;
   color: #fbf3dc;
-  /* Cor normal */
   padding: 10px 15px;
   display: inline-block;
   text-decoration: none;
   background-color: #405b39;
-  /* Cor de fundo normal */
 }
 
 .tabs a.active {
   color: #0f2b05;
-  /* Cor do texto quando ativo */
   background-color: #fbf3dc;
-  /* Cor de fundo quando ativo */
 }
 
 
@@ -76,7 +71,6 @@ body {
   justify-content: space-between;
 }
 
-/*estilo para form*/
 .divForm {
   background-color: #fff;
   width: 60%;
@@ -116,7 +110,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Estilos para tabelas */
 table {
   width: 90%;
   max-width: 800px;
@@ -146,24 +139,13 @@ table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/*
-table tbody tr:hover {
-  background-color: #fff;
-}
-*/
-/* Estilos de botão */
 
-/* codigo teste*/
-
-/* Estilo geral */
 .container-principal {
   display: flex;
   height: calc(100vh - 240px);
-  /* ajustar conforme o header e footer */
   background-color: #f4f4f4;
 }
 
-/* Barra Lateral */
 .barra-lateral {
   width: 200px;
   background-color: #405b39;
@@ -188,7 +170,6 @@ table tbody tr:hover {
   border-radius: 5px;
 }
 
-/* Conteúdo Principal */
 .conteudo-principal {
   flex-grow: 1;
   padding: 20px;
@@ -202,8 +183,6 @@ table tbody tr:hover {
   margin-bottom: 20px;
   border-radius: 8px;
 }
-
-/*fim teste*/
 
 button {
   padding: 10px 20px;
@@ -230,27 +209,22 @@ button:hover {
 
 .social-icons p {
   color: #fff;
-  /* Cor do texto */
   text-align: center;
   font-size: 16px;
-  /* Tamanho da fonte */
-
 }
 
 .social-icons .icon {
   display: inline-block;
   margin: 10px 10px 0;
-  /* Adicionando uma margem superior de  */
   font-size: 30px;
-  /* Aumentei o tamanho dos ícones */
   color: #fff;
   transition: transform 0.3s ease;
-  /* Adiciona uma transição suave */
+
 }
 
 .social-icons .icon:hover {
   transform: scale(1.2);
-  /* Aumenta o tamanho do ícone em 20% no hover */
+
 }
 
 footer {
@@ -261,7 +235,6 @@ footer {
 
 }
 
-/* inicio DARK MODE */
 body.dark-mode .container-principal,
 body.dark-mode {
   background-color: #151515;
@@ -342,7 +315,6 @@ body.dark-mode .home,
 body.dark-mode .dropbtn,
 body.dark-mode .dropbtn {
   color: #E1F9D7;
-  /* Cor ajustada para elementos no modo escuro */
 }
 
 body.dark-mode a {
@@ -352,12 +324,7 @@ body.dark-mode a {
 
 body.dark-mode a:hover {
   color: #405B39;
-  ;
-
-
 }
-
-
 
 #accessibility-section {
   position: fixed;
@@ -405,20 +372,14 @@ body.dark-mode a:hover {
   font-size: 20px;
 }
 
-
-/* FINAL DO DARK MODE */
-
-
 #mobile {
   position: fixed;
   left: -100%;
-  /* Inicialmente fora da tela à esquerda */
   top: 0;
   width: 300px;
   height: 100vh;
   background-color: #405b39;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
-  /* Ajuste na sombra para o lado direito */
   transition: left 0.5s;
   z-index: 1000;
   display: flex;
@@ -429,33 +390,24 @@ body.dark-mode a:hover {
 .close-btn {
   position: absolute;
   top: 10px;
-  /* Ajuste conforme necessário */
   right: 10px;
-  /* Posição do ícone no canto superior direito do menu lateral */
   cursor: pointer;
   color: #fbf3dc;
-  /* Cor do ícone */
   font-size: 24px;
-  /* Tamanho do ícone */
 }
 
 .dentro_icon {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  /* Espaçamento interno */
 }
 
 .dentro_icon a {
   color: #fbf3dc;
-  /* Cor dos links */
   padding: 10px;
-  /* Espaçamento dos links */
   text-decoration: none;
   font-size: 16px;
-  /* Tamanho da fonte */
   border-bottom: 1px solid #fbf3dc;
-  /* Linha separadora */
 }
 
 .mobile {
@@ -494,10 +446,6 @@ li {
   flex-direction: column;
 }
 
-
-/* Media queries para responsividade */
-/* Estilo para o menu lateral escondido e animação */
-
 #hamburguer,
 #icon {
   display: none;
@@ -507,13 +455,11 @@ li {
 #mobile {
   position: fixed;
   left: -100%;
-  /* Inicialmente fora da tela à esquerda */
   top: 0;
   width: 300px;
   height: 100%;
   background-color: #405b39;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
-  /* Ajuste na sombra para o lado direito */
   transition: left 0.5s;
   z-index: 1000;
   display: flex;
@@ -524,33 +470,24 @@ li {
 .close-btn {
   position: absolute;
   top: 10px;
-  /* Ajuste conforme necessário */
   right: 10px;
-  /* Posição do ícone no canto superior direito do menu lateral */
   cursor: pointer;
   color: #fbf3dc;
-  /* Cor do ícone */
   font-size: 24px;
-  /* Tamanho do ícone */
 }
 
 .dentro_icon {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  /* Espaçamento interno */
 }
 
 .dentro_icon a {
   color: #fbf3dc;
-  /* Cor dos links */
   padding: 10px;
-  /* Espaçamento dos links */
   text-decoration: none;
   font-size: 16px;
-  /* Tamanho da fonte */
   border-bottom: 1px solid #fbf3dc;
-  /* Linha separadora */
 }
 
 #mobile {
@@ -588,10 +525,6 @@ li {
 
 
 @media (max-width: 936px) {
-  .pesquisa {
-    width: 450px;
-  }
-
   .tabs {
     display: flex;
     flex-direction: row;
@@ -617,9 +550,6 @@ li {
     padding: 0;
     width: 100%;
     max-width: 98%;
-
-
-
   }
 
   .tabs a {
@@ -630,44 +560,16 @@ li {
 
 
 @media (max-width: 415px) {
-  header {
-    width: auto;
-    justify-content: flex-start;
-    /* Alinhar o conteúdo à esquerda */
-  }
-
-  .pesquisa {
-    width: 200px;
-  }
-
-  .pesquisa-container {
-    margin-right: 55px;
-    left: 0 !important;
-  }
-
-  .logo {
-    width: 120px;
-  }
-
   .container {
     min-width: 0;
   }
-
-  .pesquisa-icon {
-    top: 50% !important;
-  }
-
 }
 
-/* Estilos para telas até 320px */
 @media (max-width: 320px) {
   .title {
     font-size: 1rem;
   }
 
-  .pesquisa {
-    width: 150px !important;
-  }
 .secao{
   padding: 0;
 }
@@ -681,11 +583,7 @@ table th, table td {
 }
 }
 
-/* Estilos para telas entre 321px e 428px */
 @media (max-width: 428px) and (min-width: 321px) {
-  .pesquisa {
-    width: 190px !important;
-  }
 
   .opcoes {
     display: none;
@@ -722,16 +620,6 @@ table th, table td {
   }
 }
 
-/* Estilos para telas entre 885px e 917px */
-@media (max-width: 917px) and (min-width: 885px) {
-  .pesquisa {
-    width: 400px;
-  }
-
-
-}
-
-/* Estilos para telas até 766px */
 @media (max-width: 766px) {
 
   .tabs-container {
@@ -749,14 +637,6 @@ table th, table td {
     margin-right: 50px;
   }
 
-  .header {
-    justify-content: flex-start;
-
-  }
-
-  .logo {
-    width: 130px;
-  }
 
   #hamburguer,
   #icon {
@@ -776,76 +656,28 @@ table th, table td {
     background-color: #405b39;
     justify-content: space-between;
   }
-
-  nav {
-    position: fixed;
-    right: 20px;
-  }
-
-
-
-  .pesquisa {
-    width: 290px;
-  }
-
   .boasvindas {
     position: fixed;
     right: 20px;
   }
-
-
-
-
-
 }
 
-
-
-/* Estilos para telas menores que 885px */
 @media (max-width: 885px) {
-  .pesquisa {
-    width: 320px;
-  }
-
   .container {
     min-width: 0;
   }
 }
 
-/* Estilos para telas entre 768px e 835px */
 @media (max-width: 835px) and (min-width: 767px) {
-  .pesquisa {
-    width: 350px;
-  }
-
   .container {
     min-width: 0;
   }
-
-
-
   .tabs a {
     padding: 0 5px !important;
-
-
   }
 
 }
 
-@media (max-width: 768px) {
-  .pesquisa {
-    width: 350px;
-  }
-}
-
-@media (max-width: 756px) {
-  .pesquisa {
-    width: 250px;
-  }
-
-
-
-}
 
 
 @media (max-width: 823px) {
@@ -919,20 +751,15 @@ table th, table td {
   .botoes button {
     font-size: 11px;
     margin-right: 5px;
-    /* Adiciona espaçamento à direita de cada botão */
   }
 
   #tabelaPedidos th {
-    /* Adiciona uma linha na parte inferior das células do cabeçalho */
     padding: 8px;
-    /* Adiciona um espaçamento interno */
     height: 31px;
   }
 
   #tabelaPedidos td {
-    /* Adiciona uma linha na parte inferior das células de dados */
     padding: 8px;
-    /* Adiciona um espaçamento interno */
     height: 31px;
   }
 }
@@ -981,13 +808,11 @@ table th, table td {
 .input-box input {
   width: 100%;
   padding-right: 40px;
-  /* Espaço para o ícone dentro do campo */
 }
 
 .input-box i {
   position: absolute;
   right: 10px;
-  /* Posicionamento à direita dentro do input */
   cursor: pointer;
 }
 @media (max-width: 1086px){
