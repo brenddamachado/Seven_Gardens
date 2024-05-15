@@ -588,6 +588,9 @@ li {
 
 
 @media (max-width: 936px) {
+  .pesquisa {
+    width: 450px;
+  }
 
   .tabs {
     display: flex;
@@ -626,16 +629,33 @@ li {
 }
 
 
-
 @media (max-width: 415px) {
+  header {
+    width: auto;
+    justify-content: flex-start;
+    /* Alinhar o conteúdo à esquerda */
+  }
 
+  .pesquisa {
+    width: 200px;
+  }
 
+  .pesquisa-container {
+    margin-right: 55px;
+    left: 0 !important;
+  }
 
+  .logo {
+    width: 120px;
+  }
 
   .container {
     min-width: 0;
   }
 
+  .pesquisa-icon {
+    top: 50% !important;
+  }
 
 }
 
@@ -645,13 +665,27 @@ li {
     font-size: 1rem;
   }
 
-
-
-
+  .pesquisa {
+    width: 150px !important;
+  }
+.secao{
+  padding: 0;
+}
+table{
+  overflow: visible;
+}
+table th, table td {
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 13px;
+}
 }
 
 /* Estilos para telas entre 321px e 428px */
 @media (max-width: 428px) and (min-width: 321px) {
+  .pesquisa {
+    width: 190px !important;
+  }
 
   .opcoes {
     display: none;
@@ -688,6 +722,14 @@ li {
   }
 }
 
+/* Estilos para telas entre 885px e 917px */
+@media (max-width: 917px) and (min-width: 885px) {
+  .pesquisa {
+    width: 400px;
+  }
+
+
+}
 
 /* Estilos para telas até 766px */
 @media (max-width: 766px) {
@@ -707,6 +749,14 @@ li {
     margin-right: 50px;
   }
 
+  .header {
+    justify-content: flex-start;
+
+  }
+
+  .logo {
+    width: 130px;
+  }
 
   #hamburguer,
   #icon {
@@ -734,6 +784,10 @@ li {
 
 
 
+  .pesquisa {
+    width: 290px;
+  }
+
   .boasvindas {
     position: fixed;
     right: 20px;
@@ -749,6 +803,9 @@ li {
 
 /* Estilos para telas menores que 885px */
 @media (max-width: 885px) {
+  .pesquisa {
+    width: 320px;
+  }
 
   .container {
     min-width: 0;
@@ -757,7 +814,9 @@ li {
 
 /* Estilos para telas entre 768px e 835px */
 @media (max-width: 835px) and (min-width: 767px) {
-
+  .pesquisa {
+    width: 350px;
+  }
 
   .container {
     min-width: 0;
@@ -773,264 +832,58 @@ li {
 
 }
 
+@media (max-width: 768px) {
+  .pesquisa {
+    width: 350px;
+  }
+}
 
-
-@media (max-width: 698px) and (min-width: 678px) {
-
-  .divForm {
-    box-sizing: border-box;
+@media (max-width: 756px) {
+  .pesquisa {
+    width: 250px;
   }
 
-  tr {
-    display: flex;
+
+
+}
+
+
+@media (max-width: 823px) {
+  .container-principal {
     flex-direction: column;
-    gap: 0px;
   }
 
-  table {
-    display: flex;
-  }
-
-  thead {
-    display: flex;
-  }
-
-  tbody {
-    gap: 2px;
-    display: flex;
-  }
-
-  ul {
-    display: flex;
-  }
-
-  button {
-    margin-top: -3px;
-  }
-
-  .botoes {
-    display: flex;
-  }
-
-  .botoes button {
-    font-size: 11px;
-    margin-right: 10px;
-    /* Adiciona espaçamento à direita de cada botão */
-  }
-
-  #tabelaPedidos th {
-    /* Adiciona uma linha na parte inferior das células do cabeçalho */
-    padding: 8px;
-    /* Adiciona um espaçamento interno */
-    height: 31px;
-  }
-
-  #tabelaPedidos td {
-    /* Adiciona uma linha na parte inferior das células de dados */
-    padding: 8px;
-    /* Adiciona um espaçamento interno */
-    height: 31px;
-  }
-
-}
-
-
-
-
-@media (max-width: 677px) and (min-width: 645px) {
-
-  tr {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-  }
-
-  table {
-    display: flex;
-  }
-
-  thead {
-    display: flex;
-  }
-
-  tbody {
-    gap: 2px;
-    display: flex;
-  }
-
-  ul {
-    display: flex;
-  }
-
-  button {
-    margin-top: -3px;
-  }
-
-  .botoes {
-    display: flex;
-  }
-
-  .botoes button {
-    font-size: 11px;
-    margin-right: 10px;
-    /* Adiciona espaçamento à direita de cada botão */
-  }
-
-  #tabelaPedidos th {
-    /* Adiciona uma linha na parte inferior das células do cabeçalho */
-    padding: 8px;
-    /* Adiciona um espaçamento interno */
-    height: 31px;
-  }
-
-  #tabelaPedidos td {
-    /* Adiciona uma linha na parte inferior das células de dados */
-    padding: 8px;
-    /* Adiciona um espaçamento interno */
-    height: 31px;
-  }
-
-}
-
-@media (max-width: 644px) and (min-width: 620px) {
-
-  .divForm {
-    width: 317px;
-    box-sizing: border-box;
-  }
-
-  tr {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-  }
-
-  table {
-    display: flex;
-  }
-
-  thead {
-    display: flex;
-  }
-
-  tbody {
-    gap: 2px;
-    display: flex;
-  }
-
-  ul {
-    display: flex;
-  }
-
-  button {
-    margin-top: -3px;
-  }
-
-  .botoes {
-    display: flex;
-  }
-
-  .botoes button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    margin-right: 10px;
-    width: 60px;
-    height: 30px;
-    /* Adiciona espaçamento à direita de cada botão */
-  }
-
-  #tabelaPedidos th {
-    /* Adiciona uma linha na parte inferior das células do cabeçalho */
-    padding: 8px;
-    /* Adiciona um espaçamento interno */
-    height: 31px;
-  }
-
-  #tabelaPedidos td {
-    /* Adiciona uma linha na parte inferior das células de dados */
-    padding: 8px;
-    /* Adiciona um espaçamento interno */
-    height: 31px;
-  }
-
-}
-
-
-
-
-@media (max-width:880px) {
-  .tabs a {
-    padding: 0 11px;
-
-
-  }
-}
-
-@media (max-width:846px) {
-  .tabs a {
-    padding: 0 9px;
-    margin-left: auto;
-
-  }
-}
-
-
-@media (max-width:846px) {
-  .tabs a {
-    padding: 0 7px;
-
-
-  }
-}
-
-@media (max-width:499px) {
-  .tabs {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-right: 25px;
-    gap: 30px;
-  }
-
-  .tabs-container {
-    margin-bottom: 100px;
-    margin-top: 100px;
-  }
-
-  #tabelaEnderecos,
-  #tabelaPedidos {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .botoes {
-    display: flex;
-    flex-direction: column;
+  .barra-lateral {
+    display: inline;
+    width: auto;
+    margin-top: 5px;
   }
 
   .divForm {
-    width: 100%;
+    width: 100% !important;
   }
+  
+}
 
-  h2 {
+@media (max-width:661px) {
+  .barra-lateral a {
+    padding: 8px;
     font-size: 14px;
   }
+}
 
-  .atributos {
-    width: 100px;
+@media (max-width:578px) {
+  .barra-lateral a {
+    padding: 6px;
+    font-size: 12px;
   }
+}
 
-  .tabs li a {
-    font-size: 20px;
+
+@media (max-width:541px) {
+  .divForm {
+    box-sizing: border-box;
   }
-
-  .tab-content {
-    margin-top: 25%;
-  }
-
 
   tr {
     display: flex;
@@ -1064,13 +917,8 @@ li {
   }
 
   .botoes button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 11px;
-    margin-right: 10px;
-    width: 60px;
-    height: 30px;
+    margin-right: 5px;
     /* Adiciona espaçamento à direita de cada botão */
   }
 
@@ -1087,5 +935,85 @@ li {
     /* Adiciona um espaçamento interno */
     height: 31px;
   }
+}
 
+@media (max-width:494px) {
+  .barra-lateral a {
+    padding: 4px;
+
+  }
+
+}
+
+@media (max-width: 496px) {
+  .barra-lateral {
+    display: flex;
+    margin-top: 5px;
+  }
+
+  .divForm {
+    width: auto;
+  }
+
+  table {
+    width: auto;
+  }
+
+  .title {
+    font-size: 21px;
+  }
+ .conteudo-escondido {
+    width: auto;
+    background-color: #405b39;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-box input {
+  width: 100%;
+  padding-right: 40px;
+  /* Espaço para o ícone dentro do campo */
+}
+
+.input-box i {
+  position: absolute;
+  right: 10px;
+  /* Posicionamento à direita dentro do input */
+  cursor: pointer;
+}
+@media (max-width: 1086px){
+  .divForm{
+    width: 90%;
+  }
+}
+
+@media (max-width: 537px){
+  .input-box input {
+    padding-right: 0% !important;
+  }
+}
+
+#seta{
+  display: none;
+}
+.opcoes_barra{
+  background-color: #405b39;
+}
+
+@media (max-width:391px ){
+  .container-principal{
+    height: auto;
+  }
+  footer{
+    height: 150px;
+  }
 }
