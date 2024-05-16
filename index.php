@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seven Gardens</title>
   <link rel="shortcut icon" href="Front-end/img/logoatual.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="Front-end/css/style.css" />
+  <link rel="stylesheet" href="Front-end/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
