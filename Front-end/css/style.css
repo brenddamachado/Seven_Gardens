@@ -243,9 +243,16 @@ html {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-size: 18px;
-  
-  transition: margin-top 0.3s;
-  /* Adiciona uma transição para uma animação suave */
+  text-align: center; /* Alinha o texto horizontalmente */
+  display: flex; /* Torna o card um flex container */
+  flex-direction: column; /* Define a direção do flex para coluna */
+  justify-content: space-between; /* Distribui o espaço uniformemente entre os itens */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  transition: box-shadow 0.3s ease; /* Adiciona uma transição suave para a sombra do card */
+}
+
+.produto-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais forte quando o mouse passa por cima */
 }
 
 .produto-card h3 {
@@ -268,8 +275,12 @@ html {
   transition: background-color 0.3s ease;
 }
 
-.comprar-btn[type="submit"]:hover {
+.comprar-btn:hover {
   background-color: #112a08; /* Altera a cor de fundo ao passar o mouse */
+}
+.modal-carrinho img{
+  max-width: 100px;
+  height:auto;
 }
 
 /* inicio footer */

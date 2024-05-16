@@ -35,114 +35,6 @@ function showSlides(n) {
 setInterval(nextSlide, 5000);
 
 // Fim do Carrossel
-/*
-// INÍCIO do Carrinho de compras
-document.addEventListener("DOMContentLoaded", function() {
-  const modal = document.getElementById("modalCarrinho");
-  const btnAbrirModal = document.getElementById("carrinho-count");
-  const spanFechar = document.getElementsByClassName("close")[0];
-
-  btnAbrirModal.onclick = function() {
-    modal.style.display = "block";
-  }
-
-  spanFechar.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  // Adiciona evento de clique aos botões "Comprar"
-  const botoesComprar = document.querySelectorAll(".buy-btn");
-  botoesComprar.forEach(function(botao) {
-    botao.addEventListener("click", function() {
-      const produto = botao.parentNode.querySelector(".name").innerText;
-      const preco = parseFloat(botao.parentNode.querySelector(".price").innerText.replace('R$ ', ''));
-      const imagem = botao.dataset.img; // Captura o caminho da imagem do atributo data-img
-      adicionarProdutoAoCarrinho(produto, preco, imagem);
-    });
-  });
-
-  // Função para adicionar produto ao carrinho
-  function adicionarProdutoAoCarrinho(produto, preco, imagem) {
-    const carrinho = document.getElementById("itensCarrinho");
-    const novoItem = document.createElement('div');
-    novoItem.classList.add('item-carrinho');
-    novoItem.innerHTML = `
-      <div class="item-info">
-        <div class="product-image">
-          <img src="${imagem}" alt="${produto}" width="50" height="50">
-        </div>
-        <p>${produto} - R$ ${preco.toFixed(2)}</p>
-        <button class="remover-item btn-remover">Remover</button>
-      </div>`;
-    carrinho.appendChild(novoItem);
-    atualizarTotalCarrinho();
-    atualizarContadorCarrinho();
-  }
-
-  // Adiciona evento de clique aos botões "Remover"
-  document.addEventListener("click", function(event) {
-    if (event.target && event.target.classList.contains("remover-item")) {
-      event.target.parentNode.remove();
-      atualizarTotalCarrinho();
-      atualizarContadorCarrinho();
-    }
-  });
-
-  // Função para atualizar o total do carrinho
-  function atualizarTotalCarrinho() {
-    const itensCarrinho = document.querySelectorAll(".item-carrinho");
-    let total = 0;
-
-    if (itensCarrinho.length > 0) {
-      itensCarrinho.forEach(function(item) {
-        const precoElement = item.querySelector("p");
-        if (precoElement) {
-          const precoTexto = precoElement.innerText.split(" - ")[1].replace('R$ ', '');
-          const preco = parseFloat(precoTexto);
-          total += preco;
-        }
-      });
-    }
-
-    const totalCarrinhoElement = document.getElementById("total-carrinho");
-    totalCarrinhoElement.innerHTML = '<br /><br /><strong>TOTAL R$ ' + total.toFixed(2) + '</strong>';
-  }
-
-  // Função para atualizar o contador do carrinho
-  function atualizarContadorCarrinho() {
-    const carrinho = document.getElementById("itensCarrinho");
-    const contadorCarrinho = document.getElementById("carrinho-count");
-    const numeroItens = carrinho.children.length;
-    contadorCarrinho.innerText = numeroItens;
-  }
-});
-// Adiciona evento de clique ao botão de finalizar compra
-const finalizarCompraBtn = document.getElementById("finalizar-compra-btn");
-finalizarCompraBtn.addEventListener("click", function() {
-  if (usuarioLogado()) {
-    // Redireciona para a página de finalização de compra
-    window.location.href = "pagina-finalizacao-compra.html";
-  } else {
-    // Redireciona para a página de login
-    window.location.href = "pagina-login.html";
-  }
-});
-
-// Função para verificar se o usuário está logado (simulada)
-function usuarioLogado() {
-  // Aqui pode implementar a lógica real para verificar se o usuário está logado
-  // Retorne true se estiver logado, false caso contrário
-  return true; // Exemplo: usuário sempre está logado
-}
-// Fim do Carrinho de compras
-
-});*/
 
 // DARK MODE 
 document.addEventListener("DOMContentLoaded", function () {
@@ -228,3 +120,61 @@ closeButton.addEventListener('click', function () {
 
 
 
+var contadorCarrinho = 0;
+var totalCarrinho = 0;
+
+// Array para armazenar os itens do carrinho
+var itensCarrinho = [];
+
+function adicionarAoCarrinho(idProduto, nomeProduto, precoProduto, imagemProduto) {
+  // Adicionar o produto ao carrinho
+  itensCarrinho.push({ id: idProduto, nome: nomeProduto, preco: precoProduto, imagem: imagemProduto });
+
+  // Atualizar o contador do carrinho e exibir o total
+  contadorCarrinho++;
+  totalCarrinho += parseFloat(precoProduto);
+  document.getElementById('cart-counter').textContent = contadorCarrinho;
+}
+
+// Função para exibir os itens do carrinho no modal
+function exibirItensCarrinho() {
+  var modalContent = document.getElementById('itensCarrinho');
+  modalContent.innerHTML = ''; // Limpar conteúdo anterior
+
+  // Iterar sobre os itens do carrinho
+  itensCarrinho.forEach(function (item) {
+    var itemHTML = `
+      <div class="item-carrinho">
+        <img src="${item.imagem}" alt="${item.nome}">
+        <div>
+          <p class="nome-produto">${item.nome}</p>
+          <p class="preco-produto">Preço: R$ ${item.preco}</p>
+        </div>
+      </div>`;
+    modalContent.insertAdjacentHTML('beforeend', itemHTML);
+  });
+
+  // Exibir o total do carrinho
+  document.getElementById('total-carrinho').textContent = `Total: R$ ${totalCarrinho.toFixed(2)}`;
+}
+
+// Função para exibir o modal do carrinho
+function exibirModalCarrinho() {
+  exibirItensCarrinho(); // Exibir os itens do carrinho ao abrir o modal
+  var modal = document.getElementById('modalCarrinho');
+  modal.style.display = 'block';
+}
+
+// Fechar o modal quando o usuário clicar no botão de fechar
+document.getElementsByClassName('close')[0].onclick = function() {
+  var modal = document.getElementById('modalCarrinho');
+  modal.style.display = 'none';
+}
+
+// Fechar o modal quando o usuário clicar fora dele
+window.onclick = function(event) {
+  var modal = document.getElementById('modalCarrinho');
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}

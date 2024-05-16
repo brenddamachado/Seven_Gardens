@@ -60,7 +60,12 @@
       <div class="menu_btn">
         <a href="/Front-end/html/Sobre.php">Sobre</a>
       </div>
-      <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
+      <!-- Ícone do carrinho -->
+      <div class="cart-icon-container">
+        <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" onclick="exibirModalCarrinho()" />
+        <!-- Contador de itens no carrinho -->
+        <span id="cart-counter" class="cart-counter">0</span>
+      </div>
 
     </section>
     <section class="section_mobile">
@@ -85,7 +90,8 @@
         </div>
 
       </section>
-      <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" />
+      <!-- Ícone do carrinho para versão mobile -->
+      <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" onclick="exibirModalCarrinho()" />
     </section>
 
   </header>
@@ -105,17 +111,25 @@
     <button class="carousel-next" onclick="nextSlide()"></button>
   </div>
 
-  <div id="modalCarrinho" class="modal-carrinho">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Meu Carrinho</h2>
-      <div id="itensCarrinho"></div>
-      <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
-      <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
+  <!-- Modal do carrinho -->
+<div id="modalCarrinho" class="modal-carrinho">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Meu Carrinho</h2>
+    <div id="itensCarrinho" class="itens-carrinho">
+      <!-- Estrutura de exemplo para um item do carrinho -->
+      <div class="item-carrinho">
+        <img class="imagem-produto" src="caminho/para/sua/imagem.jpg" alt="Descrição do produto">
+        <!-- Outras informações do produto -->
+        <button class="excluir-produto-btn" onclick="removerProduto(this.parentNode)">Remover</button>
+      </div>
     </div>
+    <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
+    <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
   </div>
-  </div>
+</div>
 
+  
   <span class="titulopg">
     <h1>Destaques</h1>
   </span>
@@ -123,45 +137,47 @@
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
 
-    <?php
-    $host = 'localhost';
-    $dbname = 'sevengardens';
-    $username = 'root';
-    $password = '';
+  <?php
+$host = 'localhost';
+$dbname = 'sevengardens';
+$username = 'root';
+$password = '';
 
-    try {
-      $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      // Consulta SQL para selecionar os produtos
-      $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
-      $stmt = $pdo->query($sql);
+  // Consulta SQL para selecionar os produtos
+  $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
+  $stmt = $pdo->query($sql);
 
-      if ($stmt->rowCount() > 0) {
-        // Exibir os cards dos produtos
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          echo "<div class='produto-card'>";
-          echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
-          echo "<h3>" . $row["nome"] . "</h3>";
-          echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-          echo "<p>" . $row["descricao"] . "</p>";
-          echo "<p>Categoria: " . $row["categoria"] . "</p>";
-          echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
-          echo "<button class='comprar-btn'>Comprar</button>";
-          echo "</div>";
-        }
-      } else {
-        echo "0 resultados";
-      }
-    } catch (PDOException $e) {
-      // Redireciona para a página de erro na pasta Front-end
-      header('Location: ../Front-end/Erro.html');
-      exit;
+  if ($stmt->rowCount() > 0) {
+    // Exibir os cards dos produtos
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      echo "<div class='produto-card'>";
+      echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
+      echo "<h3>" . $row["nome"] . "</h3>";
+      echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+      echo "<p>" . $row["descricao"] . "</p>";
+      echo "<p>Categoria: " . $row["categoria"] . "</p>";
+      echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+      // Botão "Comprar"
+     echo "<button class='comprar-btn' onclick='adicionarAoCarrinho(" . $row["idProduto"] . ", \"" . $row["nome"] . "\", \"" . $row["preco"] . "\", \"" . $row["imagem"] . "\")'>Comprar</button>";
+
+      echo "</div>";
     }
+  } else {
+    echo "0 resultados";
+  }
+} catch (PDOException $e) {
+  // Redireciona para a página de erro na pasta Front-end
+  header('Location: ../Front-end/Erro.html');
+  exit;
+}
 
-    // Fecha a conexão
-    $pdo = null;
-    ?>
+// Fecha a conexão
+$pdo = null;
+?>
 
   </div>
 
@@ -205,7 +221,7 @@
 
 
 
-  <script src="/Front-end/js/script.js"></script>
+  <script src="./Front-end/js/script.js"></script>
 </body>
 
 </html>
