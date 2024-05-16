@@ -1,3 +1,6 @@
+<?php require '../../Front-end/PHP/connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,28 +18,26 @@
 <body>
   <?php include('header.php'); ?>
   <div class="container" id="divLogin">
-    <form class="divForm" action="javascript:validaLogin()">
+    <form class="divForm" id="loginForm" action="#" method="POST">
       <div class="form-header">
         <h1 class="title">Login</h1>
       </div>
 
-
       <div class="input-box">
-        <label for="E-mail">E-mail:</label>
-        <input type="text" id="email" placeholder="seuemail@exemplo.com">
+        <label for="userName">Nome de usuário:</label>
+        <input type="text" id="userName" name="userName" placeholder="Digite seu nome de usuário" required minlength="6" maxlength="6" pattern="[A-Za-z]{6}">
       </div>
 
       <div class="input-box">
-        <label for="Senha">Senha:</label>
-        <input type="password" id="senha" placeholder="Digite sua senha aqui" maxlength="8" minlength="8">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" minlength="8" maxlength="8" required pattern="[A-Za-z]{8}">
       </div>
 
       <div class="buttons">
-        <button class="btn_cadastrar" type="submit" id="cadastrar">
-          Entrar
-        </button>
-        <button class="btn_limpar" id="limparButton" type="button" value="Limpar Campos" onclick="limparCampos()">Limpar</button>
+        <button type="submit" class="btn_cadastrar">Entrar</button>
+        <button type="button" class="btn_limpar" onclick="limparCampos()">Limpar</button>
       </div>
+
 
       <div class="texto_links">
         <div class="redicionamento">
@@ -49,9 +50,6 @@
           </p>
         </div>
       </div>
-
-
-
     </form>
 
   </div>

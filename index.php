@@ -112,24 +112,24 @@
   </div>
 
   <!-- Modal do carrinho -->
-<div id="modalCarrinho" class="modal-carrinho">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Meu Carrinho</h2>
-    <div id="itensCarrinho" class="itens-carrinho">
-      <!-- Estrutura de exemplo para um item do carrinho -->
-      <div class="item-carrinho">
-        <img class="imagem-produto" src="caminho/para/sua/imagem.jpg" alt="Descrição do produto">
-        <!-- Outras informações do produto -->
-        <button class="excluir-produto-btn" onclick="removerProduto(this.parentNode)">Remover</button>
+  <div id="modalCarrinho" class="modal-carrinho">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Meu Carrinho</h2>
+      <div id="itensCarrinho" class="itens-carrinho">
+        <!-- Estrutura de exemplo para um item do carrinho -->
+        <div class="item-carrinho">
+          <img class="imagem-produto" src="caminho/para/sua/imagem.jpg" alt="Descrição do produto">
+          <!-- Outras informações do produto -->
+          <button class="excluir-produto-btn" onclick="removerProduto(this.parentNode)">Remover</button>
+        </div>
       </div>
+      <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
+      <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
     </div>
-    <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
-    <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
   </div>
-</div>
 
-  
+
   <span class="titulopg">
     <h1>Destaques</h1>
   </span>
@@ -137,47 +137,47 @@
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
 
-  <?php
-$host = 'localhost';
-$dbname = 'sevengardens';
-$username = 'root';
-$password = '';
+    <?php
+    $host = 'localhost';
+    $dbname = 'sevengardens';
+    $username = 'root';
+    $password = '';
 
-try {
-  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+      $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  // Consulta SQL para selecionar os produtos
-  $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
-  $stmt = $pdo->query($sql);
+      // Consulta SQL para selecionar os produtos
+      $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
+      $stmt = $pdo->query($sql);
 
-  if ($stmt->rowCount() > 0) {
-    // Exibir os cards dos produtos
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      echo "<div class='produto-card'>";
-      echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
-      echo "<h3>" . $row["nome"] . "</h3>";
-      echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-      echo "<p>" . $row["descricao"] . "</p>";
-      echo "<p>Categoria: " . $row["categoria"] . "</p>";
-      echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
-      // Botão "Comprar"
-     echo "<button class='comprar-btn' onclick='adicionarAoCarrinho(" . $row["idProduto"] . ", \"" . $row["nome"] . "\", \"" . $row["preco"] . "\", \"" . $row["imagem"] . "\")'>Comprar</button>";
+      if ($stmt->rowCount() > 0) {
+        // Exibir os cards dos produtos
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          echo "<div class='produto-card'>";
+          echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
+          echo "<h3>" . $row["nome"] . "</h3>";
+          echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+          echo "<p>" . $row["descricao"] . "</p>";
+          echo "<p>Categoria: " . $row["categoria"] . "</p>";
+          echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+          // Botão "Comprar"
+          echo "<button class='comprar-btn' onclick='adicionarAoCarrinho(" . $row["idProduto"] . ", \"" . $row["nome"] . "\", \"" . $row["preco"] . "\", \"" . $row["imagem"] . "\")'>Comprar</button>";
 
-      echo "</div>";
+          echo "</div>";
+        }
+      } else {
+        echo "0 resultados";
+      }
+    } catch (PDOException $e) {
+      // Redireciona para a página de erro na pasta Front-end
+      header('Location: ../Front-end/Erro.html');
+      exit;
     }
-  } else {
-    echo "0 resultados";
-  }
-} catch (PDOException $e) {
-  // Redireciona para a página de erro na pasta Front-end
-  header('Location: ../Front-end/Erro.html');
-  exit;
-}
 
-// Fecha a conexão
-$pdo = null;
-?>
+    // Fecha a conexão
+    $pdo = null;
+    ?>
 
   </div>
 
@@ -196,8 +196,8 @@ $pdo = null;
 
       <i class="fas fa-sun" id="light-mode-toggle"></i>
       <i class="fas fa-moon" id="dark-mode-toggle"></i>
-      <img class="img_letra" src="/Front-end/img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
-      <img class="img_letra" src="/Front-end/img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
+      <img class="img_letra" src="Front-end/img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
+      <img class="img_letra" src="Front-end/img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
     </div>
   </section>
   <!--FIM DA ACESSIBILIDADES -->
