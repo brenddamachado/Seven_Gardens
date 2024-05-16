@@ -40,6 +40,20 @@ function createAddress($data, $userId, $pdo)
   ]);
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['email'])) {
+  $email = $_GET['email'];
+
+  $stmt = $pdo->prepare("SELECT COUNT(*) FROM usuario WHERE email = ?");
+  $stmt->execute([$email]);
+  $count = $stmt->fetchColumn();
+
+  // Se o e-mail já existe, retorna um JSON informando isso
+  if ($count > 0) {
+      echo json_encode(['error' => 'E-mail já cadastrado']);
+      exit;
+  }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data = [
     'nome_completo' => $_POST['nome_completo'],
@@ -72,6 +86,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
+// Verifica se o método de requisição é GET e se o parâmetro email está presente
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['email'])) {
+  $email = $_GET['email'];
+
+  // Sua conexão com o banco de dados
+  $pdo = new PDO('mysql:host=seu_host;dbname=seu_banco', 'seu_usuario', 'sua_senha');
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  // Prepara a consulta
+  $stmt = $pdo->prepare("SELECT COUNT(*) FROM usuario WHERE email = ?");
+  $stmt->execute([$email]);
+  $count = $stmt->fetchColumn();
+
+  // Se o e-mail já existe, retorna um JSON informando isso
+  if ($count > 0) {
+      echo json_encode(['error' => 'E-mail já cadastrado']);
+      exit;
+  }
+}
 
 
 
@@ -177,7 +210,7 @@ $pdo = null;
 <?php if ($showAlert): ?>
 <script>
   setTimeout(function() {
-    window.location.href = "Login.html";
+    window.location.href = "Login.php";
   }, 3000); // 3000 milissegundos = 3 segundos
 </script>
 <?php endif; ?>
@@ -189,12 +222,6 @@ $pdo = null;
   </div>
 </div>
 
-<!-- Alerta de erro -->
-<div class="container-alert" style="<?php echo $showAlertError ? 'display: block;' : 'display: none;'; ?>">
-  <div class="alert alert-danger">
-    <strong>Error!</strong> <?php echo $erroEmail; ?>
-  </div>
-</div>
 
 <section class="formulario">
 

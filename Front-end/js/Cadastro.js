@@ -60,36 +60,39 @@ form.addEventListener("submit", (event) => {
 
 
 nome.addEventListener("input", () => {
-  // Remova caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
 
   if (nome.value.length >= 15 && nome.value.length < 80) {
     mensagemNome.innerHTML = "";
+    mensagemNome.style.color = "green";
     validenome = true;
   } else {
     mensagemNome.innerHTML = "Insira no mínimo 15 caracteres";
+    mensagemNome.style.color = "red";
     validenome = false;
   }
 });
 
 nomeDaMãe.addEventListener("input", () => {
-  // Remova caracteres que não são letras ou espaços
   nomeDaMãe.value = nomeDaMãe.value.replace(/[^a-zA-Z\s]/g, "");
 
   if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 80) {
     mensagemNomeMae.innerHTML = "";
-    validenome = true;
+    mensagemNomeMae.style.color = "green";
+    validenomeDaMãe = true;
   } else {
     mensagemNomeMae.innerHTML = "Insira no mínimo 15 caracteres";
-    validenome = false;
+    mensagemNomeMae.style.color = "red";
+    validenomeDaMãe = false;
   }
 });
 
 senha.addEventListener("input", () => {
-  senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
+  senha.value = senha.value.replace(/[^a-zA-Z]/g, "");
 
   if (senha.value.length < 8) {
     mensagem.innerHTML = "Insira no mínimo 8 caracteres";
+    mensagem.style.color = "red";
     validesenha = false;
   } else {
     mensagem.innerHTML = "";
@@ -98,10 +101,11 @@ senha.addEventListener("input", () => {
 });
 
 senha2.addEventListener("input", () => {
-  senha2.value = senha2.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
+  senha2.value = senha2.value.replace(/[^a-zA-Z]/g, "");
 
   if (senha.value !== senha2.value) {
     mensagem.innerHTML = "As senhas não conferem";
+    mensagem.style.color = "red";
     validesenha2 = false;
   } else {
     mensagem.innerHTML = "";
@@ -160,6 +164,7 @@ cpf.addEventListener("input", () => {
     validecpf = true;
   } else {
     mensagemCPF.innerHTML = "CPF inválido";
+    mensagemCPF.style.color = "red";
     validecpf = false;
   }
 });
@@ -169,22 +174,30 @@ $(document).ready(function () {
   $("#numero").mask("(99) 99999-9999");
 });
 
-emailInput.addEventListener("input", function () {
-  const email = emailInput.value;
-  validarEmail(email);
-});
-function validarEmail(email) {
-  // Expressão regular para validar o formato do e-mail
-  var regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-
-  if (regex.test(email)) {
-    mensagemEmail.innerHTML = "";
-    valideemail = true;
+emailInput.addEventListener('input', async () => {
+  const email = emailInput.value.trim();
+  if (email) {
+    try {
+      const response = await fetch(`cadastro.php?email=${email}`);
+      const data = await response.json();
+      if (data.error) {
+        mensagemEmail.innerHTML = data.error;
+        mensagemEmail.style.color = 'red';
+        valideemail = false;
+      } else {
+        mensagemEmail.innerHTML = '';
+        valideemail = true;
+      }
+    } catch (error) {
+      console.error('Erro ao verificar o e-mail:', error);
+    }
   } else {
-    mensagemEmail.innerHTML = "inválido";
+    mensagemEmail.innerHTML = '';
     valideemail = false;
   }
-} function preencherEndereco(cep) {
+});
+
+function preencherEndereco(cep) {
   const url = `https://viacep.com.br/ws/${cep}/json/`;
 
   fetch(url)
@@ -272,6 +285,7 @@ login.addEventListener("input", function () {
     validelogin = true;
   } else {
     mensagemLogin.innerHTML = "Digite exatamente 6 letras.";
+    mensagemLogin.style.color = "red";
 
     validelogin = false;
   }
