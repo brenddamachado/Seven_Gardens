@@ -38,7 +38,7 @@ let validecpf = false;
 let validecep = false;
 let valideemail = false;
 let valideMae = false;
-let nomeDaMãe = document.getElementById("nomeDamae");
+let nomeDaMae = document.getElementById("nomeDamae");
 
 
 form.addEventListener("submit", (event) => {
@@ -73,17 +73,17 @@ nome.addEventListener("input", () => {
   }
 });
 
-nomeDaMãe.addEventListener("input", () => {
-  nomeDaMãe.value = nomeDaMãe.value.replace(/[^a-zA-Z\s]/g, "");
+nomeDaMae.addEventListener("input", () => {
+  nomeDaMae.value = nomeDaMae.value.replace(/[^a-zA-Z\s]/g, "");
 
-  if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 80) {
+  if (nomeDaMae.value.length >= 15 && nomeDaMae.value.length < 80) {
     mensagemNomeMae.innerHTML = "";
     mensagemNomeMae.style.color = "green";
-    validenomeDaMãe = true;
+    validenomeDaMae = true;
   } else {
     mensagemNomeMae.innerHTML = "Insira no mínimo 15 caracteres";
     mensagemNomeMae.style.color = "red";
-    validenomeDaMãe = false;
+    validenomeDaMae = false;
   }
 });
 
@@ -174,28 +174,22 @@ $(document).ready(function () {
   $("#numero").mask("(99) 99999-9999");
 });
 
-emailInput.addEventListener('input', async () => {
-  const email = emailInput.value.trim();
-  if (email) {
-    try {
-      const response = await fetch(`cadastro.php?email=${email}`);
-      const data = await response.json();
-      if (data.error) {
-        mensagemEmail.innerHTML = data.error;
-        mensagemEmail.style.color = 'red';
-        valideemail = false;
-      } else {
-        mensagemEmail.innerHTML = '';
-        valideemail = true;
-      }
-    } catch (error) {
-      console.error('Erro ao verificar o e-mail:', error);
-    }
+emailInput.addEventListener("input", function () {
+  const email = emailInput.value;
+  validarEmail(email);
+});
+function validarEmail(email) {
+  // Expressão regular para validar o formato do e-mail
+  var regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  if (regex.test(email)) {
+    mensagemEmail.innerHTML = "";
+    valideemail = true;
   } else {
-    mensagemEmail.innerHTML = '';
+    mensagemEmail.innerHTML = "inválido";
     valideemail = false;
   }
-});
+}
 
 function preencherEndereco(cep) {
   const url = `https://viacep.com.br/ws/${cep}/json/`;
@@ -309,7 +303,7 @@ limpar.addEventListener("click", (event) => {
   cidadeInput.val(""); // Limpa o campo de input cidade
   ruaInput.val("");
   bairroInput.val("");
-  nomeDaMãe.value = "";
+  nomeDaMae.value = "";
   // Limpar a seleção dos radios de gênero
   document.querySelectorAll(".genero").forEach((radio) => {
     radio.checked = false;

@@ -40,19 +40,7 @@ function createAddress($data, $userId, $pdo)
   ]);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['email'])) {
-  $email = $_GET['email'];
 
-  $stmt = $pdo->prepare("SELECT COUNT(*) FROM usuario WHERE email = ?");
-  $stmt->execute([$email]);
-  $count = $stmt->fetchColumn();
-
-  // Se o e-mail já existe, retorna um JSON informando isso
-  if ($count > 0) {
-      echo json_encode(['error' => 'E-mail já cadastrado']);
-      exit;
-  }
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data = [
@@ -83,26 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     createAddress($data, $userId, $pdo);
     $mensagemSucesso = "Usuário cadastrado com sucesso!";
     $showAlert = true;
-  }
-}
-
-// Verifica se o método de requisição é GET e se o parâmetro email está presente
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['email'])) {
-  $email = $_GET['email'];
-
-  // Sua conexão com o banco de dados
-  $pdo = new PDO('mysql:host=seu_host;dbname=seu_banco', 'seu_usuario', 'sua_senha');
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-  // Prepara a consulta
-  $stmt = $pdo->prepare("SELECT COUNT(*) FROM usuario WHERE email = ?");
-  $stmt->execute([$email]);
-  $count = $stmt->fetchColumn();
-
-  // Se o e-mail já existe, retorna um JSON informando isso
-  if ($count > 0) {
-      echo json_encode(['error' => 'E-mail já cadastrado']);
-      exit;
   }
 }
 
@@ -210,7 +178,7 @@ $pdo = null;
 <?php if ($showAlert): ?>
 <script>
   setTimeout(function() {
-    window.location.href = "Login.php";
+    window.location.href = "Login.html";
   }, 3000); // 3000 milissegundos = 3 segundos
 </script>
 <?php endif; ?>
@@ -221,6 +189,8 @@ $pdo = null;
     <strong>Successo!</strong> <?php echo $mensagemSucesso; ?>
   </div>
 </div>
+
+
 
 
 <section class="formulario">
@@ -334,7 +304,8 @@ $pdo = null;
     <label class="label_login" id="labelEmail" for="login" class="form">
       E-mail:</label>
     <input class="input_login" type="email" id="email" name="email" placeholder="Digite um e-mail" />
-    <div id="mensagemEmail"></div>
+    <div id="mensagemEmail" style="color:red"><?php echo $erroEmail ?></div>
+
     <label class="label_login" id="labelSenha" for="senha" class="form">
       Senha:</label>
     <div class="password-container">
