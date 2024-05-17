@@ -130,7 +130,7 @@ if (!$showAlertError) {
   // Cria o endereço do usuário no banco de dados
   createAddress($data, $userId, $pdo);
   // Define a mensagem de sucesso
-  $mensagemSucesso = "Usuário cadastrado com sucesso!";
+  $mensagemSucesso = "sucesso!";
   // Define a flag $showAlert como verdadeira para indicar que a operação foi bem-sucedida
   $showAlert = true;
 }
@@ -155,7 +155,7 @@ $pdo = null;
   <!-- Alerta de sucesso -->
   <div class="container-alert" style="<?php echo $showAlert ? 'display: block;' : 'display: none;'; ?>">
     <div class="alert alert-success">
-      <strong>Successo!</strong> <?php echo $mensagemSucesso; ?>
+      Usuário cadastrado com <?php echo $mensagemSucesso; ?>
     </div>
   </div>
 
