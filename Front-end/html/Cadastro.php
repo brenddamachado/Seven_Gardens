@@ -101,22 +101,41 @@ function user_nameExists($user_name, $pdo)
     ];
 
 
-  // Verifica se o email, cpf ou login já existem
-  if (emailExists($data['email'], $pdo)) {
-    $erroEmail = "Este E-mail já foi cadastrado! Por favor, tente outro E-mail.";
-    $showAlertError = true;
-  } elseif (cpfExists($data['cpf'], $pdo)) {
-    $erroCpf = "Este CPF já foi cadastrado! Por favor, tente outro CPF.";
-    $showAlertError = true;
-  } elseif(user_nameExists($data['user_name'], $pdo)) {
-    $erroUserName = "Este login de usuário já foi cadastrado! Por favor, tente outro nome de login.";
-    $showAlertError = true;
-  } else {
-    $userId = createUser($data, $pdo);
-    createAddress($data, $userId, $pdo);
-    $mensagemSucesso = "Usuário cadastrado com sucesso!";
-    $showAlert = true;
-  }
+// Verifica se o email, CPF ou login já existem
+if (emailExists($data['email'], $pdo)) {
+  // Se o email já existir, define a mensagem de erro correspondente
+  $erroEmail = "Este E-mail já foi cadastrado! Por favor, tente outro E-mail.";
+  // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
+  $showAlertError = true;
+}
+
+if (cpfExists($data['cpf'], $pdo)) {
+  // Se o CPF já existir, define a mensagem de erro correspondente
+  $erroCpf = "Este CPF já foi cadastrado! Por favor, tente outro CPF.";
+  // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
+  $showAlertError = true;
+}
+
+if (user_nameExists($data['user_name'], $pdo)) {
+  // Se o nome de usuário já existir, define a mensagem de erro correspondente
+  $erroUserName = "Este login de usuário já foi cadastrado! Por favor, tente outro nome de login.";
+  // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
+  $showAlertError = true;
+}
+
+// Se nenhum erro ocorreu (ou seja, nenhum dos campos já existe no banco de dados)
+if (!$showAlertError) {
+  // Cria o usuário no banco de dados
+  $userId = createUser($data, $pdo);
+  // Cria o endereço do usuário no banco de dados
+  createAddress($data, $userId, $pdo);
+  // Define a mensagem de sucesso
+  $mensagemSucesso = "Usuário cadastrado com sucesso!";
+  // Define a flag $showAlert como verdadeira para indicar que a operação foi bem-sucedida
+  $showAlert = true;
+}
+
+   
 }
 
 // Encerra a conexão
@@ -132,7 +151,7 @@ $pdo = null;
     </script>
   <?php endif; ?>
 
-  
+
   <!-- Alerta de sucesso -->
   <div class="container-alert" style="<?php echo $showAlert ? 'display: block;' : 'display: none;'; ?>">
     <div class="alert alert-success">
