@@ -1,3 +1,16 @@
+<?php
+session_start();  // Inicia a sessão no início do script, antes de qualquer saída HTML.
+
+$path = __DIR__ . '/Front-end/PHP/connect.php';
+if (!file_exists($path)) {
+  die('Arquivo de conexão não encontrado: ' . $path);
+}
+require $path;
+
+// Verificar se o usuário é um 'Master' ou 'Colaborador'
+$isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESSION['usuario_tipo'], ['Master', 'Colaborador']);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -138,46 +151,30 @@
   <div class="bloco-produtos">
 
     <?php
-    $host = 'localhost';
-    $dbname = 'sevengardens';
-    $username = 'root';
-    $password = '';
+    $stmt = $pdo->prepare("SELECT * FROM produto"); // Ajuste essa consulta SQL conforme sua tabela de produtos
+    $stmt->execute();
 
-    try {
-      $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Exibir os cards dos produtos
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      echo "<div class='produto-card'>";
+      echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
+      echo "<h3>" . $row["nome"] . "</h3>";
+      echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+      echo "<p>" . $row["descricao"] . "</p>";
+      echo "<p>Categoria: " . $row["categoria"] . "</p>";
+      echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
 
-      // Consulta SQL para selecionar os produtos
-      $sql = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
-      $stmt = $pdo->query($sql);
-
-      if ($stmt->rowCount() > 0) {
-        // Exibir os cards dos produtos
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          echo "<div class='produto-card'>";
-          echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
-          echo "<h3>" . $row["nome"] . "</h3>";
-          echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-          echo "<p>" . $row["descricao"] . "</p>";
-          echo "<p>Categoria: " . $row["categoria"] . "</p>";
-          echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
-          // Botão "Comprar"
-          echo "<button class='comprar-btn' onclick='adicionarAoCarrinho(" . $row["idProduto"] . ", \"" . $row["nome"] . "\", \"" . $row["preco"] . "\", \"" . $row["imagem"] . "\")'>Comprar</button>";
-
-          echo "</div>";
-        }
-      } else {
-        echo "0 resultados";
+      // Exibir os botões de excluir e editar apenas para usuários 'Master' e 'Colaborador'
+      if ($isUserMasterOrColaborador) {
+        echo "<button class='editar-btn'>Editar</button>";
+        echo "<button class='excluir-btn'>Excluir</button>";
       }
-    } catch (PDOException $e) {
-      // Redireciona para a página de erro na pasta Front-end
-      header('Location: ../Front-end/Erro.html');
-      exit;
-    }
 
-    // Fecha a conexão
-    $pdo = null;
+      echo "<button class='comprar-btn'>Comprar</button>";
+      echo "</div>";
+    }
     ?>
+
 
   </div>
 

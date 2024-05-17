@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="menu_btn">
-      <a href="../../index.html">Home</a>
+      <a href="../../index.php">Home</a>
     </div>
     <div class="menu_btn">
       <a href="instrucoesCultivo.php">Instruções de Cultivo</a>

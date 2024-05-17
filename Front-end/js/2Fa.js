@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function () {
           if (data.success) {
             switch (data.userType) {
               case 'Cliente':
-                window.location.href = 'Usuario.html';
+                window.location.href = 'Usuario.php';
                 break;
               case 'Colaborador':
               case 'Master':
-                window.location.href = 'InterfaceMaster.html';
+                window.location.href = 'InterfaceMaster.php';
                 break;
               default:
                 mensagemErro.textContent = 'Tipo de usuário não reconhecido!';
