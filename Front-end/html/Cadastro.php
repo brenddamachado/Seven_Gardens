@@ -23,6 +23,8 @@
   <?php
   include('../PHP/connect.php'); // Assegure-se de que este caminho está correto.
 
+  $erroUserName = "";
+  $erroCpf= "";
   $erroEmail = "";
   $mensagemSucesso = "";
   $showAlert = false;
@@ -30,15 +32,29 @@
 
 
 
-  // Função para verificar se o email já existe no banco de dados
-  function emailExists($email, $pdo)
-  {
+// Funções para verificar se o email, cpf e login já existem no banco de dados.
+function emailExists($email, $pdo)
+{
     $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE email = ?");
     $stmt->execute([$email]);
     return $stmt->fetchColumn() ? true : false;
-  }
+}
 
-  // Função para inserir o usuário no banco de dados
+function cpfExists($cpf, $pdo)
+{
+    $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE cpf = ?");
+    $stmt->execute([$cpf]);
+    return $stmt->fetchColumn() ? true : false;
+}
+
+function user_nameExists($user_name, $pdo)
+{
+    $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE user_name = ?");
+    $stmt->execute([$user_name]);
+    return $stmt->fetchColumn() ? true : false;
+}
+
+  // Essa função vai inserir o usuário no banco de dados
   function createUser($data, $pdo)
   {
     $sql = "INSERT INTO usuario (nome_completo, data_nascimento, sexo, nome_materno, cpf, email, telefone_celular, user_name, senha, tipo_usuario, ativado)
@@ -84,23 +100,28 @@
       'cep' => $_POST['cep']
     ];
 
-    // Checa se o email já existe
-    if (emailExists($data['email'], $pdo)) {
-      $erroEmail = "E-mail já cadastrado!";
-      $showAlertError = true;
-    } else {
-      $userId = createUser($data, $pdo);
-      createAddress($data, $userId, $pdo);
-      $mensagemSucesso = "Usuário cadastrado com sucesso!";
-      $showAlert = true;
-    }
+
+  // Verifica se o email, cpf ou login já existem
+  if (emailExists($data['email'], $pdo)) {
+    $erroEmail = "Este E-mail já foi cadastrado! Por favor, tente outro E-mail.";
+    $showAlertError = true;
+  } elseif (cpfExists($data['cpf'], $pdo)) {
+    $erroCpf = "Este CPF já foi cadastrado! Por favor, tente outro CPF.";
+    $showAlertError = true;
+  } elseif(user_nameExists($data['user_name'], $pdo)) {
+    $erroUserName = "Este login de usuário já foi cadastrado! Por favor, tente outro nome de login.";
+    $showAlertError = true;
+  } else {
+    $userId = createUser($data, $pdo);
+    createAddress($data, $userId, $pdo);
+    $mensagemSucesso = "Usuário cadastrado com sucesso!";
+    $showAlert = true;
   }
+}
 
-
-
-  // Encerra a conexão
-  $pdo = null;
-  ?>
+// Encerra a conexão
+$pdo = null;
+?>
 
   <!-- quando o usuario for cadastrar jogar direto pra página de login. -->
   <?php if ($showAlert) : ?>
@@ -111,6 +132,7 @@
     </script>
   <?php endif; ?>
 
+  
   <!-- Alerta de sucesso -->
   <div class="container-alert" style="<?php echo $showAlert ? 'display: block;' : 'display: none;'; ?>">
     <div class="alert alert-success">
@@ -164,7 +186,7 @@
       <div id="mensagemgenero"></div>
       <label for="cpf" id="labelCpf" class="label_login">CPF:</label>
       <input class="input_login" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Digite seu cpf" />
-      <div id="mensagemCPF"></div>
+      <div id="mensagemCPF" style="color:red"><?php echo $erroCpf ?></div>
 
       <label for="cel" class="label_login" id="labelCel">
         Telefone Celular:</label>
@@ -224,7 +246,8 @@
 
       <label class="label_login" id="labelLogin" for="login" class="form">Login:</label>
       <input class="input_login" type="text" id="login" name="login" placeholder="Digite um login" maxlength="6" />
-      <div id="mensagemLogin"></div>
+      <div id="mensagemLogin" style="color:red"><?php echo $erroUserName ?></div>
+      
       <label class="label_login" id="labelEmail" for="login" class="form">
         E-mail:</label>
       <input class="input_login" type="email" id="email" name="email" placeholder="Digite um e-mail" />
