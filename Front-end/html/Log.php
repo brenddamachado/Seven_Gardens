@@ -15,7 +15,7 @@ $query = "
     SELECT 
         h.horarioLogin, 
         u.nome_completo, 
-        h.id_pergunta_secreta,
+        p.pergunta,
         h.id_usuario 
     FROM 
         historico_login h 
@@ -23,10 +23,15 @@ $query = "
         usuario u 
     ON 
         h.id_usuario = u.idUsuario
+    JOIN 
+        pergunta_secreta p
+    ON 
+        h.id_pergunta_secreta = p.id
 ";
 
 if ($pesquisa) {
     $query .= " WHERE u.nome_completo LIKE ? OR u.cpf LIKE ?";
+    $query .= " ORDER BY h.horarioLogin DESC";
     $stmt = $pdo->prepare($query);
     $likePesquisa = "%$pesquisa%";
     $stmt->bindParam(1, $likePesquisa);
@@ -34,6 +39,7 @@ if ($pesquisa) {
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } else {
+    $query .= " ORDER BY h.horarioLogin DESC";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -98,7 +104,7 @@ if ($pesquisa) {
             <td><?php echo htmlspecialchars($row['id_usuario']); ?></td>
             <td><?php echo htmlspecialchars($row['nome_completo']); ?></td>
             <td><?php echo htmlspecialchars(date('d/m/Y H:i:s', strtotime($row['horarioLogin']))); ?></td>
-            <td><?php echo htmlspecialchars($row['id_pergunta_secreta']); ?></td>
+            <td><?php echo htmlspecialchars($row['pergunta']); ?></td>
           </tr>
         <?php endforeach; ?>
       <?php else: ?>
@@ -125,13 +131,11 @@ if ($pesquisa) {
 
     <div class="social-icons">
       <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
-      <a href="#" class="icon"><i class="
-a href="#" class="fab fa-facebook"></a>
-<a href="#" class="fab fa-instagram"></a>
-<a href="#" class="fab fa-whatsapp"></a>
-</div>
-
+      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" class="fab fa-whatsapp"></a>
+    </div>
   </footer>
   <script src="../js/Log.js"></script>
 </body>
+
 </html>
