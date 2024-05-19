@@ -15,9 +15,9 @@
 </head>
 
 <body>
-<?php include('header.php'); ?>
+    <?php include('header.php'); ?>
     <div class="container-principal">
-       
+
         <div class="barra-lateral">
             <a href="#tab1-content" class="active">Meu Painel</a>
             <a href="#tab2-content">Pedidos</a>
@@ -26,11 +26,11 @@
             <a href="#tab5-content">Segurança</a>
             <a href="#tab6-content">Log out</a>
         </div>
- 
+
         <div class="conteudo-principal">
             <section id="tab1-content" class="secao">
                 <h2>Meu Painel</h2>
-                <p>Olá, [nome do usuário] <a href="../index.html">Sair</a></p>
+                <p>Olá, [nome do usuário] <a href="../index.php">Sair</a></p>
             </section>
             <section id="tab2-content" class="secao">
                 <h2>Seus Pedidos</h2>
@@ -104,8 +104,7 @@
                                 </div>
                                 <div class="input-box">
                                     <label for="sobrenome">Sobrenome:</label>
-                                    <input type="text" id="sobrenome" name="sobrenome"
-                                        placeholder="Digite o seu sobrenome">
+                                    <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite o seu sobrenome">
                                 </div>
                                 <div class="input-box">
                                     <label for="email">E-mail:</label>
@@ -135,8 +134,7 @@
                             <div class="input-box">
                                 <label for="senha2">Confirmação da nova senha:</label>
                                 <div class="input-wrapper">
-                                    <input type="password" id="senha2" name="senha2"
-                                        placeholder="Confirme sua nova senha">
+                                    <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha">
                                     <i class="far fa-eye" id="verConfirme"></i>
                                 </div>
                             </div>
@@ -175,12 +173,9 @@
         <div class="social-icons">
             <p> Siga-nos nas nossas redes sociais:</p>
 
-            <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
-                    class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-                    class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </footer>
     <script src=" ../js/Usuario.js"></script>

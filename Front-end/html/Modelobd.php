@@ -29,46 +29,9 @@
       <h2>Painel de controle</h2>
     </section>
   </header>
-
-  <form method="post" action="#" onsubmit="handleSubmit(event)">
-    <h1>Histórico de login</h1>
-    <label for="inputPesquisa">pesquisar usuário:</label>
-    <input type="text" id="input_historico" name="inputPesquisa" placeholder="Digite o nome ou CPF do usuário">
-    <br><br>
-    <div id="mensagem_historico"></div>
-    <br>
-    <button type="submit">Pesquisar</button>
-  </form>
-
-  <section class="tabela_toda">
-    <section class="conteudo" id="conteudo">
-      <h2 class="topo_tabela">*NOME*</h2>
-      <section class="tabela">
-        <div class="corpo_tabela">
-          <p>Data do login:</p>
-          <div class="border">
-            <p>lorem</p>
-          </div>
-
-        </div>
-
-        <div class="corpo_tabela">
-          <p>Hora do login:</p>
-          <div class="border">
-            <p>lorem</p>
-          </div>
-        </div>
-        <div class="corpo_tabela">
-          <p>Fator de autenticação:</p>
-          <div class="border">
-            <p>lorem</p>
-          </div>
-        </div>
-      </section>
-    </section>
-
-  </section>
-
+  <div class="modelo_bd">
+    <img src="../img/sevengardens.svg">
+  </div>
   <section id="accessibility-section">
     <i class="fas fa-universal-access" id="accessibility-icon"></i>
     <div id="other-things">
@@ -92,7 +55,6 @@
     </div>
 
   </footer>
-  <script src="../js/Log.js"></script>
 </body>
 
 </html>

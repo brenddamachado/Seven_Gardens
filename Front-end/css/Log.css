@@ -318,6 +318,12 @@ footer {
   /* Aumenta o tamanho do ícone em 20% no hover */
 }
 
+.modelo_bd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   .conteudo {
     width: 75% !important;

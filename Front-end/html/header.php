@@ -1,7 +1,7 @@
 <header>
   <section class="header">
     <div>
-      <a href="../../index.html"> <img class="logo" src="../img/logoatual.svg" alt="" srcset="" /></a>
+      <a href="../../index.php"> <img class="logo" src="../img/logoatual.svg" alt="" srcset="" /></a>
     </div>
 
     <div class="pesquisa-container">
@@ -54,7 +54,7 @@
 
       <div id="dentro_icon" class="dentro_icon">
         <div class="close-btn"><i class="fas fa-times"></i></div>
-        <a href="../index.html">Home</a>
+        <a href="../index.php">Home</a>
         <a href="Cadastro.php">Cadastro</a>
         <a href="Login.php">Login</a>
 
@@ -65,7 +65,7 @@
         <a href="#">Insumos</a>
         <a href="instrucoesCultivo.php">Instruções de Cultivo</a>
         <a href="Contato.php">Contato</a>
-        <a href="Sobre.html">Sobre</a>
+        <a href="Sobre.php">Sobre</a>
 
       </div>
 

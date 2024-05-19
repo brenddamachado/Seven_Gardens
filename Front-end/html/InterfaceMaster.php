@@ -148,19 +148,19 @@
       <h3>Meus Clientes</h3>
       <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
       <p>Gerencie e acompanhe seus clientes.</p>
-      <a href="ConsultaAdm.html" class="card-button">Ver Clientes</a>
+      <a href="ConsultaAdm.php" class="card-button">Ver Clientes</a>
     </div>
     <div class="card">
       <h3>Histórico</h3>
       <img src="../img/historico.svg" alt="Ícone de histórico para visualizar o histórico de acesso dos usuários" class="iconCard" />
       <p>Histórico de acesso dos usuários.</p>
-      <a href="Log.html" class="card-button">Ver Histórico</a>
+      <a href="Log.php" class="card-button">Ver Histórico</a>
     </div>
     <div class="card">
       <h3>Pedidos</h3>
       <img src="../img/pedidos.svg" alt="Ícone de lista de pedidos para visualizar e gerenciar pedidos pendentes" class="iconCard" />
       <p>Visualize e gerencie pedidos pendentes.</p>
-      <a href="Pedidos.html" class="card-button">Ver Pedidos</a>
+      <a href="Pedidos.php" class="card-button">Ver Pedidos</a>
     </div>
     <div class="card">
       <h3>Relatórios</h3>
