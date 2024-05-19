@@ -218,6 +218,7 @@ $pdo = null;
 
       <label for="estado" class="label_login">Estado:</label>
       <select class="input_login" id="estado" name="estado" required>
+      <option value="">Selecionar</option>
         <option value="AC">Acre</option>
         <option value="AL">Alagoas</option>
         <option value="AP">Amapá</option>
