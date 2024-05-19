@@ -36,7 +36,7 @@
         <input type="password" id="senha" placeholder="Sua resposta aqui." maxlength="8" minlength="8">
         <span id="mensagemErro" style="color: red;"></span>
         <div class="cliqueAqui">
-          Não possui uma conta? <a href="Cadastro.html">Clique aqui!</a>
+          Não possui uma conta? <a href="Cadastro.php">Clique aqui!</a>
         </div>
       </div>
       <div class="button-box">
