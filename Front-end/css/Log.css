@@ -357,7 +357,8 @@ width: 100px;
   
 #tabelaUsuarios {
   margin: 0 auto; 
-  width: 38%; /* Você pode ajustar a largura conforme necessário */
+width: 80%;
+margin-top: 10%;
   border-collapse: collapse;
   background-color: #fff;
   border-radius: 10px;
@@ -404,3 +405,7 @@ width: 100px;
   border-right: none;
 }
 
+.filtroo h4{
+  margin-top: 3%;
+  margin-left: 2%;
+}

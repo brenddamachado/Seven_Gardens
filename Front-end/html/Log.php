@@ -4,8 +4,8 @@ require '../../Front-end/PHP/connect.php';
 
 // Verificar se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: login.php");
-    exit();
+  header("Location: login.php");
+  exit();
 }
 
 $pesquisa = isset($_POST['inputPesquisa']) ? $_POST['inputPesquisa'] : '';
@@ -30,19 +30,19 @@ $query = "
 ";
 
 if ($pesquisa) {
-    $query .= " WHERE u.nome_completo LIKE ? OR u.cpf LIKE ?";
-    $query .= " ORDER BY h.horarioLogin DESC";
-    $stmt = $pdo->prepare($query);
-    $likePesquisa = "%$pesquisa%";
-    $stmt->bindParam(1, $likePesquisa);
-    $stmt->bindParam(2, $likePesquisa);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $query .= " WHERE u.nome_completo LIKE ? OR u.cpf LIKE ?";
+  $query .= " ORDER BY h.horarioLogin DESC";
+  $stmt = $pdo->prepare($query);
+  $likePesquisa = "%$pesquisa%";
+  $stmt->bindParam(1, $likePesquisa);
+  $stmt->bindParam(2, $likePesquisa);
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    $query .= " ORDER BY h.horarioLogin DESC";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $query .= " ORDER BY h.horarioLogin DESC";
+  $stmt = $pdo->prepare($query);
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
 
@@ -78,15 +78,11 @@ if ($pesquisa) {
     </section>
   </header>
 
-  <form method="post" action="">
-    <h1>Histórico de login</h1>
-    <label for="inputPesquisa">Pesquisar usuário:</label>
-    <input type="text" id="input_historico" name="inputPesquisa" placeholder="Digite o nome ou CPF do usuário" value="<?php echo htmlspecialchars($pesquisa); ?>">
-    <br><br>
-    <div id="mensagem_historico"></div>
-    <br>
-    <button type="submit">Pesquisar</button>
-  </form>
+  <section class="filtroo">
+    <h4> <i class="fas solid fa-filter"></i>Filtro</h4>
+  </section>
+
+
 
   <table id="tabelaUsuarios">
     <thead>
@@ -98,8 +94,8 @@ if ($pesquisa) {
       </tr>
     </thead>
     <tbody>
-      <?php if ($result && count($result) > 0): ?>
-        <?php foreach ($result as $row): ?>
+      <?php if ($result && count($result) > 0) : ?>
+        <?php foreach ($result as $row) : ?>
           <tr>
             <td><?php echo htmlspecialchars($row['id_usuario']); ?></td>
             <td><?php echo htmlspecialchars($row['nome_completo']); ?></td>
@@ -107,7 +103,7 @@ if ($pesquisa) {
             <td><?php echo htmlspecialchars($row['pergunta']); ?></td>
           </tr>
         <?php endforeach; ?>
-      <?php else: ?>
+      <?php else : ?>
         <tr>
           <td colspan="4">Nenhum registro encontrado.</td>
         </tr>
