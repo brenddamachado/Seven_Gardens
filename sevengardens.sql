@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `sevengardens`
+-- Banco de dados: `sevengardens` < Crie o banco com esse nome e importe o script
 --
 
 -- --------------------------------------------------------
