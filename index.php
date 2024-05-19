@@ -30,7 +30,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <header>
     <section class="header">
       <div>
-        <a href="index.html"><img class="logo" src="Front-end/img/logoatual.svg" alt="" srcset="" /></a>
+        <a href="index.php"><img class="logo" src="Front-end/img/logoatual.svg" alt="" srcset="" /></a>
       </div>
 
       <div class="pesquisa-container">
@@ -65,13 +65,13 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
       </div>
 
       <div class="menu_btn">
-        <a href="/Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
+        <a href="Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
       </div>
       <div class="menu_btn">
-        <a href="/Front-end/html/Contato.php">Contato</a>
+        <a href="Front-end/html/Contato.php">Contato</a>
       </div>
       <div class="menu_btn">
-        <a href="/Front-end/html/Sobre.php">Sobre</a>
+        <a href="Front-end/html/Sobre.php">Sobre</a>
       </div>
       <!-- Ícone do carrinho -->
       <div class="cart-icon-container">
@@ -88,17 +88,17 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
 
         <div id="dentro_icon" class="dentro_icon">
           <div class="close-btn"><i class="fas fa-times"></i></div>
-          <a href="/Front-end/html/Login.php">Login</a>
+          <a href="Front-end/html/Login.php">Login</a>
 
-          <a href="/Front-end/html/Cadastro.php">Cadastro</a>
+          <a href="Front-end/html/Cadastro.php">Cadastro</a>
 
           <a href="#"> Enxertos</a>
           <a href="#"> Naturais (De semente) </a>
           <a href="#">Especiais</a>
           <a href="#">Insumos</a>
-          <a href="/Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
-          <a href="/Front-end/html/Contato.php">Contato</a>
-          <a href="/Front-end/html/Sobre.php">Sobre</a>
+          <a href="Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
+          <a href="Front-end/html/Contato.php">Contato</a>
+          <a href="Front-end/html/Sobre.php">Sobre</a>
 
         </div>
 
@@ -218,7 +218,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
 
 
 
-  <script src="./Front-end/js/script.js"></script>
+  <script src="Front-end/js/script.js"></script>
 </body>
 
 </html>
