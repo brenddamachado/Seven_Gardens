@@ -11,6 +11,10 @@ body {
 
 }
 
+.imgProduto {
+  width: 250px;
+}
+
 header {
   background-color: #0f2b05;
 
@@ -155,7 +159,6 @@ ul {
   text-decoration: none;
 }
 
-
 /* fim do header */
 
 /* inicio do carrossel */
@@ -225,7 +228,60 @@ html {
 
 /* fim do carrossel */
 
+/*inicio do bloco de produtos*/
+.bloco-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribui os cards igualmente na linha */
+}
 
+.produto-card {
+  width: calc(25% - 20px); /* Define a largura de cada card, considerando o espaçamento */
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  text-align: center; /* Alinha o texto horizontalmente */
+  display: flex; /* Torna o card um flex container */
+  flex-direction: column; /* Define a direção do flex para coluna */
+  justify-content: space-between; /* Distribui o espaço uniformemente entre os itens */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  transition: box-shadow 0.3s ease; /* Adiciona uma transição suave para a sombra do card */
+}
+
+.produto-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais forte quando o mouse passa por cima */
+}
+
+.produto-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.produto-card p {
+  margin-bottom: 8px;
+}
+
+.comprar-btn {
+  background-color: #405b39; /* Cor de fundo verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comprar-btn:hover {
+  background-color: #112a08; /* Altera a cor de fundo ao passar o mouse */
+}
+.modal-carrinho img{
+  max-width: 100px;
+  height:auto;
+}
 
 /* inicio footer */
 
@@ -234,7 +290,6 @@ footer {
   background-color: #0f2b05;
   height: 200px;
 }
-
 
 
 
@@ -329,7 +384,6 @@ footer {
 
 
 
-
 /* Estilo do Carrinho e o contador */
 
 #icon {
@@ -362,7 +416,6 @@ footer {
   padding: 4px 10px;
 }
 
-
 /* inicio footer */
 footer {
   background-color: #0f2b05;
@@ -375,7 +428,6 @@ footer {
 
 .social-icons {
   text-align: center;
-
 
 }
 
@@ -513,7 +565,6 @@ body.dark-mode a {
   /* Cor ajustada para elementos no modo escuro */
 }
 
-
 #accessibility-section {
   position: fixed;
   top: 50%;
@@ -649,7 +700,7 @@ body.dark-mode a {
   flex-direction: column;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 766px) {
 
   .mobile_i,
   .icon_mobile {
@@ -686,7 +737,6 @@ body.dark-mode a {
 
   }
 
-
   .formulario form {
     margin-left: 120px;
   }
@@ -709,7 +759,7 @@ body.dark-mode a {
 
   .pesquisa {
     margin-left: -51px;
-    width: 350px;
+    width: 170px;
   }
 
   .carousel-item img {
@@ -735,13 +785,9 @@ body.dark-mode a {
   }
 }
 
-@media (max-width: 573px) {
-  .logo {
-    width: 120px !important;
-  }
-
-  .pesquisa{
-    width: 210px;
+@media screen and (max-width: 740px) and (min-width: 364px) {
+  .pesquisa {
+    width: 180px;
   }
 }
 
@@ -765,11 +811,5 @@ body.dark-mode a {
 @media screen and (max-width: 390px) {
   .pesquisa {
     width: 180px;
-  }
-}
-
-@media (max-width:917px) and (min-width: 901px){
-  .pesquisa{
-    width: 300px;
   }
 }

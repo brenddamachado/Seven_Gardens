@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/05/2024 às 00:36
+-- Tempo de geração: 17/05/2024 às 20:09
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -39,20 +39,14 @@ CREATE TABLE `endereco_completo` (
   `cep` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estrutura para tabela `funcionario`
+-- Despejando dados para a tabela `endereco_completo`
 --
 
-CREATE TABLE `funcionario` (
-  `idFuncionario` int(11) NOT NULL,
-  `nome_completo` varchar(80) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `telefone_celular` varchar(11) NOT NULL,
-  `endereco_completo` varchar(255) NOT NULL,
-  `usuario_master_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `endereco_completo` (`idEndereco`, `idUsuario`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `cep`) VALUES
+(8, 2, 'Rua Micronesia', '195', 'Rua dois 31', 'Campo Grande', 'Rio de Janeiro', 'RJ', '23015070'),
+(9, 3, 'Rua Micronesia', '195', 'Rua dois 31', 'Campo Grande', 'Rio de Janeiro', 'RJ', '23015070'),
+(10, 4, 'Rua Micronesia', '195', 'Rua dois 31', 'Campo Grande', 'Rio de Janeiro', 'RJ', '23015070');
 
 -- --------------------------------------------------------
 
@@ -89,7 +83,8 @@ CREATE TABLE `item_pedido` (
 CREATE TABLE `pedido` (
   `idPedido` int(11) NOT NULL,
   `horarioPedido` datetime NOT NULL,
-  `id_cliente` int(11) NOT NULL
+  `id_cliente` int(11) NOT NULL,
+  `status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -117,8 +112,18 @@ CREATE TABLE `produto` (
   `preco` decimal(10,2) NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `categoria` varchar(50) NOT NULL,
-  `subcategoria` varchar(50) NOT NULL
+  `subcategoria` varchar(50) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produto`
+--
+
+INSERT INTO `produto` (`idProduto`, `nome`, `preco`, `descricao`, `categoria`, `subcategoria`, `imagem`) VALUES
+(4, 'Rosa do Deserto Star Cluster', 50.00, 'Rosa do deserto singela na cor amarela com vermelho.', 'singelas', 'Enxerto', 'Front-end/img-produtos/IMG_20240316_235300.jpg'),
+(5, 'Rosa do Deserto Nusa', 50.00, 'Multipétalas amarela', 'dobradas', 'Enxerto', 'Front-end/img-produtos/IMG_20240316_235200.jpg'),
+(6, 'Rosa do Deserto Felipa', 50.00, 'Singela natural de semente.', 'singelas', 'Semente', 'Front-end/img-produtos/IMG_20240317_001651.jpg');
 
 -- --------------------------------------------------------
 
@@ -131,6 +136,23 @@ CREATE TABLE `tentativas_login` (
   `data_tentativa` datetime NOT NULL,
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tentativas_login`
+--
+
+INSERT INTO `tentativas_login` (`id`, `data_tentativa`, `id_usuario`) VALUES
+(43, '2024-05-13 21:03:53', 0),
+(44, '2024-05-15 09:38:55', 2),
+(45, '2024-05-15 10:44:28', 2),
+(46, '2024-05-15 10:49:03', 2),
+(47, '2024-05-15 10:50:57', 2),
+(48, '2024-05-15 10:53:39', 1),
+(49, '2024-05-15 10:54:11', NULL),
+(50, '2024-05-15 10:54:12', NULL),
+(51, '2024-05-15 10:54:12', NULL),
+(52, '2024-05-15 10:54:12', NULL),
+(53, '2024-05-15 10:54:30', 1);
 
 -- --------------------------------------------------------
 
@@ -154,6 +176,16 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nome_completo`, `data_nascimento`, `sexo`, `nome_materno`, `cpf`, `email`, `telefone_celular`, `user_name`, `senha`, `tipo_usuario`, `ativado`) VALUES
+(1, 'Admin Master', '2000-01-01', 'N', 'Nome Materno Padrão', '00000000000', 'admin@example.com', '0000000000', 'adminM', '$2y$10$6jwEU6QZKUYvPCxY9hxiWONWgfSa9YlEAKYNIto9EXbCPA.bpsDtC', 'Master', 1),
+(2, 'Ingridy da Silva Sousa', '2024-05-13', 'Mulher cisgênero', 'Evaneide Torres da Silva', '011.675.811-21', 'yume_owned@hotmail.com', '(21) 98151-', 'aaaaaa', '$2y$10$4uudBhMyFJVA8ATpaHqthe7jRbQQL.iLFRGcKom507GTv4npnC3O6', 'Cliente', 1),
+(3, 'Brenda da Silva Sousa', '1992-03-09', 'Mulher cisgênero', 'Zanza Mae da Brenda', '011.675.811-21', 'brenda@hotmail.com', '(21) 98151-', 'bbbbbb', '$2y$10$mGyobKnv2wGACCg9INRNy..Hgf6IpHtJ1cMYwCwDEizXhTS6ZaxcO', 'Cliente', 1),
+(4, 'Usuario de teste teste ', '1992-03-09', 'Homem cisgênero', 'mae do usuario teste ', '163.477.407-88', 'testedabrenda@hotmail.com', '(21) 98151-', 'pppppp', '$2y$10$prXXun3xCvBFvsJCjQjCGeO5cymEfUx98WVfJf5kmo7PYgqH7pb6u', 'Cliente', 1);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -163,13 +195,6 @@ CREATE TABLE `usuario` (
 ALTER TABLE `endereco_completo`
   ADD PRIMARY KEY (`idEndereco`),
   ADD KEY `idUsuario` (`idUsuario`);
-
---
--- Índices de tabela `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD PRIMARY KEY (`idFuncionario`),
-  ADD KEY `usuario_master_id` (`usuario_master_id`);
 
 --
 -- Índices de tabela `historico_login`
@@ -228,13 +253,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `endereco_completo`
 --
 ALTER TABLE `endereco_completo`
-  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `funcionario`
---
-ALTER TABLE `funcionario`
-  MODIFY `idFuncionario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `historico_login`
@@ -264,19 +283,19 @@ ALTER TABLE `pergunta_secreta`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tentativas_login`
 --
 ALTER TABLE `tentativas_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para tabelas despejadas
@@ -286,13 +305,7 @@ ALTER TABLE `usuario`
 -- Restrições para tabelas `endereco_completo`
 --
 ALTER TABLE `endereco_completo`
-  ADD CONSTRAINT `endereco_completo_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
-
---
--- Restrições para tabelas `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`usuario_master_id`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `endereco_completo_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE;
 
 --
 -- Restrições para tabelas `historico_login`
