@@ -73,6 +73,10 @@ footer {
   justify-content: flex-end;
 }
 
+#mensagemErro {
+  color: red;
+}
+
 /* Estilos para o botão "Entrar" e "Cadastrar Novo Usuário" */
 .button-box {
   display: flex;

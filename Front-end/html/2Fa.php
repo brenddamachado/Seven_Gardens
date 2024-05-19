@@ -1,3 +1,7 @@
+<?php
+session_start();
+$securityQuestion = $_SESSION['security_question'] ?? 'Pergunta não encontrada';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,43 +13,33 @@
   <link rel="stylesheet" href="../css/2Fa.css" />
   <link rel="stylesheet" href="../css/header.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-
 </head>
 
 <body>
-  <?php include('header.php'); ?>
-
+  <?php include('header.php');
+  ?>
   <div class="container" id="divLogin">
-    <form class="divForm" action="#">
+    <form class="divForm" id="2faForm" method="POST">
       <div class="form-header">
         <h1 class="title">Pergunta de segurança</h1>
       </div>
-
       <div class="digiteCod">
-        Para garantir a segurança da sua conta, precisamos verificar sua identidade por meio de uma pergunta de
-        segurança. Por favor, responda à pergunta abaixo:
-      </div><br>
-      <p>Pergunta:
-        [Texto da pergunta será inserido aqui]</p>
-
+        Para garantir a segurança da sua conta, precisamos verificar sua identidade por meio de uma pergunta de segurança. Por favor, responda à pergunta abaixo:
+      </div><br />
+      <p id="securityQuestion"><?php echo htmlspecialchars($securityQuestion); ?></p>
       <div class="input-box">
-        <label for="senha">Por favor, insira sua resposta abaixo:</label>
-        <input type="password" id="senha" placeholder="Sua resposta aqui." maxlength="8" minlength="8">
+        <label for="resposta">Por favor, insira sua resposta abaixo:</label>
+        <input type="text" id="resposta" name="resposta" placeholder="Sua resposta aqui." required>
         <span id="mensagemErro" style="color: red;"></span>
-        <div class="cliqueAqui">
-          Não possui uma conta? <a href="Cadastro.php">Clique aqui!</a>
-        </div>
+        <div id="errorMessages" style="color: red;"></div>
       </div>
       <div class="button-box">
-        <button id="enviarButton">Enviar</button>
+        <button type="submit" id="enviarButton">Enviar</button>
       </div>
-
-
-
     </form>
+
 
 
   </div>
@@ -56,12 +50,9 @@
     <div class="social-icons">
       <p> Siga-nos nas nossas redes sociais:</p>
 
-      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
-          class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-        class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
-          class="fab fa-whatsapp""></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i class="fab fa-whatsapp""></i></a>
 
 
     </div>
