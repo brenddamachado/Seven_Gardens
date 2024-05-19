@@ -20,11 +20,12 @@
         <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
       </div>
       <nav>
-        <div class="navegacao">
-          <ul>
-            <li class="login">Dashboard</li>
-            <li class="cadastrar">Visualizar Home</li>
+      <div class="navegacao">
+          <ul class="paginas">
+            <li class="login"><a href="../html/InterfaceMaster.php">Dashboard</a></li>
+            <li class="cadastrar"> <a href="../../index.php">Visualizar Home</a></li>
           </ul>
+          
         </div>
       </nav>
     </section>

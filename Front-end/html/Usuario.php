@@ -30,7 +30,7 @@
         <div class="conteudo-principal">
             <section id="tab1-content" class="secao">
                 <h2>Meu Painel</h2>
-                <p>Olá, [nome do usuário] <a href="../index.php">Sair</a></p>
+                <p>Olá, [nome do usuário] <a href="../../index.php">Sair</a></p>
             </section>
             <section id="tab2-content" class="secao">
                 <h2>Seus Pedidos</h2>

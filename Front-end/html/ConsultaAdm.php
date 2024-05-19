@@ -19,7 +19,7 @@
           <div class="navegacao">
             <ul>
               <li class="login"><a href="#">Dashboard</a></li>
-              <li class="cadastrar"><a href="../index.php">Visualizar Home</a></li>
+              <li class="cadastrar"><a href="../../index.php">Visualizar Home</a></li>
             </ul>
           </div>
         </nav>

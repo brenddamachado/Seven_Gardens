@@ -20,7 +20,7 @@
         <div class="navegacao">
           <ul class="paginas">
             <li class="login"><a href="#">Dashboard</a></li>
-            <li class="cadastrar"> <a href="../index.php">Visualizar Home</a></li>
+            <li class="cadastrar"> <a href="../../index.php">Visualizar Home</a></li>
           </ul>
         </div>
       </nav>
