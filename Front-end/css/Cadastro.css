@@ -10,6 +10,23 @@ body {
 
 }
 
+.container-alert {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
 
 
 /* formulario */
