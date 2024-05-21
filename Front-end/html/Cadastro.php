@@ -24,7 +24,7 @@
   include('../PHP/connect.php'); // Assegure-se de que este caminho está correto.
 
   $erroUserName = "";
-  $erroCpf= "";
+  $erroCpf = "";
   $erroEmail = "";
   $mensagemSucesso = "";
   $showAlert = false;
@@ -32,27 +32,27 @@
 
 
 
-// Funções para verificar se o email, cpf e login já existem no banco de dados.
-function emailExists($email, $pdo)
-{
+  // Funções para verificar se o email, cpf e login já existem no banco de dados.
+  function emailExists($email, $pdo)
+  {
     $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE email = ?");
     $stmt->execute([$email]);
     return $stmt->fetchColumn() ? true : false;
-}
+  }
 
-function cpfExists($cpf, $pdo)
-{
+  function cpfExists($cpf, $pdo)
+  {
     $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE cpf = ?");
     $stmt->execute([$cpf]);
     return $stmt->fetchColumn() ? true : false;
-}
+  }
 
-function user_nameExists($user_name, $pdo)
-{
+  function user_nameExists($user_name, $pdo)
+  {
     $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE user_name = ?");
     $stmt->execute([$user_name]);
     return $stmt->fetchColumn() ? true : false;
-}
+  }
 
   // Essa função vai inserir o usuário no banco de dados
   function createUser($data, $pdo)
@@ -101,46 +101,44 @@ function user_nameExists($user_name, $pdo)
     ];
 
 
-// Verifica se o email, CPF ou login já existem
-if (emailExists($data['email'], $pdo)) {
-  // Se o email já existir, define a mensagem de erro correspondente
-  $erroEmail = "Este E-mail já foi cadastrado! Por favor, tente outro E-mail.";
-  // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
-  $showAlertError = true;
-}
+    // Verifica se o email, CPF ou login já existem
+    if (emailExists($data['email'], $pdo)) {
+      // Se o email já existir, define a mensagem de erro correspondente
+      $erroEmail = "Este E-mail já foi cadastrado! Por favor, tente outro E-mail.";
+      // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
+      $showAlertError = true;
+    }
 
-if (cpfExists($data['cpf'], $pdo)) {
-  // Se o CPF já existir, define a mensagem de erro correspondente
-  $erroCpf = "Este CPF já foi cadastrado! Por favor, tente outro CPF.";
-  // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
-  $showAlertError = true;
-}
+    if (cpfExists($data['cpf'], $pdo)) {
+      // Se o CPF já existir, define a mensagem de erro correspondente
+      $erroCpf = "Este CPF já foi cadastrado! Por favor, tente outro CPF.";
+      // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
+      $showAlertError = true;
+    }
 
-if (user_nameExists($data['user_name'], $pdo)) {
-  // Se o nome de usuário já existir, define a mensagem de erro correspondente
-  $erroUserName = "Este login de usuário já foi cadastrado! Por favor, tente outro nome de login.";
-  // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
-  $showAlertError = true;
-}
+    if (user_nameExists($data['user_name'], $pdo)) {
+      // Se o nome de usuário já existir, define a mensagem de erro correspondente
+      $erroUserName = "Este login de usuário já foi cadastrado! Por favor, tente outro nome de login.";
+      // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
+      $showAlertError = true;
+    }
 
-// Se nenhum erro ocorreu (ou seja, nenhum dos campos já existe no banco de dados)
-if (!$showAlertError) {
-  // Cria o usuário no banco de dados
-  $userId = createUser($data, $pdo);
-  // Cria o endereço do usuário no banco de dados
-  createAddress($data, $userId, $pdo);
-  // Define a mensagem de sucesso
-  $mensagemSucesso = "sucesso!";
-  // Define a flag $showAlert como verdadeira para indicar que a operação foi bem-sucedida
-  $showAlert = true;
-}
+    // Se nenhum erro ocorreu (ou seja, nenhum dos campos já existe no banco de dados)
+    if (!$showAlertError) {
+      // Cria o usuário no banco de dados
+      $userId = createUser($data, $pdo);
+      // Cria o endereço do usuário no banco de dados
+      createAddress($data, $userId, $pdo);
+      // Define a mensagem de sucesso
+      $mensagemSucesso = "sucesso!";
+      // Define a flag $showAlert como verdadeira para indicar que a operação foi bem-sucedida
+      $showAlert = true;
+    }
+  }
 
-   
-}
-
-// Encerra a conexão
-$pdo = null;
-?>
+  // Encerra a conexão
+  $pdo = null;
+  ?>
 
   <!-- quando o usuario for cadastrar jogar direto pra página de login. -->
   <?php if ($showAlert) : ?>
@@ -164,126 +162,129 @@ $pdo = null;
     <form id="formulario" method="POST">
       <div id="mensagemform"></div>
       <label class="label_login" for="nome" id="labelNome"> Nome:</label>
-      <input class="input_login" type="text" id="nome" name="nome_completo" maxlength="80" autofocus placeholder="Digite o seu nome " />
+      <input class="input_login" type="text" id="nome" name="nome_completo" maxlength="80" autofocus placeholder="Digite o seu nome " value="<?php echo isset($_POST['nome_completo']) ? htmlspecialchars($_POST['nome_completo']) : ''; ?>" />
       <div id="mensagemNome"></div>
       <div id="mensagemform"></div>
+
       <label class="label_login" for="nome" id="labelNome">
         Nome da mãe:</label>
-      <input class="input_login" type="text" id="nomeDamae" name="nome_materno" maxlength="80" autofocus placeholder="Digite o seu nome " />
+      <input class="input_login" type="text" id="nomeDamae" name="nome_materno" maxlength="80" autofocus placeholder="Digite o seu nome " value="<?php echo isset($_POST['nome_materno']) ? htmlspecialchars($_POST['nome_materno']) : ''; ?>" />
       <div id="mensagemNomeMae"></div>
 
       <label for="nasc" class="label_login"> Data de nascimento: </label>
-      <input class="input_login" type="date" id="data" name="data_nascimento" />
+      <input class="input_login" type="date" id="data" name="data_nascimento" value="<?php echo isset($_POST['data_nascimento']) ? htmlspecialchars($_POST['data_nascimento']) : ''; ?>" />
       <div id="mensagemnascim"></div>
+
       <div class="genero">
         <label for="sexo" class="label_login"> Genêro:</label>
         <div class="input-group">
-          <input type="radio" id="mcisgênero" class="genero" name="genero" value="Mulher cisgênero" />
+          <input type="radio" id="mcisgênero" class="genero" name="genero" value="Mulher cisgênero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "Mulher cisgênero" ? "checked" : ""; ?> />
           <label class="model" for="mcisgênero">Mulher cisgênero</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="mtransgênero" class="genero" name="genero" value="Mulher transgênero" />
+          <input type="radio" id="mtransgênero" class="genero" name="genero" value="Mulher transgênero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "Mulher transgênero" ? "checked" : ""; ?> />
           <label class="model" for="mtransgênero">Mulher transgênero</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="hcisgênero" name="genero" class="genero" value="Homem cisgênero" />
+          <input type="radio" id="hcisgênero" name="genero" class="genero" value="Homem cisgênero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "Homem cisgênero" ? "checked" : ""; ?> />
           <label class="model" for="hcisgênero">Homem cisgênero</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="htransgênero" name="genero" class="genero" value="Homem transgênero" />
+          <input type="radio" id="htransgênero" name="genero" class="genero" value="Homem transgênero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "Homem transgênero" ? "checked" : ""; ?> />
           <label class="model" for="htransgênero">Homem transgênero</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="binário" name="genero" value="não-binário" class="genero" />
+          <input type="radio" id="binário" name="genero" value="não-binário" class="genero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "não-binário" ? "checked" : ""; ?> />
           <label class="model" for="binário">não-binário</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="outro" name="genero" value="outro" class="genero" />
+          <input type="radio" id="outro" name="genero" value="outro" class="genero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "outro" ? "checked" : ""; ?> />
           <label class="model" for="outro">Outros</label>
         </div>
       </div>
+
       <div id="mensagemgenero"></div>
       <label for="cpf" id="labelCpf" class="label_login">CPF:</label>
-      <input class="input_login" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Digite seu cpf" />
+      <input class="input_login" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Digite seu cpf" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : ''; ?>" />
       <div id="mensagemCPF" style="color:red"><?php echo $erroCpf ?></div>
 
       <label for="cel" class="label_login" id="labelCel">
         Telefone Celular:</label>
-      <input class="input_login" type="tel" id="numero" name="telefone_celular" placeholder="(xx) xxxxx-xxxx" maxlength="14" />
+      <input class="input_login" type="tel" id="numero" name="telefone_celular" placeholder="(xx) xxxxx-xxxx" maxlength="14" value="<?php echo isset($_POST['telefone_celular']) ? htmlspecialchars($_POST['telefone_celular']) : ''; ?>" />
 
       <label class="label_login" for="ende" class="form" id="labelCep">
         Cep:</label>
-      <input class="input_login" type="text" maxlength="9" id="cep" name="cep" placeholder="Digite seu cep" />
+      <input class="input_login" type="text" maxlength="9" id="cep" name="cep" placeholder="Digite seu cep" value="<?php echo isset($_POST['cep']) ? htmlspecialchars($_POST['cep']) : ''; ?>" />
       <div id="mensagemCep"></div>
 
       <label for="estado" class="label_login">Estado:</label>
       <select class="input_login" id="estado" name="estado" required>
-      <option value="">Selecionar</option>
-        <option value="AC">Acre</option>
-        <option value="AL">Alagoas</option>
-        <option value="AP">Amapá</option>
-        <option value="AM">Amazonas</option>
-        <option value="BA">Bahia</option>
-        <option value="CE">Ceará</option>
-        <option value="DF">Distrito Federal</option>
-        <option value="ES">Espírito Santo</option>
-        <option value="GO">Goiás</option>
-        <option value="MA">Maranhão</option>
-        <option value="MT">Mato Grosso</option>
-        <option value="MS">Mato Grosso do Sul</option>
-        <option value="MG">Minas Gerais</option>
-        <option value="PA">Pará</option>
-        <option value="PB">Paraíba</option>
-        <option value="PR">Paraná</option>
-        <option value="PE">Pernambuco</option>
-        <option value="PI">Piauí</option>
-        <option value="RJ">Rio de Janeiro</option>
-        <option value="RN">Rio Grande do Norte</option>
-        <option value="RS">Rio Grande do Sul</option>
-        <option value="RO">Rondônia</option>
-        <option value="RR">Roraima</option>
-        <option value="SC">Santa Catarina</option>
-        <option value="SP">São Paulo</option>
-        <option value="SE">Sergipe</option>
-        <option value="TO">Tocantins</option>
+        <option value="">Selecionar</option>
+        <option value="AC" <?php echo isset($_POST['estado']) && $_POST['estado'] === "AC" ? "selected" : ""; ?>>Acre</option>
+        <option value="AL" <?php echo isset($_POST['estado']) && $_POST['estado'] === "AL" ? "selected" : ""; ?>>Alagoas</option>
+        <option value="AP" <?php echo isset($_POST['estado']) && $_POST['estado'] === "AP" ? "selected" : ""; ?>>Amapá</option>
+        <option value="AM" <?php echo isset($_POST['estado']) && $_POST['estado'] === "AM" ? "selected" : ""; ?>>Amazonas</option>
+        <option value="BA" <?php echo isset($_POST['estado']) && $_POST['estado'] === "BA" ? "selected" : ""; ?>>Bahia</option>
+        <option value="CE" <?php echo isset($_POST['estado']) && $_POST['estado'] === "CE" ? "selected" : ""; ?>>Ceará</option>
+        <option value="DF" <?php echo isset($_POST['estado']) && $_POST['estado'] === "DF" ? "selected" : ""; ?>>Distrito Federal</option>
+        <option value="ES" <?php echo isset($_POST['estado']) && $_POST['estado'] === "ES" ? "selected" : ""; ?>>Espírito Santo</option>
+        <option value="GO" <?php echo isset($_POST['estado']) && $_POST['estado'] === "GO" ? "selected" : ""; ?>>Goiás</option>
+        <option value="MA" <?php echo isset($_POST['estado']) && $_POST['estado'] === "MA" ? "selected" : ""; ?>>Maranhão</option>
+        <option value="MT" <?php echo isset($_POST['estado']) && $_POST['estado'] === "MT" ? "selected" : ""; ?>>Mato Grosso</option>
+        <option value="MS" <?php echo isset($_POST['estado']) && $_POST['estado'] === "MS" ? "selected" : ""; ?>>Mato Grosso do Sul</option>
+        <option value="MG" <?php echo isset($_POST['estado']) && $_POST['estado'] === "MG" ? "selected" : ""; ?>>Minas Gerais</option>
+        <option value="PA" <?php echo isset($_POST['estado']) && $_POST['estado'] === "PA" ? "selected" : ""; ?>>Pará</option>
+        <option value="PB" <?php echo isset($_POST['estado']) && $_POST['estado'] === "PB" ? "selected" : ""; ?>>Paraíba</option>
+        <option value="PR" <?php echo isset($_POST['estado']) && $_POST['estado'] === "PR" ? "selected" : ""; ?>>Paraná</option>
+        <option value="PE" <?php echo isset($_POST['estado']) && $_POST['estado'] === "PE" ? "selected" : ""; ?>>Pernambuco</option>
+        <option value="PI" <?php echo isset($_POST['estado']) && $_POST['estado'] === "PI" ? "selected" : ""; ?>>Piauí</option>
+        <option value="RJ" <?php echo isset($_POST['estado']) && $_POST['estado'] === "RJ" ? "selected" : ""; ?>>Rio de Janeiro</option>
+        <option value="RN" <?php echo isset($_POST['estado']) && $_POST['estado'] === "RN" ? "selected" : ""; ?>>Rio Grande do Norte</option>
+        <option value="RS" <?php echo isset($_POST['estado']) && $_POST['estado'] === "RS" ? "selected" : ""; ?>>Rio Grande do Sul</option>
+        <option value="RO" <?php echo isset($_POST['estado']) && $_POST['estado'] === "RO" ? "selected" : ""; ?>>Rondônia</option>
+        <option value="RR" <?php echo isset($_POST['estado']) && $_POST['estado'] === "RR" ? "selected" : ""; ?>>Roraima</option>
+        <option value="SC" <?php echo isset($_POST['estado']) && $_POST['estado'] === "SC" ? "selected" : ""; ?>>Santa Catarina</option>
+        <option value="SP" <?php echo isset($_POST['estado']) && $_POST['estado'] === "SP" ? "selected" : ""; ?>>São Paulo</option>
+        <option value="SE" <?php echo isset($_POST['estado']) && $_POST['estado'] === "SE" ? "selected" : ""; ?>>Sergipe</option>
+        <option value="TO" <?php echo isset($_POST['estado']) && $_POST['estado'] === "TO" ? "selected" : ""; ?>>Tocantins</option>
       </select>
 
       <label class="label_login" for="ende" class="form" id="labelCidade">
         Cidade:</label>
-      <input class="input_login" type="text" id="cid" name="cidade" placeholder="Digite sua cidade" />
+      <input class="input_login" type="text" id="cid" name="cidade" placeholder="Digite sua cidade" value="<?php echo isset($_POST['cidade']) ? htmlspecialchars($_POST['cidade']) : ''; ?>" />
 
       <label id="labelBairro" for="ende" class="label_login"> Bairro:</label>
-      <input class="input_login" type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" />
+      <input class="input_login" type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" value="<?php echo isset($_POST['bairro']) ? htmlspecialchars($_POST['bairro']) : ''; ?>" />
 
       <label id="labelRua" for="ende" class="label_login"> Rua:</label>
-      <input class="input_login" type="text" id="rua" name="rua" placeholder="Digite sua rua" />
+      <input class="input_login" type="text" id="rua" name="rua" placeholder="Digite sua rua" value="<?php echo isset($_POST['rua']) ? htmlspecialchars($_POST['rua']) : ''; ?>" />
 
       <label id="labelN" for="ende" class="label_login"> Nº:</label>
-      <input class="input_login" type="number" id="num" name="numero" placeholder="Digite o número da casa" />
+      <input class="input_login" type="number" id="num" name="numero" placeholder="Digite o número da casa" value="<?php echo isset($_POST['numero']) ? htmlspecialchars($_POST['numero']) : ''; ?>" />
 
       <label for="ende" class="label_login"> Complemento:</label>
-      <input class="input_login" type="text" id="comple" name="complemento" placeholder="Digite o complemento" />
+      <input class="input_login" type="text" id="comple" name="complemento" placeholder="Digite o complemento" value="<?php echo isset($_POST['complemento']) ? htmlspecialchars($_POST['complemento']) : ''; ?>" />
 
       <label class="label_login" id="labelLogin" for="login" class="form">Login:</label>
-      <input class="input_login" type="text" id="login" name="login" placeholder="Digite um login" maxlength="6" />
+      <input class="input_login" type="text" id="login" name="login" placeholder="Digite um login" maxlength="6" value="<?php echo isset($_POST['login']) ? htmlspecialchars($_POST['login']) : ''; ?>" />
       <div id="mensagemLogin" style="color:red"><?php echo $erroUserName ?></div>
-      
+
       <label class="label_login" id="labelEmail" for="login" class="form">
         E-mail:</label>
-      <input class="input_login" type="email" id="email" name="email" placeholder="Digite um e-mail" />
+      <input class="input_login" type="email" id="email" name="email" placeholder="Digite um e-mail" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" />
       <div id="mensagemEmail" style="color:red"><?php echo $erroEmail ?></div>
 
       <label class="label_login" id="labelSenha" for="senha" class="form">
         Senha:</label>
       <div class="password-container">
-        <input class="input_login" type="password" id="senha" name="senha" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" />
+        <input class="input_login" type="password" id="senha" name="senha" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
         <i id="verSenha" class="far fa-eye"></i>
       </div>
 
       <label class="label_login" id="labelConfirmacao" for="senha2" class="form">
         Confirmação de Senha:</label>
       <div class="password-container">
-        <input class="input_login" type="password" id="senhaC" name="senha2" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" />
+        <input class="input_login" type="password" id="senhaC" name="senha2" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
         <i id="verConfirme" class="far fa-eye"></i>
       </div>
       <div class="conta">
