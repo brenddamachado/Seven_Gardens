@@ -13,3 +13,4 @@ try {
   echo json_encode(['success' => false, 'message' => 'Erro de conexão com o banco de dados: ' . $e->getMessage()]);
   exit;
 }
+?>
