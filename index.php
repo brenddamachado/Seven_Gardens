@@ -139,6 +139,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
         </div>
       </div>
       <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
+      <br><br>
       <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
     </div>
   </div>
@@ -147,7 +148,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <span class="titulopg">
     <h1>Destaques</h1>
   </span>
-  <hr>
+  <hr><br><br>
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
 
@@ -157,24 +158,23 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
     $stmt->execute();
 
     // Exibir os cards dos produtos
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      echo "<div class='produto-card'>";
-      echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
-      echo "<h3>" . $row["nome"] . "</h3>";
-      echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-      echo "<p>" . $row["descricao"] . "</p>";
-      echo "<p>Categoria: " . $row["categoria"] . "</p>";
-      echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+  echo "<div class='produto-card'>";
+  echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
+  echo "<h3>" . $row["nome"] . "</h3>";
+  echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+  echo "<p>" . $row["descricao"] . "</p>";
+  echo "<p>Categoria: " . $row["categoria"] . "</p>";
+  echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
 
-      if ($isUserMasterOrColaborador) {
-        echo "<button class='editar-btn' data-id='" . $row["idProduto"] . "' data-nome='" . $row["nome"] . "' data-preco='" . $row["preco"] . "' data-descricao='" . $row["descricao"] . "' data-categoria='" . $row["categoria"] . "' data-subcategoria='" . $row["subcategoria"] . "'>Editar</button>";
-        echo "<button class='excluir-btn' data-id='" . $row["idProduto"] . "'>Excluir</button>";
-      }
+  if ($isUserMasterOrColaborador) {
+    echo "<button class='editar-btn' data-id='" . $row["idProduto"] . "' data-nome='" . $row["nome"] . "' data-preco='" . $row["preco"] . "' data-descricao='" . $row["descricao"] . "' data-categoria='" . $row["categoria"] . "' data-subcategoria='" . $row["subcategoria"] . "'>Editar</button>";
+    echo "<button class='excluir-btn' data-id='" . $row["idProduto"] . "'>Excluir</button>";
+  }
 
-      echo "<button class='comprar-btn'>Comprar</button>";
-      echo "</div>";
-    }
-    ?>
+  echo "<button class='comprar-btn' onclick=\"adicionarAoCarrinho(" . $row['idProduto'] . ", '" . $row['nome'] . "', " . $row['preco'] . ", '" . $row['imagem'] . "')\">Comprar</button>";
+  echo "</div>";
+} ?>
   </div>
   <!-- Fim Bloco de Produtos -->
 

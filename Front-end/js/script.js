@@ -117,39 +117,46 @@ closeButton.addEventListener('click', function () {
 
 
 
-
-
+//modal addicionar produto no carrinho
 
 var contadorCarrinho = 0;
 var totalCarrinho = 0;
-
-// Array para armazenar os itens do carrinho
 var itensCarrinho = [];
 
 function adicionarAoCarrinho(idProduto, nomeProduto, precoProduto, imagemProduto) {
-  // Adicionar o produto ao carrinho
   itensCarrinho.push({ id: idProduto, nome: nomeProduto, preco: precoProduto, imagem: imagemProduto });
 
-  // Atualizar o contador do carrinho e exibir o total
   contadorCarrinho++;
   totalCarrinho += parseFloat(precoProduto);
   document.getElementById('cart-counter').textContent = contadorCarrinho;
+
+  exibirItensCarrinho(); // Atualiza o modal quando um item é adicionado
 }
 
-// Função para exibir os itens do carrinho no modal
+function removerProduto(index) {
+  totalCarrinho -= itensCarrinho[index].preco;
+  itensCarrinho.splice(index, 1);
+
+  contadorCarrinho--;
+  document.getElementById('cart-counter').textContent = contadorCarrinho;
+
+  exibirItensCarrinho(); // Atualiza o modal quando um item é removido
+}
+
 function exibirItensCarrinho() {
   var modalContent = document.getElementById('itensCarrinho');
   modalContent.innerHTML = ''; // Limpar conteúdo anterior
 
   // Iterar sobre os itens do carrinho
-  itensCarrinho.forEach(function (item) {
+  itensCarrinho.forEach(function (item, index) {
     var itemHTML = `
       <div class="item-carrinho">
-        <img src="${item.imagem}" alt="${item.nome}">
-        <div>
+        <img class="imagem-produto" src="${item.imagem}" alt="${item.nome}">
+        <div class="descricao-produto">
           <p class="nome-produto">${item.nome}</p>
           <p class="preco-produto">Preço: R$ ${item.preco}</p>
         </div>
+        <button class="excluir-produto-btn" onclick="removerProduto(${index})">Remover</button>
       </div>`;
     modalContent.insertAdjacentHTML('beforeend', itemHTML);
   });
@@ -157,27 +164,24 @@ function exibirItensCarrinho() {
   // Exibir o total do carrinho
   document.getElementById('total-carrinho').textContent = `Total: R$ ${totalCarrinho.toFixed(2)}`;
 }
-
-// Função para exibir o modal do carrinho
 function exibirModalCarrinho() {
-  exibirItensCarrinho(); // Exibir os itens do carrinho ao abrir o modal
+  exibirItensCarrinho();
   var modal = document.getElementById('modalCarrinho');
   modal.style.display = 'block';
 }
 
-// Fechar o modal quando o usuário clicar no botão de fechar
 document.getElementsByClassName('close')[0].onclick = function () {
   var modal = document.getElementById('modalCarrinho');
   modal.style.display = 'none';
 }
 
-// Fechar o modal quando o usuário clicar fora dele
 window.onclick = function (event) {
   var modal = document.getElementById('modalCarrinho');
   if (event.target == modal) {
     modal.style.display = 'none';
   }
 }
+
 
 // Função para modal de editar e excluir produtos Master
 
