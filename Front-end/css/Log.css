@@ -14,7 +14,6 @@ header {
 
 .header {
   height: 180px;
-
   display: flex;
   justify-content: space-between;
 }
@@ -30,7 +29,6 @@ header {
   font-size: 20px;
 }
 
-
 .logo {
   width: 155px;
   height: 200px;
@@ -44,13 +42,13 @@ header {
   align-items: center;
   font-size: 12px;
   position: relative;
-  /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
 
 a {
   color: inherit;
-  text-decoration: none; /* Remove o sublinhado */
+  text-decoration: none;
 }
+
 .opcoes h2 {
   color: #fbf3dc;
 }
@@ -62,7 +60,6 @@ a {
   padding: 4px 10px;
 }
 
-
 .cadastrar {
   text-decoration: none;
   background-color: #405b39;
@@ -71,17 +68,11 @@ a {
   padding: 4px 10px;
 }
 
-/* fim do header */
-
-
-/* inicio do form*/
-
-
+/* inicio do form */
 form h1 {
   margin-top: 0%;
   padding-bottom: 4%;
   color: #0f2b05;
-
 }
 
 button[type="submit"] {
@@ -108,13 +99,10 @@ form {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 50px;
   margin: 0 auto;
-  /* Isso centralizará o formulário na página */
   max-width: 400px;
-  /* Defina a largura máxima para evitar que o formulário se estenda demais */
   margin-bottom: 50px;
   margin-top: 150px;
 }
-
 
 label {
   margin-bottom: 5px;
@@ -131,9 +119,9 @@ input[type="text"] {
   box-shadow: 1px 1px 4px #0000001c;
 }
 
-/* fim do form*/
+/* fim do form */
 
-/* inicio da tabela*/
+/* inicio da tabela */
 .tabela_toda {
   display: flex;
   flex-direction: column;
@@ -149,20 +137,16 @@ input[type="text"] {
 .tabela {
   border-collapse: collapse;
   border: 1px solid #000;
-  /* Borda da tabela */
   background-color: #fff;
-
 }
 
 .corpo_tabela {
   display: flex;
   border: 1px solid #000;
-  /* Borda da tabela */
   height: 75px;
 }
 
 .corpo_tabela p {
-
   flex: 0.6;
   padding: 8px;
   display: flex;
@@ -179,7 +163,6 @@ input[type="text"] {
 
 .border p {
   margin: 0;
-
 }
 
 .topo_tabela {
@@ -189,7 +172,7 @@ input[type="text"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px 10px 0 0
+  border-radius: 10px 10px 0 0;
 }
 
 /* inicio DARK MODE */
@@ -205,7 +188,7 @@ body.dark-mode .topo_tabela {
 
 body.dark-mode header,
 body.dark-mode footer {
-  background-color: #070B06
+  background-color: #070B06;
 }
 
 body.dark-mode .opcoes {
@@ -282,53 +265,40 @@ footer {
   background-color: #0f2b05;
   height: 200px;
   position: relative;
-
-
 }
 
 .social-icons {
   text-align: center;
-
-
 }
 
 .social {
   color: #fff;
-  /* Cor do texto */
   text-align: center;
   font-size: 16px;
-  /* Tamanho da fonte */
   margin-top: 55px;
-
 }
 
 .social-icons .icon {
   display: inline-block;
   margin: 10px 20px 0;
-  /* Adicionando uma margem superior de  */
   font-size: 30px;
-  /* Aumentei o tamanho dos ícones */
   color: #fff;
   transition: transform 0.3s ease;
-  /* Adiciona uma transição suave */
 }
 
 .social-icons .icon:hover {
   transform: scale(1.2);
-  /* Aumenta o tamanho do ícone em 20% no hover */
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   .conteudo {
     width: 75% !important;
-
   }
 
   .header .paginas li {
-
     font-size: 15px;
   }
- 
 }
 
 @media (max-width: 1059px) {
@@ -343,22 +313,28 @@ footer {
   }
 }
 
+@media (max-width: 431px) {
+  #tabelaUsuarios {
+    width: 50%;
+  }
+}
 
 @media (max-width: 320px) {
-.logo {
-width: 100px;
-}}
-
+  .logo {
+    width: 100px;
+  }
+}
 
 @media (max-width: 360px) {
   .logo {
-  width: 120px;
-  }}
-  
+    width: 120px;
+  }
+}
+
 #tabelaUsuarios {
   margin: 0 auto; 
-width: 80%;
-margin-top: 10%;
+  width: 80%;
+  margin-top: 10%;
   border-collapse: collapse;
   background-color: #fff;
   border-radius: 10px;
@@ -366,14 +342,13 @@ margin-top: 10%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
 #tabelaUsuarios th,
 #tabelaUsuarios td {
   padding: 15px;
   border-bottom: 1px solid #e0e0e0;
   text-align: center;
 }
-/* Estilos para a tabela de usuario */
+
 #tabelaUsuarios th {
   background-color: #405b39;
   color: #f9f9f9;
@@ -405,7 +380,8 @@ margin-top: 10%;
   border-right: none;
 }
 
-.filtroo h4{
+.filtroo {
   margin-top: 3%;
   margin-left: 2%;
+  cursor: pointer;
 }
