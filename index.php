@@ -150,158 +150,81 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
 
-<?php
-  $query = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
-  $stmt = $pdo->prepare($query);
-  $stmt->execute();
+    <?php
+    $query = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
 
-// Exibir os cards dos produtos
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    echo "<div class='produto-card'>";
-    echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
-    echo "<h3>" . $row["nome"] . "</h3>";
-    echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-    echo "<p>" . $row["descricao"] . "</p>";
-    echo "<p>Categoria: " . $row["categoria"] . "</p>";
-    echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+    // Exibir os cards dos produtos
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      echo "<div class='produto-card'>";
+      echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
+      echo "<h3>" . $row["nome"] . "</h3>";
+      echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+      echo "<p>" . $row["descricao"] . "</p>";
+      echo "<p>Categoria: " . $row["categoria"] . "</p>";
+      echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
 
-    if ($isUserMasterOrColaborador) {
+      if ($isUserMasterOrColaborador) {
         echo "<button class='editar-btn' data-id='" . $row["idProduto"] . "' data-nome='" . $row["nome"] . "' data-preco='" . $row["preco"] . "' data-descricao='" . $row["descricao"] . "' data-categoria='" . $row["categoria"] . "' data-subcategoria='" . $row["subcategoria"] . "'>Editar</button>";
         echo "<button class='excluir-btn' data-id='" . $row["idProduto"] . "'>Excluir</button>";
-    }
-
-    echo "<button class='comprar-btn'>Comprar</button>";
-    echo "</div>";
-}
-?>
-</div>
-<!-- Fim Bloco de Produtos -->
-
- <!-- Modal de Edição -->
-<div id="modalEditar" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Editar Produto</h2>
-        <form id="editarForm" method="POST" action="/Seven_Gardens/Back-end/editarProduto.php">
-            <input type="hidden" name="idProduto" id="editarId">
-            <label for="editarNome">Nome:</label>
-            <input type="text" name="nome" id="editarNome" required>
-            <br>
-            <label for="editarPreco">Preço:</label>
-            <input type="text" name="preco" id="editarPreco" required>
-            <br>
-            <label for="editarDescricao">Descrição:</label>
-            <textarea name="descricao" id="editarDescricao" required></textarea>
-            <br>
-            <label for="editarCategoria">Categoria:</label>
-            <input type="text" name="categoria" id="editarCategoria" required>
-            <br>
-            <label for="editarSubcategoria">Subcategoria:</label>
-            <input type="text" name="subcategoria" id="editarSubcategoria" required>
-            <br>
-            <button type="submit">Salvar Alterações</button>
-        </form>
-    </div>
-</div>
-
-  <!-- Modal de Exclusão -->
-<div id="modalExcluir" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Excluir Produto</h2>
-        <p>Tem certeza de que deseja excluir este produto?</p>
-        <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
-            <input type="hidden" name="idProduto" id="excluirId">
-            <button type="submit">Excluir</button>
-            <button type="button" class="cancel-btn">Cancelar</button>
-        </form>
-    </div>
-</div>
-
-
-  <script>
-  // Função para abrir o modal de edição com os dados do produto
-// Função para abrir o modal de edição com os dados do produto
-document.querySelectorAll('.editar-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        document.getElementById('editarId').value = this.getAttribute('data-id');
-        document.getElementById('editarNome').value = this.getAttribute('data-nome');
-        document.getElementById('editarPreco').value = this.getAttribute('data-preco');
-        document.getElementById('editarDescricao').value = this.getAttribute('data-descricao');
-        document.getElementById('editarCategoria').value = this.getAttribute('data-categoria');
-        document.getElementById('editarSubcategoria').value = this.getAttribute('data-subcategoria');
-        document.getElementById('modalEditar').style.display = 'block';
-    });
-});
-
-
-    // Função para abrir o modal de exclusão com o id do produto
-document.querySelectorAll('.excluir-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        document.getElementById('excluirId').value = this.getAttribute('data-id');
-        document.getElementById('modalExcluir').style.display = 'block';
-    });
-});
-
-    // Fechar o modal quando o usuário clicar no "X"
-    document.querySelectorAll('.close').forEach(span => {
-      span.addEventListener('click', function() {
-        this.parentElement.parentElement.style.display = 'none';
-      });
-    });
-
-    // Fechar o modal de exclusão quando o usuário clicar no botão "Cancelar"
-    document.querySelector('.cancel-btn').addEventListener('click', function() {
-      document.getElementById('modalExcluir').style.display = 'none';
-    });
-
-    // Fechar os modais quando o usuário clicar fora do modal
-    window.addEventListener('click', function(event) {
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
       }
-    });
-  </script>
+
+      echo "<button class='comprar-btn'>Comprar</button>";
+      echo "</div>";
+    }
+    ?>
+  </div>
+  <!-- Fim Bloco de Produtos -->
 
   <style>
-    /* Estilos para os modais */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgb(0, 0, 0);
-      background-color: rgba(0, 0, 0, 0.4);
-    }
 
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 500px;
-      position: relative;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
   </style>
+
+  <!-- Modal de Edição -->
+  <div id="modalEditar" class="modal-editar">
+    <div class="modal-content-editar">
+      <span class="close-editar">&times;</span>
+      <h2>Editar Produto</h2>
+      <form id="editarForm" method="POST" action="/Seven_Gardens/Back-end/editarProduto.php">
+        <input type="hidden" name="idProduto" id="editarId">
+        <label for="editarNome">Nome:</label>
+        <input type="text" name="nome" id="editarNome" required>
+        <br>
+        <label for="editarPreco">Preço:</label>
+        <input type="text" name="preco" id="editarPreco" required>
+        <br>
+        <label for="editarDescricao">Descrição:</label>
+        <textarea name="descricao" id="editarDescricao" required></textarea>
+        <br>
+        <label for="editarCategoria">Categoria:</label>
+        <input type="text" name="categoria" id="editarCategoria" required>
+        <br>
+        <label for="editarSubcategoria">Subcategoria:</label>
+        <input type="text" name="subcategoria" id="editarSubcategoria" required>
+        <br>
+        <button type="submit">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de Exclusão -->
+  <div id="modalExcluir" class="modal-excluir">
+    <div class="modal-content-excluir">
+      <span class="close-excluir">&times;</span>
+      <h2>Excluir Produto</h2>
+      <p>Tem certeza de que deseja excluir este produto?</p>
+      <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
+        <input type="hidden" name="idProduto" id="excluirId">
+        <button type="submit">Excluir</button>
+        <button type="button" class="cancel-btn">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+
+
+
   <!-- Fim do Bloco de Produtos -->
 
   <div id="itensCarrinho" class="carrinho">
@@ -342,6 +265,7 @@ document.querySelectorAll('.excluir-btn').forEach(button => {
 
 
   <script src="./Front-end/js/script.js"></script>
+
 </body>
 
 </html>
