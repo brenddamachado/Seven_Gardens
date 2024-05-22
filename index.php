@@ -30,6 +30,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <header>
     <section class="header">
       <div>
+        
         <a href="index.html"><img class="logo" src="Front-end/img/logoatual.svg" alt="" srcset="" /></a>
       </div>
 
