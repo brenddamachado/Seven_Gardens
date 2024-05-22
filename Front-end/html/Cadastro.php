@@ -205,7 +205,7 @@
 
       <div id="mensagemgenero"></div>
       <label for="cpf" id="labelCpf" class="label_login">CPF:</label>
-      <input class="input_login" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Digite seu cpf" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : ''; ?>" style="border: 1px solid red;" />
+      <input class="input_login" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Digite seu cpf" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : ''; ?>" />
       <div id="mensagemCPF" style="color:red"><?php echo $erroCpf ?></div>
 
 
@@ -267,12 +267,12 @@
       <input class="input_login" type="text" id="comple" name="complemento" placeholder="Digite o complemento" value="<?php echo isset($_POST['complemento']) ? htmlspecialchars($_POST['complemento']) : ''; ?>" />
 
       <label class="label_login" id="labelLogin" for="login" class="form">Login:</label>
-      <input class="input_login" type="text" id="login" name="login" placeholder="Digite um login" maxlength="6" value="<?php echo isset($_POST['login']) ? htmlspecialchars($_POST['login']) : ''; ?>" style="border: 1px solid red;" />
+      <input class="input_login" type="text" id="login" name="login" placeholder="Digite um login" maxlength="6" value="<?php echo isset($_POST['login']) ? htmlspecialchars($_POST['login']) : ''; ?>" />
       <div id="mensagemLogin" style="color:red"><?php echo $erroUserName ?></div>
 
       <label class="label_login" id="labelEmail" for="login" class="form">
         E-mail:</label>
-      <input class="input_login" type="email" id="email" name="email" placeholder="Digite um e-mail" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" style="border: 1px solid red;" />
+      <input class="input_login <?php echo $erroEmail ? 'com_erro' : ''; ?>" type="email" id="email" name="email" placeholder="Digite um e-mail" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" />
       <div id="mensagemEmail" style="color:red"><?php echo $erroEmail ?></div>
 
       <label class="label_login" id="labelSenha" for="senha" class="form">
