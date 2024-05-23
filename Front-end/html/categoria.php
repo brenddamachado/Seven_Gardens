@@ -31,8 +31,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
   <?php include('header.php'); ?>
-
-  <div class="catalogo">
+  <div class="container">
     <h1>Produtos - <?php echo htmlspecialchars($categoria); ?></h1>
     <div class="bloco-produtos">
       <?php if ($produtos) : ?>
@@ -50,7 +49,6 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <?php endif; ?>
     </div>
   </div>
-
 
   <section id="accessibility-section">
     <i class="fas fa-universal-access" id="accessibility-icon"></i>

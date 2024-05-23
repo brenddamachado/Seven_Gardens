@@ -14,6 +14,7 @@ body {
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  min-height: 100vh;
 }
 
 .imgProduto {
@@ -169,53 +170,33 @@ button[type="submit"]:hover {
 footer {
   background-color: #0f2b05;
   height: 200px;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
-
-
 
 .social-icons {
   text-align: center;
-
-
 }
 
 .social-icons p {
   color: #fff;
-  /* Cor do texto */
   text-align: center;
   font-size: 16px;
-  /* Tamanho da fonte */
-
 }
 
 .social-icons .icon {
   display: inline-block;
   margin: 10px 10px 0;
-  /* Adicionando uma margem superior de  */
   font-size: 30px;
-  /* Aumentei o tamanho dos ícones */
   color: #fff;
   transition: transform 0.3s ease;
-  /* Adiciona uma transição suave */
 }
 
 .social-icons .icon:hover {
   transform: scale(1.2);
-  /* Aumenta o tamanho do ícone em 20% no hover */
 }
-
-footer {
-  background-color: #0f2b05;
-  height: 200px;
-  flex-direction: column;
-  align-items: center;
-
-}
-
 
 body.dark-mode {
   background-color: #151515;
@@ -257,7 +238,6 @@ body.dark-mode .social-icons .icon {
 body.dark-mode .social-icons .icon:hover {
   color: #4CAF50;
 }
-
 
 #accessibility-section {
   position: fixed;
@@ -305,13 +285,11 @@ body.dark-mode .social-icons .icon:hover {
 #mobile {
   position: fixed;
   left: -100%;
-  /* Inicialmente fora da tela à esquerda */
   top: 0;
   width: 300px;
   height: 100vh;
   background-color: #405b39;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
-  /* Ajuste na sombra para o lado direito */
   transition: left 0.5s;
   z-index: 1000;
   display: flex;
@@ -322,33 +300,24 @@ body.dark-mode .social-icons .icon:hover {
 .close-btn {
   position: absolute;
   top: 10px;
-  /* Ajuste conforme necessário */
   right: 10px;
-  /* Posição do ícone no canto superior direito do menu lateral */
   cursor: pointer;
   color: #fbf3dc;
-  /* Cor do ícone */
   font-size: 24px;
-  /* Tamanho do ícone */
 }
 
 .dentro_icon {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  /* Espaçamento interno */
 }
 
 .dentro_icon a {
   color: #fbf3dc;
-  /* Cor dos links */
   padding: 10px;
-  /* Espaçamento dos links */
   text-decoration: none;
   font-size: 16px;
-  /* Tamanho da fonte */
   border-bottom: 1px solid #fbf3dc;
-  /* Linha separadora */
 }
 
 .mobile {
@@ -369,7 +338,6 @@ body.dark-mode .social-icons .icon:hover {
 }
 
 #hamburguer {
-
   width: 35px;
   margin-top: 2px;
   margin-left: 15px;
