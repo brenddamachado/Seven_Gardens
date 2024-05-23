@@ -32,6 +32,7 @@
   </header>
 
 
+
   <!-- Diálogo Modal para Adicionar Produto -->
   <dialog id="modalAdicionarProduto">
     <div class="form-header">
@@ -56,14 +57,26 @@
       <div class="input-box">
         <label for="categoriaProduto">Categoria:</label>
         <select id="categoriaProduto" name="categoriaProduto" required>
-          <option value="singelas">Singelas</option>
-          <option value="dobradas">Dobradas</option>
+          <option value="Enxertos">Enxertos</option>
+          <option value="Naturais (De semente)">Naturais (De semente)</option>
+          <option value="Especiais">Especiais</option>
+          <option value="Insumos">Insumos</option>
         </select>
       </div>
 
       <div class="input-box">
         <label for="subcategoriaProduto">Subcategoria:</label>
-        <input type="text" id="subcategoriaProduto" name="subcategoriaProduto" required>
+        <select id="subcategoriaProduto" name="subcategoriaProduto" required>
+          <option value="Multipétalas">Multipétalas</option>
+          <option value="Dobradas">Dobradas</option>
+          <option value="Singelas">Singelas</option>
+          <option value="Fertilizante">Fertilizante</option>
+        </select>
+      </div>
+
+      <div class="input-box">
+        <label for="quantidadeProduto">Quantidade em Estoque:</label>
+        <input type="number" id="quantidadeProduto" name="quantidadeProduto" min="0" required>
       </div>
 
       <div class="input-box">
@@ -79,16 +92,18 @@
         <img id="previewImage" src="#" alt="Imagem de pré-visualização" style="display:none;">
       </div>
 
+      <!-- Elemento para exibir a mensagem de resposta -->
+      <div id="responseMessageProduto" style="display:none;"></div>
+
       <!-- Seus botões de envio e cancelamento -->
       <div class="button-box">
         <button type="submit" id="add_produto">Adicionar</button>
-        <button type="button" onclick="document.getElementById('modalAdicionarProduto').close()" id="cancelar_add">Cancelar</button>
+        <button type="button" onclick="fecharModalAdicionarProduto()" id="cancelar_add">Cancelar</button>
       </div>
-
-      <!-- Elemento para mensagem de resposta -->
-      <div id="responseMessageProduto" style="display:none;"></div>
     </form>
   </dialog>
+
+
 
   <!-- Diálogo Modal para Adicionar Colaborador -->
   <dialog id="modalAdicionarColaborador">
@@ -204,34 +219,6 @@
     </div>
   </footer>
 
-  <!-- JavaScript para Controlar o Diálogo Modal e Pré-visualização da Imagem 
-  <script>
-    const modalAdicionarProduto = document.getElementById('modalAdicionarProduto');
-    const previewImage = document.getElementById('previewImage');
-
-    function abrirModalAdicionarProduto() {
-      modalAdicionarProduto.showModal();
-    }
-
-    function fecharModalAdicionarProduto() {
-      modalAdicionarProduto.close();
-    }
-
-    function previewImg(event) {
-      const input = event.target;
-      const file = input.files[0];
-      const reader = new FileReader();
-
-      reader.onload = function () {
-        previewImage.src = reader.result;
-      };
-
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    }
-  </script>
--->
           
           <script src=" ../js/acessibilidade.js"></script>
 
