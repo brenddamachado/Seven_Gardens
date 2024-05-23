@@ -38,10 +38,9 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <?php if ($produtos) : ?>
         <?php foreach ($produtos as $produto) : ?>
           <div class="produto-card">
-            <img class="imgProduto" src="../<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
+            <img class="imgProduto" src="../../<?php echo htmlspecialchars($produto['imagem']); ?>" alt="<?php echo htmlspecialchars($produto['nome']); ?>">
             <h3><?php echo htmlspecialchars($produto['nome']); ?></h3>
             <p>Preço: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
-            <p><?php echo htmlspecialchars($produto['descricao']); ?></p>
             <p>Categoria: <?php echo htmlspecialchars($produto['categoria']); ?></p>
             <p>Subcategoria: <?php echo htmlspecialchars($produto['subcategoria']); ?></p>
           </div>

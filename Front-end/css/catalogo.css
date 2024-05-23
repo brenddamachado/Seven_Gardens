@@ -16,6 +16,10 @@ body {
   border-radius: 8px;
 }
 
+.imgProduto {
+  width: 250px;
+}
+
 /* Título */
 h1 {
   text-align: center;
@@ -103,6 +107,55 @@ button[type="submit"]:hover {
 .produto p {
   margin: 5px 0;
   color: #666;
+}
+
+.bloco-produtos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Define 4 colunas iguais */
+  gap: 20px; /* Espaçamento entre os cards */
+  padding: 20px; /* Espaçamento interno das bordas do contêiner */
+}
+
+.produto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  text-align: center; /* Alinha o texto horizontalmente */
+  display: flex; /* Torna o card um flex container */
+  flex-direction: column; /* Define a direção do flex para coluna */
+  justify-content: space-between; /* Distribui o espaço uniformemente entre os itens */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  transition: box-shadow 0.3s ease; /* Adiciona uma transição suave para a sombra do card */
+}
+
+.produto-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais forte quando o mouse passa por cima */
+}
+
+.produto-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.produto-card p {
+  margin-bottom: 8px;
+}
+
+.comprar-btn {
+  background-color: #405b39; /* Cor de fundo verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comprar-btn:hover {
+  background-color: #112a08; /* Altera a cor de fundo ao passar o mouse */
 }
 
 /* Mensagem de Nenhum Produto Encontrado */

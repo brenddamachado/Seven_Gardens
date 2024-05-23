@@ -43,7 +43,6 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
   <?php include('header.php'); ?>
-
   <div class="container">
     <h1>Catálogo de Produtos</h1>
 
@@ -81,10 +80,9 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <?php if (isset($produtos) && count($produtos) > 0) : ?>
         <?php foreach ($produtos as $produto) : ?>
           <div class="produto-card">
-            <img class="imgProduto" src="../<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
+            <img class="imgProduto" src="../../<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
             <h3><?= htmlspecialchars($produto['nome']) ?></h3>
             <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-            <p><?= htmlspecialchars($produto['descricao']) ?></p>
             <p>Categoria: <?= htmlspecialchars($produto['categoria']) ?></p>
             <p>Subcategoria: <?= htmlspecialchars($produto['subcategoria']) ?></p>
           </div>
