@@ -157,7 +157,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 
-    // Exibir os cards dos produtos
+  // Exibir os cards dos produtos
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   echo "<div class='produto-card'>";
   echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
@@ -168,11 +168,14 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
 
   if ($isUserMasterOrColaborador) {
+    echo "<div>"; // Container para os botões
     echo "<button class='editar-btn' data-id='" . $row["idProduto"] . "' data-nome='" . $row["nome"] . "' data-preco='" . $row["preco"] . "' data-descricao='" . $row["descricao"] . "' data-categoria='" . $row["categoria"] . "' data-subcategoria='" . $row["subcategoria"] . "'>Editar</button>";
     echo "<button class='excluir-btn' data-id='" . $row["idProduto"] . "'>Excluir</button>";
+    echo "</div>"; // Fim do container
+  } else {
+    echo "<button class='comprar-btn' onclick=\"adicionarAoCarrinho(" . $row['idProduto'] . ", '" . $row['nome'] . "', " . $row['preco'] . ", '" . $row['imagem'] . "')\">Comprar</button>";
   }
 
-  echo "<button class='comprar-btn' onclick=\"adicionarAoCarrinho(" . $row['idProduto'] . ", '" . $row['nome'] . "', " . $row['preco'] . ", '" . $row['imagem'] . "')\">Comprar</button>";
   echo "</div>";
 } ?>
   </div>
