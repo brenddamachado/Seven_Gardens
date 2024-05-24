@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,7 +26,7 @@
             <a href="#tab3-content">Endereços</a>
             <a href="#tab4-content">Detalhes da Conta</a>
             <a href="#tab5-content">Segurança</a>
-            <a href="#tab6-content">Log out</a>
+           
         </div>
 
         <div class="conteudo-principal">
@@ -153,6 +155,36 @@
 
     </div>
     </div>
+<?php
+// Verifica se o formulário foi submetido
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Inclui o arquivo de conexão com o banco de dados
+    include '../../Front-end/PHP/connect.php';
+
+    // Obtém os valores do formulário
+    $nova_senha = $_POST['senha'];
+    $confirmacao_senha = $_POST['senha2'];
+
+    // Verifica se as senhas coincidem
+    if ($nova_senha !== $confirmacao_senha) {
+        echo "As senhas não coincidem. Por favor, tente novamente.";
+    } else {
+        // Hash da senha
+        $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+
+        // Atualiza a senha no banco de dados
+        $sql = "UPDATE usuarios SET senha='$senha_hash' WHERE id=1"; // Substitua 'usuarios' pelo nome da sua tabela e 'id=1' pela condição que identifica o usuário
+        if ($conn->query($sql) === TRUE) {
+            echo "Senha alterada com sucesso.";
+        } else {
+            echo "Erro ao alterar senha: " . $conn->error;
+        }
+    }
+
+    // Fecha a conexão
+    $conn->close();
+}
+?>
 
 
     <section id="accessibility-section">
