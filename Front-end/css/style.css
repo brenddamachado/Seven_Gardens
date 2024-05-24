@@ -273,33 +273,27 @@ html {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.editar-btn{
-  background-color: #4caf50;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+.editar-btn,
   .excluir-btn {
-    background-color: #4caf50;
+    background-color: #7ED957;
     border: none;
     color: white;
+    border-radius: 5px;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-right: 10px; 
+  }
+
+  .excluir-btn {
+    background-color: #DC0C0C;
+    margin-right: 0; 
   }
 
 .comprar-btn:hover {
-  background-color: #112a08; /* Altera a cor de fundo ao passar o mouse */
+  background-color: #112a08; 
 }
 
 
