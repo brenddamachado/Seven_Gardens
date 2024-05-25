@@ -1,69 +1,60 @@
-var contadorCarrinho = 0;
-var totalCarrinho = 0;
-var itensCarrinho = [];
+let itensCarrinho = [];
+let totalCarrinho = 0;
 
-function adicionarAoCarrinho(idProduto, nomeProduto, precoProduto, imagemProduto) {
-  itensCarrinho.push({ id: idProduto, nome: nomeProduto, preco: precoProduto, imagem: imagemProduto });
-
-  contadorCarrinho++;
-  totalCarrinho += parseFloat(precoProduto);
-  document.getElementById('cart-counter').textContent = contadorCarrinho;
-
-  exibirItensCarrinho(); // Atualiza o modal quando um item é adicionado
+function adicionarAoCarrinho(id, nome, preco, imagem) {
+  const itemExistente = itensCarrinho.find(item => item.id === id);
+  if (itemExistente) {
+    itemExistente.quantidade += 1;
+  } else {
+    itensCarrinho.push({ id, nome, preco, imagem, quantidade: 1 });
+  }
+  totalCarrinho += preco;
+  document.getElementById('cart-counter').textContent = itensCarrinho.length;
 }
 
-
-
 function removerProduto(index) {
-  totalCarrinho -= itensCarrinho[index].preco;
+  const item = itensCarrinho[index];
+  totalCarrinho -= item.preco * item.quantidade;
   itensCarrinho.splice(index, 1);
-
-  contadorCarrinho--;
-  document.getElementById('cart-counter').textContent = contadorCarrinho;
-
-  exibirItensCarrinho(); // Atualiza o modal quando um item é removido
+  document.getElementById('cart-counter').textContent = itensCarrinho.length;
+  exibirItensCarrinho();
 }
 
 function exibirItensCarrinho() {
-  var modalContent = document.getElementById('itensCarrinho');
-  modalContent.innerHTML = ''; // Limpar conteúdo anterior
-
-  // Iterar sobre os itens do carrinho
-  itensCarrinho.forEach(function (item, index) {
-    var itemHTML = `
+  const modalContent = document.getElementById('itensCarrinho');
+  modalContent.innerHTML = '';
+  itensCarrinho.forEach((item, index) => {
+    const itemHTML = `
       <div class="item-carrinho">
         <img class="imagem-produto" src="${item.imagem}" alt="${item.nome}">
         <div class="descricao-produto">
           <p class="nome-produto">${item.nome}</p>
           <p class="preco-produto">Preço: R$ ${item.preco}</p>
+          <p class="quantidade-produto">Quantidade: ${item.quantidade}</p>
         </div>
         <button class="excluir-produto-btn" onclick="removerProduto(${index})">Remover</button>
       </div>`;
     modalContent.insertAdjacentHTML('beforeend', itemHTML);
   });
-
-  // Exibir o total do carrinho
   document.getElementById('total-carrinho').textContent = `Total: R$ ${totalCarrinho.toFixed(2)}`;
 }
 
 function exibirModalCarrinho() {
   exibirItensCarrinho();
-  var modal = document.getElementById('modalCarrinho');
-  modal.style.display = 'block';
+  document.getElementById('modalCarrinho').style.display = 'block';
 }
 
-// Ajuste para fechar o modal corretamente
-document.querySelector('.modal-carrinho .close').onclick = function () {
-  var modal = document.getElementById('modalCarrinho');
-  modal.style.display = 'none';
+document.getElementsByClassName('close')[0].onclick = function () {
+  document.getElementById('modalCarrinho').style.display = 'none';
 }
 
 window.onclick = function (event) {
-  var modal = document.getElementById('modalCarrinho');
+  const modal = document.getElementById('modalCarrinho');
   if (event.target == modal) {
     modal.style.display = 'none';
   }
 }
+
 
 // Função para modal de editar e excluir produtos Master
 

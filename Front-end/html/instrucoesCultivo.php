@@ -98,6 +98,7 @@
       </footer>
       <script src=" ../js/acessibilidade.js"></script>
       <script src="../js/instrucoesCultivo.js"></script>
+      <script src="../js/carrinho.js"></script>
 </body>
 
 </html>

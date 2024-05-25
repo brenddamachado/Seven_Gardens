@@ -21,31 +21,41 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <link rel="shortcut icon" href="Front-end/img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="Front-end/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+  <script src="Front-end/js/acessibilidade.js"></script>
 </head>
 
 <body>
+
   <header>
     <section class="header">
       <div>
-        <a href="index.php"><img class="logo" src="Front-end/img/logoatual.svg" alt="" srcset="" /></a>
+        <a href="index.php"><img class="logo" src="Front-end/img/logoatual.svg" alt="Logo Seven Gardens" /></a>
       </div>
 
       <div class="pesquisa-container">
         <input type="search" name="" id="" class="pesquisa" />
-        <div for="" class="pesquisa-icon"><i class="fas fa-search"></i></div>
+        <div class="pesquisa-icon"><i class="fas fa-search"></i></div>
       </div>
       <nav class="nav_a">
         <div class="navegacao">
           <ul>
-            <li class="home">
-              <a class="login" href="Front-end/html/Login.php">Login</a>
-            </li>
-            <li class="login">
-              <a href="Front-end/html/Cadastro.php" class="cadastro">Cadastro</a>
-            </li>
+            <?php if (isset($_SESSION['usuario_id'])) : ?>
+              <li class="welcome-logout">
+                <span>
+                  <?php if ($_SESSION['usuario_tipo'] === 'Master' || $_SESSION['usuario_tipo'] === 'Colaborador') : ?>
+                    Olá, administrador!
+                  <?php else : ?>
+                    Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>!
+                  <?php endif; ?>
+                </span>
+                <a href="Front-end/html/logout.php" class="logout">Logout</a>
+              </li>
+            <?php else : ?>
+              <li class="home"><a class="login" href="Front-end/html/Login.php">Login</a></li>
+              <li class="login"><a href="Front-end/html/Cadastro.php" class="cadastro">Cadastro</a></li>
+            <?php endif; ?>
           </ul>
         </div>
       </nav>
@@ -57,10 +67,11 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
           <span class="prod_dropdown">Produtos</span> <i class="fas fa-chevron-down"> </i>
         </div>
         <div class="dropdown-content">
-          <a href="#"> Enxertos</a>
-          <a href="#"> Naturais (De semente) </a>
-          <a href="#">Especiais</a>
-          <a href="#">Insumos</a>
+          <a href="Front-end/html/catalogo.php">Ver Todos</a>
+          <a href="Front-end/html/categoria.php?categoria=Enxertos">Enxertos</a>
+          <a href="Front-end/html/categoria.php?categoria=Naturais%20(De%20semente)">Naturais (De semente)</a>
+          <a href="Front-end/html/categoria.php?categoria=Especiais">Especiais</a>
+          <a href="Front-end/html/categoria.php?categoria=Insumos">Insumos</a>
         </div>
       </div>
 
@@ -79,35 +90,92 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
         <!-- Contador de itens no carrinho -->
         <span id="cart-counter" class="cart-counter">0</span>
       </div>
-
     </section>
     <section class="section_mobile">
-      <div class="mobile_i"> <i id="hamburguer" class="fa fa-bars"></i></div>
-
+      <div class="mobile_i"><i id="hamburguer" class="fa fa-bars"></i></div>
       <section id="mobile" class="mobile">
-
         <div id="dentro_icon" class="dentro_icon">
           <div class="close-btn"><i class="fas fa-times"></i></div>
           <a href="Front-end/html/Login.php">Login</a>
-
           <a href="Front-end/html/Cadastro.php">Cadastro</a>
-
-          <a href="#"> Enxertos</a>
-          <a href="#"> Naturais (De semente) </a>
-          <a href="#">Especiais</a>
-          <a href="#">Insumos</a>
+          <a href="Front-end/html/catalogo.php">Ver Todos</a>
+          <a href="Front-end/html/categoria.php?categoria=Enxertos">Enxertos</a>
+          <a href="Front-end/html/categoria.php?categoria=Naturais%20(De%20semente)">Naturais (De semente)</a>
+          <a href="Front-end/html/categoria.php?categoria=Especiais">Especiais</a>
+          <a href="Front-end/html/categoria.php?categoria=Insumos">Insumos</a>
           <a href="Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
           <a href="Front-end/html/Contato.php">Contato</a>
           <a href="Front-end/html/Sobre.php">Sobre</a>
-
         </div>
-
       </section>
       <!-- Ícone do carrinho para versão mobile -->
       <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" onclick="exibirModalCarrinho()" />
     </section>
-
   </header>
+
+  <style>
+    .header ul li {
+      list-style-type: none;
+      font-size: 20px;
+    }
+
+    /* Estilo para a mensagem de boas-vindas no header */
+    .header .navegacao ul li span {
+      font-size: 16px;
+      color: #8d9776;
+      /* Cor da mensagem */
+      margin-right: 15px;
+      /* Espaço entre a mensagem e o botão de logout */
+    }
+
+    /* Estilo para o botão de logout no header */
+    .header .navegacao ul li a.logout {
+      background-color: #8d9776;
+      /* Cor de fundo do botão de logout */
+      color: #fff;
+      /* Cor do texto do botão de logout */
+      padding: 10px 20px;
+      /* Espaçamento interno do botão de logout */
+      border-radius: 5px;
+      /* Borda arredondada do botão de logout */
+      text-decoration: none;
+      /* Remover sublinhado */
+      font-size: 16px;
+      /* Tamanho da fonte */
+      transition: background-color 0.3s ease;
+      /* Transição suave para mudança de cor */
+    }
+
+    .header .navegacao ul li a.logout:hover {
+      background-color: #6c7a5a;
+      /* Cor de fundo ao passar o mouse */
+    }
+
+    /* Botões de Login e Cadastro */
+    .nav_a .navegacao ul li a.login,
+    .nav_a .navegacao ul li a.cadastro {
+      color: #fbf3dc;
+      /* Cor do texto dos botões */
+      text-decoration: none;
+      /* Remove o sublinhado dos links */
+      border-radius: 7px;
+      /* Borda arredondada */
+      padding: 4px 10px;
+      /* Espaçamento interno */
+    }
+
+    .nav_a .navegacao ul li a.cadastro {
+      background-color: #405b39;
+      /* Cor de fundo do botão de cadastro */
+    }
+
+    .navegacao ul {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+
   <!-- Carrossel para os Banner da loja Seven Gardens -->
   <div class="carousel">
     <div class="carousel-inner">
@@ -138,6 +206,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
         </div>
       </div>
       <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
+      <br><br>
       <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
     </div>
   </div>
@@ -146,12 +215,13 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <span class="titulopg">
     <h1>Destaques</h1>
   </span>
-  <hr>
+  <hr><br><br>
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
 
     <?php
-    $stmt = $pdo->prepare("SELECT * FROM produto"); // Ajuste essa consulta SQL conforme sua tabela de produtos
+    $query = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
+    $stmt = $pdo->prepare($query);
     $stmt->execute();
 
     // Exibir os cards dos produtos
@@ -164,19 +234,66 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
       echo "<p>Categoria: " . $row["categoria"] . "</p>";
       echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
 
-      // Exibir os botões de excluir e editar apenas para usuários 'Master' e 'Colaborador'
       if ($isUserMasterOrColaborador) {
-        echo "<button class='editar-btn'>Editar</button>";
-        echo "<button class='excluir-btn'>Excluir</button>";
+        echo "<div>"; // Container para os botões
+        echo "<button class='editar-btn' data-id='" . $row["idProduto"] . "' data-nome='" . $row["nome"] . "' data-preco='" . $row["preco"] . "' data-descricao='" . $row["descricao"] . "' data-categoria='" . $row["categoria"] . "' data-subcategoria='" . $row["subcategoria"] . "'>Editar</button>";
+        echo "<button class='excluir-btn' data-id='" . $row["idProduto"] . "'>Excluir</button>";
+        echo "</div>"; // Fim do container
+      } else {
+        echo "<button class='comprar-btn' onclick=\"adicionarAoCarrinho(" . $row['idProduto'] . ", '" . $row['nome'] . "', " . $row['preco'] . ", '" . $row['imagem'] . "')\">Comprar</button>";
       }
 
-      echo "<button class='comprar-btn'>Comprar</button>";
       echo "</div>";
-    }
-    ?>
-
-
+    } ?>
   </div>
+  <!-- Fim Bloco de Produtos -->
+
+  <style>
+
+  </style>
+
+  <!-- Modal de Edição -->
+  <div id="modalEditar" class="modal-editar">
+    <div class="modal-content-editar">
+      <span class="close-editar">&times;</span>
+      <h2>Editar Produto</h2>
+      <form id="editarForm" method="POST" action="/Seven_Gardens/Back-end/editarProduto.php">
+        <input type="hidden" name="idProduto" id="editarId">
+        <label for="editarNome">Nome:</label>
+        <input type="text" name="nome" id="editarNome" required>
+        <br>
+        <label for="editarPreco">Preço:</label>
+        <input type="text" name="preco" id="editarPreco" required>
+        <br>
+        <label for="editarDescricao">Descrição:</label>
+        <textarea name="descricao" id="editarDescricao" required></textarea>
+        <br>
+        <label for="editarCategoria">Categoria:</label>
+        <input type="text" name="categoria" id="editarCategoria" required>
+        <br>
+        <label for="editarSubcategoria">Subcategoria:</label>
+        <input type="text" name="subcategoria" id="editarSubcategoria" required>
+        <br>
+        <button type="submit">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de Exclusão -->
+  <div id="modalExcluir" class="modal-excluir">
+    <div class="modal-content-excluir">
+      <span class="close-excluir">&times;</span>
+      <h2>Excluir Produto</h2>
+      <p>Tem certeza de que deseja excluir este produto?</p>
+      <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
+        <input type="hidden" name="idProduto" id="excluirId">
+        <button type="submit">Excluir</button>
+        <button type="button" class="cancel-btn">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+
 
 
   <!-- Fim do Bloco de Produtos -->
@@ -208,17 +325,10 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
       <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
       <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
       <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
-
-
     </div>
-
-
   </footer>
-
-
-
-
-  <script src="Front-end/js/script.js"></script>
+  <script src="./Front-end/js/script.js"></script>
+  <script src="Front-end/js/carrinho.js"></script>
 </body>
 
 </html>

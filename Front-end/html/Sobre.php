@@ -72,6 +72,7 @@
   </footer>
   <script src="../js/Sobre.js"></script>
   <script src="../js/acessibilidade.js"></script>
+  <script src="../js/carrinho.js"></script>
 </body>
 
 </html>

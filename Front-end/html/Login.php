@@ -84,6 +84,7 @@
 
 
   <script src="../js/Login.js"> </script>
+  <script src="../js/carrinho.js"></script>
 </body>
 
 </html>

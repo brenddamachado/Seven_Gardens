@@ -112,6 +112,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </footer>
   <script src="../js/catalogo.js"></script>
+  <script src="../js/carrinho.js"></script>
 </body>
 
 </html>

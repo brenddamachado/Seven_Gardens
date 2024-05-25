@@ -329,6 +329,7 @@
     </div>
   </footer>
   <script src="../js/Cadastro.js"></script>
+  <script src="../js/carrinho.js"></script>
 </body>
 
 </html>
