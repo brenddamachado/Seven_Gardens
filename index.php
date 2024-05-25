@@ -207,7 +207,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         <label for="editarSubcategoria">Subcategoria:</label>
         <input type="text" name="subcategoria" id="editarSubcategoria" required>
         <br>
-        <button type="submit">Salvar Alterações</button>
+        <button id="salvar-alteracao-btn" class="salvar-alteracao-btn">Salvar alteraçôes</button>
       </form>
     </div>
   </div>
@@ -220,8 +220,8 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       <p>Tem certeza de que deseja excluir este produto?</p>
       <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
         <input type="hidden" name="idProduto" id="excluirId">
-        <button type="submit">Excluir</button>
-        <button type="button" class="cancel-btn">Cancelar</button>
+        <button id="excluir-modal-btn" class="excluir-modal-btn">Excluir</button>
+        <button id="cancelar-modal-btn" class="cancelar-modal-btn">Cancelar</button>
       </form>
     </div>
   </div>
