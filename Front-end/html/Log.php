@@ -8,7 +8,8 @@ if (!isset($_SESSION['usuario_id'])) {
   exit();
 }
 
-function buscarHistorico($pdo, $pesquisa) {
+function buscarHistorico($pdo, $pesquisa)
+{
   // Remove qualquer caractere que não seja numérico do CPF
   $pesquisa = preg_replace("/[^0-9]/", "", $pesquisa);
 
@@ -51,8 +52,8 @@ function buscarHistorico($pdo, $pesquisa) {
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-function listarHistorico($pdo) {
+function listarHistorico($pdo)
+{
   $query = "
     SELECT 
         h.horarioLogin, 
@@ -88,7 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -98,7 +98,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
   <title>Seven Gardens</title>
   <link rel="stylesheet" href="../css/Log.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background-color: white;
+    }
+  </style>
 </head>
 
 <body>
@@ -122,19 +130,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
   </header>
 
   <section class="filtroo">
-    <h4 id="openFilterForm" style="cursor: pointer;"><i class="fas solid fa-filter"></i> Filtro</h4>
+    <h4 id="openFilterForm" ><i class="fas solid fa-filter"></i> Filtro</h4>
     <div id="filterFormContainer" style="display: none;">
       <form id="filterForm">
         <h1>Histórico de login</h1>
         <label for="inputPesquisa">Pesquisar (ID, Nome, CPF, Pergunta Secreta ou Data):</label>
         <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o termo de pesquisa">
         <br><br>
-        <button type="submit">Pesquisar</button>
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
       </form>
     </div>
   </section>
 
-  <table id="tabelaUsuarios">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>ID do Cliente</th>
@@ -144,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
       </tr>
     </thead>
     <tbody id="tabelaBody">
-      <?php foreach ($historico as $row): ?>
+      <?php foreach ($historico as $row) : ?>
         <tr>
           <td><?php echo htmlspecialchars($row['id_usuario']); ?></td>
           <td><?php echo htmlspecialchars($row['nome_completo']); ?></td>
@@ -177,72 +185,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
   </footer>
 
   <!-- JavaScript direto no arquivo HTML -->
+  <script src="../js/acessibilidade.js"></script>
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM totalmente carregado e analisado");
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("DOM totalmente carregado e analisado");
 
-    var openButton = document.getElementById('openFilterForm');
-    var filterFormContainer = document.getElementById('filterFormContainer');
-    var filterForm = document.getElementById('filterForm');
-    var tabelaBody = document.getElementById('tabelaBody');
+      var openButton = document.getElementById('openFilterForm');
+      var filterFormContainer = document.getElementById('filterFormContainer');
+      var filterForm = document.getElementById('filterForm');
+      var tabelaBody = document.getElementById('tabelaBody');
 
-    if (openButton) {
-      openButton.addEventListener('click', function() {
-        console.log("Clicou no filtro");
-        if (filterFormContainer.style.display === "none" || filterFormContainer.style.display === "") {
-          filterFormContainer.style.display = "block";
-        } else {
-          filterFormContainer.style.display = "none";
-        }
-      });
-    } else {
-      console.log("openFilterForm não encontrado");
-    }
+      if (openButton) {
+        openButton.addEventListener('click', function() {
+          console.log("Clicou no filtro");
+          if (filterFormContainer.style.display === "none" || filterFormContainer.style.display === "") {
+            filterFormContainer.style.display = "block";
+          } else {
+            filterFormContainer.style.display = "none";
+          }
+        });
+      } else {
+        console.log("openFilterForm não encontrado");
+      }
 
-    if (filterForm) {
-      filterForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        var formData = new FormData(filterForm);
-        var inputPesquisa = formData.get('inputPesquisa');
+      if (filterForm) {
+        filterForm.addEventListener('submit', function(event) {
+          event.preventDefault();
+          var formData = new FormData(filterForm);
+          var inputPesquisa = formData.get('inputPesquisa');
 
-        // Verifica se o valor de pesquisa é numérico
-        if (!isNaN(inputPesquisa) && inputPesquisa !== '') {
-          formData.set('idUsuario', inputPesquisa);
-        }
+          // Verifica se o valor de pesquisa é numérico
+          if (!isNaN(inputPesquisa) && inputPesquisa !== '') {
+            formData.set('idUsuario', inputPesquisa);
+          }
 
-        fetch('', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          tabelaBody.innerHTML = ''; // Limpa a tabela
-          if (data.error) {
-            tabelaBody.innerHTML = '<tr><td colspan="4">' + data.error + '</td></tr>';
-          } else if (data.length > 0) {
-            data.forEach(item => {
-              var row = document.createElement('tr');
-              row.innerHTML = `
+          fetch('', {
+              method: 'POST',
+              body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              tabelaBody.innerHTML = ''; // Limpa a tabela
+              if (data.error) {
+                tabelaBody.innerHTML = '<tr><td colspan="4">' + data.error + '</td></tr>';
+              } else if (data.length > 0) {
+                data.forEach(item => {
+                  var row = document.createElement('tr');
+                  row.innerHTML = `
                 <td>${item.id_usuario}</td>
                 <td>${item.nome_completo}</td>
                 <td>${new Date(item.horarioLogin).toLocaleString('pt-BR')}</td>
                 <td>${item.pergunta}</td>
               `;
-              tabelaBody.appendChild(row);
+                  tabelaBody.appendChild(row);
+                });
+              } else {
+                tabelaBody.innerHTML = '<tr><td colspan="4">Nenhum registro encontrado.</td></tr>';
+              }
+            })
+            .catch(error => {
+              console.error('Erro:', error);
+              tabelaBody.innerHTML = '<tr><td colspan="4">Erro ao buscar dados.</td></tr>';
             });
-          } else {
-            tabelaBody.innerHTML = '<tr><td colspan="4">Nenhum registro encontrado.</td></tr>';
-          }
-        })
-        .catch(error => {
-          console.error('Erro:', error);
-          tabelaBody.innerHTML = '<tr><td colspan="4">Erro ao buscar dados.</td></tr>';
         });
-      });
-    }
-  });
-</script>
+      }
+    });
+  </script>
 </body>
 
 </html>
