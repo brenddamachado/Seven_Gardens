@@ -119,42 +119,41 @@
                 </div>
             </section>
             <section id="tab5-content" class="secao">
-                <!-- Formulário de Alteração de Senha -->
-                <div class="divForm">
-                    <form>
-                        <div class="form-header">
-                            <h2 class="title">Alteração de senha</h2>
-                        </div>
-                        <div class="alteracao-senha">
-                            <div class="input-box">
-                                <label for="senha">Nova senha:</label>
-                                <div class="input-wrapper">
-                                    <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha">
-                                    <i class="far fa-eye" id="verSenha"></i>
-                                </div>
-                            </div>
-                            <div class="input-box">
-                                <label for="senha2">Confirmação da nova senha:</label>
-                                <div class="input-wrapper">
-                                    <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha">
-                                    <i class="far fa-eye" id="verConfirme"></i>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn_salvar">Salvar alterações</button>
-                            <div>
-                                <p>Deseja excluir sua conta?</p>
-                                <button class="btn_excluir">Excluir conta</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
-
-
+            <div class="divForm">
+    <form method="post" action="">
+        <div class="form-header">
+            <h2 class="title">Alteração de senha</h2>
         </div>
-
-    </div>
-    </div>
+        <div class="alteracao-senha">
+            <div class="input-box">
+                <label for="senha_atual">Senha atual:</label>
+                <div class="input-wrapper">
+                    <input type="password" id="senha_atual" name="senha_atual" placeholder="Digite sua senha atual" required>
+                    <i class="far fa-eye" id="verSenhaAtual"></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="senha">Nova senha:</label>
+                <div class="input-wrapper">
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha" maxlength="8" required>
+                    <i class="far fa-eye" id="verSenha"></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="senha2">Confirmação da nova senha:</label>
+                <div class="input-wrapper">
+                    <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha" maxlength="8" required>
+                    <i class="far fa-eye" id="verConfirme"></i>
+                </div>
+            </div>
+            <button type="submit" class="btn_salvar">Salvar alterações</button>
+            <div>
+                <p>Deseja excluir sua conta?</p>
+                <button class="btn_excluir">Excluir conta</button>
+            </div>
+        </div>
+    </form>
+</div>
 <?php
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -162,29 +161,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include '../../Front-end/PHP/connect.php';
 
     // Obtém os valores do formulário
+    $senha_atual = $_POST['senha_atual'];
     $nova_senha = $_POST['senha'];
     $confirmacao_senha = $_POST['senha2'];
 
-    // Verifica se as senhas coincidem
-    if ($nova_senha !== $confirmacao_senha) {
-        echo "As senhas não coincidem. Por favor, tente novamente.";
-    } else {
-        // Hash da senha
-        $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+    // Obtém a senha atual do banco de dados
+    $user_id = 1; // Substitua pelo identificador correto do usuário
+    $sql = "SELECT senha FROM usuario WHERE id=?";
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $stmt->bind_result($senha_hash_atual);
+        $stmt->fetch();
+        $stmt->close();
 
-        // Atualiza a senha no banco de dados
-        $sql = "UPDATE usuarios SET senha='$senha_hash' WHERE id=1"; // Substitua 'usuarios' pelo nome da sua tabela e 'id=1' pela condição que identifica o usuário
-        if ($conn->query($sql) === TRUE) {
-            echo "Senha alterada com sucesso.";
+        // Verifica se a senha atual está correta
+        if (!password_verify($senha_atual, $senha_hash_atual)) {
+            echo "A senha atual está incorreta. Por favor, tente novamente.";
+        } elseif (strlen($nova_senha) !== 8) {
+            echo "A nova senha deve ter exatamente 8 caracteres.";
+        } elseif ($nova_senha !== $confirmacao_senha) {
+            echo "As novas senhas não coincidem. Por favor, tente novamente.";
         } else {
-            echo "Erro ao alterar senha: " . $conn->error;
+            // Hash da nova senha
+            $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+
+            // Atualiza a senha no banco de dados usando prepared statements
+            $sql = "UPDATE usuario SET senha=? WHERE id=?";
+            if ($stmt = $conn->prepare($sql)) {
+                $stmt->bind_param("si", $senha_hash, $user_id);
+
+                if ($stmt->execute()) {
+                    echo "Senha alterada com sucesso.";
+                } else {
+                    echo "Erro ao alterar senha. Por favor, tente novamente mais tarde.";
+                }
+
+                $stmt->close();
+            } else {
+                echo "Erro na preparação da consulta. Por favor, tente novamente mais tarde.";
+            }
         }
+    } else {
+        echo "Erro ao verificar a senha atual. Por favor, tente novamente mais tarde.";
     }
 
     // Fecha a conexão
     $conn->close();
 }
 ?>
+
 
 
     <section id="accessibility-section">
