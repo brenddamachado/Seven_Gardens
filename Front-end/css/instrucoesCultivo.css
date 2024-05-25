@@ -1,9 +1,11 @@
-body {
+* {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
+
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .instrucoes-container {
   max-width: 800px;

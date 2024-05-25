@@ -9,11 +9,10 @@
   <link rel="stylesheet" href="../css/header.css" />
   <link rel="stylesheet" href="../css/instrucoesCultivo.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <script src="Front-end/js/carrinho.js"></script>
 </head>
 
 <body>
-  <?php include('header.php'); ?>
+<?php include('header.php'); ?>
   <div class="instrucoes-container">
     <div class="section">
       <h1>Instruções de Cultivo</h1>
@@ -87,15 +86,18 @@
     <div class="social-icons">
       <p> Siga-nos nas nossas redes sociais:</p>
 
-      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i class="fab fa-whatsapp""></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i
+          class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i
+          class="fab fa-whatsapp""></i></a>
     
     
         </div>
       </footer>
       <script src=" ../js/acessibilidade.js"></script>
-          <script src="../js/instrucoesCultivo.js"></script>
+      <script src="../js/instrucoesCultivo.js"></script>
 </body>
 
 </html>

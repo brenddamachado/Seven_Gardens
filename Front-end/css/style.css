@@ -1,9 +1,12 @@
-
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f4f4f4;
-  margin: 0;
   /* Cor padrão claro */
 
 }
@@ -24,39 +27,17 @@ header {
   justify-content: space-between;
 }
 
-/* Estilo para a mensagem de boas-vindas */
-nav .navegacao ul li span {
-  font-size: 16px;
-  color: #8d9776; /* Cor da mensagem */
-  margin-right: 15px; /* Espaço entre a mensagem e o botão de logout */
-}
-
-/* Estilo para o botão de logout */
-nav .navegacao ul li a.logout {
-  background-color: #8d9776; /* Cor de fundo do botão de logout */
-  color: #fff; /* Cor do texto do botão de logout */
-  padding: 10px 20px; /* Espaçamento interno do botão de logout */
-  border-radius: 5px; /* Borda arredondada do botão de logout */
-  text-decoration: none; /* Remover sublinhado */
-  font-size: 16px; /* Tamanho da fonte */
-  transition: background-color 0.3s ease; /* Transição suave para mudança de cor */
-}
-
-nav .navegacao ul li a.logout:hover {
-  background-color: #6c7a5a; /* Cor de fundo ao passar o mouse */
-}
-
-.navegacao ul {
+ul {
   padding: 20px;
   display: flex;
-  align-items: center;
+  gap: 20px;
 }
-
 
 .header ul li {
   list-style-type: none;
   font-size: 20px;
 }
+
 .logo {
   width: 155px;
   height: 200px;
@@ -247,15 +228,16 @@ html {
 
 /* fim do carrossel */
 
-/* Início do bloco de produtos */
+/*inicio do bloco de produtos*/
 .bloco-produtos {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Define 4 colunas iguais */
-  gap: 20px; /* Espaçamento entre os cards */
-  padding: 20px; /* Espaçamento interno das bordas do contêiner */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribui os cards igualmente na linha */
 }
 
 .produto-card {
+  width: calc(25% - 20px); /* Define a largura de cada card, considerando o espaçamento */
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
@@ -292,30 +274,10 @@ html {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.editar-btn,
-  .excluir-btn {
-    background-color: #7ED957;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    margin-right: 10px; 
-  }
-
-  .excluir-btn {
-    background-color: #DC0C0C;
-    margin-right: 0; 
-  }
 
 .comprar-btn:hover {
-  background-color: #112a08; 
+  background-color: #112a08; /* Altera a cor de fundo ao passar o mouse */
 }
-
-
 .modal-carrinho img{
   max-width: 100px;
   height:auto;
@@ -332,98 +294,95 @@ footer {
 
 
 /* Estilo do Modal */
-.modal-carrinho {
+#modalCarrinho.modal-carrinho {
   display: none;
+  /* Oculto por padrão */
   position: fixed;
+  /* Fixo na tela */
   z-index: 1;
+  /* Fica sobre todos os elementos */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* Permite rolar se necessário */
+  background-color: rgba(0, 128, 0, 0.4);
+  /* Fundo verde com opacidade */
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
+#modalCarrinho .modal-content {
+  background-color: #fff;
+  /* Cor de fundo branca */
+  margin: 10% auto;
+  /* Centralizado verticalmente e 10% do topo */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
+  width: 70%;
+  /* Largura do conteúdo do modal */
+  max-width: 500px;
+  /* Largura máxima do modal */
 }
 
-.close {
+#modalCarrinho .close {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+#modalCarrinho .close:hover,
+#modalCarrinho .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
-.item-carrinho {
+.modal-content h2 {
+  color: #405b39;
+  font-size: 24px;
+  margin-bottom: 20px;
+  /* Espaçamento inferior */
+  text-align: center;
+}
+
+.item-info {
+  /* Estilo para o BOTÃO DE REMOVER */
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+
 }
 
-.imagem-produto {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  margin-right: 20px;
+.item-info p {
+  margin-right: 10px;
+  /* Ajuste conforme necessário */
 }
 
-.nome-produto,
-.preco-produto {
-  margin: 0;
+.btn-remover {
+  background-color: #405b39;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
 }
 
-.excluir-produto-btn {
-  margin-left: auto;
-  background-color: #8d9776;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.product-image {
+  width: 50px;
+  /* Defina a largura desejada para a imagem */
+  height: auto;
+  /* Mantenha a proporção da imagem */
 }
 
-.excluir-produto-btn:hover {
-  background-color: #8d9776;
+.product-image img {
+  width: 100%;
+  /* Ajusta a largura da imagem para preencher o contêiner */
+  height: auto;
+  /* Mantenha a proporção da imagem */
+  max-height: 50px;
+  /* Altura máxima da imagem */
 }
 
-.total-carrinho {
-  margin-top: 20px;
-  font-weight: bold;
-}
 
-.finalizar-compra-btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.finalizar-compra-btn:hover {
-  background-color: #45a049;
-}
-.descricao-produto {
-  margin-right: 20px;
-}
 
 /* Estilo do Carrinho e o contador */
 
@@ -452,16 +411,9 @@ footer {
 
 .finalizar-compra-btn {
   background-color: #405b39;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.cart-counter{
-  color: white;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
 }
 
 /* inicio footer */
@@ -584,9 +536,6 @@ body.dark-mode .dropdown-content {
 body.dark-mode .sessao {
   color: #fff;
 }
-body.dark-mode .produto-card:hover {
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4); /* Altera a sombra em modo escuro */
-}
 
 body.dark-mode .cadastro,
 body.dark-mode .fa-search {
@@ -607,8 +556,6 @@ body.dark-mode .btn_limpar {
 
 body.dark-mode .conta p,
 body.dark-mode h1,
-body.dark-mode h3,
-body.dark-mode p,
 body.dark-mode label,
 body.dark-mode .home,
 body.dark-mode .dropbtn,
@@ -751,82 +698,6 @@ body.dark-mode a {
 .dentro_icon {
   display: flex;
   flex-direction: column;
-}
-
- /* Modal de Edição */
- .modal-editar {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content-editar {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 500px;
-  position: relative;
-}
-
-.close-editar {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-editar:hover,
-.close-editar:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Modal de Exclusão */
-.modal-excluir {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content-excluir {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 500px;
-  position: relative;
-}
-
-.close-excluir {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-excluir:hover,
-.close-excluir:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 @media (max-width: 766px) {

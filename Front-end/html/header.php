@@ -1,43 +1,27 @@
-<?php
-session_start();
-?>
 <header>
   <section class="header">
     <div>
-      <a href="../../index.php"><img class="logo" src="../img/logoatual.svg" alt="Logo Seven Gardens" /></a>
+      <a href="../../index.php"> <img class="logo" src="../img/logoatual.svg" alt="" srcset="" /></a>
     </div>
+
     <div class="pesquisa-container">
       <input type="search" name="" id="" class="pesquisa" />
-      <div class="pesquisa-icon"><i class="fas fa-search"></i></div>
+      <div for="" class="pesquisa-icon"><i class="fas fa-search"></i></div>
     </div>
-    <nav class="nav_a">
+    <nav>
       <div class="navegacao">
-        <ul>
-          <?php if (isset($_SESSION['usuario_tipo'])) : ?>
-            <li class="welcome-logout">
-              <span>
-                <?php
-                if ($_SESSION['usuario_tipo'] == 'Master' || $_SESSION['usuario_tipo'] == 'Colaborador') {
-                  echo "Olá, administrador!";
-                } else {
-                  echo "Olá, " . htmlspecialchars($_SESSION['usuario_nome']) . "!";
-                }
-                ?>
-              </span>
-              <a href="logout.php" class="logout">Logout</a>
-            </li>
-          <?php else : ?>
-            <li class="home"><a class="login" href="Front-end/html/Login.php">Login</a></li>
-            <li class="login"><a href="Front-end/html/Cadastro.php" class="cadastro">Cadastro</a></li>
-          <?php endif; ?>
+        <ul class="caminhos">
+          <li class="cadastrar"> <a href="Cadastro.php">Cadastro</a></li>
+          <li class="login"> <a href="Login.php">Login</a></li>
         </ul>
       </div>
     </nav>
+  </section>
 
   <section class="opcoes">
     <div class="dropdown">
       <div class="dropbtn">
-        <span class="prod_dropdown">Produtos</span> <i class="fas fa-chevron-down"></i>
+        <span class="prod_dropdown">Produtos</span> <i class="fas fa-chevron-down"> </i>
       </div>
       <div class="dropdown-content">
         <a href="catalogo.php">Ver Todos</a>
@@ -47,13 +31,8 @@ session_start();
         <a href="categoria.php?categoria=Insumos">Insumos</a>
       </div>
     </div>
-    <div class="menu_btn"><a href="../../index.php">Home</a></div>
-    <div class="menu_btn"><a href="instrucoesCultivo.php">Instruções de Cultivo</a></div>
-    <div class="menu_btn"><a href="Contato.php">Contato</a></div>
-    <div class="menu_btn"><a href="Sobre.php">Sobre</a></div>
-    <div class="cart-icon-container">
-      <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" onclick="exibirModalCarrinho()" />
-      <span id="cart-counter" class="cart-counter">0</span>
+    <div class="menu_btn">
+      <a href="../../index.php">Home</a>
     </div>
     <div class="menu_btn">
       <a href="instrucoesCultivo.php">Instruções de Cultivo</a>
@@ -67,7 +46,8 @@ session_start();
     <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" />
   </section>
   <section class="section_mobile">
-    <div class="mobile_i"><i id="hamburguer" class="fa fa-bars"></i></div>
+    <div class="mobile_i"> <i id="hamburguer" class="fa fa-bars"></i></div>
+
     <section id="mobile" class="mobile">
       <div id="dentro_icon" class="dentro_icon">
         <div class="close-btn"><i class="fas fa-times"></i></div>
@@ -83,6 +63,6 @@ session_start();
         <a href="Sobre.php">Sobre</a>
       </div>
     </section>
-    <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" onclick="exibirModalCarrinho()" />
+    <img src="../img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" />
   </section>
 </header>

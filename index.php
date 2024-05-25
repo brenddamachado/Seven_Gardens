@@ -1,7 +1,13 @@
 <?php
-session_start();
-require __DIR__ . '/Front-end/PHP/connect.php';
+session_start();  // Inicia a sessão no início do script, antes de qualquer saída HTML.
 
+$path = __DIR__ . '/Front-end/PHP/connect.php';
+if (!file_exists($path)) {
+  die('Arquivo de conexão não encontrado: ' . $path);
+}
+require $path;
+
+// Verificar se o usuário é um 'Master' ou 'Colaborador'
 $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESSION['usuario_tipo'], ['Master', 'Colaborador']);
 ?>
 
@@ -15,89 +21,92 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <link rel="shortcut icon" href="Front-end/img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="Front-end/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-  <script src="Front-end/js/acessibilidade.js"></script>
-
 </head>
 
 <body>
   <header>
     <section class="header">
       <div>
-        <a href="index.php"><img class="logo" src="Front-end/img/logoatual.svg" alt="Logo Seven Gardens" /></a>
+        <a href="index.php"><img class="logo" src="Front-end/img/logoatual.svg" alt="" srcset="" /></a>
       </div>
+
       <div class="pesquisa-container">
         <input type="search" name="" id="" class="pesquisa" />
-        <div class="pesquisa-icon"><i class="fas fa-search"></i></div>
+        <div for="" class="pesquisa-icon"><i class="fas fa-search"></i></div>
       </div>
       <nav class="nav_a">
         <div class="navegacao">
           <ul>
-            <?php if (isset($_SESSION['usuario_id'])) : ?>
-              <li class="welcome-logout">
-                <span>
-                  <?php if ($_SESSION['usuario_tipo'] === 'Master' || $_SESSION['usuario_tipo'] === 'Colaborador') : ?>
-                    Olá, administrador!
-                  <?php else : ?>
-                    Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>!
-                  <?php endif; ?>
-                </span>
-                <a href="Front-end/html/logout.php" class="logout">Logout</a>
-              </li>
-            <?php else : ?>
-              <li class="home"><a class="login" href="Front-end/html/Login.php">Login</a></li>
-              <li class="login"><a href="Front-end/html/Cadastro.php" class="cadastro">Cadastro</a></li>
-            <?php endif; ?>
+            <li class="home">
+              <a class="login" href="Front-end/html/Login.php">Login</a>
+            </li>
+            <li class="login">
+              <a href="Front-end/html/Cadastro.php" class="cadastro">Cadastro</a>
+            </li>
           </ul>
         </div>
       </nav>
-
-
     </section>
 
     <section class="opcoes">
       <div class="dropdown">
         <div class="dropbtn">
-          <span class="prod_dropdown">Produtos</span> <i class="fas fa-chevron-down"></i>
+          <span class="prod_dropdown">Produtos</span> <i class="fas fa-chevron-down"> </i>
         </div>
         <div class="dropdown-content">
-          <a href="Front-end/html/catalogo.php">Ver Todos</a>
-          <a href="Front-end/html/categoria.php?categoria=Enxertos">Enxertos</a>
-          <a href="Front-end/html/categoria.php?categoria=Naturais (De semente)">Naturais (De semente)</a>
-          <a href="Front-end/html/categoria.php?categoria=Especiais">Especiais</a>
-          <a href="Front-end/html/categoria.php?categoria=Insumos">Insumos</a>
+          <a href="#"> Enxertos</a>
+          <a href="#"> Naturais (De semente) </a>
+          <a href="#">Especiais</a>
+          <a href="#">Insumos</a>
         </div>
       </div>
-      <div class="menu_btn"><a href="Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a></div>
-      <div class="menu_btn"><a href="Front-end/html/Contato.php">Contato</a></div>
-      <div class="menu_btn"><a href="Front-end/html/Sobre.php">Sobre</a></div>
+
+      <div class="menu_btn">
+        <a href="Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
+      </div>
+      <div class="menu_btn">
+        <a href="Front-end/html/Contato.php">Contato</a>
+      </div>
+      <div class="menu_btn">
+        <a href="Front-end/html/Sobre.php">Sobre</a>
+      </div>
       <!-- Ícone do carrinho -->
       <div class="cart-icon-container">
         <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" onclick="exibirModalCarrinho()" />
         <!-- Contador de itens no carrinho -->
         <span id="cart-counter" class="cart-counter">0</span>
       </div>
+
     </section>
     <section class="section_mobile">
-      <div class="mobile_i"><i id="hamburguer" class="fa fa-bars"></i></div>
+      <div class="mobile_i"> <i id="hamburguer" class="fa fa-bars"></i></div>
+
       <section id="mobile" class="mobile">
+
         <div id="dentro_icon" class="dentro_icon">
           <div class="close-btn"><i class="fas fa-times"></i></div>
           <a href="Front-end/html/Login.php">Login</a>
+
           <a href="Front-end/html/Cadastro.php">Cadastro</a>
-          <a href="Front-end/html/categoria.php?categoria=Enxertos">Enxertos</a>
-          <a href="Front-end/html/categoria.php?categoria=Naturais (De semente)">Naturais (De semente)</a>
-          <a href="Front-end/html/categoria.php?categoria=Especiais">Especiais</a>
-          <a href="Front-end/html/categoria.php?categoria=Insumos">Insumos</a>
+
+          <a href="#"> Enxertos</a>
+          <a href="#"> Naturais (De semente) </a>
+          <a href="#">Especiais</a>
+          <a href="#">Insumos</a>
           <a href="Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
           <a href="Front-end/html/Contato.php">Contato</a>
           <a href="Front-end/html/Sobre.php">Sobre</a>
+
         </div>
+
       </section>
       <!-- Ícone do carrinho para versão mobile -->
       <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" onclick="exibirModalCarrinho()" />
     </section>
+
   </header>
   <!-- Carrossel para os Banner da loja Seven Gardens -->
   <div class="carousel">
@@ -105,8 +114,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
       <div class="carousel-item active">
         <img src="Front-end/img/banner1.svg" alt="Imagem 1">
       </div>
-      <div class="carousel-item">
-        <img src="Front-end/img/banner2.svg" alt="Imagem 2">
+      <div class="Front-end/img/banner2.svg" alt="Imagem 2">
       </div>
       <div class="carousel-item">
         <img src="Front-end/img/banner3.svg" alt="Imagem 3">
@@ -130,7 +138,6 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
         </div>
       </div>
       <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
-      <br><br>
       <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
     </div>
   </div>
@@ -139,85 +146,43 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <span class="titulopg">
     <h1>Destaques</h1>
   </span>
-  <hr><br><br>
+  <hr>
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
 
-  <?php
-$query = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
-$stmt = $pdo->prepare($query);
-$stmt->execute();
+    <?php
+    $stmt = $pdo->prepare("SELECT * FROM produto"); // Ajuste essa consulta SQL conforme sua tabela de produtos
+    $stmt->execute();
 
-// Exibir os cards dos produtos
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-  echo "<div class='produto-card'>";
-  // Usar diretamente o caminho da imagem salvo no banco
-  echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
-  echo "<h3>" . $row["nome"] . "</h3>";
-  echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-  echo "<p>" . $row["descricao"] . "</p>";
-  echo "<p>Categoria: " . $row["categoria"] . "</p>";
-  echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+    // Exibir os cards dos produtos
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      echo "<div class='produto-card'>";
+      echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
+      echo "<h3>" . $row["nome"] . "</h3>";
+      echo "<p>Preço: R$ " . $row["preco"] . "</p>";
+      echo "<p>" . $row["descricao"] . "</p>";
+      echo "<p>Categoria: " . $row["categoria"] . "</p>";
+      echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
 
-  if ($isUserMasterOrColaborador) {
-    echo "<div>"; // Container para os botões
-    echo "<button class='editar-btn' data-id='" . $row["idProduto"] . "' data-nome='" . $row["nome"] . "' data-preco='" . $row["preco"] . "' data-descricao='" . $row["descricao"] . "' data-categoria='" . $row["categoria"] . "' data-subcategoria='" . $row["subcategoria"] . "'>Editar</button>";
-    echo "<button class='excluir-btn' data-id='" . $row["idProduto"] . "'>Excluir</button>";
-    echo "</div>"; // Fim do container
-  } else {
-    echo "<button class='comprar-btn' onclick=\"adicionarAoCarrinho(" . $row['idProduto'] . ", '" . $row['nome'] . "', " . $row['preco'] . ", '" . $row['imagem'] . "')\">Comprar</button>";
-  }
+      // Exibir os botões de excluir e editar apenas para usuários 'Master' e 'Colaborador'
+      if ($isUserMasterOrColaborador) {
+        echo "<button class='editar-btn'>Editar</button>";
+        echo "<button class='excluir-btn'>Excluir</button>";
+      }
 
-  echo "</div>";
-}
-?>
+      echo "<button class='comprar-btn'>Comprar</button>";
+      echo "</div>";
+    }
+    ?>
 
 
   </div>
-  <!-- Fim Bloco de Produtos -->
+
+
+  <!-- Fim do Bloco de Produtos -->
 
   <div id="itensCarrinho" class="carrinho">
     <!-- Itens do carrinho serão adicionados aqui -->
-  </div>
-
-  <!-- Modal de Edição -->
-  <div id="modalEditar" class="modal-editar">
-    <div class="modal-content-editar">
-      <span class="close-editar">&times;</span>
-      <h2>Editar Produto</h2>
-      <form id="editarForm" method="POST" action="/Seven_Gardens/Back-end/editarProduto.php">
-        <input type="hidden" name="idProduto" id="editarId">
-        <label for="editarNome">Nome:</label>
-        <input type="text" name="nome" id="editarNome" required>
-        <br>
-        <label for="editarPreco">Preço:</label>
-        <input type="text" name="preco" id="editarPreco" required>
-        <br>
-        <label for="editarDescricao">Descrição:</label>
-        <textarea name="descricao" id="editarDescricao" required></textarea>
-        <br>
-        <label for="editarCategoria">Categoria:</label>
-        <input type="text" name="categoria" id="editarCategoria" required>
-        <br>
-        <label for="editarSubcategoria">Subcategoria:</label>
-        <input type="text" name="subcategoria" id="editarSubcategoria" required>
-        <br>
-        <button type="submit">Salvar Alterações</button>
-      </form>
-    </div>
-  </div>
-  <!-- Modal de Exclusão -->
-  <div id="modalExcluir" class="modal-excluir">
-    <div class="modal-content-excluir">
-      <span class="close-excluir">&times;</span>
-      <h2>Excluir Produto</h2>
-      <p>Tem certeza de que deseja excluir este produto?</p>
-      <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
-        <input type="hidden" name="idProduto" id="excluirId">
-        <button type="submit">Excluir</button>
-        <button type="button" class="cancel-btn">Cancelar</button>
-      </form>
-    </div>
   </div>
 
 
@@ -225,25 +190,35 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   <section id="accessibility-section">
     <i class="fas fa-universal-access" id="accessibility-icon"></i>
     <div id="other-things">
+
       <i class="fas fa-sun" id="light-mode-toggle"></i>
       <i class="fas fa-moon" id="dark-mode-toggle"></i>
       <img class="img_letra" src="Front-end/img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
       <img class="img_letra" src="Front-end/img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
     </div>
   </section>
-  <!-- FIM DA ACESSIBILIDADES -->
+  <!--FIM DA ACESSIBILIDADES -->
   <footer>
     <br>
+
+
     <div class="social-icons">
       <p> Siga-nos nas nossas redes sociais:</p>
+
       <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
       <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
       <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
+
+
     </div>
+
+
   </footer>
 
+
+
+
   <script src="Front-end/js/script.js"></script>
-  <script src="Front-end/js/carrinho.js"></script>
 </body>
 
 </html>
