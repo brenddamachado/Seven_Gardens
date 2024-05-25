@@ -1,4 +1,6 @@
-  <!DOCTYPE html>
+<?php require '../../Front-end/PHP/connect.php';
+?>
+<!DOCTYPE html>
   <html lang="en">
 
   <head>
@@ -31,13 +33,12 @@
     </header>
 
 
-
-  <form id="user-search-form">
-    <h1 class="title">Consulta de usuário</h1><br>
-    <label for="inputPesquisa">Pesquisar por nome:</label>
-    <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
-    <button type="submit">Pesquisar</button>
-  </form>
+<form id="user-search-form" method="post" action="../../Back-end/processo_consulta_adm.php">
+  <h1 class="title">Consulta de usuário</h1><br>
+  <label for="inputPesquisa">Pesquisar por nome:</label>
+  <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
+  <button type="submit">Pesquisar</button>
+</form>
 
   <table id="tabelaUsuarios">
     <thead>
@@ -48,7 +49,7 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Os resultados da consulta serão exibidos aqui -->
+
     </tbody>
   </table>
 
