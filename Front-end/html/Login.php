@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="../css/Login.css">
   <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/modalEstilos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <script src="../js/acessibilidade.js"> </script>
 </head>

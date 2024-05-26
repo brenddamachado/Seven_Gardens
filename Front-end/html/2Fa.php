@@ -12,13 +12,14 @@ $securityQuestion = $_SESSION['security_question'] ?? 'Pergunta não encontrada'
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="../css/2Fa.css" />
   <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/modalEstilos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 </head>
 
 <body>
-  <?php include('../../header.php'); ?> 
+  <?php include('../../header.php'); ?>
 
   <div class="container" id="divLogin">
     <form class="divForm" id="2faForm" method="POST">
