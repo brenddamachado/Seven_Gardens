@@ -1,5 +1,32 @@
+console.log("Carrinho.js carregado");
+
 let itensCarrinho = [];
 let totalCarrinho = 0;
+
+function salvarCarrinho() {
+  localStorage.setItem('itensCarrinho', JSON.stringify(itensCarrinho));
+  localStorage.setItem('totalCarrinho', totalCarrinho.toString());
+  console.log("Carrinho salvo no localStorage:", itensCarrinho, totalCarrinho);
+}
+
+function carregarCarrinho() {
+  console.log("Carregando carrinho do localStorage");
+  const itens = localStorage.getItem('itensCarrinho');
+  const total = localStorage.getItem('totalCarrinho');
+  if (itens && total) {
+    itensCarrinho = JSON.parse(itens);
+    totalCarrinho = parseFloat(total);
+    const cartCounter = document.getElementById('cart-counter');
+    if (cartCounter) {
+      cartCounter.textContent = itensCarrinho.length;
+    }
+    console.log("Carrinho carregado do localStorage:", itensCarrinho, totalCarrinho);
+  } else {
+    console.log("Nenhum carrinho encontrado no localStorage");
+  }
+}
+
+document.addEventListener('DOMContentLoaded', carregarCarrinho);
 
 function adicionarAoCarrinho(id, nome, preco, imagem) {
   const itemExistente = itensCarrinho.find(item => item.id === id);
@@ -9,43 +36,88 @@ function adicionarAoCarrinho(id, nome, preco, imagem) {
     itensCarrinho.push({ id, nome, preco, imagem, quantidade: 1 });
   }
   totalCarrinho += preco;
-  document.getElementById('cart-counter').textContent = itensCarrinho.length;
+  const cartCounter = document.getElementById('cart-counter');
+  if (cartCounter) {
+    cartCounter.textContent = itensCarrinho.length;
+  }
+  salvarCarrinho();
+  console.log("Item adicionado ao carrinho:", id, nome, preco, imagem);
+}
+
+function incrementarQuantidade(index) {
+  itensCarrinho[index].quantidade += 1;
+  totalCarrinho += itensCarrinho[index].preco;
+  exibirItensCarrinho();
+  salvarCarrinho();
+}
+
+function decrementarQuantidade(index) {
+  if (itensCarrinho[index].quantidade > 1) {
+    itensCarrinho[index].quantidade -= 1;
+    totalCarrinho -= itensCarrinho[index].preco;
+  } else {
+    removerProduto(index);
+  }
+  exibirItensCarrinho();
+  salvarCarrinho();
 }
 
 function removerProduto(index) {
   const item = itensCarrinho[index];
   totalCarrinho -= item.preco * item.quantidade;
   itensCarrinho.splice(index, 1);
-  document.getElementById('cart-counter').textContent = itensCarrinho.length;
+  const cartCounter = document.getElementById('cart-counter');
+  if (cartCounter) {
+    cartCounter.textContent = itensCarrinho.length;
+  }
   exibirItensCarrinho();
+  salvarCarrinho();
 }
 
 function exibirItensCarrinho() {
   const modalContent = document.getElementById('itensCarrinho');
-  modalContent.innerHTML = '';
-  itensCarrinho.forEach((item, index) => {
-    const itemHTML = `
-      <div class="item-carrinho">
-        <img class="imagem-produto" src="${item.imagem}" alt="${item.nome}">
-        <div class="descricao-produto">
-          <p class="nome-produto">${item.nome}</p>
-          <p class="preco-produto">Preço: R$ ${item.preco}</p>
-          <p class="quantidade-produto">Quantidade: ${item.quantidade}</p>
-        </div>
-        <button class="excluir-produto-btn" onclick="removerProduto(${index})">Remover</button>
-      </div>`;
-    modalContent.insertAdjacentHTML('beforeend', itemHTML);
-  });
-  document.getElementById('total-carrinho').textContent = `Total: R$ ${totalCarrinho.toFixed(2)}`;
+  if (modalContent) {
+    modalContent.innerHTML = '';
+    itensCarrinho.forEach((item, index) => {
+      const itemHTML = `
+        <div class="item-carrinho">
+          <img class="imagem-produto" src="${item.imagem}" alt="${item.nome}">
+          <div class="descricao-produto">
+            <p class="nome-produto">${item.nome}</p>
+            <p class="preco-produto">Preço: R$ ${item.preco}</p>
+            <p class="quantidade-produto">Quantidade: 
+              <button class="quantidade-btn" onclick="decrementarQuantidade(${index})">-</button>
+              ${item.quantidade}
+              <button class="quantidade-btn" onclick="incrementarQuantidade(${index})">+</button>
+            </p>
+          </div>
+          <button class="excluir-produto-btn" onclick="removerProduto(${index})">Remover</button>
+        </div>`;
+      modalContent.insertAdjacentHTML('beforeend', itemHTML);
+    });
+  }
+  const totalCarrinhoElem = document.getElementById('total-carrinho');
+  if (totalCarrinhoElem) {
+    totalCarrinhoElem.textContent = `Total: R$ ${totalCarrinho.toFixed(2)}`;
+  }
 }
 
 function exibirModalCarrinho() {
   exibirItensCarrinho();
-  document.getElementById('modalCarrinho').style.display = 'block';
+  const modalCarrinho = document.getElementById('modalCarrinho');
+  if (modalCarrinho) {
+    modalCarrinho.style.display = 'block';
+  }
 }
 
-document.getElementsByClassName('close')[0].onclick = function () {
-  document.getElementById('modalCarrinho').style.display = 'none';
+const closeModalBtn = document.getElementsByClassName('close')[0];
+if (closeModalBtn) {
+  closeModalBtn.onclick = function () {
+    const modalCarrinho = document.getElementById('modalCarrinho');
+    if (modalCarrinho) {
+      modalCarrinho.style.display = 'none';
+    }
+  }
 }
 
 window.onclick = function (event) {
@@ -53,56 +125,4 @@ window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = 'none';
   }
-}
-
-
-// Função para modal de editar e excluir produtos Master
-
-document.querySelectorAll('.editar-btn').forEach(button => {
-  button.addEventListener('click', function () {
-    document.getElementById('editarId').value = this.getAttribute('data-id');
-    document.getElementById('editarNome').value = this.getAttribute('data-nome');
-    document.getElementById('editarPreco').value = this.getAttribute('data-preco');
-    document.getElementById('editarDescricao').value = this.getAttribute('data-descricao');
-    document.getElementById('editarCategoria').value = this.getAttribute('data-categoria');
-    document.getElementById('editarSubcategoria').value = this.getAttribute('data-subcategoria');
-    document.getElementById('modalEditar').style.display = 'block';
-  });
-});
-
-// Função para abrir o modal de exclusão com o id do produto
-document.querySelectorAll('.excluir-btn').forEach(button => {
-  button.addEventListener('click', function () {
-    document.getElementById('excluirId').value = this.getAttribute('data-id');
-    document.getElementById('modalExcluir').style.display = 'block';
-  });
-});
-
-// Fechar o modal de edição quando o usuário clicar no "X"
-document.querySelector('.close-editar').addEventListener('click', function () {
-  document.getElementById('modalEditar').style.display = 'none';
-});
-
-// Fechar o modal de exclusão quando o usuário clicar no "X"
-document.querySelector('.close-excluir').addEventListener('click', function () {
-  document.getElementById('modalExcluir').style.display = 'none';
-});
-
-// Fechar o modal de exclusão quando o usuário clicar no botão "Cancelar"
-document.querySelector('.cancel-btn').addEventListener('click', function () {
-  document.getElementById('modalExcluir').style.display = 'none';
-});
-
-// Fechar os modais quando o usuário clicar fora do modal
-window.addEventListener('click', function (event) {
-  if (event.target.classList.contains('modal-editar')) {
-    event.target.style.display = 'none';
-  }
-  if (event.target.classList.contains('modal-excluir')) {
-    event.target.style.display = 'none';
-  }
-});
-
-function atualizarContadorCarrinho() {
-  document.getElementById('cart-counter').textContent = contadorCarrinho;
 }

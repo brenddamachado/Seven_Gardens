@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <?php include('header.php'); ?>
+<?php include('../../header.php'); ?>
 
   <main class="contact-container">
     <section class="contact-form">

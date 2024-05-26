@@ -1,11 +1,18 @@
 <?php
-session_start();
+require_once __DIR__ . '/../../helpers/path_helper.php'; // Inclui a função base_url
 
-$path = __DIR__ . '../../PHP/connect.php';
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();  // Inicia a sessão apenas se não estiver já iniciada
+}
+
+$path = __DIR__ . '/../PHP/connect.php';
 if (!file_exists($path)) {
   die('Arquivo de conexão não encontrado: ' . $path);
 }
 require $path;
+
+// Verificar se o usuário é um 'Master' ou 'Colaborador'
+$isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESSION['usuario_tipo'], ['Master', 'Colaborador']);
 
 $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
 
@@ -30,7 +37,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-  <?php include('header.php'); ?>
+  <?php include('../../header.php'); ?>
   <div class="container">
     <h1>Produtos - <?php echo htmlspecialchars($categoria); ?></h1>
     <div class="bloco-produtos">
@@ -42,6 +49,14 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <p>Preço: R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
             <p>Categoria: <?php echo htmlspecialchars($produto['categoria']); ?></p>
             <p>Subcategoria: <?php echo htmlspecialchars($produto['subcategoria']); ?></p>
+            <?php if ($isUserMasterOrColaborador) : ?>
+              <div>
+                <button class='editar-btn' data-id='<?= htmlspecialchars($produto['idProduto']) ?>' data-nome='<?= htmlspecialchars($produto['nome']) ?>' data-preco='<?= htmlspecialchars($produto['preco']) ?>' data-descricao='<?= htmlspecialchars($produto['descricao']) ?>' data-categoria='<?= htmlspecialchars($produto['categoria']) ?>' data-subcategoria='<?= htmlspecialchars($produto['subcategoria']) ?>'>Editar</button>
+                <button class='excluir-btn' data-id='<?= htmlspecialchars($produto['idProduto']) ?>'>Excluir</button>
+              </div>
+            <?php else : ?>
+              <button class='comprar-btn' onclick="adicionarAoCarrinho(<?= htmlspecialchars($produto['idProduto']) ?>, '<?= htmlspecialchars($produto['nome']) ?>', <?= htmlspecialchars($produto['preco']) ?>, '<?= htmlspecialchars($produto['imagem']) ?>')">Comprar</button>
+            <?php endif; ?>
           </div>
         <?php endforeach; ?>
       <?php else : ?>

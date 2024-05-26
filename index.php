@@ -1,5 +1,9 @@
 <?php
-session_start();  // Inicia a sessão no início do script, antes de qualquer saída HTML.
+require_once __DIR__ . '/helpers/path_helper.php'; // Inclui a função base_url
+
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();  // Inicia a sessão apenas se não estiver já iniciada
+}
 
 $path = __DIR__ . '/Front-end/PHP/connect.php';
 if (!file_exists($path)) {
@@ -10,7 +14,6 @@ require $path;
 // Verificar se o usuário é um 'Master' ou 'Colaborador'
 $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESSION['usuario_tipo'], ['Master', 'Colaborador']);
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,199 +21,32 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seven Gardens</title>
-  <link rel="shortcut icon" href="Front-end/img/logoatual.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="Front-end/css/style.css">
+  <link rel="shortcut icon" href="<?php echo base_url('Front-end/img/logoatual.svg'); ?>" type="image/x-icon" />
+  <link rel="stylesheet" href="<?php echo base_url('Front-end/css/style.css'); ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-  <script src="Front-end/js/acessibilidade.js"></script>
+  <script src="<?php echo base_url('Front-end/js/acessibilidade.js'); ?>"></script>
 </head>
 
 <body>
+  <?php include('header.php'); ?>
 
-  <header>
-    <section class="header">
-      <div>
-        <a href="index.php"><img class="logo" src="Front-end/img/logoatual.svg" alt="Logo Seven Gardens" /></a>
-      </div>
-
-      <div class="pesquisa-container">
-        <input type="search" name="" id="" class="pesquisa" />
-        <div class="pesquisa-icon"><i class="fas fa-search"></i></div>
-      </div>
-      <nav class="nav_a">
-        <div class="navegacao">
-          <ul>
-            <?php if (isset($_SESSION['usuario_id'])) : ?>
-              <li class="welcome-logout">
-                <span>
-                  <?php if ($_SESSION['usuario_tipo'] === 'Master' || $_SESSION['usuario_tipo'] === 'Colaborador') : ?>
-                    Olá, administrador!
-                  <?php else : ?>
-                    Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>!
-                  <?php endif; ?>
-                </span>
-                <a href="Front-end/html/logout.php" class="logout">Logout</a>
-              </li>
-            <?php else : ?>
-              <li class="home"><a class="login" href="Front-end/html/Login.php">Login</a></li>
-              <li class="login"><a href="Front-end/html/Cadastro.php" class="cadastro">Cadastro</a></li>
-            <?php endif; ?>
-          </ul>
-        </div>
-      </nav>
-    </section>
-
-    <section class="opcoes">
-      <div class="dropdown">
-        <div class="dropbtn">
-          <span class="prod_dropdown">Produtos</span> <i class="fas fa-chevron-down"> </i>
-        </div>
-        <div class="dropdown-content">
-          <a href="Front-end/html/catalogo.php">Ver Todos</a>
-          <a href="Front-end/html/categoria.php?categoria=Enxertos">Enxertos</a>
-          <a href="Front-end/html/categoria.php?categoria=Naturais%20(De%20semente)">Naturais (De semente)</a>
-          <a href="Front-end/html/categoria.php?categoria=Especiais">Especiais</a>
-          <a href="Front-end/html/categoria.php?categoria=Insumos">Insumos</a>
-        </div>
-      </div>
-
-      <div class="menu_btn">
-        <a href="Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
-      </div>
-      <div class="menu_btn">
-        <a href="Front-end/html/Contato.php">Contato</a>
-      </div>
-      <div class="menu_btn">
-        <a href="Front-end/html/Sobre.php">Sobre</a>
-      </div>
-      <!-- Ícone do carrinho -->
-      <div class="cart-icon-container">
-        <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" onclick="exibirModalCarrinho()" />
-        <!-- Contador de itens no carrinho -->
-        <span id="cart-counter" class="cart-counter">0</span>
-      </div>
-    </section>
-    <section class="section_mobile">
-      <div class="mobile_i"><i id="hamburguer" class="fa fa-bars"></i></div>
-      <section id="mobile" class="mobile">
-        <div id="dentro_icon" class="dentro_icon">
-          <div class="close-btn"><i class="fas fa-times"></i></div>
-          <a href="Front-end/html/Login.php">Login</a>
-          <a href="Front-end/html/Cadastro.php">Cadastro</a>
-          <a href="Front-end/html/catalogo.php">Ver Todos</a>
-          <a href="Front-end/html/categoria.php?categoria=Enxertos">Enxertos</a>
-          <a href="Front-end/html/categoria.php?categoria=Naturais%20(De%20semente)">Naturais (De semente)</a>
-          <a href="Front-end/html/categoria.php?categoria=Especiais">Especiais</a>
-          <a href="Front-end/html/categoria.php?categoria=Insumos">Insumos</a>
-          <a href="Front-end/html/instrucoesCultivo.php">Instruções de Cultivo</a>
-          <a href="Front-end/html/Contato.php">Contato</a>
-          <a href="Front-end/html/Sobre.php">Sobre</a>
-        </div>
-      </section>
-      <!-- Ícone do carrinho para versão mobile -->
-      <img src="Front-end/img/iconecar.svg" alt="Ícone do carrinho de compras" id="icon" class="icon_mobile" onclick="exibirModalCarrinho()" />
-    </section>
-  </header>
-
-  <style>
-    .header ul li {
-      list-style-type: none;
-      font-size: 20px;
-    }
-
-    /* Estilo para a mensagem de boas-vindas no header */
-    .header .navegacao ul li span {
-      font-size: 16px;
-      color: #8d9776;
-      /* Cor da mensagem */
-      margin-right: 15px;
-      /* Espaço entre a mensagem e o botão de logout */
-    }
-
-    /* Estilo para o botão de logout no header */
-    .header .navegacao ul li a.logout {
-      background-color: #8d9776;
-      /* Cor de fundo do botão de logout */
-      color: #fff;
-      /* Cor do texto do botão de logout */
-      padding: 10px 20px;
-      /* Espaçamento interno do botão de logout */
-      border-radius: 5px;
-      /* Borda arredondada do botão de logout */
-      text-decoration: none;
-      /* Remover sublinhado */
-      font-size: 16px;
-      /* Tamanho da fonte */
-      transition: background-color 0.3s ease;
-      /* Transição suave para mudança de cor */
-    }
-
-    .header .navegacao ul li a.logout:hover {
-      background-color: #6c7a5a;
-      /* Cor de fundo ao passar o mouse */
-    }
-
-    /* Botões de Login e Cadastro */
-    .nav_a .navegacao ul li a.login,
-    .nav_a .navegacao ul li a.cadastro {
-      color: #fbf3dc;
-      /* Cor do texto dos botões */
-      text-decoration: none;
-      /* Remove o sublinhado dos links */
-      border-radius: 7px;
-      /* Borda arredondada */
-      padding: 4px 10px;
-      /* Espaçamento interno */
-    }
-
-    .nav_a .navegacao ul li a.cadastro {
-      background-color: #405b39;
-      /* Cor de fundo do botão de cadastro */
-    }
-
-    .navegacao ul {
-      padding: 20px;
-      display: flex;
-      align-items: center;
-    }
-  </style>
-
-  <!-- Carrossel para os Banner da loja Seven Gardens -->
   <div class="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="Front-end/img/banner1.svg" alt="Imagem 1">
-      </div>
-      <div class="Front-end/img/banner2.svg" alt="Imagem 2">
+        <img src="<?php echo base_url('Front-end/img/banner1.svg'); ?>" alt="Imagem 1">
       </div>
       <div class="carousel-item">
-        <img src="Front-end/img/banner3.svg" alt="Imagem 3">
+        <img src="<?php echo base_url('Front-end/img/banner2.svg'); ?>" alt="Imagem 2">
+      </div>
+      <div class="carousel-item">
+        <img src="<?php echo base_url('Front-end/img/banner3.svg'); ?>" alt="Imagem 3">
       </div>
     </div>
     <button class="carousel-prev" onclick="prevSlide()"></button>
     <button class="carousel-next" onclick="nextSlide()"></button>
   </div>
-
-  <!-- Modal do carrinho -->
-  <div id="modalCarrinho" class="modal-carrinho">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Meu Carrinho</h2>
-      <div id="itensCarrinho" class="itens-carrinho">
-        <!-- Estrutura de exemplo para um item do carrinho -->
-        <div class="item-carrinho">
-          <img class="imagem-produto" src="caminho/para/sua/imagem.jpg" alt="Descrição do produto">
-          <!-- Outras informações do produto -->
-          <button class="excluir-produto-btn" onclick="removerProduto(this.parentNode)">Remover</button>
-        </div>
-      </div>
-      <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
-      <br><br>
-      <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
-    </div>
-  </div>
-
 
   <span class="titulopg">
     <h1>Destaques</h1>
@@ -218,7 +54,6 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <hr><br><br>
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
-
     <?php
     $query = "SELECT idProduto, nome, preco, descricao, categoria, subcategoria, imagem FROM produto";
     $stmt = $pdo->prepare($query);
@@ -244,13 +79,10 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
       }
 
       echo "</div>";
-    } ?>
+    }
+    ?>
   </div>
   <!-- Fim Bloco de Produtos -->
-
-  <style>
-
-  </style>
 
   <!-- Modal de Edição -->
   <div id="modalEditar" class="modal-editar">
@@ -282,7 +114,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <!-- Modal de Exclusão -->
   <div id="modalExcluir" class="modal-excluir">
     <div class="modal-content-excluir">
-      <span class="close-excluir">&times;</span>
+      <span class="close-excluir">&times;"></span>
       <h2>Excluir Produto</h2>
       <p>Tem certeza de que deseja excluir este produto?</p>
       <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
@@ -293,42 +125,35 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
     </div>
   </div>
 
-
-
-
   <!-- Fim do Bloco de Produtos -->
 
   <div id="itensCarrinho" class="carrinho">
     <!-- Itens do carrinho serão adicionados aqui -->
   </div>
 
-
   <!-- ACESSIBILIDADES -->
   <section id="accessibility-section">
     <i class="fas fa-universal-access" id="accessibility-icon"></i>
     <div id="other-things">
-
       <i class="fas fa-sun" id="light-mode-toggle"></i>
       <i class="fas fa-moon" id="dark-mode-toggle"></i>
-      <img class="img_letra" src="Front-end/img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
-      <img class="img_letra" src="Front-end/img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
+      <img class="img_letra" src="<?php echo base_url('Front-end/img/aumentartext_1.svg'); ?>" alt="" srcset="" id="increase-font">
+      <img class="img_letra" src="<?php echo base_url('Front-end/img/diminuirtext_1.svg'); ?>" alt="" srcset="" id="decrease-font">
     </div>
   </section>
   <!--FIM DA ACESSIBILIDADES -->
   <footer>
     <br>
 
-
     <div class="social-icons">
       <p> Siga-nos nas nossas redes sociais:</p>
-
       <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
       <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
       <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
-  <script src="./Front-end/js/script.js"></script>
-  <script src="Front-end/js/carrinho.js"></script>
+  <script src="<?php echo base_url('Front-end/js/script.js'); ?>"></script>
+  <script src="<?php echo base_url('Front-end/js/carrinho.js'); ?>"></script>
 </body>
 
 </html>
