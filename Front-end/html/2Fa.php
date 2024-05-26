@@ -18,8 +18,8 @@ $securityQuestion = $_SESSION['security_question'] ?? 'Pergunta não encontrada'
 </head>
 
 <body>
-<?php include('../../header.php'); ?>
-  ?>
+  <?php include('../../header.php'); ?>
+
   <div class="container" id="divLogin">
     <form class="divForm" id="2faForm" method="POST">
       <div class="form-header">
