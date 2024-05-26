@@ -74,24 +74,7 @@ html {
 
 /* fim do carrossel */
 
-.editar-btn,
-  .excluir-btn {
-    background-color: #7ED957;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    margin-right: 10px; 
-  }
 
-  .excluir-btn {
-    background-color: #DC0C0C;
-    margin-right: 0; 
-  }
 
 
 .modal-carrinho img{
@@ -109,99 +92,6 @@ footer {
 
 
 
-/* Estilo do Modal de compras*/
-.modal-carrinho {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.item-carrinho {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
-}
-
-.imagem-produto {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  margin-right: 20px;
-}
-
-.nome-produto,
-.preco-produto {
-  margin: 0;
-}
-
-.excluir-produto-btn {
-  margin-left: auto;
-  background-color: #8d9776;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.excluir-produto-btn:hover {
-  background-color: #8d9776;
-}
-
-.total-carrinho {
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-.finalizar-compra-btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.finalizar-compra-btn:hover {
-  background-color: #45a049;
-}
-.descricao-produto {
-  margin-right: 20px;
-}
 
 /* Estilo do Carrinho e o contador */
 

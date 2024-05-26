@@ -25,6 +25,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <link rel="shortcut icon" href="<?php echo base_url('Front-end/img/logoatual.svg'); ?>" type="image/x-icon" />
   <link rel="stylesheet" href="<?php echo base_url('Front-end/css/style.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('Front-end/css/Card-produtos.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('Front-end/css/modalEstilos.css'); ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
@@ -89,46 +90,6 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
 
   <!-- Fim Bloco de Produtos -->
 
-  <!-- Modal de Edição -->
-  <div id="modalEditar" class="modal-editar">
-    <div class="modal-content-editar">
-      <span class="close-editar">&times;</span>
-      <h2>Editar Produto</h2>
-      <form id="editarForm" method="POST" action="/Seven_Gardens/Back-end/editarProduto.php">
-        <input type="hidden" name="idProduto" id="editarId">
-        <label for="editarNome">Nome:</label>
-        <input type="text" name="nome" id="editarNome" required>
-        <br>
-        <label for="editarPreco">Preço:</label>
-        <input type="text" name="preco" id="editarPreco" required>
-        <br>
-        <label for="editarDescricao">Descrição:</label>
-        <textarea name="descricao" id="editarDescricao" required></textarea>
-        <br>
-        <label for="editarCategoria">Categoria:</label>
-        <input type="text" name="categoria" id="editarCategoria" required>
-        <br>
-        <label for="editarSubcategoria">Subcategoria:</label>
-        <input type="text" name="subcategoria" id="editarSubcategoria" required>
-        <br>
-        <button type="submit">Salvar Alterações</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Modal de Exclusão -->
-  <div id="modalExcluir" class="modal-excluir">
-    <div class="modal-content-excluir">
-      <span class="close-excluir">&times;"></span>
-      <h2>Excluir Produto</h2>
-      <p>Tem certeza de que deseja excluir este produto?</p>
-      <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
-        <input type="hidden" name="idProduto" id="excluirId">
-        <button type="submit">Excluir</button>
-        <button type="button" class="cancel-btn">Cancelar</button>
-      </form>
-    </div>
-  </div>
 
   <!-- Fim do Bloco de Produtos -->
 

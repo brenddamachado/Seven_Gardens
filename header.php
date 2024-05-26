@@ -98,3 +98,4 @@ require $path;
 </header>
 
 <?php include(__DIR__ . '/modal_carrinho.php'); ?> <!-- Inclusão do modal do carrinho -->
+<?php include(__DIR__ . '/modal_edit_produtos.php'); ?> <!-- Inclusão do modal do carrinho -->

@@ -55,7 +55,9 @@
 }
 
 /* Estilo original do botão */
-.produto-card .comprar-btn {
+.produto-card .comprar-btn,
+.editar-btn,
+.excluir-btn {
   background-color: #405b39;
   color: white;
   border: none;
@@ -64,6 +66,11 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.produto-card .excluir-btn {
+  background-color: #DC0C0C;
+  margin-right: 0; 
 }
 
 .produto-card .comprar-btn:hover {
@@ -78,7 +85,7 @@
 }
 
 .produto-card .comprar-btn.clicked::before {
-  content: '✓ '; /* Ícone de verificação */
+  content: '✔'; /* Ícone de verificação */
   margin-right: 5px;
   position: absolute;
   left: 5px; /* Ajuste conforme necessário */
@@ -87,3 +94,8 @@
   color: white; /* Cor do ícone */
   font-size: 1.1rem; /* Tamanho do ícone */
 }
+
+
+
+
+ 
