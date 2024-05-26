@@ -44,6 +44,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo de Produtos - Seven Gardens</title>
   <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/Card-produtos.css">
   <link rel="stylesheet" href="../css/catalogo.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
@@ -93,16 +94,18 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <div class="produto-card">
             <img class="imgProduto" src="../../<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
             <h3><?= htmlspecialchars($produto['nome']) ?></h3>
-            <p>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-            <p>Categoria: <?= htmlspecialchars($produto['categoria']) ?></p>
-            <p>Subcategoria: <?= htmlspecialchars($produto['subcategoria']) ?></p>
+            <p class='preco'>Preço: R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+            <p class='descricao'><?= htmlspecialchars($produto['descricao']) ?></p>
+            <p class='categoria'>Categoria: <?= htmlspecialchars($produto['categoria']) ?></p>
+            <p class='subcategoria'>Subcategoria: <?= htmlspecialchars($produto['subcategoria']) ?></p>
             <?php if ($isUserMasterOrColaborador) : ?>
               <div>
                 <button class='editar-btn' data-id='<?= htmlspecialchars($produto['idProduto']) ?>' data-nome='<?= htmlspecialchars($produto['nome']) ?>' data-preco='<?= htmlspecialchars($produto['preco']) ?>' data-descricao='<?= htmlspecialchars($produto['descricao']) ?>' data-categoria='<?= htmlspecialchars($produto['categoria']) ?>' data-subcategoria='<?= htmlspecialchars($produto['subcategoria']) ?>'>Editar</button>
                 <button class='excluir-btn' data-id='<?= htmlspecialchars($produto['idProduto']) ?>'>Excluir</button>
               </div>
             <?php else : ?>
-              <button class='comprar-btn' onclick="adicionarAoCarrinho(<?= htmlspecialchars($produto['idProduto']) ?>, '<?= htmlspecialchars($produto['nome']) ?>', <?= htmlspecialchars($produto['preco']) ?>, '<?= htmlspecialchars($produto['imagem']) ?>')">Comprar</button>
+              <button class='comprar-btn' data-id='<?= htmlspecialchars($produto['idProduto']) ?>' onclick="adicionarAoCarrinho(<?= htmlspecialchars($produto['idProduto']) ?>, '<?= htmlspecialchars($produto['nome']) ?>', <?= htmlspecialchars($produto['preco']) ?>, '<?= htmlspecialchars($produto['imagem']) ?>')">Comprar</button>
+
             <?php endif; ?>
           </div>
         <?php endforeach; ?>
@@ -110,6 +113,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p class="nenhum-produto">Nenhum produto encontrado.</p>
       <?php endif; ?>
     </div>
+
   </div>
 
   <section id="accessibility-section">

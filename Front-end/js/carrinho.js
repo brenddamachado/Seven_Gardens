@@ -6,7 +6,6 @@ let totalCarrinho = 0;
 function salvarCarrinho() {
   localStorage.setItem('itensCarrinho', JSON.stringify(itensCarrinho));
   localStorage.setItem('totalCarrinho', totalCarrinho.toString());
-  console.log("Carrinho salvo no localStorage:", itensCarrinho, totalCarrinho);
 }
 
 function carregarCarrinho() {
@@ -41,8 +40,20 @@ function adicionarAoCarrinho(id, nome, preco, imagem) {
     cartCounter.textContent = itensCarrinho.length;
   }
   salvarCarrinho();
-  console.log("Item adicionado ao carrinho:", id, nome, preco, imagem);
+
+  // Animação do botão
+  console.log(`Adicionando animação ao botão de ID: ${id}`);
+  const botaoComprar = document.querySelector(`button[data-id='${id}']`);
+  if (botaoComprar) {
+    botaoComprar.classList.add('clicked');
+    setTimeout(() => {
+      botaoComprar.classList.remove('clicked');
+    }, 500); // Duração da animação em milissegundos
+  } else {
+    console.log(`Botão não encontrado para ID: ${id}`);
+  }
 }
+
 
 function incrementarQuantidade(index) {
   itensCarrinho[index].quantidade += 1;

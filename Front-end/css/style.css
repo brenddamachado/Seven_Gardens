@@ -197,7 +197,7 @@ html {
   overflow: hidden;
   width: 100%;
   /* Ocupa toda a largura do corpo */
-  margin-bottom: 50px;
+  margin-bottom: 7px;
   /*  espaço entre o carrossel e o conteúdo abaixo */
 }
 
@@ -252,51 +252,6 @@ html {
 
 /* fim do carrossel */
 
-/* Início do bloco de produtos */
-.bloco-produtos {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Define 4 colunas iguais */
-  gap: 20px; /* Espaçamento entre os cards */
-  padding: 20px; /* Espaçamento interno das bordas do contêiner */
-}
-
-.produto-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
-  text-align: center; /* Alinha o texto horizontalmente */
-  display: flex; /* Torna o card um flex container */
-  flex-direction: column; /* Define a direção do flex para coluna */
-  justify-content: space-between; /* Distribui o espaço uniformemente entre os itens */
-  align-items: center; /* Centraliza os itens horizontalmente */
-  transition: box-shadow 0.3s ease; /* Adiciona uma transição suave para a sombra do card */
-}
-
-.produto-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais forte quando o mouse passa por cima */
-}
-
-.produto-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.produto-card p {
-  margin-bottom: 8px;
-}
-
-.comprar-btn {
-  background-color: #405b39; /* Cor de fundo verde */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 .editar-btn,
   .excluir-btn {
     background-color: #7ED957;
@@ -316,10 +271,6 @@ html {
     margin-right: 0; 
   }
 
-.comprar-btn:hover {
-  background-color: #112a08; 
-}
-
 
 .modal-carrinho img{
   max-width: 100px;
@@ -329,7 +280,7 @@ html {
 /* inicio footer */
 
 footer {
-  margin-top: 400px;
+  margin-top: 7px;
   background-color: #0f2b05;
   height: 200px;
 }

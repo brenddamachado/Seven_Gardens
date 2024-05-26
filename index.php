@@ -23,6 +23,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <title>Seven Gardens</title>
   <link rel="shortcut icon" href="<?php echo base_url('Front-end/img/logoatual.svg'); ?>" type="image/x-icon" />
   <link rel="stylesheet" href="<?php echo base_url('Front-end/css/style.css'); ?>">
+  <link rel="stylesheet" href="<?php echo base_url('Front-end/css/Card-produtos.css'); ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
@@ -51,7 +52,8 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   <span class="titulopg">
     <h1>Destaques</h1>
   </span>
-  <hr><br><br>
+  <hr>
+
   <!-- inicio Bloco de Produtos -->
   <div class="bloco-produtos">
     <?php
@@ -62,26 +64,28 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
     // Exibir os cards dos produtos
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       echo "<div class='produto-card'>";
-      echo "<img class='imgProduto' src='" . $row["imagem"] . "' alt='Imagem do produto'>";
-      echo "<h3>" . $row["nome"] . "</h3>";
-      echo "<p>Preço: R$ " . $row["preco"] . "</p>";
-      echo "<p>" . $row["descricao"] . "</p>";
-      echo "<p>Categoria: " . $row["categoria"] . "</p>";
-      echo "<p>Subcategoria: " . $row["subcategoria"] . "</p>";
+      echo "<img class='imgProduto' src='" . htmlspecialchars($row["imagem"]) . "' alt='Imagem do produto'>";
+      echo "<h3>" . htmlspecialchars($row["nome"]) . "</h3>";
+      echo "<p class='preco'>Preço: R$ " . number_format($row["preco"], 2, ',', '.') . "</p>";
+      echo "<p class='descricao'>" . htmlspecialchars($row["descricao"]) . "</p>";
+      echo "<p class='categoria'>Categoria: " . htmlspecialchars($row["categoria"]) . "</p>";
+      echo "<p class='subcategoria'>Subcategoria: " . htmlspecialchars($row["subcategoria"]) . "</p>";
 
       if ($isUserMasterOrColaborador) {
         echo "<div>"; // Container para os botões
-        echo "<button class='editar-btn' data-id='" . $row["idProduto"] . "' data-nome='" . $row["nome"] . "' data-preco='" . $row["preco"] . "' data-descricao='" . $row["descricao"] . "' data-categoria='" . $row["categoria"] . "' data-subcategoria='" . $row["subcategoria"] . "'>Editar</button>";
-        echo "<button class='excluir-btn' data-id='" . $row["idProduto"] . "'>Excluir</button>";
+        echo "<button class='editar-btn' data-id='" . htmlspecialchars($row["idProduto"]) . "' data-nome='" . htmlspecialchars($row["nome"]) . "' data-preco='" . htmlspecialchars($row["preco"]) . "' data-descricao='" . htmlspecialchars($row["descricao"]) . "' data-categoria='" . htmlspecialchars($row["categoria"]) . "' data-subcategoria='" . htmlspecialchars($row["subcategoria"]) . "'>Editar</button>";
+        echo "<button class='excluir-btn' data-id='" . htmlspecialchars($row["idProduto"]) . "'>Excluir</button>";
         echo "</div>"; // Fim do container
       } else {
-        echo "<button class='comprar-btn' onclick=\"adicionarAoCarrinho(" . $row['idProduto'] . ", '" . $row['nome'] . "', " . $row['preco'] . ", '" . $row['imagem'] . "')\">Comprar</button>";
+        echo "<button class='comprar-btn' data-id='" . htmlspecialchars($row['idProduto']) . "' onclick=\"adicionarAoCarrinho(" . htmlspecialchars($row['idProduto']) . ", '" . htmlspecialchars($row['nome']) . "', " . htmlspecialchars($row['preco']) . ", '" . htmlspecialchars($row['imagem']) . "')\">Comprar</button>";
       }
 
       echo "</div>";
     }
     ?>
   </div>
+
+
   <!-- Fim Bloco de Produtos -->
 
   <!-- Modal de Edição -->
