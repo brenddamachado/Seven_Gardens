@@ -158,6 +158,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
   </footer>
   <script src="<?php echo base_url('Front-end/js/script.js'); ?>"></script>
   <script src="<?php echo base_url('Front-end/js/carrinho.js'); ?>"></script>
+  <script src="<?php echo base_url('Front-end/js/modal_Edit_Produtos.js'); ?>"></script>
 </body>
 
 </html>
