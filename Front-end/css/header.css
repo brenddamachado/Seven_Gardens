@@ -1,9 +1,3 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-}
-
 .imgProduto {
   width: 250px;
 }
@@ -22,8 +16,8 @@ body {
 
 /* Estilo para a mensagem de boas-vindas no header */
 .header .navegacao ul li span {
-  font-size: 16px;
-  color: #8d9776;
+  font-size: 20px;
+  color: #fbf3dc;
   margin-right: 15px;
 }
 
@@ -31,10 +25,10 @@ body {
 .header .navegacao ul li a.logout {
   background-color: #8d9776;
   color: #fff;
-  padding: 10px 20px;
+  padding: 5px 10px;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 20px;
   transition: background-color 0.3s ease;
 }
 
@@ -48,7 +42,7 @@ body {
   color: #fbf3dc;
   text-decoration: none;
   border-radius: 7px;
-  padding: 4px 10px;
+  padding: 5px 10px;
 }
 
 .nav_a .navegacao ul li a.cadastro {
