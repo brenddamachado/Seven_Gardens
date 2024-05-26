@@ -9,14 +9,14 @@
   <link rel="stylesheet" href="../css/Cadastro.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="../css/header.css" />
-
+  <link rel="stylesheet" href="../css/modalEstilos.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
   <script src="../js/acessibilidade.js"></script>
 </head>
 
 <body>
-  <?php include('header.php'); ?>
+<?php include('../../header.php'); ?>
 
 
 
@@ -329,6 +329,7 @@
     </div>
   </footer>
   <script src="../js/Cadastro.js"></script>
+  <script src="../js/carrinho.js"></script>
 </body>
 
 </html>

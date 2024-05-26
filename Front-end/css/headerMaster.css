@@ -1,0 +1,79 @@
+/* Estilos gerais do header */
+header {
+  background-color: #0f2b05;
+}
+
+.header {
+  height: 180px;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.header ul li {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+.logo {
+  width: 155px;
+  height: 200px;
+}
+
+.opcoes {
+  justify-content: space-around;
+  display: flex;
+  background: #405b39;
+  height: 38px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.opcoes h2 {
+  color: #fbf3dc;
+}
+
+.login {
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+.cadastrar {
+  background-color: #405b39;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+}
+
+.welcome-logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fbf3dc;
+}
+
+.logout {
+  background-color: #8d9776;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dashboard {
+  background-color: #405b39;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+}

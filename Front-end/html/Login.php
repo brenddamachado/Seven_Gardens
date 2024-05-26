@@ -11,12 +11,13 @@
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="../css/Login.css">
   <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/modalEstilos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <script src="../js/acessibilidade.js"> </script>
 </head>
 
 <body>
-  <?php include('header.php'); ?>
+<?php include('../../header.php'); ?>
   <div class="container" id="divLogin">
     <form class="divForm" id="loginForm" action="#" method="POST">
       <div class="form-header">
@@ -84,6 +85,7 @@
 
 
   <script src="../js/Login.js"> </script>
+  <script src="../js/carrinho.js"></script>
 </body>
 
 </html>

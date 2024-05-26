@@ -1,0 +1,101 @@
+/* Início do bloco de produtos */
+.bloco-produtos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Define 4 colunas iguais */
+  gap: 20px; /* Espaçamento entre os cards */
+  padding: 20px; /* Espaçamento interno das bordas do contêiner */
+}
+
+.produto-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px; /* Reduzido de 20px para 15px */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px; /* Reduzido de 18px para 16px */
+  text-align: center; /* Alinha o texto horizontalmente */
+  display: flex; /* Torna o card um flex container */
+  flex-direction: column; /* Define a direção do flex para coluna */
+  justify-content: space-between; /* Distribui o espaço uniformemente entre os itens */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  transition: box-shadow 0.3s ease; /* Adiciona uma transição suave para a sombra do card */
+}
+
+.produto-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais forte quando o mouse passa por cima */
+}
+
+.produto-card img.imgProduto {
+  max-height: 200px; /* Reduzido de 250px para 200px */
+  object-fit: cover; /* Mantém a proporção da imagem */
+}
+
+.produto-card h3 {
+  font-size: 18px; /* Reduzido de 20px para 18px */
+  margin-bottom: 8px; /* Reduzido de 10px para 8px */
+}
+
+.produto-card p {
+  margin-bottom: 6px; /* Reduzido de 8px para 6px */
+}
+
+.produto-card p.preco {
+  color: #405b39; /* Cor verde escuro */
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.produto-card p.descricao {
+  color: #333; /* Cor preta */
+  font-size: 14px;
+}
+
+.produto-card p.categoria, .produto-card p.subcategoria {
+  color: #666; /* Cor cinza */
+  font-size: 12px;
+}
+
+/* Estilo original do botão */
+.produto-card .comprar-btn,
+.editar-btn,
+.excluir-btn {
+  background-color: #405b39;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.produto-card .excluir-btn {
+  background-color: #DC0C0C;
+  margin-right: 0; 
+}
+
+.produto-card .comprar-btn:hover {
+  background-color: #112a08;
+}
+
+/* Estilo do botão quando clicado */
+.produto-card .comprar-btn.clicked {
+  background-color: #28a745; /* Verde indicando sucesso */
+  transform: scale(1.05); /* Leve aumento no tamanho */
+  position: relative;
+}
+
+.produto-card .comprar-btn.clicked::before {
+  content: '✔'; /* Ícone de verificação */
+  margin-right: 5px;
+  position: absolute;
+  left: 5px; /* Ajuste conforme necessário */
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%);
+  color: white; /* Cor do ícone */
+  font-size: 1.1rem; /* Tamanho do ícone */
+}
+
+
+
+
+ 
