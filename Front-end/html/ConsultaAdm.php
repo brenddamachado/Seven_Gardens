@@ -54,14 +54,14 @@
   </table>
 
 
-  <!-- Modal de Confirmação de Exclusão -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <p>Deseja realmente excluir este usuário?</p>
-      <button id="confirm-btn">Confirmar</button>
-      <button id="cancel-btn">Cancelar</button>
-    </div>
+<!-- Modal de confirmação -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <p id="modal-message"></p>
+    <button id="confirm-btn">Confirmar</button>
+    <button id="cancel-btn">Cancelar</button>
   </div>
+</div>
 
  <!-- ACESSIBILIDADES -->
     <section id="accessibility-section">
