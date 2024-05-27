@@ -170,11 +170,11 @@ input[type="text"] {
 
 /* inicio DARK MODE */
 body.dark-mode, body.dark-mode
-button[type="submit"] {
+button[type="submit"], body.dark-mode form {
   background-color: #151515;
 }
 
-body.dark-mode form,
+
 body.dark-mode .topo_tabela {
   background-color: #282828;
 }
@@ -184,15 +184,18 @@ body.dark-mode footer {
   background-color: #070B06;
 }
 
-body.dark-mode .opcoes {
-  background-color: #1E1F1E;
+body.dark-mode .opcoes, body.dark-mode .table tr {
+  background-color: #1E1F1E !important;
 }
 
+body.dark-mode .table tr, body.dark-mode #openFilterForm{
+  color: #fff;
+}
 body.dark-mode .opcoes h2,
 body.dark-mode form h1,
 body.dark-mode label,
 body.dark-mode .topo_tabela,
-body.dark-mode .login {
+body.dark-mode .login,  body.dark-mode .table th {
   color: #E1F9D7;
 }
 
@@ -308,11 +311,7 @@ footer {
 
 
 
-@media (max-width: 320px) {
-  .logo {
-    width: 100px;
-  }
-}
+
 
 @media (max-width: 360px) {
   .logo {
@@ -334,10 +333,10 @@ table{
 }
 
 th{
-  /* background-color: #405b39 !important;
+  background-color: #405b39 !important;
   color: #fbf3dc;
   text-align: center !important;
-  font-size: 18px; */
+
 
 }
 
@@ -345,3 +344,56 @@ th{
   text-align: center !important;
 
 } */
+
+@media (max-width: 718px) {
+  .table td, .table th {
+    vertical-align: middle !important;
+    padding: 0.5rem !important; /* Ajuste este valor conforme necessário */
+  }
+}
+
+@media (max-width: 686px) {
+  .table td, .table th {
+    padding: 0.4rem !important; /* Ajuste este valor conforme necessário */
+  }
+}
+@media (max-width: 434px) {
+  
+  .header .paginas li {
+    font-size: 13px;
+}
+}
+
+@media (max-width:342px) {
+  .table td, .table th {
+    padding: 1px !important; /* Ajuste este valor conforme necessário */
+  }
+
+  .header .paginas li {
+    font-size: 11px;
+}
+
+.logo{
+  width: 100px;
+}
+}
+
+@media (max-width:541px) {
+  .logo{
+    width: 120px;
+  }
+}
+@media (max-width: 320px) {
+  .logo {
+    width: 85px !important;  }
+    table{
+      margin-top: 70px;
+    }
+    #openFilterForm{
+      margin-top: 30px;
+    }
+}
+
+.table tr{
+  text-align: center;
+}

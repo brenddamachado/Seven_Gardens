@@ -10,8 +10,11 @@ if (!isset($_SESSION['usuario_id'])) {
 
 function buscarHistorico($pdo, $pesquisa)
 {
-  // Remove qualquer caractere que não seja numérico do CPF
-  $pesquisa = preg_replace("/[^0-9]/", "", $pesquisa);
+  // Remover qualquer caractere que não seja numérico do CPF
+  $cpfPesquisa = preg_replace("/[^0-9]/", "", $pesquisa);
+  
+  // Tentar converter a pesquisa para uma data
+  $dataPesquisa = date('Y-m-d', strtotime($pesquisa));
 
   $query = "
     SELECT 
@@ -30,24 +33,24 @@ function buscarHistorico($pdo, $pesquisa)
     ON 
         h.id_pergunta_secreta = p.id
     WHERE 
-        REPLACE(REPLACE(REPLACE(u.cpf, '.', ''), '-', ''), ' ', '') LIKE :cpf
-        OR u.nome_completo LIKE :pesquisa 
-        OR h.id_usuario = :id 
-        OR p.pergunta LIKE :pesquisa 
-        OR DATE(h.horarioLogin) = :data
+        (REPLACE(REPLACE(REPLACE(u.cpf, '.', ''), '-', ''), ' ', '') LIKE :cpf)
+        OR (u.nome_completo LIKE :pesquisa)
+        OR (h.id_usuario = :id)
+        OR (p.pergunta LIKE :pesquisa)
+        OR (DATE(h.horarioLogin) = :data)
     ORDER BY 
         h.horarioLogin DESC";
 
   $stmt = $pdo->prepare($query);
   $likePesquisa = "%$pesquisa%";
-  $stmt->bindParam(':cpf', $pesquisa);
+  $stmt->bindParam(':cpf', $cpfPesquisa);
   $stmt->bindParam(':pesquisa', $likePesquisa);
-  if (is_numeric($pesquisa)) {
-    $stmt->bindValue(':id', (int)$pesquisa, PDO::PARAM_INT);
+  $stmt->bindParam(':data', $dataPesquisa);
+  if (is_numeric($cpfPesquisa)) {
+    $stmt->bindValue(':id', (int)$cpfPesquisa, PDO::PARAM_INT);
   } else {
     $stmt->bindValue(':id', null, PDO::PARAM_NULL);
   }
-  $stmt->bindValue(':data', $pesquisa);
   $stmt->execute();
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -88,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
   exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
