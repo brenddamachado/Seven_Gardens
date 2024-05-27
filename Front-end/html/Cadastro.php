@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<?php include('../../header.php'); ?>
+  <?php include('../../header.php'); ?>
 
 
 
@@ -330,6 +330,8 @@
   </footer>
   <script src="../js/Cadastro.js"></script>
   <script src="../js/carrinho.js"></script>
+  
+
 </body>
 
 </html>
