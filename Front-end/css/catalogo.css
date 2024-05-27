@@ -1,0 +1,267 @@
+/* Geral */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Principal */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  min-height: 100vh;
+}
+
+.imgProduto {
+  width: 250px;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.filter {
+  flex: 1;
+}
+
+.filter label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.filter select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Botão de Filtrar */
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+
+/* Mensagem de Nenhum Produto Encontrado */
+.nenhum-produto {
+  text-align: center;
+  color: #666;
+  font-size: 1.2em;
+}
+
+/* inicio footer */
+footer {
+  background-color: #0f2b05;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icons {
+  text-align: center;
+}
+
+.social-icons p {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+}
+
+.social-icons .icon {
+  display: inline-block;
+  margin: 10px 10px 0;
+  font-size: 30px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+}
+
+body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode .container {
+  background-color: #282828;
+}
+
+body.dark-mode .filter label,
+body.dark-mode .produto h2,
+body.dark-mode .produto p,
+body.dark-mode .nenhum-produto,
+body.dark-mode h1,
+body.dark-mode footer {
+  color: #E1F9D7;
+}
+
+body.dark-mode .filter select,
+body.dark-mode button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+body.dark-mode footer {
+  background-color: #070b06;
+}
+
+body.dark-mode .fa-universal-access,
+body.dark-mode .fa-moon,
+body.dark-mode .fa-sun {
+  color: #7a7979;
+}
+
+body.dark-mode .social-icons .icon {
+  color: #fff;
+}
+
+body.dark-mode .social-icons .icon:hover {
+  color: #4CAF50;
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+#mobile {
+  position: fixed;
+  left: -100%;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #405b39;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  transition: left 0.5s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #fbf3dc;
+  font-size: 24px;
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.dentro_icon a {
+  color: #fbf3dc;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 1px solid #fbf3dc;
+}
+
+.mobile {
+  display: none;
+}
+
+.icon_mobile {
+  display: none;
+}
+
+.section_mobile {
+  display: none;
+}
+
+.fa-times {
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+#hamburguer {
+  width: 35px;
+  margin-top: 2px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #7ed957;
+  border-color: #7ed957;
+}
+
+.dentro_icon {
+  display: flex;
+  flex-direction: column;
+}
+
+.cliqueAqui {
+  gap: 10px;
+}

@@ -5,12 +5,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include('../Front-end/PHP/connect.php');  // Inclui e executa o arquivo, conectando ao banco de dados com PDO
 
     // Verifica se todas as variáveis estão definidas antes de acessá-las
-    if (isset($_POST["nomeProduto"], $_POST["precoProduto"], $_POST["descricaoProduto"], $_POST["categoriaProduto"], $_POST["subcategoriaProduto"], $_FILES["imagemProduto"])) {
+    if (isset($_POST["nomeProduto"], $_POST["precoProduto"], $_POST["descricaoProduto"], $_POST["categoriaProduto"], $_POST["subcategoriaProduto"], $_FILES["imagemProduto"], $_POST["quantidadeProduto"])) {
         $nome = $_POST["nomeProduto"];
         $preco = $_POST["precoProduto"];
         $descricao = $_POST["descricaoProduto"];
         $categoria = $_POST["categoriaProduto"];
         $subcategoria = $_POST["subcategoriaProduto"];
+        $quantidade = $_POST["quantidadeProduto"];
 
         // Diretório onde as imagens serão armazenadas
         $diretorio = "C:/xampp/htdocs/Seven_Gardens/Front-end/img-produtos/";
@@ -31,7 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Tenta executar a consulta
             if ($stmt->execute([$nome, $preco, $descricao, $categoria, $subcategoria, $caminhoWeb])) {
-                echo json_encode(['success' => true, 'message' => 'Produto cadastrado com sucesso!']);
+                $produtoId = $pdo->lastInsertId();
+
+                // Inserir a quantidade na tabela estoque
+                $sqlEstoque = "INSERT INTO estoque (idProduto, quantidade) VALUES (?, ?)";
+                $stmtEstoque = $pdo->prepare($sqlEstoque);
+                if ($stmtEstoque->execute([$produtoId, $quantidade])) {
+                    echo json_encode(['success' => true, 'message' => 'Produto cadastrado com sucesso!']);
+                } else {
+                    echo json_encode(['success' => false, 'message' => 'Erro ao cadastrar estoque: ' . $stmtEstoque->errorInfo()[2]]);
+                }
             } else {
                 echo json_encode(['success' => false, 'message' => 'Erro ao cadastrar produto: ' . $stmt->errorInfo()[2]]);
             }

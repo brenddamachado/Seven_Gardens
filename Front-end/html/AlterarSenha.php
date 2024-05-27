@@ -7,13 +7,13 @@
   <title>Seven Gardens</title>
   <link rel="stylesheet" href="../css/AlterarSenha.css">
   <link rel="stylesheet" href="../css/header.css" />
-
+  <link rel="stylesheet" href="../css/modalEstilos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon">
 </head>
 
 <body>
-<?php include('header.php'); ?>
+<?php include('../../header.php'); ?>
 
   <div class="container" id="divalterarSenha">
     <form class="divForm" action="javascript:validaLogin()">
@@ -69,6 +69,7 @@
   </footer>
   <script src="../js/acessibilidade.js"></script>
   <script src="../js/AltararSenha.js"></script>
+  <script src="../js/carrinho.js"></script>
 </body>
 
 </html>

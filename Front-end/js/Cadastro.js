@@ -38,7 +38,7 @@ let validecpf = false;
 let validecep = false;
 let valideemail = false;
 let valideMae = false;
-let nomeDaMãe = document.getElementById("nomeDamae");
+let nomeDaMae = document.getElementById("nomeDamae");
 
 
 form.addEventListener("submit", (event) => {
@@ -60,36 +60,39 @@ form.addEventListener("submit", (event) => {
 
 
 nome.addEventListener("input", () => {
-  // Remova caracteres que não são letras ou espaços
   nome.value = nome.value.replace(/[^a-zA-Z\s]/g, "");
 
   if (nome.value.length >= 15 && nome.value.length < 80) {
     mensagemNome.innerHTML = "";
+    mensagemNome.style.color = "green";
     validenome = true;
   } else {
     mensagemNome.innerHTML = "Insira no mínimo 15 caracteres";
+    mensagemNome.style.color = "red";
     validenome = false;
   }
 });
 
-nomeDaMãe.addEventListener("input", () => {
-  // Remova caracteres que não são letras ou espaços
-  nomeDaMãe.value = nomeDaMãe.value.replace(/[^a-zA-Z\s]/g, "");
+nomeDaMae.addEventListener("input", () => {
+  nomeDaMae.value = nomeDaMae.value.replace(/[^a-zA-Z\s]/g, "");
 
-  if (nomeDaMãe.value.length >= 15 && nomeDaMãe.value.length < 80) {
+  if (nomeDaMae.value.length >= 15 && nomeDaMae.value.length < 80) {
     mensagemNomeMae.innerHTML = "";
-    validenome = true;
+    mensagemNomeMae.style.color = "green";
+    validenomeDaMae = true;
   } else {
     mensagemNomeMae.innerHTML = "Insira no mínimo 15 caracteres";
-    validenome = false;
+    mensagemNomeMae.style.color = "red";
+    validenomeDaMae = false;
   }
 });
 
 senha.addEventListener("input", () => {
-  senha.value = senha.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
+  senha.value = senha.value.replace(/[^a-zA-Z]/g, "");
 
   if (senha.value.length < 8) {
     mensagem.innerHTML = "Insira no mínimo 8 caracteres";
+    mensagem.style.color = "red";
     validesenha = false;
   } else {
     mensagem.innerHTML = "";
@@ -98,50 +101,17 @@ senha.addEventListener("input", () => {
 });
 
 senha2.addEventListener("input", () => {
-  senha2.value = senha2.value.replace(/[^a-zA-Z]/g, ""); // Remove caracteres não alfabéticos
+  senha2.value = senha2.value.replace(/[^a-zA-Z]/g, "");
 
   if (senha.value !== senha2.value) {
     mensagem.innerHTML = "As senhas não conferem";
+    mensagem.style.color = "red";
     validesenha2 = false;
   } else {
     mensagem.innerHTML = "";
     validesenha2 = true;
   }
 });
-
-var modal = document.getElementById("myModal");
-
-// Pega o elemento <span> que fecha o modal
-var span = document.getElementsByClassName("close")[0];
-
-// Função para abrir o modal
-function openModal() {
-  modal.style.display = "block";
-}
-
-// Função para fechar o modal
-function closeModal() {
-  modal.style.display = "none";
-}
-
-// Quando o usuário clica em <span> (x), fecha o modal
-span.onclick = function() {
-  closeModal();
-}
-
-// Quando o usuário clica em qualquer lugar fora do modal, fecha-o
-window.onclick = function(event) {
-  if (event.target == modal) {
-    closeModal();
-  }
-}
-
- $(document).ready(function () {
-    $(".close").click(function () {
-      $("#myModal").hide();
-      window.location.href = "Login.html"; // Redireciona para a página de login
-    });
-  });
 
 function validarCPF(cpf) {
   // Verificar se o CPF tem 11 dígitos
@@ -194,6 +164,7 @@ cpf.addEventListener("input", () => {
     validecpf = true;
   } else {
     mensagemCPF.innerHTML = "CPF inválido";
+    mensagemCPF.style.color = "red";
     validecpf = false;
   }
 });
@@ -218,7 +189,9 @@ function validarEmail(email) {
     mensagemEmail.innerHTML = "inválido";
     valideemail = false;
   }
-} function preencherEndereco(cep) {
+}
+
+function preencherEndereco(cep) {
   const url = `https://viacep.com.br/ws/${cep}/json/`;
 
   fetch(url)
@@ -306,6 +279,7 @@ login.addEventListener("input", function () {
     validelogin = true;
   } else {
     mensagemLogin.innerHTML = "Digite exatamente 6 letras.";
+    mensagemLogin.style.color = "red";
 
     validelogin = false;
   }
@@ -329,7 +303,7 @@ limpar.addEventListener("click", (event) => {
   cidadeInput.val(""); // Limpa o campo de input cidade
   ruaInput.val("");
   bairroInput.val("");
-  nomeDaMãe.value = "";
+  nomeDaMae.value = "";
   // Limpar a seleção dos radios de gênero
   document.querySelectorAll(".genero").forEach((radio) => {
     radio.checked = false;

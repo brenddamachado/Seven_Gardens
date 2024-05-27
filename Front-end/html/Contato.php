@@ -7,12 +7,13 @@
   <title>Contato</title>
   <link rel="stylesheet" href="../css/Contato.css" />
   <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/modalEstilos.css" />
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
-  <?php include('header.php'); ?>
+<?php include('../../header.php'); ?>
 
   <main class="contact-container">
     <section class="contact-form">
@@ -73,6 +74,7 @@
   </footer>
   <script src=" ../js/Contato.js"></script>
           <script src=" ../js/acessibilidade.js"></script>
+          <script src="../js/carrinho.js"></script>
 </body>
 
 </html>

@@ -7,12 +7,13 @@
   <title>Sobre</title>
   <link rel="stylesheet" href="../css/Sobre.css" />
   <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/modalEstilos.css" />
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
-  <?php include('header.php'); ?>
+<?php include('../../header.php'); ?>
 
   <div class="container-sobre-container">
     <div>
@@ -72,6 +73,7 @@
   </footer>
   <script src="../js/Sobre.js"></script>
   <script src="../js/acessibilidade.js"></script>
+  <script src="../js/carrinho.js"></script>
 </body>
 
 </html>
