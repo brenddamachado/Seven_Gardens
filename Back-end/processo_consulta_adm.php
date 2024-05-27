@@ -7,8 +7,8 @@ header('Content-Type: application/json');
 // Função para buscar usuários no banco de dados
 function searchUsers($pdo, $keyword) {
     try {
-        // Prepara a consulta SQL para encontrar usuários pelo nome
-        $stmt = $pdo->prepare("SELECT * FROM usuario WHERE nome_completo LIKE ?");
+        // Prepara a consulta SQL para encontrar usuários clientes pelo nome
+        $stmt = $pdo->prepare("SELECT * FROM usuario WHERE nome_completo LIKE ? AND tipo_usuario = 'Cliente'");
         
         // Adiciona o caractere de '%' ao redor do parâmetro de busca para buscar por substrings
         $searchTerm = "%$keyword%";
@@ -29,7 +29,7 @@ function searchUsers($pdo, $keyword) {
 function deleteUser($pdo, $userId) {
     try {
         // Prepara a consulta SQL
-        $stmt = $pdo->prepare("DELETE FROM usuario WHERE id = ?");
+        $stmt = $pdo->prepare("DELETE FROM usuario WHERE idUsuario = ?");
         
         // Executa a consulta
         $stmt->execute([$userId]);
