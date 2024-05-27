@@ -14,7 +14,6 @@ header {
 
 .header {
   height: 180px;
-
   display: flex;
   justify-content: space-between;
 }
@@ -30,12 +29,13 @@ header {
   font-size: 20px;
 }
 
-
 .logo {
   width: 155px;
   height: 200px;
 }
-
+#openFilterForm{
+  font-size: 18px !important;
+}
 .opcoes {
   justify-content: space-around;
   display: flex;
@@ -44,15 +44,17 @@ header {
   align-items: center;
   font-size: 12px;
   position: relative;
-  /* Adiciona posição relativa para que possamos usar position absolute no #produtos */
 }
 
 a {
   color: inherit;
-  text-decoration: none; /* Remove o sublinhado */
+  text-decoration: none;
+  color: #fbf3dc !important;
 }
+
 .opcoes h2 {
   color: #fbf3dc;
+  font-size: 18px !important;
 }
 
 .login {
@@ -62,7 +64,6 @@ a {
   padding: 4px 10px;
 }
 
-
 .cadastrar {
   text-decoration: none;
   background-color: #405b39;
@@ -71,24 +72,20 @@ a {
   padding: 4px 10px;
 }
 
-/* fim do header */
-
-
-/* inicio do form*/
-
-
+/* inicio do form */
 form h1 {
   margin-top: 0%;
   padding-bottom: 4%;
+  font-size: 18px !important;
   color: #0f2b05;
-
 }
 
 button[type="submit"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #405b39;
+  background-color: #405b39 !important;
+  border-color: #405b39 !important;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -97,24 +94,21 @@ button[type="submit"] {
   font-size: 1rem;
   margin-bottom: 15px;
 }
-
-button[type="submit"]:hover {
-  background-color: #112a08;
+button[type="submit"]:focus, 
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
+
 
 form {
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 50px;
   margin: 0 auto;
-  /* Isso centralizará o formulário na página */
   max-width: 400px;
-  /* Defina a largura máxima para evitar que o formulário se estenda demais */
   margin-bottom: 50px;
-  margin-top: 150px;
+  margin-top: 60px;
 }
-
 
 label {
   margin-bottom: 5px;
@@ -131,15 +125,10 @@ input[type="text"] {
   box-shadow: 1px 1px 4px #0000001c;
 }
 
-/* fim do form*/
+/* fim do form */
 
-/* inicio da tabela*/
-.tabela_toda {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+/* inicio da tabela */
+
 
 .conteudo {
   width: 35%;
@@ -149,20 +138,16 @@ input[type="text"] {
 .tabela {
   border-collapse: collapse;
   border: 1px solid #000;
-  /* Borda da tabela */
   background-color: #fff;
-
 }
 
 .corpo_tabela {
   display: flex;
   border: 1px solid #000;
-  /* Borda da tabela */
   height: 75px;
 }
 
 .corpo_tabela p {
-
   flex: 0.6;
   padding: 8px;
   display: flex;
@@ -179,44 +164,38 @@ input[type="text"] {
 
 .border p {
   margin: 0;
-
 }
 
-.topo_tabela {
-  color: rgb(251, 243, 220);
-  background-color: #405b39;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px 10px 0 0
-}
+
 
 /* inicio DARK MODE */
 body.dark-mode, body.dark-mode
-button[type="submit"] {
+button[type="submit"], body.dark-mode form {
   background-color: #151515;
 }
 
-body.dark-mode form,
+
 body.dark-mode .topo_tabela {
   background-color: #282828;
 }
 
 body.dark-mode header,
 body.dark-mode footer {
-  background-color: #070B06
+  background-color: #070B06;
 }
 
-body.dark-mode .opcoes {
-  background-color: #1E1F1E;
+body.dark-mode .opcoes, body.dark-mode .table tr {
+  background-color: #1E1F1E !important;
 }
 
+body.dark-mode .table tr, body.dark-mode #openFilterForm{
+  color: #fff;
+}
 body.dark-mode .opcoes h2,
 body.dark-mode form h1,
 body.dark-mode label,
 body.dark-mode .topo_tabela,
-body.dark-mode .login {
+body.dark-mode .login,  body.dark-mode .table th {
   color: #E1F9D7;
 }
 
@@ -282,59 +261,40 @@ footer {
   background-color: #0f2b05;
   height: 200px;
   position: relative;
-
-
 }
 
 .social-icons {
   text-align: center;
-
-
 }
 
 .social {
   color: #fff;
-  /* Cor do texto */
   text-align: center;
   font-size: 16px;
-  /* Tamanho da fonte */
   margin-top: 55px;
-
 }
 
 .social-icons .icon {
   display: inline-block;
   margin: 10px 20px 0;
-  /* Adicionando uma margem superior de  */
   font-size: 30px;
-  /* Aumentei o tamanho dos ícones */
   color: #fff;
   transition: transform 0.3s ease;
-  /* Adiciona uma transição suave */
 }
 
 .social-icons .icon:hover {
   transform: scale(1.2);
-  /* Aumenta o tamanho do ícone em 20% no hover */
 }
 
-.modelo_bd {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+/* Media Queries */
 @media (max-width: 768px) {
   .conteudo {
     width: 75% !important;
-
   }
 
   .header .paginas li {
-
     font-size: 15px;
   }
- 
 }
 
 @media (max-width: 1059px) {
@@ -350,13 +310,90 @@ footer {
 }
 
 
-@media (max-width: 320px) {
-.logo {
-width: 100px;
-}}
+
 
 
 @media (max-width: 360px) {
   .logo {
-  width: 120px;
-  }}
+    width: 120px;
+  }
+}
+
+table{
+  margin-top: 5%;
+
+}
+
+
+
+.filtroo {
+  margin-top: 3%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+th{
+  background-color: #405b39 !important;
+  color: #fbf3dc;
+  text-align: center !important;
+
+
+}
+
+/* tr{
+  text-align: center !important;
+
+} */
+
+@media (max-width: 718px) {
+  .table td, .table th {
+    vertical-align: middle !important;
+    padding: 0.5rem !important; /* Ajuste este valor conforme necessário */
+  }
+}
+
+@media (max-width: 686px) {
+  .table td, .table th {
+    padding: 0.4rem !important; /* Ajuste este valor conforme necessário */
+  }
+}
+@media (max-width: 434px) {
+  
+  .header .paginas li {
+    font-size: 13px;
+}
+}
+
+@media (max-width:342px) {
+  .table td, .table th {
+    padding: 1px !important; /* Ajuste este valor conforme necessário */
+  }
+
+  .header .paginas li {
+    font-size: 11px;
+}
+
+.logo{
+  width: 100px;
+}
+}
+
+@media (max-width:541px) {
+  .logo{
+    width: 120px;
+  }
+}
+@media (max-width: 320px) {
+  .logo {
+    width: 85px !important;  }
+    table{
+      margin-top: 70px;
+    }
+    #openFilterForm{
+      margin-top: 30px;
+    }
+}
+
+.table tr{
+  text-align: center;
+}
