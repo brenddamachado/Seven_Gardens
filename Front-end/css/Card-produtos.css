@@ -68,14 +68,16 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.produto-card .comprar-btn:hover {
+  background-color: #112a08;
+}
+
 .produto-card .excluir-btn {
   background-color: #DC0C0C;
   margin-right: 0; 
 }
 
-.produto-card .comprar-btn:hover {
-  background-color: #112a08;
-}
+
 
 /* Estilo do botão quando clicado */
 .produto-card .comprar-btn.clicked {
