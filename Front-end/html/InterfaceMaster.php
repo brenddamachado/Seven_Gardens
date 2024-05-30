@@ -319,38 +319,62 @@
           </script>
 
 <script>
-  // Verifique se o usuário é um colaborador ou não
-  <?php
+    // Verifique se o usuário é um colaborador ou não
+    <?php
     $isColaborador = true; // Defina isso com base na lógica do seu sistema
-  ?>
+    ?>
 
-  // Função para abrir a modal de cadastro de colaborador
-  function abrirModalCadastroColaborador() {
-    var modal = document.getElementById("modalAdicionarColaborador");
-    if (modal) {
-      modal.showModal();
+    // Função para abrir a modal de cadastro de colaborador
+    function abrirModalCadastroColaborador() {
+      var modal = document.getElementById("modalAdicionarColaborador");
+      if (modal) {
+        modal.showModal();
+      }
     }
-  }
 
-  // Função para fechar a modal de cadastro de colaborador
-  function fecharModalCadastroColaborador() {
-    var modal = document.getElementById("modalAdicionarColaborador");
-    if (modal) {
-      modal.close();
+    // Função para fechar a modal de cadastro de colaborador
+    function fecharModalCadastroColaborador() {
+      var modal = document.getElementById("modalAdicionarColaborador");
+      if (modal) {
+        modal.close();
+      }
     }
-  }
 
-  // Desabilite os botões se o usuário for um colaborador
-  document.addEventListener('DOMContentLoaded', function() {
-    //const cadastrarProdutoButton = document.querySelector('.card-container .card:nth-child(1) button');
-    const cadastrarColaboradorButton = document.querySelector('.card-container .card:nth-child(2) button');
-
-    if (<?php echo $isColaborador ? 'true' : 'false'; ?>) {
-      //cadastrarProdutoButton.disabled = true;
-      cadastrarColaboradorButton.disabled = true;
+    // Função para abrir a modal de adicionar produto
+    function abrirModalAdicionarProduto() {
+      var modal = document.getElementById("modalAdicionarProduto");
+      if (modal) {
+        modal.showModal();
+      }
     }
-  });
-</script>
+
+    // Função para fechar a modal de adicionar produto
+    function fecharModalAdicionarProduto() {
+      var modal = document.getElementById("modalAdicionarProduto");
+      if (modal) {
+        modal.close();
+      }
+    }
+
+    // Desabilite os botões se o usuário for um colaborador
+    document.addEventListener('DOMContentLoaded', function () {
+      //const cadastrarProdutoButton = document.querySelector('.card-container .card:nth-child(1) button');
+      const cadastrarColaboradorButton = document.querySelector('.card-container .card:nth-child(2) button');
+      const verClientesButton = document.querySelector('.card-container .card:nth-child(3) .card-button');
+      const verHistoricoButton = document.querySelector('.card-container .card:nth-child(4) .card-button');
+
+      if (<?php echo $isColaborador ? 'true' : 'false'; ?>) {
+        // cadastrarProdutoButton.disabled = true;
+        // cadastrarProdutoButton.style.backgroundColor = 'gray';
+        cadastrarColaboradorButton.disabled = true;
+        cadastrarColaboradorButton.style.backgroundColor = 'gray';
+        verClientesButton.style.pointerEvents = 'none';
+        verClientesButton.style.backgroundColor = 'gray';
+        verHistoricoButton.style.pointerEvents = 'none';
+        verHistoricoButton.style.backgroundColor = 'gray';
+      }
+    });
+  </script>
 
 
 
