@@ -25,7 +25,7 @@ require $path;
     <nav class="nav_a">
       <div class="navegacao">
         <ul>
-          <?php if (isset($_SESSION['usuario_id'])) : ?>
+          <?php if (isset($_SESSION['usuario_id']) && !isset($_SESSION['pre_auth'])) : ?>
             <li class="welcome-logout">
               <span>
                 <?php if ($_SESSION['usuario_tipo'] === 'Master' || $_SESSION['usuario_tipo'] === 'Colaborador') : ?>

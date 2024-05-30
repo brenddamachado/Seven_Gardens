@@ -50,7 +50,7 @@
     <span class="close-excluir">&times;</span>
     <h2>Excluir Produto</h2>
     <p>Tem certeza de que deseja excluir este produto?</p>
-    <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
+    <form id="excluirForm" method="POST" action="Back-end/excluirProduto.php">
       <input type="hidden" name="idProduto" id="excluirId">
       <div class="button-box">
         <button type="submit">Excluir</button>
