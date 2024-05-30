@@ -1,3 +1,5 @@
+<?php require '../../Front-end/PHP/connect.php';
+?>
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -36,23 +38,27 @@
   </header>
 
   <main>
-    <section id="report-summary">
-      <h1>Sumário do Relatório de Clientes</h1>
-      <p>Total de Clientes Registrados: <strong>150</strong></p>
-      <p>Principais Compradores: <strong>30</strong></p>
-    </section>
+    
+  <form id="user-search-form">
+    <h1 class="title">Consulta de usuário</h1><br>
+    <label for="inputPesquisa">Pesquisar por nome:</label>
+    <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
+    <button type="submit">Pesquisar</button>
+  </form>
 
     <section id="client-table">
       <div class="icon-clientes">
         <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
         <h2>Lista de Clientes</h2>
       </div>
+      
       <table id="tabelaUsuarios">
         <thead>
           <tr>
             <th>ID do Cliente</th>
             <th>Nome</th>
             <th>Compras</th>
+            <th>Ação</th>
           </tr>
         </thead>
         <tbody>
@@ -87,6 +93,19 @@
       </div>
     </section>
   </main>
+
+   <!-- ACESSIBILIDADES -->
+   <section id="accessibility-section">
+      <i class="fas fa-universal-access" id="accessibility-icon"></i>
+      <div id="other-things">
+
+        <i class="fas fa-sun" id="light-mode-toggle"></i>
+        <i class="fas fa-moon" id="dark-mode-toggle"></i>
+        <img class="img_letra" src="../img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
+        <img class="img_letra" src="../img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
+      </div>
+    </section>
+    <!--FIM ACESSIBILIDADES -->
 
   <footer>
     <br>

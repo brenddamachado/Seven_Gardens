@@ -45,6 +45,80 @@ button:hover {
 
 /**/
 
+/* inicio da formulario*/
+
+h1 {
+  color: #405b39;
+  text-align: center;
+  margin-top: 50px; /* Adiciona um espaçamento superior */
+
+}
+
+form {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  margin: 0 auto; /* Isso centralizará o formulário na página */
+  max-width: 400px; /* Defina a largura máxima para evitar que o formulário se estenda demais */
+  margin-bottom: 50px;
+  margin-top: 150px;
+}
+
+.title{
+  color: #0f2b05;
+  margin: 0;
+}
+
+/* Estilos para o botão de exclusão */
+.delete-btn {
+  padding: 10px 20px;
+  background-color: #E38F84;
+; /* Cor de fundo */
+  color: #fff; /* Cor do texto */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+.delete-btn:hover {
+  background-color: #E38F84;
+; /* Cor de fundo ao passar o mouse */
+}
+
+.input-box {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-shadow: 1px 1px 4px #0000001c;
+}
+
+button[type="submit"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #405b39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
 body {
   margin: 0;
   background-color: #f4f4f4;
@@ -114,18 +188,21 @@ ul {
   color: #fbf3dc;
 }
 
-.login {
-  color: #fbf3dc;
-  border-radius: 7px;
-  padding: 4px 10px;
-}
-
-
-.cadastrar {
+.login,a {
   background-color: #405b39;
   color: #fbf3dc;
   border-radius: 7px;
   padding: 4px 10px;
+  text-decoration: none;
+}
+
+
+.cadastrar, a{
+  background-color: #405b39;
+  color: #fbf3dc;
+  border-radius: 7px;
+  padding: 4px 10px;
+  text-decoration: none;
 }
 
 /* fim do header */
@@ -236,3 +313,49 @@ footer{
   border-right: none;
 }
 
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.img_letra {
+  width: 20px;
+}
+
+.fa-universal-access {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  font-size: 40px;
+}
+
+.fa-sun,
+.fa-moon {
+  font-size: 20px;
+}
+
+.fa-chevron-down {
+  display: inline-block; /* ou 'block', dependendo do seu layout */
+}
