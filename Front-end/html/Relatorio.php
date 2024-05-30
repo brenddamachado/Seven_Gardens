@@ -40,7 +40,7 @@
   <main>
     
   <form id="user-search-form">
-    <h1 class="title">Consulta de usuário</h1><br>
+    <h1 class="title">Contas Cadastradas</h1><br>
     <label for="inputPesquisa">Pesquisar por nome:</label>
     <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
     <button type="submit">Pesquisar</button>
@@ -49,7 +49,7 @@
     <section id="client-table">
       <div class="icon-clientes">
         <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
-        <h2>Lista de Clientes</h2>
+        <h2>Lista de Usuários</h2>
       </div>
       
       <table id="tabelaUsuarios">
@@ -57,7 +57,7 @@
           <tr>
             <th>ID do Cliente</th>
             <th>Nome</th>
-            <th>Compras</th>
+            <th>Tipo de Usuário</th>
             <th>Ação</th>
           </tr>
         </thead>
@@ -77,6 +77,7 @@
               echo "<td>" . htmlspecialchars($row['idUsuario']) . "</td>"; // Usar htmlspecialchars para evitar XSS
               echo "<td>" . htmlspecialchars($row['nome_completo']) . "</td>";
               echo "<td>Compras</td>"; // Ajuste conforme necessário
+              echo "<td><button class='delete-btn' data-id='" . htmlspecialchars($row['idUsuario']) . "'>Excluir</button></td>";
               echo "</tr>";
             }
           } else {
