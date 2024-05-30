@@ -50,7 +50,7 @@
 }
 
 .navegacao ul {
-  padding: 20px;
+
   display: flex;
   align-items: center;
 }
@@ -718,4 +718,16 @@ body.dark-mode a {
   .logo{
     width: 80px !important;
   }
+}
+
+.nav_botoes{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+
+@media (max-width:1059px) {
+  
 }
