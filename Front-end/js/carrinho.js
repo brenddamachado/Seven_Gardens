@@ -28,11 +28,13 @@ function carregarCarrinho() {
 document.addEventListener('DOMContentLoaded', carregarCarrinho);
 
 function adicionarAoCarrinho(id, nome, preco, imagem) {
+  const baseUrl = window.location.origin + '/Seven_Gardens'; // Obtém a URL base do site com o caminho correto
   const itemExistente = itensCarrinho.find(item => item.id === id);
   if (itemExistente) {
     itemExistente.quantidade += 1;
   } else {
-    itensCarrinho.push({ id, nome, preco, imagem, quantidade: 1 });
+    const imagePath = baseUrl + '/' + imagem; // Constrói o caminho completo da imagem
+    itensCarrinho.push({ id, nome, preco, imagem: imagePath, quantidade: 1 });
   }
   totalCarrinho += preco;
   const cartCounter = document.getElementById('cart-counter');
@@ -53,7 +55,6 @@ function adicionarAoCarrinho(id, nome, preco, imagem) {
     console.log(`Botão não encontrado para ID: ${id}`);
   }
 }
-
 
 function incrementarQuantidade(index) {
   itensCarrinho[index].quantidade += 1;

@@ -24,10 +24,11 @@ try {
   if ($user) {
     $tentativaStmt->execute([$user['idUsuario']]);
     if (password_verify($password, $user['senha'])) {
-      // Armazena informações úteis na sessão.
+      // Armazena informações na sessão, mas ainda não define 'usuario_tipo'
       $_SESSION['usuario_id'] = $user['idUsuario'];
       $_SESSION['usuario_nome'] = $user['nome_completo'];
-      $_SESSION['usuario_tipo'] = $user['tipo_usuario'];
+      $_SESSION['pre_auth'] = true; // Define um indicador de pré-autenticação
+      $_SESSION['pre_auth_tipo'] = $user['tipo_usuario']; // Temporariamente armazena o tipo de usuário
 
       $questions = ["Qual o nome da sua mãe?", "Qual a data do seu nascimento?", "Qual o CEP do seu endereço?"];
       $randomQuestion = $questions[array_rand($questions)];
