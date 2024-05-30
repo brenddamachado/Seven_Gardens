@@ -1,28 +1,30 @@
 <?php
-header('Content-Type: application/json');  // Informa ao navegador que a resposta será em JSON
+require '../Front-end/PHP/connect.php'; // Certifique-se de ajustar o caminho conforme necessário
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include('../Front-end/PHP/connect.php');  // Inclui e executa o arquivo, conectando ao banco de dados com PDO
+try {
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Verifica se todas as variáveis estão definidas antes de acessá-las
-    if (isset($_POST["nome_completo"], $_POST["email"], $_POST["telefone_celular"], $_POST["endereco_completo"])) {
-        $nome = $_POST["nome_completo"];
-        $email = $_POST["email"];
-        $telefone = $_POST["telefone_celular"];
-        $endereco = $_POST["endereco_completo"];
+    // Insere o novo colaborador
+    $stmt = $pdo->prepare("INSERT INTO colaboradores (nome_completo, email, telefone_celular, endereco_completo) 
+                            VALUES (:nome_completo, :email, :telefone_celular, :endereco_completo)");
+    
+    // Define os valores dos parâmetros
+    $nome_completo = 'Nome do Novo Colaborador';
+    $email = 'novocolaborador@example.com';
+    $telefone_celular = '1234567890';
+    $endereco_completo = 'Rua Falsa, 123, Bairro Fictício';
 
-        // Usando consultas preparadas para segurança
-        $sql = "INSERT INTO funcionario (nome_completo, email, telefone_celular, endereco_completo) VALUES (?, ?, ?, ?)";
-        $stmt = $pdo->prepare($sql);
+    // Associa os parâmetros
+    $stmt->bindParam(':nome_completo', $nome_completo);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':telefone_celular', $telefone_celular);
+    $stmt->bindParam(':endereco_completo', $endereco_completo);
 
-        // Tenta executar a consulta
-        if ($stmt->execute([$nome, $email, $telefone, $endereco])) {
-            echo json_encode(['success' => true, 'message' => 'Colaborador cadastrado com sucesso!']);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Erro ao cadastrar colaborador: ' . $stmt->errorInfo()[2]]);
-        }
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Todos os campos do formulário devem ser preenchidos.']);
-    }
-    // Não é necessário fechar a conexão PDO explicitamente
+    // Executa a inserção
+    $stmt->execute();
+
+    echo "Novo colaborador registrado com sucesso!";
+} catch (PDOException $e) {
+    echo "Erro ao conectar ao banco de dados: " . $e->getMessage();
 }
+?>
