@@ -83,7 +83,7 @@
 
 
       <div class="btn-download">
-        <button onclick="downloadPDF()">Baixar PDF</button>
+        <button class="btn-download-2" onclick="downloadPDF()">Baixar PDF</button>
       </div>
     </section>
   </main>

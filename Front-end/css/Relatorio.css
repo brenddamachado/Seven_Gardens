@@ -315,6 +315,90 @@ footer{
   transition: all 0.3s ease;
 }
 
+/* inicio DARK MODE */
+
+body.dark-mode .btn-download-2{
+  background-color: #282828;
+}
+
+body.dark-mode, body.dark-mode
+button[type="submit"] {
+  background-color: #151515;
+}
+body.dark-mode #tabelaUsuarios tbody{
+  background-color: #fff;
+  
+}
+
+body.dark-mode form,
+body.dark-mode #tabelaUsuarios th,
+body.dark-mode .modal-content{
+  background-color: #282828;
+}
+
+body.dark-mode .dropbtn, body.dark-mode .opcoes {
+  background: #1E1F1E;
+
+}
+
+.fa-universal-access, .fa-moon, .fa-sun{
+  color: #7A7979;
+}
+body.dark-mode .sessao{
+  color: #fff;
+}
+
+body.dark-mode .login, body.dark-mode  .fa-search{
+
+  color: #070B06;
+}
+
+ body.dark-mode header,   body.dark-mode footer{
+  background-color: #070B06; 
+ }
+
+body.dark-mode .btn_cadastrar,
+body.dark-mode .btn_limpar, body.dark-mode {
+  background-color: #151515;
+}
+
+body.dark-mode p,
+body.dark-mode h2,
+body.dark-mode label,
+body.dark-mode .title,
+body.dark-mode .login 
+  {
+  color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
+}
+body.dark-mode .cadastrar {
+  color: #070B06;
+  background-color: #E1F9D7;
+}
+
+#accessibility-section {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+#other-things {
+  display: none; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 60px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
 .img_letra {
   width: 20px;
 }
@@ -337,3 +421,4 @@ footer{
 .fa-chevron-down {
   display: inline-block; /* ou 'block', dependendo do seu layout */
 }
+/* FINAL DO DARK MODE */
