@@ -31,7 +31,18 @@ if (empty($respostaUsuario)) {
 
 $respostaEsperada = getExpectedAnswer($pdo, $_SESSION['usuario_id'], $_SESSION['security_question']);
 
+// Ajuste para permitir respostas de data no formato dd/mm/yyyy ou dd-mm-yyyy
+if ($_SESSION['security_question'] === "Qual a data do seu nascimento?" && !empty($respostaUsuario)) {
+  $respostaUsuario = str_replace('/', '-', $respostaUsuario);
+  $respostaUsuario = date('Y-m-d', strtotime($respostaUsuario));
+}
+
 if (strcasecmp($respostaUsuario, $respostaEsperada) === 0) {
+  // Completa a autenticação e define 'usuario_tipo'
+  $_SESSION['usuario_tipo'] = $_SESSION['pre_auth_tipo'];
+  unset($_SESSION['pre_auth']);
+  unset($_SESSION['pre_auth_tipo']);
+
   // Registrar a pergunta secreta usada e respondida pelo usuário
   $id_pergunta_secreta = registrarPerguntaSecreta($pdo, $_SESSION['usuario_id'], $_SESSION['security_question'], $respostaUsuario);
   if ($id_pergunta_secreta) {
@@ -164,4 +175,3 @@ function handleIncorrectAnswer()
     ]);
   }
 }
-?>
