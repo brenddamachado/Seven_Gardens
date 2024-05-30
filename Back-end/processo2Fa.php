@@ -6,7 +6,9 @@ ob_start();  // Inicia o buffer de saída para capturar qualquer saída precoce.
 header('Content-Type: application/json');
 
 require __DIR__ . '/../Front-end/PHP/connect.php';
-// Verifica se o caminho está correto.
+
+// Definir o fuso horário para garantir que o horário seja registrado corretamente
+date_default_timezone_set('America/Sao_Paulo');
 
 // Verifica se o método de requisição é POST para processar o formulário.
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -29,9 +31,18 @@ if (empty($respostaUsuario)) {
 
 $respostaEsperada = getExpectedAnswer($pdo, $_SESSION['usuario_id'], $_SESSION['security_question']);
 
-if ($respostaUsuario === $respostaEsperada) {
-  $_SESSION['usuario_tipo'] = $_SESSION['pre_auth_tipo']; // Atualiza 'usuario_tipo' após 2FA
-  unset($_SESSION['pre_auth'], $_SESSION['pre_auth_tipo']); // Remove variáveis temporárias
+// Ajuste para permitir respostas de data no formato dd/mm/yyyy ou dd-mm-yyyy
+if ($_SESSION['security_question'] === "Qual a data do seu nascimento?" && !empty($respostaUsuario)) {
+  $respostaUsuario = str_replace('/', '-', $respostaUsuario);
+  $respostaUsuario = date('Y-m-d', strtotime($respostaUsuario));
+}
+
+if (strcasecmp($respostaUsuario, $respostaEsperada) === 0) {
+  // Completa a autenticação e define 'usuario_tipo'
+  $_SESSION['usuario_tipo'] = $_SESSION['pre_auth_tipo'];
+  unset($_SESSION['pre_auth']);
+  unset($_SESSION['pre_auth_tipo']);
+
   echo json_encode([
     'success' => true,
     'message' => 'Resposta correta. Acesso concedido.',
@@ -45,7 +56,7 @@ if ($respostaUsuario === $respostaEsperada) {
 function getExpectedAnswer($pdo, $userId, $question)
 {
   $query = match ($question) {
-    "Qual o nome da sua mãe?" => "SELECT nome_materno FROM usuario WHERE idUsuario = ?",
+    "Qual o nome da sua mãe?" => "SELECT LOWER(nome_materno) FROM usuario WHERE idUsuario = ?",
     "Qual a data do seu nascimento?" => "SELECT data_nascimento FROM usuario WHERE idUsuario = ?",
     "Qual o CEP do seu endereço?" => "SELECT cep FROM endereco_completo WHERE idUsuario = ?",
     default => null
@@ -54,7 +65,7 @@ function getExpectedAnswer($pdo, $userId, $question)
   if ($query) {
     $stmt = $pdo->prepare($query);
     $stmt->execute([$userId]);
-    return $stmt->fetchColumn();
+    return strtolower($stmt->fetchColumn());
   }
   return null; // Em caso de pergunta desconhecida.
 }
