@@ -332,9 +332,7 @@ body.dark-mode a {
     /* Alinhar o conteúdo à esquerda */
   }
 
-  .pesquisa {
-    width: 200px;
-  }
+  
 
   .pesquisa-container {
     margin-right: 55px;
@@ -342,16 +340,14 @@ body.dark-mode a {
   }
 
   .logo {
-    width: 100px !important;
+    margin-right: 60px;
   }
 
   .container {
     min-width: 0;
   }
 
-  .pesquisa-icon {
-    top: 50% !important;
-  }
+ 
 
   .nav_a {
     display: none;
