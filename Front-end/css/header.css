@@ -55,6 +55,16 @@
   align-items: center;
 }
 
+.dashboard {
+  background-color: #405b39;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .logo {
   width: 155px;
   height: 200px;

@@ -35,6 +35,11 @@ require $path;
                 <?php endif; ?>
               </span>
               <a href="<?php echo base_url('Front-end/html/logout.php'); ?>" class="logout">Logout</a>
+              <?php if ($_SESSION['usuario_tipo'] === 'Master' || $_SESSION['usuario_tipo'] === 'Colaborador') : ?>
+                <a href="<?php echo base_url('Front-end/html/InterfaceMaster.php'); ?>" class="cadastro">Dashboard</a>
+              <?php else : ?>
+                <a href="<?php echo base_url('Front-end/html/Usuario.php'); ?>" class="dashboard">Minha Conta</a>
+              <?php endif; ?>
             </li>
           <?php else : ?>
             <li class="home"><a class="login" href="<?php echo base_url('Front-end/html/Login.php'); ?>">Login</a></li>
