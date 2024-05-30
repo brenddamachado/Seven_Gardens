@@ -32,7 +32,7 @@
     <section id="client-table">
       <div class="icon-clientes">
         <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
-        <h2>Lista de Usuários</h2>
+        <h2 class="listar-usuarios">Lista de Usuários</h2>
       </div>
 
       <table id="tabelaUsuarios">
