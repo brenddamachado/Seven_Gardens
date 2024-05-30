@@ -3,7 +3,7 @@
   <div class="modal-content-editar">
     <span class="close-editar">&times;</span>
     <h2>Editar Produto</h2>
-    <form id="editarForm" method="POST" action="/Seven_Gardens/Back-end/editarProduto.php">
+    <form id="editarForm" method="POST" action="Back-end/editarProduto.php">
       <input type="hidden" name="idProduto" id="editarId">
       <div class="input-box">
         <label for="editarNome">Nome:</label>
@@ -38,7 +38,7 @@
     <span class="close-excluir">&times;</span>
     <h2>Excluir Produto</h2>
     <p>Tem certeza de que deseja excluir este produto?</p>
-    <form id="excluirForm" method="POST" action="/Seven_Gardens/Back-end/excluirProduto.php">
+    <form id="excluirForm" method="POST" action="Back-end/excluirProduto.php">
       <input type="hidden" name="idProduto" id="excluirId">
       <div class="button-box">
         <button type="submit">Excluir</button>
@@ -47,3 +47,10 @@
     </form>
   </div>
 </div>
+
+<style>
+  .organiza_btns {
+    display: flex;
+    gap: 5px;
+  }
+</style>
