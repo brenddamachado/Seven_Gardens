@@ -32,6 +32,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/Card-produtos.css">
   <link rel="stylesheet" href="../css/catalogo.css">
+  <link rel="stylesheet" href="../css/modalEstilos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
