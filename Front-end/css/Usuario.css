@@ -5,29 +5,17 @@ body {
 
 }
 
-.message-container {
-  margin-top: 10px;
+.error-message {
+  color: red;
+  margin-top: 5px;
 }
 
-.mensagem {
-  padding: 10px;
-  border-radius: 5px;
+.success-message {
+  color: green;
   margin-bottom: 10px;
   text-align: center;
-  font-weight: bold;
 }
 
-.mensagem.success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-}
-
-.mensagem.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-}
 
 .tabs-container {
   width: 100%;
