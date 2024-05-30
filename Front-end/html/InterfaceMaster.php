@@ -11,26 +11,7 @@
 </head>
 
 <body>
-  <header>
-    <section class="header">
-      <div>
-        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
-      </div>
-      <nav>
-        <div class="navegacao">
-          <ul>
-            <li class="login">Dashboard</li>
-            <li class="cadastrar"><a class="cadastrar" href="../../index.php">Visualizar Home</a></li>
-          </ul>
-        </div>
-      </nav>
-    </section>
-
-    <section class="opcoes">
-      <h2 class="painel">Painel de controle</h2>
-    </section>
-  </header>
-
+<?php include('../../headerMaster.php'); ?>
 
 
   <!-- Diálogo Modal para Adicionar Produto -->
@@ -336,6 +317,40 @@
               });
             });
           </script>
+
+<script>
+  // Verifique se o usuário é um colaborador ou não
+  <?php
+    $isColaborador = true; // Defina isso com base na lógica do seu sistema
+  ?>
+
+  // Função para abrir a modal de cadastro de colaborador
+  function abrirModalCadastroColaborador() {
+    var modal = document.getElementById("modalAdicionarColaborador");
+    if (modal) {
+      modal.showModal();
+    }
+  }
+
+  // Função para fechar a modal de cadastro de colaborador
+  function fecharModalCadastroColaborador() {
+    var modal = document.getElementById("modalAdicionarColaborador");
+    if (modal) {
+      modal.close();
+    }
+  }
+
+  // Desabilite os botões se o usuário for um colaborador
+  document.addEventListener('DOMContentLoaded', function() {
+    //const cadastrarProdutoButton = document.querySelector('.card-container .card:nth-child(1) button');
+    const cadastrarColaboradorButton = document.querySelector('.card-container .card:nth-child(2) button');
+
+    if (<?php echo $isColaborador ? 'true' : 'false'; ?>) {
+      //cadastrarProdutoButton.disabled = true;
+      cadastrarColaboradorButton.disabled = true;
+    }
+  });
+</script>
 
 
 
