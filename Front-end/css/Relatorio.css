@@ -361,7 +361,7 @@ body.dark-mode .btn_cadastrar,
 body.dark-mode .btn_limpar, body.dark-mode {
   background-color: #151515;
 }
-
+body.dark-mode span,
 body.dark-mode p,
 body.dark-mode h2,
 body.dark-mode label,
