@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
         tr.innerHTML = `
           <td>${user.idUsuario}</td>
           <td>${user.nome_completo}</td>
-          <td>Compras</td>
-          <td><button class="delete-btn" data-id="${user.idUsuario}">Excluir</button></td>
+          <td>${user.tipo_usuario}</td>
+          <td><button class="delete-btn" data-id="${user.idUsuario}" data-modal="true">Excluir</button></td>
         `;
         tbody.appendChild(tr);
       });
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
           cancelBtn.style.display = "none";
           setTimeout(() => {
             modal.style.display = "none";
-            userSearchForm.dispatchEvent(new Event('submit'));
+            userSearchForm.dispatchEvent(new Event('submit')); // Reenvia o formulário para atualizar a lista
           }, 2000); // Fecha o modal após 2 segundos
         } else {
           console.error('Erro na exclusão:', data && data.message ? data.message : 'Resposta inválida do servidor');
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Evento de clique nos botões de exclusão de usuário
     tabelaUsuarios.addEventListener("click", function(event) {
-      if (event.target.classList.contains("delete-btn")) {
+      if (event.target.classList.contains("delete-btn") && event.target.dataset.modal === "true") {
         userIdToDelete = event.target.dataset.id;
         modalMessage.textContent = "Deseja realmente excluir este usuário?";
         confirmBtn.style.display = "inline-block";
