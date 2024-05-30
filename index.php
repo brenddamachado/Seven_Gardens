@@ -74,7 +74,7 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
       echo "<p class='subcategoria'>Subcategoria: " . htmlspecialchars($row["subcategoria"]) . "</p>";
 
       if ($isUserMasterOrColaborador) {
-        echo "<div>"; // Container para os botões
+        echo "<div class='organiza_btns'>"; // Container para os botões
         echo "<button class='editar-btn' data-id='" . htmlspecialchars($row["idProduto"]) . "' data-nome='" . htmlspecialchars($row["nome"]) . "' data-preco='" . htmlspecialchars($row["preco"]) . "' data-descricao='" . htmlspecialchars($row["descricao"]) . "' data-categoria='" . htmlspecialchars($row["categoria"]) . "' data-subcategoria='" . htmlspecialchars($row["subcategoria"]) . "'>Editar</button>";
         echo "<button class='excluir-btn' data-id='" . htmlspecialchars($row["idProduto"]) . "'>Excluir</button>";
         echo "</div>"; // Fim do container

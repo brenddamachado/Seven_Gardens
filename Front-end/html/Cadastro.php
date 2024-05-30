@@ -330,7 +330,8 @@
   </footer>
   <script src="../js/Cadastro.js"></script>
   <script src="../js/carrinho.js"></script>
-  
+  <script src="../js/modal_Edit_Produtos.js"></script>
+
 
 </body>
 

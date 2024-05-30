@@ -30,6 +30,8 @@ if (empty($respostaUsuario)) {
 $respostaEsperada = getExpectedAnswer($pdo, $_SESSION['usuario_id'], $_SESSION['security_question']);
 
 if ($respostaUsuario === $respostaEsperada) {
+  $_SESSION['usuario_tipo'] = $_SESSION['pre_auth_tipo']; // Atualiza 'usuario_tipo' após 2FA
+  unset($_SESSION['pre_auth'], $_SESSION['pre_auth_tipo']); // Remove variáveis temporárias
   echo json_encode([
     'success' => true,
     'message' => 'Resposta correta. Acesso concedido.',
