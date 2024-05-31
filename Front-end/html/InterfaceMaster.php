@@ -115,6 +115,17 @@
             <input type="text" id="logradouro" name="logradouro" required>
         </div>
 
+        <div class="input-box">
+    <label for="username">Nome de usuário (6 caracteres alfabéticos):</label>
+    <input type="text" id="username" name="username" pattern="[a-z]{6}" title="O nome de usuário deve conter apenas letras minúsculas e ter 6 caracteres alfabéticos." required>
+</div>
+
+<div class="input-box">
+    <label for="password">Senha (8 caracteres alfabéticos):</label>
+    <input type="password" id="password" name="password" pattern="[a-z]{8}" title="A senha deve conter apenas letras minúsculas e ter 8 caracteres alfabéticos." required>
+</div>
+
+
         <div class="button-box">
             <button type="submit" id="add_colaborador">Adicionar</button>
             <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
