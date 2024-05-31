@@ -16,7 +16,7 @@
 
 <body>
     <?php include('../../header.php'); ?>
-     
+
     <div class="container-principal">
 
         <div class="barra-lateral">
@@ -117,55 +117,55 @@
                     </form>
                 </div>
             </section>
-       <!-- Formulário de Alteração de senha -->
-<section id="tab5-content" class="secao">
-    <div class="divForm">
-        <form id="formAlterarSenha">
-            <div class="form-header">
-                <h2 class="title">Alteração de senha</h2>
-            </div>
-            <!-- Div para a mensagem de sucesso -->
-            <div class="success-message" id="successMessage"></div>
-            <div class="alteracao-senha">
-                <div class="input-box">
-                    <label for="senha_atual">Senha atual:</label>
-                    <div class="input-wrapper">
-                        <input type="password" id="senha_atual" name="senha_atual" placeholder="Digite sua senha atual" required>
-                        <i class="far fa-eye" id="verSenhaAtual"></i>
-                    </div>
-                    <div class="error-message" id="erroSenhaAtual"></div>
-                </div>
-                <div class="input-box">
-                    <label for="senha">Nova senha:</label>
-                    <div class="input-wrapper">
-                        <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha" maxlength="8" required>
-                        <i class="far fa-eye" id="verSenha"></i>
-                    </div>
-                    <div class="error-message" id="erroSenha"></div>
-                </div>
-                <div class="input-box">
-                    <label for="senha2">Confirmação da nova senha:</label>
-                    <div class="input-wrapper">
-                        <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha" maxlength="8" required>
-                        <i class="far fa-eye" id="verConfirme"></i>
-                    </div>
-                    <div class="error-message" id="erroSenha2"></div>
-                </div>
-                <button type="submit" class="btn_salvar">Salvar alterações</button>
-            </div>
-        </form>
+            <!-- Formulário de Alteração de senha -->
+            <section id="tab5-content" class="secao">
+                <div class="divForm">
+                    <form id="formAlterarSenha">
+                        <div class="form-header">
+                            <h2 class="title">Alteração de senha</h2>
+                        </div>
+                        <!-- Div para a mensagem de sucesso -->
+                        <div class="success-message" id="successMessage"></div>
+                        <div class="alteracao-senha">
+                            <div class="input-box">
+                                <label for="senha_atual">Senha atual:</label>
+                                <div class="input-wrapper">
+                                    <input type="password" id="senha_atual" name="senha_atual" placeholder="Digite sua senha atual" required>
+                                    <i class="far fa-eye" id="verSenhaAtual"></i>
+                                </div>
+                                <div class="error-message" id="erroSenhaAtual"></div>
+                            </div>
+                            <div class="input-box">
+                                <label for="senha">Nova senha:</label>
+                                <div class="input-wrapper">
+                                    <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha" maxlength="8" required>
+                                    <i class="far fa-eye" id="verSenha"></i>
+                                </div>
+                                <div class="error-message" id="erroSenha"></div>
+                            </div>
+                            <div class="input-box">
+                                <label for="senha2">Confirmação da nova senha:</label>
+                                <div class="input-wrapper">
+                                    <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha" maxlength="8" required>
+                                    <i class="far fa-eye" id="verConfirme"></i>
+                                </div>
+                                <div class="error-message" id="erroSenha2"></div>
+                            </div>
+                            <button type="submit" class="btn_salvar">Salvar alterações</button>
+                        </div>
+                    </form>
 
-        <!-- Formulário de Exclusão de Conta -->
-        <div>
-            <p>Deseja excluir sua conta?</p>
-            <form id="formExcluirConta">
-                <button type="submit" name="excluir_conta" class="btn_excluir">Excluir conta</button>
-            </form>
+                    <!-- Formulário de Exclusão de Conta -->
+                    <div>
+                        <p>Deseja excluir sua conta?</p>
+                        <form id="formExcluirConta">
+                            <button type="submit" name="excluir_conta" class="btn_excluir">Excluir conta</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-</section>
-</div>
-</div>
 
 
 
@@ -196,6 +196,57 @@
     <script src=" ../js/Usuario.js"></script>
     <script src="../js/acessibilidade.js"></script>
     <script src="../js/carrinho.js"></script>
+    <script>
+        // editar e excluir usuario
+        document.getElementById('formAlterarSenha').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let formData = new FormData(this);
+            formData.append('acao', 'alterar_senha');
+
+            fetch('processa_usuario.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('erroSenhaAtual').innerText = data.errors?.senha_atual || '';
+                    document.getElementById('erroSenha').innerText = data.errors?.senha || '';
+                    document.getElementById('erroSenha2').innerText = data.errors?.senha2 || '';
+                    document.getElementById('successMessage').innerText = data.message || '';
+
+                    if (data.success) {
+                        document.getElementById('formAlterarSenha').reset();
+                    }
+
+                    if (data.errors || data.message) {
+                        window.location.hash = '#tab5-content';
+                    }
+                })
+                .catch(error => console.error('Erro:', error));
+        });
+
+        document.getElementById('formExcluirConta').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let formData = new FormData(this);
+            formData.append('acao', 'excluir_conta');
+
+            fetch('processa_usuario.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = data.redirect;
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error('Erro:', error));
+        });
+    </script>
 </body>
 
 </html>
