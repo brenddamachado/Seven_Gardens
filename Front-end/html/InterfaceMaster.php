@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<?php include('../../headerMaster.php'); ?>
+  <?php include('../../headerMaster.php'); ?>
 
 
   <!-- Diálogo Modal para Adicionar Produto -->
@@ -89,40 +89,39 @@
   <!-- Diálogo Modal para Adicionar Colaborador -->
   <dialog id="modalAdicionarColaborador">
     <div class="form-header">
-      <h2 class="title">Adicione um novo colaborador</h2>
+        <h2 class="title">Adicione um novo colaborador</h2>
     </div>
     <form action="../../Back-end/CadastroColaborador.php" method="post">
+        <div id="responseMessage" style="display: none;"></div>
 
-      <div id="responseMessage" style="display: none;"></div>
+        <div class="input-box">
+            <input type="hidden" name="acao" value="cadastrar">
+            <label for="nomeColaborador">Nome completo:</label>
+            <input type="text" id="nomeColaborador" name="nome_completo" required>
+        </div>
 
-      <div class="input-box">
-        <input type="hidden" name="acao" value="cadastrar">
-        <label for="nomeColaborador">Nome completo:</label>
-        <input type="text" id="nomeColaborador" name="nome_completo" required>
-      </div>
+        <div class="input-box">
+            <label for="emailColaborador">E-mail:</label>
+            <input type="email" id="emailColaborador" name="email" required>
+        </div>
 
-      <div class="input-box">
-        <label for="emailColaborador">E-mail:</label>
-        <input type="email" id="emailColaborador" name="email" required>
-      </div>
+        <div class="input-box">
+            <label for="telefoneColaborador">Telefone celular:</label>
+            <input type="tel" id="telefoneColaborador" name="telefone_celular" required>
+        </div>
 
-      <div class="input-box">
-        <label for="telefoneColaborador">Telefone celular:</label>
-        <input type="tel" id="telefoneColaborador" name="telefone_celular" required>
-      </div>
+        <div class="input-box">
+            <label for="logradouro">Endereço:</label>
+            <input type="text" id="logradouro" name="logradouro" required>
+        </div>
 
-      <div class="input-box">
-        <label for="enderecoColaborador">Endereço completo:</label>
-        <input type="text" id="enderecoColaborador" name="endereco_completo" required>
-      </div>
-
-      <!-- Seus botões de envio e cancelamento -->
-      <div class="button-box">
-        <button type="submit" id="add_colaborador">Adicionar</button>
-        <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
-      </div>
+        <div class="button-box">
+            <button type="submit" id="add_colaborador">Adicionar</button>
+            <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
+        </div>
     </form>
-  </dialog>
+</dialog>
+
 
 
 
@@ -199,6 +198,10 @@
 
     </div>
   </footer>
+  <script>
+    
+  </script>
+
 
           
           <script src=" ../js/acessibilidade.js"></script>
@@ -221,160 +224,142 @@
             }
           </script>
 
-          <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
           <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
+       document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
 
-              form.addEventListener('submit', function(e) {
-                e.preventDefault(); // Impede o envio tradicional do formulário
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Impede o envio tradicional do formulário
 
-                const formData = new FormData(this);
-                const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
+        const formData = new FormData(this);
+        const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.disabled = true; // Desabilita o botão para evitar envios múltiplos
 
-                fetch(this.action, {
-                    method: 'POST',
-                    body: formData
-                  })
-                  .then(response => response.json()) // Assume que o servidor responde com JSON
-                  .then(data => {
-                    responseMessageElement.textContent = data.message; // Define a mensagem de resposta
-                    responseMessageElement.style.display = 'block'; // Torna o elemento visível
-                    responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json()) // Assume que o servidor responde com JSON
+        .then(data => {
+            responseMessageElement.textContent = data.message; // Define a mensagem de resposta
+            responseMessageElement.style.display = 'block'; // Torna o elemento visível
+            responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
 
-                    if (data.success) {
-                      // Opcional: Limpa o formulário após sucesso
-                      form.reset();
-                    }
-                  })
-                  .catch(error => {
-                    console.error('Erro:', error);
-                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
-                    responseMessageElement.style.display = 'block';
-                    responseMessageElement.style.color = 'red'; // Cor vermelha para erros
-                  });
-              });
-            });
-          </script>
-
-
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              const modalAdicionarProduto = document.getElementById('modalAdicionarProduto');
-              const form = modalAdicionarProduto.querySelector('form');
-              const previewImage = document.getElementById('previewImage');
-              const responseMessageElement = document.getElementById('responseMessageProduto');
-
-              window.abrirModalAdicionarProduto = function() {
-                modalAdicionarProduto.showModal();
-              };
-
-              window.fecharModalAdicionarProduto = function() {
-                modalAdicionarProduto.close();
+            if (data.success) {
+                // Opcional: Limpa o formulário após sucesso
                 form.reset();
-                previewImage.src = "#";
-                previewImage.style.display = 'none';
-                responseMessageElement.style.display = 'none';
-              };
+            }
 
-              document.getElementById('imagemProduto').addEventListener('change', function(event) {
-                const file = event.target.files[0];
-                if (file) {
-                  const reader = new FileReader();
-                  reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewImage.style.display = 'block';
-                  };
-                  reader.readAsDataURL(file);
-                }
-              });
+            submitButton.disabled = false; // Habilita o botão novamente
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+            responseMessageElement.style.display = 'block';
+            responseMessageElement.style.color = 'red'; // Cor vermelha para erros
+            submitButton.disabled = false; // Habilita o botão novamente em caso de erro
+        });
+    });
+});
 
-              form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const formData = new FormData(this);
+          </script> <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
+          <script>
+           document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
 
-                fetch(this.action, {
-                    method: 'POST',
-                    body: formData
-                  })
-                  .then(response => response.json())
-                  .then(data => {
-                    responseMessageElement.textContent = data.message;
-                    responseMessageElement.style.display = 'block';
-                    responseMessageElement.style.color = data.success ? 'green' : 'red';
-                    if (data.success) {
-                      form.reset();
-                      previewImage.src = "#";
-                      previewImage.style.display = 'none';
-                    }
-                  })
-                  .catch(error => {
-                    console.error('Erro:', error);
-                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
-                    responseMessageElement.style.display = 'block';
-                    responseMessageElement.style.color = 'red';
-                  });
-              });
-            });
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Impede o envio tradicional do formulário
+
+        const formData = new FormData(this);
+        const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json()) // Assume que o servidor responde com JSON
+        .then(data => {
+            responseMessageElement.textContent = data.message; // Define a mensagem de resposta
+            responseMessageElement.style.display = 'block'; // Torna o elemento visível
+            responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
+
+            if (data.success) {
+                // Opcional: Limpa o formulário após sucesso
+                form.reset();
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+            responseMessageElement.style.display = 'block';
+            responseMessageElement.style.color = 'red'; // Cor vermelha para erros
+        });
+    });
+});
+
           </script>
 
-<script>
-    // Verifique se o usuário é um colaborador ou não
-    <?php
-    // A variável $isColaborador deve ser definida com base na lógica do seu sistema
-    // Aqui, estou assumindo que você tem uma maneira de verificar se o usuário está logado e se ele é um colaborador
-    // O valor de $isColaborador deve ser true apenas se o usuário estiver logado como um colaborador
-    $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESSION['usuario_tipo'], ['Master', 'Colaborador']);
-    ?>
 
-    // Função para abrir a modal de cadastro de colaborador
-    function abrirModalCadastroColaborador() {
-      var modal = document.getElementById("modalAdicionarColaborador");
-      if (modal) {
-        modal.showModal();
-      }
-    }
 
-    // Função para fechar a modal de cadastro de colaborador
-    function fecharModalCadastroColaborador() {
-      var modal = document.getElementById("modalAdicionarColaborador");
-      if (modal) {
-        modal.close();
-      }
-    }
 
-    // Função para abrir a modal de adicionar produto
-    function abrirModalAdicionarProduto() {
-      var modal = document.getElementById("modalAdicionarProduto");
-      if (modal) {
-        modal.showModal();
-      }
-    }
+          <script>
+            // Verifique se o usuário é um colaborador ou não
+            <?php
+            // A variável $isColaborador deve ser definida com base na lógica do seu sistema
+            // Aqui, estou assumindo que você tem uma maneira de verificar se o usuário está logado e se ele é um colaborador
+            // O valor de $isColaborador deve ser true apenas se o usuário estiver logado como um colaborador
+            $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESSION['usuario_tipo'], ['Master', 'Colaborador']);
+            ?>
 
-    // Função para fechar a modal de adicionar produto
-    function fecharModalAdicionarProduto() {
-      var modal = document.getElementById("modalAdicionarProduto");
-      if (modal) {
-        modal.close();
-      }
-    }
+            // Função para abrir a modal de cadastro de colaborador
+            function abrirModalCadastroColaborador() {
+              var modal = document.getElementById("modalAdicionarColaborador");
+              if (modal) {
+                modal.showModal();
+              }
+            }
 
-    // Desabilite os botões se o usuário for um colaborador
-    document.addEventListener('DOMContentLoaded', function () {
-      const cadastrarColaboradorButton = document.querySelector('.card-container .card:nth-child(2) button');
-      const verClientesButton = document.querySelector('.card-container .card:nth-child(3) .card-button');
-      const verHistoricoButton = document.querySelector('.card-container .card:nth-child(4) .card-button');
+            // Função para fechar a modal de cadastro de colaborador
+            function fecharModalCadastroColaborador() {
+              var modal = document.getElementById("modalAdicionarColaborador");
+              if (modal) {
+                modal.close();
+              }
+            }
 
-      if (<?php echo $isColaborador ? 'true' : 'false'; ?>) {
-        cadastrarColaboradorButton.disabled = true;
-        cadastrarColaboradorButton.style.backgroundColor = 'gray';
-        verClientesButton.style.pointerEvents = 'none';
-        verClientesButton.style.backgroundColor = 'gray';
-        verHistoricoButton.style.pointerEvents = 'none';
-        verHistoricoButton.style.backgroundColor = 'gray';
-      }
-    });
-</script>
+            // Função para abrir a modal de adicionar produto
+            function abrirModalAdicionarProduto() {
+              var modal = document.getElementById("modalAdicionarProduto");
+              if (modal) {
+                modal.showModal();
+              }
+            }
+
+            // Função para fechar a modal de adicionar produto
+            function fecharModalAdicionarProduto() {
+              var modal = document.getElementById("modalAdicionarProduto");
+              if (modal) {
+                modal.close();
+              }
+            }
+
+            // Desabilite os botões se o usuário for um colaborador
+            document.addEventListener('DOMContentLoaded', function() {
+              const cadastrarColaboradorButton = document.querySelector('.card-container .card:nth-child(2) button');
+              const verClientesButton = document.querySelector('.card-container .card:nth-child(3) .card-button');
+              const verHistoricoButton = document.querySelector('.card-container .card:nth-child(4) .card-button');
+
+              if (<?php echo $isColaborador ? 'true' : 'false'; ?>) {
+                cadastrarColaboradorButton.disabled = true;
+                cadastrarColaboradorButton.style.backgroundColor = 'gray';
+                verClientesButton.style.pointerEvents = 'none';
+                verClientesButton.style.backgroundColor = 'gray';
+                verHistoricoButton.style.pointerEvents = 'none';
+                verHistoricoButton.style.backgroundColor = 'gray';
+              }
+            });
+          </script>
 
 
 
