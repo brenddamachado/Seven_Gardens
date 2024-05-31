@@ -6,8 +6,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const userName = document.getElementById('userName').value;
     const password = document.getElementById('password').value;
 
-    if (!/^[a-zA-Z]{6}$/.test(userName) || !/^[a-zA-Z]{8}$/.test(password)) {
-      document.getElementById('errorMessages').textContent = 'Usuário ou senha formatados incorretamente.';
+    // Limpar mensagens de erro anteriores
+    document.getElementById('userNameError').textContent = '';
+    document.getElementById('passwordError').textContent = '';
+
+    // Verificar se o nome de usuário tem exatamente 6 caracteres
+    if (!/^[a-zA-Z]{6}$/.test(userName)) {
+      document.getElementById('userNameError').textContent = 'Nome de usuário deve ter exatamente 6 caracteres.';
+      return;
+    }
+
+    // Verificar se a senha tem exatamente 8 caracteres
+    if (!/^[a-zA-Z]{8}$/.test(password)) {
+      document.getElementById('passwordError').textContent = 'Senha deve ter exatamente 8 caracteres.';
       return;
     }
 
@@ -34,15 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
 function limparCampos() {
   document.getElementById('userName').value = '';
   document.getElementById('password').value = '';
 }
-
-
-
-
 
 // HAMBURGUER JS
 
@@ -57,5 +63,3 @@ hamburger.addEventListener("click", function () {
 closeButton.addEventListener("click", function () {
   mobileMenu.style.left = "-100%"; // Fecha o menu
 });
-
-

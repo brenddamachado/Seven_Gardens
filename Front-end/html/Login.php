@@ -26,12 +26,14 @@
 
       <div class="input-box">
         <label for="userName">Nome de usuário:</label>
-        <input type="text" id="userName" name="userName" placeholder="Digite seu nome de usuário" required minlength="6" maxlength="6" pattern="[A-Za-z]{6}">
+        <input type="text" id="userName" name="userName" placeholder="Digite seu nome de usuário" required>
       </div>
 
       <div class="input-box">
         <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" placeholder="Digite sua senha" minlength="8" maxlength="8" required pattern="[A-Za-z]{8}">
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+          <span id="mensagemErro" style="color: red;"></span>
+          <div id="errorMessages" style="color: red;"></div>
       </div>
 
       <div class="buttons">
