@@ -33,8 +33,11 @@ $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESS
                   Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>!
                 <?php endif; ?>
               </span>
-              <a href="<?php echo base_url('Front-end/html/logout.php'); ?>" class="logout">Logout</a>
+              <div class="navegacoes">
+                   <a href="<?php echo base_url('Front-end/html/logout.php'); ?>" class="logout">Logout</a>
               <a href="<?php echo base_url('Front-end/html/InterfaceMaster.php'); ?>" class="dashboard">Dashboard</a>
+              </div>
+           
             </li>
           <?php else : ?>
             <li class="home"><a class="login" href="<?php echo base_url('Front-end/html/Login.php'); ?>">Login</a></li>
