@@ -46,3 +46,59 @@ closeButton.addEventListener("click", function () {
 });
 
 
+
+
+
+
+
+
+// editar e excluir usuario
+document.getElementById('formAlterarSenha').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    let formData = new FormData(this);
+    formData.append('acao', 'alterar_senha');
+
+    fetch('processa_usuario.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('erroSenhaAtual').innerText = data.errors?.senha_atual || '';
+        document.getElementById('erroSenha').innerText = data.errors?.senha || '';
+        document.getElementById('erroSenha2').innerText = data.errors?.senha2 || '';
+        document.getElementById('successMessage').innerText = data.message || '';
+
+        if (data.success) {
+            document.getElementById('formAlterarSenha').reset();
+        }
+
+        if (data.errors || data.message) {
+            window.location.hash = '#tab5-content';
+        }
+    })
+    .catch(error => console.error('Erro:', error));
+});
+
+document.getElementById('formExcluirConta').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    let formData = new FormData(this);
+    formData.append('acao', 'excluir_conta');
+
+    fetch('processa_usuario.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = data.redirect;
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.error('Erro:', error));
+});
+

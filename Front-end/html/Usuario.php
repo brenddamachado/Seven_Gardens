@@ -16,6 +16,7 @@
 
 <body>
     <?php include('../../header.php'); ?>
+     
     <div class="container-principal">
 
         <div class="barra-lateral">
@@ -116,10 +117,10 @@
                     </form>
                 </div>
             </section>
-        <!-- Formulário de Alteração de senha -->
+       <!-- Formulário de Alteração de senha -->
 <section id="tab5-content" class="secao">
     <div class="divForm">
-        <form method="post" action="">
+        <form id="formAlterarSenha">
             <div class="form-header">
                 <h2 class="title">Alteração de senha</h2>
             </div>
@@ -157,105 +158,14 @@
         <!-- Formulário de Exclusão de Conta -->
         <div>
             <p>Deseja excluir sua conta?</p>
-            <form method="post" action="">
+            <form id="formExcluirConta">
                 <button type="submit" name="excluir_conta" class="btn_excluir">Excluir conta</button>
             </form>
         </div>
     </div>
 </section>
-
-
-<?php
-// Inclui o arquivo de conexão com o banco de dados
-require_once __DIR__ . '/../../Front-end/PHP/connect.php';
-
-// Inicializa as variáveis de mensagem de erro e sucesso
-$erroSenhaAtual = '';
-$erroSenha = '';
-$erroSenha2 = '';
-$mensagemSucesso = '';
-
-// Verifica se o formulário foi submetido
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verifica se o pedido é para excluir a conta
-    if (isset($_POST['excluir_conta'])) {
-        // Obtém o ID do usuário da sessão
-        $user_id = $_SESSION['usuario_id']; // Substitua pelo identificador correto do usuário na sessão
-
-        // Exclui o usuário do banco de dados
-        $sql = "DELETE FROM usuario WHERE idUsuario=?";
-        if ($stmt = $pdo->prepare($sql)) {
-            if ($stmt->execute([$user_id])) {
-                // Redireciona ou faz logout após a exclusão da conta
-                // Aqui você pode redirecionar para uma página de logout ou de confirmação de exclusão
-                session_destroy();
-                header("Location: ../front-end/html/login.php");
-                exit();
-            } else {
-                $erroExcluir = "Erro ao excluir conta. Por favor, tente novamente mais tarde.";
-            }
-        } else {
-            $erroExcluir = "Erro na preparação da consulta. Por favor, tente novamente mais tarde.";
-        }
-    } else {
-        // Obtém os valores do formulário de alteração de senha
-        $senha_atual = $_POST['senha_atual'];
-        $nova_senha = $_POST['senha'];
-        $confirmacao_senha = $_POST['senha2'];
-
-        // Validação das senhas
-        if (strlen($nova_senha) !== 8) {
-            $erroSenha = "A nova senha deve ter exatamente 8 caracteres.";
-        } elseif ($nova_senha !== $confirmacao_senha) {
-            $erroSenha2 = "As novas senhas não coincidem. Por favor, tente novamente.";
-        } else {
-            // Obtém a senha atual do banco de dados
-            $user_id = $_SESSION['usuario_id']; // Substitua pelo identificador correto do usuário na sessão
-            $sql = "SELECT senha FROM usuario WHERE idUsuario=?";
-            if ($stmt = $pdo->prepare($sql)) {
-                $stmt->execute([$user_id]);
-                $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if ($result) {
-                    $senha_hash_atual = $result['senha'];
-
-                    // Verifica se a senha atual está correta
-                    if (!password_verify($senha_atual, $senha_hash_atual)) {
-                        $erroSenhaAtual = "A senha atual está incorreta. Por favor, tente novamente.";
-                    } else {
-                        // Hash da nova senha
-                        $senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
-
-                        // Atualiza a senha no banco de dados usando prepared statements
-                        $sql = "UPDATE usuario SET senha=? WHERE idUsuario=?";
-                        if ($stmt = $pdo->prepare($sql)) {
-                            if ($stmt->execute([$senha_hash, $user_id])) {
-                                $mensagemSucesso = "Senha alterada com sucesso.";
-                            } else {
-                                $erroSenha = "Erro ao alterar senha. Por favor, tente novamente mais tarde.";
-                            }
-                        } else {
-                            $erroSenha = "Erro na preparação da consulta. Por favor, tente novamente mais tarde.";
-                        }
-                    }
-                } else {
-                    $erroSenhaAtual = "Erro ao verificar a senha atual. Por favor, tente novamente mais tarde.";
-                }
-            } else {
-                $erroSenhaAtual = "Erro ao verificar a senha atual. Por favor, tente novamente mais tarde.";
-            }
-        }
-
-        // Passa as mensagens de erro e sucesso para o JavaScript
-        echo "<script>
-            document.getElementById('erroSenhaAtual').innerText = '$erroSenhaAtual';
-            document.getElementById('erroSenha').innerText = '$erroSenha';
-            document.getElementById('erroSenha2').innerText = '$erroSenha2';
-            document.getElementById('successMessage').innerText = '$mensagemSucesso';
-        </script>";
-    }
-}
-?>
+</div>
+</div>
 
 
 
