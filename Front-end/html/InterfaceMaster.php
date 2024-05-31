@@ -89,50 +89,19 @@
   <!-- Diálogo Modal para Adicionar Colaborador -->
   <dialog id="modalAdicionarColaborador">
     <div class="form-header">
-        <h2 class="title">Adicione um novo colaborador</h2>
+      <h2 class="title">Adicione um novo colaborador</h2>
     </div>
-    <form action="../../Back-end/CadastroColaborador.php" method="post">
-        <div id="responseMessage" style="display: none;"></div>
-
-        <div class="input-box">
-            <input type="hidden" name="acao" value="cadastrar">
-            <label for="nomeColaborador">Nome completo:</label>
-            <input type="text" id="nomeColaborador" name="nome_completo" required>
-        </div>
-
-        <div class="input-box">
-            <label for="emailColaborador">E-mail:</label>
-            <input type="email" id="emailColaborador" name="email" required>
-        </div>
-
-        <div class="input-box">
-            <label for="telefoneColaborador">Telefone celular:</label>
-            <input type="tel" id="telefoneColaborador" name="telefone_celular" required>
-        </div>
-
-        <div class="input-box">
-            <label for="logradouro">Endereço:</label>
-            <input type="text" id="logradouro" name="logradouro" required>
-        </div>
-
-        <div class="input-box">
-    <label for="username">Nome de usuário (6 caracteres alfabéticos):</label>
-    <input type="text" id="username" name="username" pattern="[a-z]{6}" title="O nome de usuário deve conter apenas letras minúsculas e ter 6 caracteres alfabéticos." required>
-</div>
-
-<div class="input-box">
-    <label for="password">Senha (8 caracteres alfabéticos):</label>
-    <input type="password" id="password" name="password" pattern="[a-z]{8}" title="A senha deve conter apenas letras minúsculas e ter 8 caracteres alfabéticos." required>
-</div>
-
-
-        <div class="button-box">
-            <button type="submit" id="add_colaborador">Adicionar</button>
-            <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
-        </div>
+    <form id="formAdicionarColaborador" action="../../Back-end/CadastroColaborador.php" method="post">
+      <div id="responseMessage" style="display: none;"></div>
+      <div class="input-box"> <input type="hidden" name="acao" value="cadastrar"> <label for="nomeColaborador">Nome completo:</label> <input type="text" id="nomeColaborador" name="nome_completo" required> </div>
+      <div class="input-box"> <label for="emailColaborador">E-mail:</label> <input type="email" id="emailColaborador" name="email" required> </div>
+      <div class="input-box"> <label for="telefoneColaborador">Telefone celular:</label> <input type="tel" id="telefoneColaborador" name="telefone_celular" required> </div>
+      <div class="input-box"> <label for="logradouro">Endereço:</label> <input type="text" id="logradouro" name="logradouro" required> </div>
+      <div class="input-box"> <label for="username">Nome de usuário (6 caracteres alfabéticos):</label> <input type="text" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required> </div>
+      <div class="input-box"> <label for="password">Senha (8 caracteres alfabéticos):</label> <input type="password" id="password" name="password" pattern="[a-zA-Z]{8}" title="A senha deve conter apenas letras e ter 8 caracteres." required> </div>
+      <div class="button-box"> <button type="submit" id="add_colaborador">Adicionar</button> <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button> </div>
     </form>
-</dialog>
-
+  </dialog>
 
 
 
@@ -234,84 +203,93 @@
               }
             }
           </script>
-
           <script>
-       document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
+            document.addEventListener('DOMContentLoaded', function() {
+              const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
+              const responseMessageElement = document.getElementById('responseMessage');
+              const submitButton = form.querySelector('button[type="submit"]');
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Impede o envio tradicional do formulário
+              form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-        const formData = new FormData(this);
-        const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
-        const submitButton = form.querySelector('button[type="submit"]');
-        submitButton.disabled = true; // Desabilita o botão para evitar envios múltiplos
+                const formData = new FormData(this);
+                submitButton.disabled = true;
 
-        fetch(this.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json()) // Assume que o servidor responde com JSON
-        .then(data => {
-            responseMessageElement.textContent = data.message; // Define a mensagem de resposta
-            responseMessageElement.style.display = 'block'; // Torna o elemento visível
-            responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    responseMessageElement.textContent = data.message;
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = data.success ? 'green' : 'red';
 
-            if (data.success) {
-                // Opcional: Limpa o formulário após sucesso
-                form.reset();
-            }
+                    if (data.success) {
+                      form.reset();
+                    }
 
-            submitButton.disabled = false; // Habilita o botão novamente
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            responseMessageElement.textContent = 'Erro ao enviar o formulário.';
-            responseMessageElement.style.display = 'block';
-            responseMessageElement.style.color = 'red'; // Cor vermelha para erros
-            submitButton.disabled = false; // Habilita o botão novamente em caso de erro
-        });
-    });
-});
-
-          </script> <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
+                    submitButton.disabled = false;
+                  })
+                  .catch(error => {
+                    console.error('Erro:', error);
+                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = 'red';
+                    submitButton.disabled = false;
+                  });
+              });
+            });
+          </script>
+          <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
           <script>
-           document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
+            document.addEventListener('DOMContentLoaded', function() {
+              const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Impede o envio tradicional do formulário
+              form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Impede o envio tradicional do formulário
 
-        const formData = new FormData(this);
-        const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
+                const formData = new FormData(this);
+                const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
 
-        fetch(this.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json()) // Assume que o servidor responde com JSON
-        .then(data => {
-            responseMessageElement.textContent = data.message; // Define a mensagem de resposta
-            responseMessageElement.style.display = 'block'; // Torna o elemento visível
-            responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                  })
+                  .then(response => response.json()) // Assume que o servidor responde com JSON
+                  .then(data => {
+                    responseMessageElement.textContent = data.message; // Define a mensagem de resposta
+                    responseMessageElement.style.display = 'block'; // Torna o elemento visível
+                    responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
 
-            if (data.success) {
-                // Opcional: Limpa o formulário após sucesso
-                form.reset();
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            responseMessageElement.textContent = 'Erro ao enviar o formulário.';
-            responseMessageElement.style.display = 'block';
-            responseMessageElement.style.color = 'red'; // Cor vermelha para erros
-        });
-    });
-});
-
+                    if (data.success) {
+                      // Opcional: Limpa o formulário após sucesso
+                      form.reset();
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Erro:', error);
+                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = 'red'; // Cor vermelha para erros
+                  });
+              });
+            });
           </script>
 
-
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                  const form = document.getElementById('formAdicionarColaborador');
+                  const responseMessageElement = document.getElementById('responseMessage');
+                  const submitButton = form.querySelector('button[type="submit"]');
+                  form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const formData = new FormData(this);
+                        submitButton.disabled = true; // Desabilita o botão para evitar envios múltiplos fetch
+                        (this.action, { method: 'POST', body: formData }) .then(response => response.json()) .then(data => { responseMessageElement.textContent = data.message; responseMessageElement.style.display = 'block'; responseMessageElement.style.color = data.success ? 'green' : 'red'; if (data.success) { form.reset(); } submitButton.disabled = false; }) .catch(error => { console.error('Erro:', error); responseMessageElement.textContent = 'Erro ao enviar o formulário.'; responseMessageElement.style.display = 'block'; responseMessageElement.style.color = 'red'; submitButton.disabled = false;
+                           // Habilita o botão novamente em caso de erro  
+                          }); }); }); 
+          </script>
 
 
           <script>
