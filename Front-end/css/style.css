@@ -92,16 +92,6 @@ footer {
 
 
 
-
-/* Estilo do Carrinho e o contador */
-
-#icon {
-  float: left;
-  /* Garante que o ícone de carrinho de compras e o contador fiquem em linha */
-  margin-right: 5px;
-  /* Ajuste conforme necessário para criar espaço entre o ícone e o contador */
-}
-
 #icon-container {
   position: relative;
   /* Permitirá que o contador seja posicionado absolutamente em relação a este contêiner */
@@ -215,16 +205,7 @@ footer {
   /* Altera a cor de fundo quando o mouse está sobre a categoria */
 }
 
-.opcoes {
-  justify-content: space-around;
-  display: flex;
-  background: #405b39;
-  height: 38px;
-  align-items: center;
-  font-size: 12px;
-  position: relative;
-  /* Adicione posicionamento relativo */
-}
+
 
 /* inicio DARK MODE */
 body.dark-mode {
@@ -504,27 +485,11 @@ body.dark-mode a {
     display: block;
   }
 
-  .opcoes {
-    display: none;
-  }
 
   #other-things {
     right: 40px;
   }
 
-  .navegacao ul li {
-    display: none;
-  }
-
-  .nav_a,
-  .dropdown .dropbtn .fa-chevron-down {
-    display: none;
-  }
-
-  .header {
-    justify-content: flex-start;
-    height: auto;
-  }
 
   .section_mobile {
     display: flex;
@@ -538,75 +503,20 @@ body.dark-mode a {
     margin-left: 120px;
   }
 
-  .pesquisa-icon {
-    top: 45%;
-  }
-
-  .opcoes {
-    height: auto;
-  }
-
-  .menu_btn {
-    padding: 5px 10px;
-  }
-
-  .pesquisa-container {
-    left: 80px;
-  }
-
-  .pesquisa {
-    margin-left: -51px;
-    width: 170px;
-  }
-
   .carousel-item img {
     width: 100%;
-
   }
 
 }
 
 @media screen and (max-width: 900px) and (min-width: 767px) {
 
-  header,
+
   footer {
     width: 910px;
   }
 
   .carousel {
     width: 910px;
-  }
-
-  .pesquisa {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 740px) and (min-width: 364px) {
-  .pesquisa {
-    width: 180px;
-  }
-}
-
-/* Estilos para telas até 320px */
-@media (max-width: 320px) {
-
-  .pesquisa {
-    width: 150px !important;
-  }
-.logo{
-  width:130px;
-}
-}
-
-@media screen and (max-width: 375px) {
-  .pesquisa {
-    width: 150px;
-  }
-}
-
-@media screen and (max-width: 390px) {
-  .pesquisa {
-    width: 180px;
   }
 }

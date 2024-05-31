@@ -188,14 +188,14 @@ body.dark-mode .opcoes, body.dark-mode .table tr {
   background-color: #1E1F1E !important;
 }
 
-body.dark-mode .table tr, body.dark-mode #openFilterForm{
+body.dark-mode .table tr, body.dark-mode #openFilterForm, body.dark-mode .redes, body.dark-mode .icon i{
   color: #fff;
 }
 body.dark-mode .opcoes h2,
 body.dark-mode form h1,
 body.dark-mode label,
 body.dark-mode .topo_tabela,
-body.dark-mode .login,  body.dark-mode .table th {
+body.dark-mode .login,  body.dark-mode .table th, body.dark-mode .welcome-logout span {
   color: #E1F9D7;
 }
 

@@ -163,15 +163,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
 
   <footer>
     <br>
-    <p class="social"> Siga-nos nas nossas redes sociais:</p>
 
     <div class="social-icons">
+      <p class="redes"> Siga-nos nas nossas redes sociais:</p>
       <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
-      <a href="#" class="fab fa-instagram"></a>
-      <a href="#" class="fab fa-whatsapp"></a>
+      <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
-
   <!-- JavaScript direto no arquivo HTML -->
   <script src="../js/acessibilidade.js"></script>
   <script>

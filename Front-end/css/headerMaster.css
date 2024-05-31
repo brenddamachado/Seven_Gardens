@@ -77,3 +77,46 @@ ul {
   cursor: pointer;
   text-decoration: none;
 }
+
+@media (max-width: 747px) {
+  ul {
+    padding: 10px;
+  }
+
+  .header ul li {
+    font-size: 15px;
+
+  }
+
+  .logo {
+    width: 140px;
+  }
+}
+
+@media (max-width: 590px) {
+  .logo {
+    width: 130px;
+  }
+
+  .welcome-logout {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-direction: column;
+  }
+
+  .navegacoes {
+    margin-top: 10px !important;
+  }
+}
+
+@media (max-width:430px) {
+  .logo {
+    width: 110px;
+  }
+
+  .header ul li {
+    font-size: 12px;
+  }
+}
