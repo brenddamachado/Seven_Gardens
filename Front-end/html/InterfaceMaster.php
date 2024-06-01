@@ -7,6 +7,7 @@
   <title>Interface Master</title>
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="../css/InterfaceMaster.css" />
+  <link rel="stylesheet" href="../css/headerMaster.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
@@ -85,23 +86,51 @@
   </dialog>
 
 
-
-  <!-- Diálogo Modal para Adicionar Colaborador -->
   <dialog id="modalAdicionarColaborador">
     <div class="form-header">
-      <h2 class="title">Adicione um novo colaborador</h2>
+        <h2 class="title">Adicione um novo colaborador</h2>
     </div>
     <form id="formAdicionarColaborador" action="../../Back-end/CadastroColaborador.php" method="post">
-      <div id="responseMessage" style="display: none;"></div>
-      <div class="input-box"> <input type="hidden" name="acao" value="cadastrar"> <label for="nomeColaborador">Nome completo:</label> <input type="text" id="nomeColaborador" name="nome_completo" required> </div>
-      <div class="input-box"> <label for="emailColaborador">E-mail:</label> <input type="email" id="emailColaborador" name="email" required> </div>
-      <div class="input-box"> <label for="telefoneColaborador">Telefone celular:</label> <input type="tel" id="telefoneColaborador" name="telefone_celular" required> </div>
-      <div class="input-box"> <label for="logradouro">Endereço:</label> <input type="text" id="logradouro" name="logradouro" required> </div>
-      <div class="input-box"> <label for="username">Nome de usuário (6 caracteres alfabéticos):</label> <input type="text" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required> </div>
-      <div class="input-box"> <label for="password">Senha (8 caracteres alfabéticos):</label> <input type="password" id="password" name="password" pattern="[a-zA-Z]{8}" title="A senha deve conter apenas letras e ter 8 caracteres." required> </div>
-      <div class="button-box"> <button type="submit" id="add_colaborador">Adicionar</button> <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button> </div>
+        <div id="responseMessage" style="display: none;"></div>
+
+        <div class="input-box">
+            <input type="hidden" name="acao" value="cadastrar">
+            <label for="nomeColaborador">Nome completo:</label>
+            <input type="text" id="nomeColaborador" name="nome_completo" required>
+        </div>
+
+        <div class="input-box">
+            <label for="emailColaborador">E-mail:</label>
+            <input type="email" id="emailColaborador" name="email" required>
+        </div>
+
+        <div class="input-box">
+            <label for="telefoneColaborador">Telefone celular:</label>
+            <input type="tel" id="telefoneColaborador" name="telefone_celular" required>
+        </div>
+
+        <div class="input-box">
+            <label for="logradouro">Endereço:</label>
+            <input type="text" id="logradouro" name="logradouro" required>
+        </div>
+
+        <div class="input-box">
+            <label for="username">Nome de usuário (6 caracteres alfabéticos):</label>
+            <input type="text" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required>
+        </div>
+
+        <div class="input-box">
+            <label for="password">Senha (8 caracteres alfabéticos):</label>
+            <input type="password" id="password" name="password" pattern="[a-zA-Z]{8}" title="A senha deve conter apenas letras e ter 8 caracteres." required>
+        </div>
+
+        <div class="button-box">
+            <button type="submit" id="add_colaborador">Adicionar</button>
+            <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
+        </div>
     </form>
-  </dialog>
+</dialog>
+
 
 
 
@@ -178,12 +207,8 @@
 
     </div>
   </footer>
-  <script>
-    
-  </script>
 
-
-          
+          <script src="../js/Colaboradores.js"></script>
           <script src=" ../js/acessibilidade.js"></script>
           <?php require_once('./Back-end/Logica_de_Botoes.php');?>
 </body>
