@@ -90,19 +90,8 @@
 
           
 <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cadastrarColaboradorButton = document.querySelector('.card-container .card:nth-child(2) button');
-            const verClientesButton = document.querySelector('.card-container .card:nth-child(3) .card-button');
-            const verHistoricoButton = document.querySelector('.card-container .card:nth-child(4) .card-button');
-
-            if (<?php echo json_encode($isColaborador); ?>) {
-                cadastrarColaboradorButton.disabled = true;
-                cadastrarColaboradorButton.classList.add('disabled-button');
-                verClientesButton.classList.add('disabled-button');
-                verHistoricoButton.classList.add('disabled-button');
-            }
-        });
-
+        
+  
         function abrirModalCadastroColaborador() {
             var modal = document.getElementById("modalAdicionarColaborador");
             if (modal) {
@@ -131,61 +120,3 @@
             }
         }
     </script>
-
-<script>
-            // Verifique se o usuário é um colaborador ou não
-            <?php
-            // A variável $isColaborador deve ser definida com base na lógica do seu sistema
-            // Aqui, estou assumindo que você tem uma maneira de verificar se o usuário está logado e se ele é um colaborador
-            // O valor de $isColaborador deve ser true apenas se o usuário estiver logado como um colaborador
-            $isUserMasterOrColaborador = isset($_SESSION['usuario_tipo']) && in_array($_SESSION['usuario_tipo'], ['Master', 'Colaborador']);
-            ?>
-
-            // Função para abrir a modal de cadastro de colaborador
-            function abrirModalCadastroColaborador() {
-              var modal = document.getElementById("modalAdicionarColaborador");
-              if (modal) {
-                modal.showModal();
-              }
-            }
-
-            // Função para fechar a modal de cadastro de colaborador
-            function fecharModalCadastroColaborador() {
-              var modal = document.getElementById("modalAdicionarColaborador");
-              if (modal) {
-                modal.close();
-              }
-            }
-
-            // Função para abrir a modal de adicionar produto
-            function abrirModalAdicionarProduto() {
-              var modal = document.getElementById("modalAdicionarProduto");
-              if (modal) {
-                modal.showModal();
-              }
-            }
-
-            // Função para fechar a modal de adicionar produto
-            function fecharModalAdicionarProduto() {
-              var modal = document.getElementById("modalAdicionarProduto");
-              if (modal) {
-                modal.close();
-              }
-            }
-
-            // Desabilite os botões se o usuário for um colaborador
-            document.addEventListener('DOMContentLoaded', function() {
-              const cadastrarColaboradorButton = document.querySelector('.card-container .card:nth-child(2) button');
-              const verClientesButton = document.querySelector('.card-container .card:nth-child(3) .card-button');
-              const verHistoricoButton = document.querySelector('.card-container .card:nth-child(4) .card-button');
-
-              if (<?php echo $isColaborador ? 'true' : 'false'; ?>) {
-                cadastrarColaboradorButton.disabled = true;
-                cadastrarColaboradorButton.style.backgroundColor = 'gray';
-                verClientesButton.style.pointerEvents = 'none';
-                verClientesButton.style.backgroundColor = 'gray';
-                verHistoricoButton.style.pointerEvents = 'none';
-                verHistoricoButton.style.backgroundColor = 'gray';
-              }
-            });
-          </script>

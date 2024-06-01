@@ -80,7 +80,7 @@
       <!-- Seus botões de envio e cancelamento -->
       <div class="button-box">
         <button type="submit" id="add_produto">Adicionar</button>
-        <button type="button" onclick="fecharModalAdicionarProduto()" id="cancelar_add">Cancelar</button>
+        <button type="button" onclick="fecharModalAdicionarProduto()" class="cancelar_add">Cancelar</button>
       </div>
     </form>
   </dialog>
@@ -207,10 +207,26 @@
 
     </div>
   </footer>
-
           <script src="../js/Colaboradores.js"></script>
           <script src=" ../js/acessibilidade.js"></script>
-          <?php require_once('./Back-end/Logica_de_Botoes.php');?>
+          <?php require_once('../../Back-end/Logica_de_Botoes.php');?>
+
+          <?php
+  // Verificação de sessão para determinar se o usuário é um Colaborador
+  session_start();
+  if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] === 'Colaborador') {
+    echo '<script>
+            document.addEventListener("DOMContentLoaded", function() {
+              const buttons = document.querySelectorAll(".card-container .card:nth-child(2) button, .card-container .card:nth-child(3) .card-button, .card-container .card:nth-child(4) .card-button");
+              buttons.forEach(button => {
+                button.disabled = true;
+                button.style.backgroundColor = "gray";
+              });
+            });
+          </script>';
+  }
+  ?>
+
 </body>
 
 </html> 
