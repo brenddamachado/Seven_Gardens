@@ -80,7 +80,8 @@
       <!-- Seus botões de envio e cancelamento -->
       <div class="button-box">
         <button type="submit" id="add_produto">Adicionar</button>
-        <button type="button" onclick="fecharModalAdicionarProduto()" class="cancelar_add">Cancelar</button>
+        <button type="button" onclick="fecharModalAdicionarProduto()" class="cancelar_add" style=" background-color: #405b39;color: white;
+border: none;padding: 10px 20px;border-radius: 5px;cursor: pointer;font-size: 1rem;"  >Cancelar</button>
       </div>
     </form>
   </dialog>
