@@ -213,17 +213,20 @@
 
           <?php
   // Verificação de sessão para determinar se o usuário é um Colaborador
-  session_start();
+  // session_start();
   if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] === 'Colaborador') {
     echo '<script>
-            document.addEventListener("DOMContentLoaded", function() {
-              const buttons = document.querySelectorAll(".card-container .card:nth-child(2) button, .card-container .card:nth-child(3) .card-button, .card-container .card:nth-child(4) .card-button");
-              buttons.forEach(button => {
-                button.disabled = true;
-                button.style.backgroundColor = "gray";
-              });
-            });
-          </script>';
+    document.addEventListener("DOMContentLoaded", function() {
+      const buttons = document.querySelectorAll(".card-container .card:nth-child(3) .card-button, .card-container .card:nth-child(4) .card-button, .card-container .card:nth-child(2) button");
+      buttons.forEach(button => {
+        button.disabled = true;
+        button.style.backgroundColor = "gray";
+        button.addEventListener("click", function(event) {
+          event.preventDefault(); // Impede a ação padrão do clique
+        });
+      });
+    });
+</script>';
   }
   ?>
 
