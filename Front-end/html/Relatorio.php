@@ -21,13 +21,18 @@
   <?php include('../../headerMaster.php'); ?>
 
   <main>
-
+  <section class="filtroo">
+    <h4 id="openFilterForm" ><i class="fas solid fa-filter"></i> Filtro</h4>
+    <div id="filterFormContainer" style="display: none;">
     <form id="user-search-form">
       <h1 class="title">Contas Cadastradas</h1><br>
       <label for="inputPesquisa">Pesquisar por nome:</label>
       <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
       <button type="submit">Pesquisar</button>
     </form>
+    </div>
+  </section>
+    
 
     <section id="client-table">
       <div class="icon-clientes">

@@ -1,3 +1,68 @@
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("DOM totalmente carregado e analisado");
+
+  var openButton = document.getElementById('openFilterForm');
+  var filterFormContainer = document.getElementById('filterFormContainer');
+  var filterForm = document.getElementById('filterForm');
+  var tabelaBody = document.getElementById('tabelaBody');
+
+  if (openButton) {
+    openButton.addEventListener('click', function() {
+      console.log("Clicou no filtro");
+      if (filterFormContainer.style.display === "none" || filterFormContainer.style.display === "") {
+        filterFormContainer.style.display = "block";
+      } else {
+        filterFormContainer.style.display = "none";
+      }
+    });
+  } else {
+    console.log("openFilterForm não encontrado");
+  }
+
+  if (filterForm) {
+    filterForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var formData = new FormData(filterForm);
+      var inputPesquisa = formData.get('inputPesquisa');
+
+      // Verifica se o valor de pesquisa é numérico
+      if (!isNaN(inputPesquisa) && inputPesquisa !== '') {
+        formData.set('idUsuario', inputPesquisa);
+      }
+
+      fetch('', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          tabelaBody.innerHTML = ''; // Limpa a tabela
+          if (data.error) {
+            tabelaBody.innerHTML = '<tr><td colspan="4">' + data.error + '</td></tr>';
+          } else if (data.length > 0) {
+            data.forEach(item => {
+              var row = document.createElement('tr');
+              row.innerHTML = `
+                <td>${item.id_usuario}</td>
+                <td>${item.nome_completo}</td>
+                <td>${new Date(item.horarioLogin).toLocaleString('pt-BR')}</td>
+                <td>${item.pergunta}</td>
+              `;
+              tabelaBody.appendChild(row);
+            });
+          } else {
+            tabelaBody.innerHTML = '<tr><td colspan="4">Nenhum registro encontrado.</td></tr>';
+          }
+        })
+        .catch(error => {
+          console.error('Erro:', error);
+          tabelaBody.innerHTML = '<tr><td colspan="4">Erro ao buscar dados.</td></tr>';
+        });
+    });
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function() {
   const userSearchForm = document.getElementById("user-search-form");
   const tabelaUsuarios = document.getElementById("tabelaUsuarios");
@@ -131,7 +196,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
- 
 document.addEventListener("DOMContentLoaded", function () {
   // Verificar se o usuário já selecionou um modo de cor anteriormente
   const savedMode = localStorage.getItem("mode");
@@ -232,4 +296,3 @@ function downloadPDF() {
   // Salva o PDF
   doc.save("relatorio-clientes.pdf");
 }
-

@@ -186,15 +186,6 @@ body {
 }
 
 /* inicio footer */
-footer {
-  
-  background-color: #0f2b05;
-  height: 200px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .social-icons {
   text-align: center;
@@ -315,6 +306,16 @@ footer{
   transition: all 0.3s ease;
 }
 
+.filtroo {
+  margin-top: 3%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+#openFilterForm{
+  font-size: 18px !important;
+}
+
 /* inicio DARK MODE */
 
 body.dark-mode .btn-download-2{
@@ -344,7 +345,7 @@ body.dark-mode .dropbtn, body.dark-mode .opcoes {
 .fa-universal-access, .fa-moon, .fa-sun{
   color: #7A7979;
 }
-body.dark-mode .sessao{
+body.dark-mode .sessao, body.dark-mode #openFilterForm{
   color: #fff;
 }
 
@@ -366,7 +367,8 @@ body.dark-mode p,
 body.dark-mode h2,
 body.dark-mode label,
 body.dark-mode .title,
-body.dark-mode .login 
+body.dark-mode .login,
+body.dark-mode #tabelaUsuarios th
   {
   color: #E1F9D7; /* Cor ajustada para elementos no modo escuro */
 }
@@ -422,3 +424,85 @@ body.dark-mode .cadastrar {
   display: inline-block; /* ou 'block', dependendo do seu layout */
 }
 /* FINAL DO DARK MODE */
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .conteudo {
+    width: 75% !important;
+  }
+
+  .header .paginas li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1059px) {
+  .conteudo {
+    width: 55%;
+  }
+}
+
+@media (max-width: 544px) {
+  .conteudo {
+    width: 95% !important;
+  }
+}
+
+
+
+
+
+@media (max-width: 360px) {
+  .logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 718px) {
+  .table td, .table th {
+    vertical-align: middle !important;
+    padding: 0.5rem !important; /* Ajuste este valor conforme necessário */
+  }
+}
+
+@media (max-width: 686px) {
+  .table td, .table th {
+    padding: 0.4rem !important; /* Ajuste este valor conforme necessário */
+  }
+}
+@media (max-width: 434px) {
+  
+  .header .paginas li {
+    font-size: 13px;
+}
+}
+
+@media (max-width:342px) {
+  .table td, .table th {
+    padding: 1px !important; /* Ajuste este valor conforme necessário */
+  }
+
+  .header .paginas li {
+    font-size: 11px;
+}
+
+.logo{
+  width: 100px;
+}
+}
+
+@media (max-width:541px) {
+  .logo{
+    width: 120px;
+  }
+}
+@media (max-width: 320px) {
+  .logo {
+    width: 85px !important;  }
+    table{
+      margin-top: 70px;
+    }
+    #openFilterForm{
+      margin-top: 30px;
+    }
+}
