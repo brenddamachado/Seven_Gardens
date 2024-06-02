@@ -80,57 +80,56 @@
       <!-- Seus botões de envio e cancelamento -->
       <div class="button-box">
         <button type="submit" id="add_produto">Adicionar</button>
-        <button type="button" onclick="fecharModalAdicionarProduto()" class="cancelar_add" style=" background-color: #405b39;color: white;
-border: none;padding: 10px 20px;border-radius: 5px;cursor: pointer;font-size: 1rem;"  >Cancelar</button>
+        <button type="button" onclick="fecharModalAdicionarProduto()" class="cancelar_add" style=" background-color: #405b39;color: white; border: none;padding: 10px 20px;border-radius: 5px;cursor: pointer;font-size: 1rem;">Cancelar</button>
       </div>
     </form>
   </dialog>
 
 
-  <dialog id="modalAdicionarColaborador">
+  <dialog  id="modalAdicionarColaborador">
     <div class="form-header">
-        <h2 class="title">Adicione um novo colaborador</h2>
+      <h2 class="title">Adicione um novo colaborador</h2>
     </div>
     <form id="formAdicionarColaborador" action="../../Back-end/CadastroColaborador.php" method="post">
-        <div id="responseMessage" style="display: none;"></div>
+      <div id="responseMessage" style="display: none;"></div>
 
-        <div class="input-box">
-            <input type="hidden" name="acao" value="cadastrar">
-            <label for="nomeColaborador">Nome completo:</label>
-            <input type="text" id="nomeColaborador" name="nome_completo" required>
-        </div>
+      <div class="input-box">
+        <input type="hidden" name="acao" value="cadastrar">
+        <label for="nomeColaborador">Nome completo:</label>
+        <input type="text" id="nomeColaborador" name="nome_completo" required>
+      </div>
 
-        <div class="input-box">
-            <label for="emailColaborador">E-mail:</label>
-            <input type="email" id="emailColaborador" name="email" required>
-        </div>
+      <div class="input-box">
+        <label for="emailColaborador">E-mail:</label>
+        <input type="email" id="emailColaborador" name="email" required>
+      </div>
 
-        <div class="input-box">
-            <label for="telefoneColaborador">Telefone celular:</label>
-            <input type="tel" id="telefoneColaborador" name="telefone_celular" required>
-        </div>
+      <div class="input-box">
+        <label for="telefoneColaborador">Telefone celular:</label>
+        <input type="tel" id="telefoneColaborador" name="telefone_celular" required>
+      </div>
 
-        <div class="input-box">
-            <label for="logradouro">Endereço:</label>
-            <input type="text" id="logradouro" name="logradouro" required>
-        </div>
+      <div class="input-box">
+        <label for="logradouro">Endereço:</label>
+        <input type="text" id="logradouro" name="logradouro" required>
+      </div>
 
-        <div class="input-box">
-            <label for="username">Nome de usuário (6 caracteres alfabéticos):</label>
-            <input type="text" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required>
-        </div>
+      <div class="input-box">
+        <label for="username">Nome de usuário (6 caracteres alfabéticos):</label>
+        <input type="text" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required>
+      </div>
 
-        <div class="input-box">
-            <label for="password">Senha (8 caracteres alfabéticos):</label>
-            <input type="password" id="password" name="password" pattern="[a-zA-Z]{8}" title="A senha deve conter apenas letras e ter 8 caracteres." required>
-        </div>
+      <div class="input-box">
+        <label for="password">Senha (8 caracteres alfabéticos):</label>
+        <input type="password" id="password" name="password" pattern="[a-zA-Z]{8}" title="A senha deve conter apenas letras e ter 8 caracteres." required>
+      </div>
 
-        <div class="button-box">
-            <button type="submit" id="add_colaborador">Adicionar</button>
-            <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
-        </div>
+      <div class="button-box">
+        <button type="submit" id="add_colaborador">Adicionar</button>
+        <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
+      </div>
     </form>
-</dialog>
+  </dialog>
 
 
 
@@ -210,13 +209,13 @@ border: none;padding: 10px 20px;border-radius: 5px;cursor: pointer;font-size: 1r
   </footer>
           
           <script src=" ../js/acessibilidade.js"></script>
-          <?php require_once('../../Back-end/Logica_de_Botoes.php');?>
+          <?php require_once('../../Back-end/Logica_de_Botoes.php'); ?>
 
           <?php
-  // Verificação de sessão para determinar se o usuário é um Colaborador
-  // session_start();
-  if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] === 'Colaborador') {
-    echo '<script>
+          // Verificação de sessão para determinar se o usuário é um Colaborador
+          // session_start();
+          if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] === 'Colaborador') {
+            echo '<script>
     document.addEventListener("DOMContentLoaded", function() {
       const buttons = document.querySelectorAll(".card-container .card:nth-child(3) .card-button, .card-container .card:nth-child(4) .card-button, .card-container .card:nth-child(2) button");
       buttons.forEach(button => {
@@ -228,9 +227,9 @@ border: none;padding: 10px 20px;border-radius: 5px;cursor: pointer;font-size: 1r
       });
     });
 </script>';
-  }
-  ?>
+          }
+          ?>
 
 </body>
 
-</html> 
+</html>
