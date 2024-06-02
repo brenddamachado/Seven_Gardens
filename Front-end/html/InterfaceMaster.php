@@ -116,12 +116,12 @@
 
       <div class="input-box">
         <label for="username">Nome de usuário (6 caracteres alfabéticos):</label>
-        <input type="text" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required>
+        <input type="text"  maxlength="6" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required>
       </div>
 
       <div class="input-box">
         <label for="password">Senha (8 caracteres alfabéticos):</label>
-        <input type="password" id="password" name="password" pattern="[a-zA-Z]{8}" title="A senha deve conter apenas letras e ter 8 caracteres." required>
+        <input type="password" maxlength="8" id="password" name="password" pattern="[a-zA-Z]{8}" title="A senha deve conter apenas letras e ter 8 caracteres." required>
       </div>
 
       <div class="button-box">

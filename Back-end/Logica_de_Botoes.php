@@ -1,8 +1,6 @@
 <?php
 
 
-include('../Front-end/PHP/connect.php'); 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['acao']) && $_POST['acao'] == 'cadastrar') {
     $nome_completo = $_POST['nome_completo'];
     $email = $_POST['email'];
