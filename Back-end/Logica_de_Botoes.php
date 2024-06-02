@@ -119,4 +119,19 @@
                 modal.close();
             }
         }
+
+// Função para pré-visualizar a imagem do produto (para outro modal, caso necessário)
+function previewImg(event) {
+  const previewImage = document.getElementById('previewImage');
+  const file = event.target.files[0];
+  if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          previewImage.src = e.target.result;
+          previewImage.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+  }
+}
+
     </script>

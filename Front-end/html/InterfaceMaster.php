@@ -208,7 +208,7 @@ border: none;padding: 10px 20px;border-radius: 5px;cursor: pointer;font-size: 1r
 
     </div>
   </footer>
-          <script src="../js/Colaboradores.js"></script>
+          
           <script src=" ../js/acessibilidade.js"></script>
           <?php require_once('../../Back-end/Logica_de_Botoes.php');?>
 
