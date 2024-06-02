@@ -18,10 +18,7 @@ require $path;
       <a href="<?php echo base_url('index.php'); ?>"><img class="logo" src="<?php echo base_url('Front-end/img/logoatual.svg'); ?>" alt="Logo Seven Gardens" /></a>
     </div>
 
-    <div class="pesquisa-container">
-      <input type="search" name="" id="" class="pesquisa" />
-      <div class="pesquisa-icon"><i class="fas fa-search"></i></div>
-    </div>
+   
     <nav class="nav_a">
       <div class="navegacao">
         <ul>

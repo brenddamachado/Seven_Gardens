@@ -200,74 +200,7 @@ body.dark-mode .social-icons .icon:hover {
   font-size: 20px;
 }
 
-#mobile {
-  position: fixed;
-  left: -100%;
-  top: 0;
-  width: 300px;
-  height: 100vh;
-  background-color: #405b39;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
-  transition: left 0.5s;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  padding-top: 60px;
-}
 
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  color: #fbf3dc;
-  font-size: 24px;
-}
-
-.dentro_icon {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.dentro_icon a {
-  color: #fbf3dc;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 16px;
-  border-bottom: 1px solid #fbf3dc;
-}
-
-.mobile {
-  display: none;
-}
-
-.icon_mobile {
-  display: none;
-}
-
-.section_mobile {
-  display: none;
-}
-
-.fa-times {
-  color: #7ed957;
-  border-color: #7ed957;
-}
-
-#hamburguer {
-  width: 35px;
-  margin-top: 2px;
-  margin-left: 15px;
-  font-size: 20px;
-  color: #7ed957;
-  border-color: #7ed957;
-}
-
-.dentro_icon {
-  display: flex;
-  flex-direction: column;
-}
 
 .cliqueAqui {
   gap: 10px;
