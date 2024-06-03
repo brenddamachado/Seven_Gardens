@@ -53,6 +53,13 @@ ul {
 
 .nav_a .navegacao ul li a.cadastro {
   background-color: #405b39;
+  transition: background-color 0.3s ease;
+}
+
+.nav_a .navegacao ul li a.cadastro:hover {
+  
+background-color: #364b31;
+  
 }
 
 .navegacao ul {
@@ -63,12 +70,17 @@ ul {
 
 .dashboard {
   background-color: #405b39;
-  color: #fff;
+  color: #fbf3dc;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard:hover {
+  background-color: #364b31;
 }
 
 .logo {

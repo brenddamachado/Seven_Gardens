@@ -66,16 +66,27 @@ ul {
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
+
+.logout:hover {
+  background-color: #6c7a5a;
+}
+
 
 .dashboard {
   background-color: #405b39;
-  color: #fff;
+  color: #fbf3dc;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard:hover {
+  background-color: #364b31;
 }
 
 @media (max-width: 747px) {
