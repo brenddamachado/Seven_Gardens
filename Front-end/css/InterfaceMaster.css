@@ -204,7 +204,17 @@ dialog {
 
 #add_colaborador,
 #add_produto,
-#cancelar_add {
+#cancelar_add, .cancelar_add {
+  background-color: #405b39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cancelar_add{
   background-color: #405b39;
   color: white;
   border: none;
@@ -216,12 +226,21 @@ dialog {
 
 #add_colaborador:hover,
 #add_produto:hover,
-#cancelar_add:hover {
+#cancelar_add:hover, .cancelar_add:hover {
+  background-color: #0f2b05;
+}
+
+.cancelar_add:hover {
   background-color: #0f2b05;
 }
 
 #add_produto a,
-#cancelar_add a {
+#cancelar_add a, .cancelar_add a {
+  color: white;
+  text-decoration: none;
+}
+
+.cancelar_add a {
   color: white;
   text-decoration: none;
 }
