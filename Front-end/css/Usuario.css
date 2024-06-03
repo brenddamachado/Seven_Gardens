@@ -446,8 +446,7 @@ li {
   flex-direction: column;
 }
 
-#hamburguer,
-#icon {
+#hamburguer{
   display: none;
 }
 

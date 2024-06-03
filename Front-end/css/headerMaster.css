@@ -46,7 +46,7 @@ ul {
 
 .cadastrar {
   background-color: #405b39;
-  color: #fbf3dc;
+  color: #ffffff;
   border-radius: 7px;
   padding: 4px 10px;
 }
@@ -66,14 +66,68 @@ ul {
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
+
+.logout:hover {
+  background-color: #6c7a5a;
+}
+
 
 .dashboard {
   background-color: #405b39;
-  color: #fff;
+  color: #fbf3dc;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard:hover {
+  background-color: #364b31;
+}
+
+@media (max-width: 747px) {
+  ul {
+    padding: 10px;
+  }
+
+  .header ul li {
+    font-size: 15px;
+
+  }
+
+  .logo {
+    width: 140px;
+  }
+}
+
+@media (max-width: 590px) {
+  .logo {
+    width: 130px;
+  }
+
+  .welcome-logout {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-direction: column;
+  }
+
+  .navegacoes {
+    margin-top: 10px !important;
+  }
+}
+
+@media (max-width:430px) {
+  .logo {
+    width: 110px;
+  }
+
+  .header ul li {
+    font-size: 12px;
+  }
 }

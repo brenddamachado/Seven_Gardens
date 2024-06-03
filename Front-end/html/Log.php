@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
     <h4 id="openFilterForm" ><i class="fas solid fa-filter"></i> Filtro</h4>
     <div id="filterFormContainer" style="display: none;">
       <form id="filterForm">
-        <h1>Histórico de login</h1>
+        <h1 class="title">Histórico de login</h1>
         <label for="inputPesquisa">Pesquisar (ID, Nome, CPF, Pergunta Secreta ou Data):</label>
         <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o termo de pesquisa">
         <br><br>
@@ -163,15 +163,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputPesquisa'])) {
 
   <footer>
     <br>
-    <p class="social"> Siga-nos nas nossas redes sociais:</p>
 
     <div class="social-icons">
+      <p class="redes"> Siga-nos nas nossas redes sociais:</p>
       <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
-      <a href="#" class="fab fa-instagram"></a>
-      <a href="#" class="fab fa-whatsapp"></a>
+      <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="icon"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
-
   <!-- JavaScript direto no arquivo HTML -->
   <script src="../js/acessibilidade.js"></script>
   <script>
