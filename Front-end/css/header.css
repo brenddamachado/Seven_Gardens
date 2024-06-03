@@ -2,6 +2,12 @@
   width: 250px;
 }
 
+ul {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+} 
+
 .header {
   height: 180px;
   background-color: #0f2b05;
@@ -47,12 +53,34 @@
 
 .nav_a .navegacao ul li a.cadastro {
   background-color: #405b39;
+  transition: background-color 0.3s ease;
+}
+
+.nav_a .navegacao ul li a.cadastro:hover {
+  
+background-color: #364b31;
+  
 }
 
 .navegacao ul {
 
   display: flex;
   align-items: center;
+}
+
+.dashboard {
+  background-color: #405b39;
+  color: #fbf3dc;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard:hover {
+  background-color: #364b31;
 }
 
 .logo {
