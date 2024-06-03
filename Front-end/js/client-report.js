@@ -77,17 +77,24 @@ document.addEventListener("DOMContentLoaded", function() {
     function displayUsers(users) {
       const tbody = tabelaUsuarios.querySelector("tbody");
       tbody.innerHTML = ""; // Limpa a tabela antes de preenchê-la novamente
-
-      users.forEach(user => {
+  
+      if (users.length > 0) {
+        users.forEach(user => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${user.idUsuario}</td>
+            <td>${user.nome_completo}</td>
+            <td>${user.tipo_usuario}</td>
+            <td><button class="delete-btn" data-id="${user.idUsuario}" data-modal="true">Excluir</button></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } else {
+        // Se nenhum usuário for encontrado, exibe a mensagem na tabela
         const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${user.idUsuario}</td>
-          <td>${user.nome_completo}</td>
-          <td>${user.tipo_usuario}</td>
-          <td><button class="delete-btn" data-id="${user.idUsuario}" data-modal="true">Excluir</button></td>
-        `;
+        tr.innerHTML = '<td colspan="4" style="color: red;">Nenhum resultado encontrado</td>';
         tbody.appendChild(tr);
-      });
+      }
     }
 
     // Função para lidar com a exclusão de usuários
