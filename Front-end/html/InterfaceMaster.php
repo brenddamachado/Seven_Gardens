@@ -149,10 +149,10 @@
       <button onclick="abrirModalCadastroColaborador()">Cadastrar</button>
     </div>
     <div class="card">
-      <h3>Meus Clientes</h3>
+      <h3>Contas Cadastradas</h3>
       <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
-      <p>Gerencie e acompanhe seus clientes.</p>
-      <a href="ConsultaAdm.php" class="card-button">Ver Clientes</a>
+      <p>Gerencie e acompanhe seus usuários.</p>
+      <a href="Relatorio.php" class="card-button">Ver Cadastros</a>
     </div>
     <div class="card">
       <h3>Histórico</h3>
@@ -167,19 +167,12 @@
       <a href="Pedidos.php" class="card-button">Ver Pedidos</a>
     </div>
     <div class="card">
-      <h3>Relatórios</h3>
+      <h3>Modelo do Banco de Dados</h3>
       <img src="../img/teste verde.svg" alt="Ícone de relatórios para análises detalhadas com relatórios completos" class="iconCard" />
-      <p>Análises detalhadas com relatórios completos.</p>
-      <a href="Relatorio.php" class="card-button">Ver Relatórios</a>
+      <p>Conheça um pouco da estrutura do sistema.</p>
+      <a href="Relatorio.php" class="card-button">Ver Modelo</a>
     </div>
 
-
-    <div class="card">
-      <h3>Sair</h3>
-      <img src="../img/sair.svg" alt="Ícone de saída para encerrar a sessão e sair da plataforma" class="iconCard" />
-      <p>Encerre a sessão e saia da plataforma.</p>
-      <button class="button secondary" onclick="sair()">Sair</button>
-    </div>
   </section>
 
 
@@ -229,6 +222,65 @@
 </script>';
           }
           ?>
+<script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const modalAdicionarProduto = document.getElementById('modalAdicionarProduto');
+              const form = modalAdicionarProduto.querySelector('form');
+              const previewImage = document.getElementById('previewImage');
+              const responseMessageElement = document.getElementById('responseMessageProduto');
+
+              window.abrirModalAdicionarProduto = function() {
+                modalAdicionarProduto.showModal();
+              };
+
+              window.fecharModalAdicionarProduto = function() {
+                modalAdicionarProduto.close();
+                form.reset();
+                previewImage.src = "#";
+                previewImage.style.display = 'none';
+                responseMessageElement.style.display = 'none';
+              };
+
+              document.getElementById('imagemProduto').addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                  };
+                  reader.readAsDataURL(file);
+                }
+              });
+
+              form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    responseMessageElement.textContent = data.message;
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = data.success ? 'green' : 'red';
+                    if (data.success) {
+                      form.reset();
+                      previewImage.src = "#";
+                      previewImage.style.display = 'none';
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Erro:', error);
+                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
+                    responseMessageElement.style.display = 'block';
+                    responseMessageElement.style.color = 'red';
+                  });
+              });
+            });
+          </script>
 
 </body>
 
