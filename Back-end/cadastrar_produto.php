@@ -37,9 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Inserir a quantidade na tabela estoque
                 $sqlEstoque = "INSERT INTO estoque (idProduto, quantidade) VALUES (?, ?)";
                 $stmtEstoque = $pdo->prepare($sqlEstoque);
-                if ($stmtEstoque->execute([$produtoId, $quantidade])) {
-                    echo json_encode(['success' => true, 'message' => 'Produto cadastrado com sucesso!']);
-                } else {
+                if (!$stmtEstoque->execute([$produtoId, $quantidade])) {
                     echo json_encode(['success' => false, 'message' => 'Erro ao cadastrar estoque: ' . $stmtEstoque->errorInfo()[2]]);
                 }
             } else {
@@ -53,3 +51,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     // Não é necessário fechar a conexão PDO explicitamente
 }
+?>
