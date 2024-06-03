@@ -1,24 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById('loginForm');
+  const userNameInput = document.getElementById('userName');
+  const passwordInput = document.getElementById('password');
+  const userNameError = document.getElementById('userNameError');
+  const passwordError = document.getElementById('passwordError');
+  const generalError = document.getElementById('errorMessages');
 
   loginForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    const userName = document.getElementById('userName').value;
-    const password = document.getElementById('password').value;
+    const userName = userNameInput.value;
+    const password = passwordInput.value;
+    let isValid = true;
 
-    // Limpar mensagens de erro anteriores
-    document.getElementById('userNameError').textContent = '';
-    document.getElementById('passwordError').textContent = '';
-
-    // Verificar se o nome de usuário tem exatamente 6 caracteres
+    // Validando o nome de usuário
     if (!/^[a-zA-Z]{6}$/.test(userName)) {
-      document.getElementById('userNameError').textContent = 'Nome de usuário deve ter exatamente 6 caracteres.';
-      return;
+      userNameError.textContent = 'O nome de usuário deve conter apenas 6 caracteres alfabéticos.';
+      userNameError.style.display = 'inline'; // Exibindo a mensagem de erro específica para o nome de usuário
+      isValid = false;
+    } else {
+      userNameError.style.display = 'none'; // Ocultando a mensagem de erro específica para o nome de usuário se o campo estiver correto
     }
 
-    // Verificar se a senha tem exatamente 8 caracteres
+    // Validando a senha
     if (!/^[a-zA-Z]{8}$/.test(password)) {
-      document.getElementById('passwordError').textContent = 'Senha deve ter exatamente 8 caracteres.';
+      passwordError.textContent = 'A senha deve conter apenas 8 caracteres alfabéticos.';
+      passwordError.style.display = 'inline'; // Exibindo a mensagem de erro específica para a senha
+      isValid = false;
+    } else {
+      passwordError.style.display = 'none'; // Ocultando a mensagem de erro específica para a senha se o campo estiver correto
+    }
+
+    if (!isValid) {
+      generalError.textContent = 'Por favor, corrija os erros no formulário.';
+      generalError.style.display = 'inline'; // Exibindo a mensagem de erro geral
       return;
     }
 
@@ -35,12 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (data.success) {
           window.location.href = '2Fa.php';
         } else {
-          document.getElementById('errorMessages').textContent = data.message;
+          generalError.textContent = data.message; // Atualizando a mensagem de erro geral com a mensagem do servidor
+          generalError.style.display = 'inline'; // Exibindo a mensagem de erro geral
         }
       })
       .catch(error => {
         console.error('Erro ao enviar o formulário:', error);
-        document.getElementById('errorMessages').textContent = 'Erro ao processar a solicitação.';
+        generalError.textContent = 'Erro ao processar a solicitação.';
+        generalError.style.display = 'inline'; // Exibindo a mensagem de erro geral
       });
   });
 });
@@ -48,7 +64,12 @@ document.addEventListener('DOMContentLoaded', function () {
 function limparCampos() {
   document.getElementById('userName').value = '';
   document.getElementById('password').value = '';
+  document.getElementById('userNameError').style.display = 'none'; // Ocultando a mensagem de erro específica
+  document.getElementById('passwordError').style.display = 'none'; // Ocultando a mensagem de erro específica
+  document.getElementById('errorMessages').style.display = 'none'; // Ocultando a mensagem de erro geral
 }
+
+
 
 // HAMBURGUER JS
 
@@ -62,4 +83,4 @@ hamburger.addEventListener("click", function () {
 
 closeButton.addEventListener("click", function () {
   mobileMenu.style.left = "-100%"; // Fecha o menu
-});
+})

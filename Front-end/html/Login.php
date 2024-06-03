@@ -19,22 +19,24 @@
 <body>
 <?php include('../../header.php'); ?>
   <div class="container" id="divLogin">
-    <form class="divForm" id="loginForm" action="#" method="POST">
+    <form class="divForm" id="loginForm" action="../Back-end/processoLogin.php" method="POST">
       <div class="form-header">
         <h1 class="title">Login</h1>
       </div>
 
-      <div class="input-box">
-        <label for="userName">Nome de usuário:</label>
-        <input type="text" id="userName" name="userName" placeholder="Digite seu nome de usuário" required>
-      </div>
+  <div class="input-box">
+    <label for="userName">Nome de usuário:</label>
+    <input type="text" id="userName" name="userName" placeholder="Digite seu nome de usuário" required maxlength="6">
+    <div id="userNameError" style="color: red; display: none;">O nome de usuário deve conter apenas 6 caracteres alfabéticos.</div> <!-- Mensagem de erro específica para o nome de usuário -->
+</div>
 
-      <div class="input-box">
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-          <span id="mensagemErro" style="color: red;"></span>
-          <div id="errorMessages" style="color: red;"></div>
-      </div>
+<div class="input-box">
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" placeholder="Digite sua senha" required maxlength="8">
+    <div id="passwordError" style="color: red; display: none;">A senha deve conter apenas 8 caracteres alfabéticos.</div> <!-- Mensagem de erro específica para a senha -->
+</div>
+
+<div id="errorMessages" style="color: red; display: none;">Usuário ou senha errados / formatados incorretamente (somente caracteres alfabéticos).</div> <!-- Mensagem de erro geral -->
 
       <div class="buttons">
         <button type="submit" class="btn_cadastrar">Entrar</button>
@@ -56,6 +58,8 @@
     </form>
 
   </div>
+
+  
 
   <section id="accessibility-section">
     <i class="fas fa-universal-access" id="accessibility-icon"></i>
