@@ -18,10 +18,7 @@ require $path;
       <a href="<?php echo base_url('index.php'); ?>"><img class="logo" src="<?php echo base_url('Front-end/img/logoatual.svg'); ?>" alt="Logo Seven Gardens" /></a>
     </div>
 
-    <div class="pesquisa-container">
-      <input type="search" name="" id="" class="pesquisa" />
-      <div class="pesquisa-icon"><i class="fas fa-search"></i></div>
-    </div>
+   
     <nav class="nav_a">
       <div class="navegacao">
         <ul>
@@ -34,7 +31,15 @@ require $path;
                   Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>!
                 <?php endif; ?>
               </span>
-              <a href="<?php echo base_url('Front-end/html/logout.php'); ?>" class="logout">Logout</a>
+              <section class="nav_botoes">
+                <a href="<?php echo base_url('Front-end/html/logout.php'); ?>" class="logout">Logout</a>
+              <?php if ($_SESSION['usuario_tipo'] === 'Master' || $_SESSION['usuario_tipo'] === 'Colaborador') : ?>
+                <a href="<?php echo base_url('Front-end/html/InterfaceMaster.php'); ?>" class="cadastro">Dashboard</a>
+              <?php else : ?>
+                <a href="<?php echo base_url('Front-end/html/Usuario.php'); ?>" class="dashboard">Minha Conta</a>
+              <?php endif; ?>
+              </section>
+              
             </li>
           <?php else : ?>
             <li class="home"><a class="login" href="<?php echo base_url('Front-end/html/Login.php'); ?>">Login</a></li>

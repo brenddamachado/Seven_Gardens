@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/05/2024 às 05:41
+-- Tempo de geração: 31/05/2024 às 21:35
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -44,7 +44,8 @@ CREATE TABLE `endereco_completo` (
 --
 
 INSERT INTO `endereco_completo` (`idEndereco`, `idUsuario`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `cep`) VALUES
-(1, 1, 'Rua Exemplo', '123', 'Apt 456', 'Centro', 'Cidade Exemplo', 'EX', '12345-678');
+(1, 1, 'Rua Exemplo', '123', 'Apt 456', 'Centro', 'Cidade Exemplo', 'EX', '12345-678'),
+(2, 2, 'Avenida Lagoa Formosa', '13', 'Casa 13 - Condomínio', 'Inhoaíba', 'Rio de Janeiro', 'RJ', '23062080');
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,13 @@ CREATE TABLE `estoque` (
 --
 
 INSERT INTO `estoque` (`idEstoque`, `idProduto`, `quantidade`) VALUES
-(1, 1, 30);
+(1, 1, 30),
+(2, 2, 30),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 20),
+(6, 6, 30),
+(7, 7, 20);
 
 -- --------------------------------------------------------
 
@@ -117,6 +124,17 @@ CREATE TABLE `pergunta_secreta` (
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `pergunta_secreta`
+--
+
+INSERT INTO `pergunta_secreta` (`id`, `pergunta`, `resposta`, `id_usuario`) VALUES
+(1, 'Qual o nome da sua mãe?', 'Elcilene do Nascimento de Souza', 2),
+(2, 'Qual a data do seu nascimento?', '2004-06-07', 2),
+(3, 'Qual a data do seu nascimento?', '2000-01-01', 1),
+(4, 'Qual o CEP do seu endereço?', '23062080', 2),
+(5, 'Qual o CEP do seu endereço?', '12345-678', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -138,7 +156,13 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`idProduto`, `nome`, `preco`, `descricao`, `categoria`, `subcategoria`, `imagem`) VALUES
-(1, 'Rosa do Deserto He Feng', 50.00, 'Rosa do deserto importada, produtora Rose Chen. Muito florífera e exótica.', 'Enxertos', 'Dobradas', 'Front-end/img-produtos/IMG_20240317_000413.jpg');
+(1, 'Rosa do Deserto He Feng', 50.00, 'Rosa do deserto importada, produtora Rose Chen. Muito florífera e exótica.', 'Enxertos', 'Dobradas', 'Front-end/img-produtos/IMG_20240317_000413.jpg'),
+(2, 'Rosa do Deserto Star Cluster', 50.00, 'Rosa do deserto singela, amarela com fundo vermelho.', 'Enxertos', 'Singelas', 'Front-end/img-produtos/IMG_20240316_235300.jpg'),
+(3, 'Rosa do Deserto Felipa', 50.00, 'Rosa do deserto singela e de semente, única.', 'Naturais (De semente)', 'Singelas', 'Front-end/img-produtos/IMG_20240317_001651.jpg'),
+(4, 'Rosa do Deserto Ephygenia', 60.00, 'Rosa do Deserto singela de semente, única.', 'Naturais (De semente)', 'Singelas', 'Front-end/img-produtos/IMG_20240317_001732.jpg'),
+(5, 'Rosa do Deserto Chocolate Especial (Lm)', 50.00, 'Rosa do deserto enxertada, produtor LM.', 'Enxertos', 'Singelas', 'Front-end/img-produtos/IMG_20240316_235636.jpg'),
+(6, 'Rosa do Deserto Golden Faith (Perfumada)', 35.00, 'Rosa do deserto enxertada e perfumada.', 'Enxertos', 'Multipétalas', 'Front-end/img-produtos/IMG_20240316_235103.jpg'),
+(7, 'Rosa do Deserto Escarlate (Cor Vibrante)', 50.00, 'Rosa do deserto enxertada, cor vibrante.', 'Enxertos', 'Dobradas', 'Front-end/img-produtos/IMG_20240317_002316.jpg');
 
 -- --------------------------------------------------------
 
@@ -151,13 +175,6 @@ CREATE TABLE `tentativas_login` (
   `data_tentativa` datetime NOT NULL,
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `tentativas_login`
---
-
-INSERT INTO `tentativas_login` (`id`, `data_tentativa`, `id_usuario`) VALUES
-(1, '2024-05-22 21:27:54', 1);
 
 -- --------------------------------------------------------
 
@@ -185,7 +202,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nome_completo`, `data_nascimento`, `sexo`, `nome_materno`, `cpf`, `email`, `telefone_celular`, `user_name`, `senha`, `tipo_usuario`, `ativado`) VALUES
-(1, 'Admin Master', '2000-01-01', 'N', 'Nome Materno Padrão', '00000000000', 'admin@example.com', '0000000000', 'adminM', '$2y$10$ovrTi3hoKCvKGzIwDegcaeqfxDESmtc2Qa9t1./KPwSK8M5DAKjqy', 'Master', 1);
+(1, 'Admin Master', '2000-01-01', 'N', 'Nome Materno Padrão', '00000000000', 'admin@example.com', '0000000000', 'adminM', '$2y$10$ovrTi3hoKCvKGzIwDegcaeqfxDESmtc2Qa9t1./KPwSK8M5DAKjqy', 'Master', 1),
+(2, 'Felipe Nascimento de Souza', '2004-06-07', 'Homem cisgênero', 'Elcilene do Nascimento de Souza', '197.234.007-74', 'fn23886@gmail.com', '(21) 97539-', 'felipe', '$2y$10$mF0Iixa4DFgTE22GxH57.e9WxaMt28UAv.lkDP.Qfs7uxnc08tyhO', 'Cliente', 1);
 
 -- --------------------------------------------------------
 
@@ -273,8 +291,8 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `vendas`
   ADD PRIMARY KEY (`idVenda`),
-  ADD KEY `vendas_ibfk_1` (`idUsuario`),
-  ADD KEY `vendas_ibfk_2` (`idProduto`);
+  ADD KEY `vendas_ibfk_2` (`idProduto`),
+  ADD KEY `vendas_ibfk_1` (`idUsuario`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -284,19 +302,19 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT de tabela `endereco_completo`
 --
 ALTER TABLE `endereco_completo`
-  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `estoque`
 --
 ALTER TABLE `estoque`
-  MODIFY `idEstoque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idEstoque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `historico_login`
 --
 ALTER TABLE `historico_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `item_pedido`
@@ -314,25 +332,25 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de tabela `pergunta_secreta`
 --
 ALTER TABLE `pergunta_secreta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tentativas_login`
 --
 ALTER TABLE `tentativas_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `vendas`
@@ -360,8 +378,8 @@ ALTER TABLE `estoque`
 -- Restrições para tabelas `historico_login`
 --
 ALTER TABLE `historico_login`
-  ADD CONSTRAINT `historico_login_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idUsuario`),
-  ADD CONSTRAINT `historico_login_ibfk_2` FOREIGN KEY (`id_pergunta_secreta`) REFERENCES `pergunta_secreta` (`id`);
+  ADD CONSTRAINT `historico_login_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE,
+  ADD CONSTRAINT `historico_login_ibfk_2` FOREIGN KEY (`id_pergunta_secreta`) REFERENCES `pergunta_secreta` (`id`) ON DELETE CASCADE;
 
 --
 -- Restrições para tabelas `item_pedido`
@@ -380,19 +398,19 @@ ALTER TABLE `pedido`
 -- Restrições para tabelas `pergunta_secreta`
 --
 ALTER TABLE `pergunta_secreta`
-  ADD CONSTRAINT `pergunta_secreta_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `pergunta_secreta_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE;
 
 --
 -- Restrições para tabelas `tentativas_login`
 --
 ALTER TABLE `tentativas_login`
-  ADD CONSTRAINT `tentativas_login_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `tentativas_login_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE;
 
 --
 -- Restrições para tabelas `vendas`
 --
 ALTER TABLE `vendas`
-  ADD CONSTRAINT `vendas_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`),
+  ADD CONSTRAINT `vendas_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE,
   ADD CONSTRAINT `vendas_ibfk_2` FOREIGN KEY (`idProduto`) REFERENCES `produto` (`idProduto`);
 COMMIT;
 
