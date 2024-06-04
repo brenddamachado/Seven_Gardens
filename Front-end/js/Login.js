@@ -6,6 +6,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const passwordError = document.getElementById('passwordError');
   const generalError = document.getElementById('errorMessages');
 
+  userNameInput.addEventListener('input', function () {
+    userNameError.style.display = 'none';
+    generalError.style.display = 'none';
+  });
+
+  passwordInput.addEventListener('input', function () {
+    passwordError.style.display = 'none';
+    generalError.style.display = 'none';
+  });
+
   loginForm.addEventListener('submit', function (event) {
     event.preventDefault();
     const userName = userNameInput.value;
@@ -14,24 +24,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Validando o nome de usuário
     if (!/^[a-zA-Z]{6}$/.test(userName)) {
-      userNameError.textContent = 'O nome de usuário deve conter apenas 6 caracteres alfabéticos.';
-      userNameError.style.display = 'inline'; // Exibindo a mensagem de erro específica para o nome de usuário
+      userNameError.style.display = 'inline'; // Exibindo a mensagem de erro específica
       isValid = false;
-    } else {
-      userNameError.style.display = 'none'; // Ocultando a mensagem de erro específica para o nome de usuário se o campo estiver correto
     }
 
     // Validando a senha
     if (!/^[a-zA-Z]{8}$/.test(password)) {
-      passwordError.textContent = 'A senha deve conter apenas 8 caracteres alfabéticos.';
-      passwordError.style.display = 'inline'; // Exibindo a mensagem de erro específica para a senha
+      passwordError.style.display = 'inline'; // Exibindo a mensagem de erro específica
       isValid = false;
-    } else {
-      passwordError.style.display = 'none'; // Ocultando a mensagem de erro específica para a senha se o campo estiver correto
     }
 
     if (!isValid) {
-      generalError.textContent = 'Por favor, corrija os erros no formulário.';
       generalError.style.display = 'inline'; // Exibindo a mensagem de erro geral
       return;
     }
@@ -69,10 +72,7 @@ function limparCampos() {
   document.getElementById('errorMessages').style.display = 'none'; // Ocultando a mensagem de erro geral
 }
 
-
-
 // HAMBURGUER JS
-
 let hamburger = document.getElementById("hamburguer");
 let mobileMenu = document.getElementById("mobile");
 let closeButton = document.querySelector(".close-btn");
