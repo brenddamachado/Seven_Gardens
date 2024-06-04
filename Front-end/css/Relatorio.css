@@ -258,12 +258,11 @@ footer{
   font-weight: bold;
   text-transform: uppercase;
   
-
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
-#tabelaUsuarios tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+#tabelaUsuarios tbody tr:first-child {
+  background-color: rgba(0,0,0,.05);
 }
 
 /* #tabelaUsuarios tbody tr:hover {
@@ -272,11 +271,13 @@ footer{
 
 #tabelaUsuarios tbody tr:last-child td {
   border-bottom: none;
+  
 }
 
 #tabelaUsuarios th:first-child,
 #tabelaUsuarios td:first-child {
   border-left: none;
+  
 }
 
 #tabelaUsuarios th:last-child,
