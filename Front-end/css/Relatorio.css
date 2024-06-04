@@ -223,6 +223,7 @@ footer{
     flex-direction: column;
     /* Empilhe os itens verticalmente */
     align-items: center;
+    margin-top: 150px;
     /* Alinhe os itens ao centro */
 }
 
