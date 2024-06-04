@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         // Se nenhum usuário for encontrado, exibe a mensagem na tabela
         const tr = document.createElement("tr");
-        tr.innerHTML = '<td colspan="4" style="color: #212529;">Nenhum resultado encontrado</td>';
+        tr.innerHTML = '<td colspan="4">Nenhum resultado encontrado</td>';
         tbody.appendChild(tr);
       }
     }

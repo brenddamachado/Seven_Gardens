@@ -236,7 +236,7 @@ footer{
   width: 100% !important; /* Você pode ajustar a largura conforme necessário */
   border-collapse: collapse;
   background-color: #fff;
-
+  border-top: 1px solid #dee2e6;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 5%;
@@ -244,6 +244,7 @@ footer{
 #tabelaUsuarios td {
   padding: 5px;
   text-align: center;
+  color: #212529;
 }
 
 #tabelaUsuarios th
@@ -255,17 +256,18 @@ footer{
   color: #f9f9f9;
   font-weight: bold;
   text-transform: uppercase;
+  
 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 #tabelaUsuarios tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-#tabelaUsuarios tbody tr:hover {
+/* #tabelaUsuarios tbody tr:hover {
   background-color: #f2f2f2;
-}
+} */
 
 #tabelaUsuarios tbody tr:last-child td {
   border-bottom: none;
@@ -317,23 +319,36 @@ footer{
 
 /* inicio DARK MODE */
 
-body.dark-mode .btn-download-2{
-  background-color: #282828;
+body.dark-mode .btn-download-2, body.dark-mode
+button[type="submit"] {
+  background-color: #405b39 !important;
 }
 
-body.dark-mode, body.dark-mode
-button[type="submit"] {
-  background-color: #151515;
+body.dark-mode{
+  background-color: #151515 !important;
 }
+
 body.dark-mode #tabelaUsuarios tbody{
-  background-color: #fff;
+  background-color: #1E1F1E;
   
 }
 
-body.dark-mode form,
+body.dark-mode #tabelaUsuarios td{
+  color: #fff;
+  
+}
+
+body.dark-mode form{
+  background-color: #1E1F1E !important;
+}
+
+body.dark-mode td{
+  color: #fff;
+}
+
 body.dark-mode #tabelaUsuarios th,
 body.dark-mode .modal-content{
-  background-color: #282828;
+  background-color: #405b39 !important;
 }
 
 body.dark-mode .dropbtn, body.dark-mode .opcoes {
