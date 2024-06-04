@@ -95,7 +95,8 @@ body {
   margin-bottom: 5px;
   /* Adiciona um espaçamento entre cada item */
 }
-
+#mensagemSenha1,
+#mensagemSenha2,
 #mensagem,
 #mensagemNome,
 #mensagemCpf,

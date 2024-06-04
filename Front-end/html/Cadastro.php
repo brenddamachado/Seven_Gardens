@@ -281,6 +281,7 @@
         <input class="input_login" type="password" id="senha" name="senha" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
         <i id="verSenha" class="far fa-eye"></i>
       </div>
+      <div id="mensagemSenha1"></div>
 
       <label class="label_login" id="labelConfirmacao" for="senha2" class="form">
         Confirmação de Senha:</label>
@@ -288,11 +289,12 @@
         <input class="input_login" type="password" id="senhaC" name="senha2" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
         <i id="verConfirme" class="far fa-eye"></i>
       </div>
+      <div id="mensagemSenha2"></div>
+
       <div class="conta">
         <p>Já possui uma conta?</p>
         <a href="Login.html" class="sessao">Iniciar sessão</a>
       </div>
-      <div id="mensagem"></div>
       <div class="buttons">
         <button class="btn_cadastrar" type="submit" id="cadastrar" name="cadastrar">
           Cadastrar

@@ -91,8 +91,8 @@ senha.addEventListener("input", () => {
   senha.value = senha.value.replace(/[^a-zA-Z]/g, "");
 
   if (senha.value.length < 8) {
-    mensagem.innerHTML = "Insira no mínimo 8 caracteres";
-    mensagem.style.color = "red";
+    mensagemSenha1.innerHTML = "Insira no mínimo 8 caracteres";
+    mensagemSenha1.style.color = "red";
     validesenha = false;
   } else {
     mensagem.innerHTML = "";
