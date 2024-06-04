@@ -162,60 +162,60 @@
     <form id="formulario" method="POST">
       <div id="mensagemform"></div>
       <label class="label_login" for="nome" id="labelNome"> Nome:</label>
-      <input class="input_login" type="text" id="nome" name="nome_completo" maxlength="80" autofocus placeholder="Digite o seu nome " value="<?php echo isset($_POST['nome_completo']) ? htmlspecialchars($_POST['nome_completo']) : ''; ?>" />
+      <input class="input_login" type="text" id="nome" name="nome_completo" maxlength="80" autofocus placeholder="Digite o seu nome " required value="<?php echo isset($_POST['nome_completo']) ? htmlspecialchars($_POST['nome_completo']) : ''; ?>" />
       <div id="mensagemNome"></div>
       <div id="mensagemform"></div>
 
       <label class="label_login" for="nome" id="labelNome">
         Nome da mãe:</label>
-      <input class="input_login" type="text" id="nomeDamae" name="nome_materno" maxlength="80" autofocus placeholder="Digite o seu nome " value="<?php echo isset($_POST['nome_materno']) ? htmlspecialchars($_POST['nome_materno']) : ''; ?>" />
+      <input class="input_login" type="text" id="nomeDamae" name="nome_materno" maxlength="80" autofocus placeholder="Digite o seu nome " required value="<?php echo isset($_POST['nome_materno']) ? htmlspecialchars($_POST['nome_materno']) : ''; ?>" />
       <div id="mensagemNomeMae"></div>
 
       <label for="nasc" class="label_login"> Data de nascimento: </label>
-      <input class="input_login" type="date" id="data" name="data_nascimento" value="<?php echo isset($_POST['data_nascimento']) ? htmlspecialchars($_POST['data_nascimento']) : ''; ?>" />
+      <input class="input_login" type="date" id="data" name="data_nascimento" required value="<?php echo isset($_POST['data_nascimento']) ? htmlspecialchars($_POST['data_nascimento']) : ''; ?>" />
       <div id="mensagemnascim"></div>
 
       <div class="genero">
         <label for="sexo" class="label_login"> Genêro:</label>
         <div class="input-group">
-          <input type="radio" id="mcisgênero" class="genero" name="genero" value="Mulher cisgênero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "Mulher cisgênero" ? "checked" : ""; ?> />
+          <input type="radio" id="mcisgênero" class="genero" name="genero" value="Mulher cisgênero" required <?php echo isset($_POST['genero']) && $_POST['genero'] === "Mulher cisgênero" ? "checked" : ""; ?> />
           <label class="model" for="mcisgênero">Mulher cisgênero</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="mtransgênero" class="genero" name="genero" value="Mulher transgênero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "Mulher transgênero" ? "checked" : ""; ?> />
+          <input type="radio" id="mtransgênero" class="genero" name="genero" value="Mulher transgênero" required <?php echo isset($_POST['genero']) && $_POST['genero'] === "Mulher transgênero" ? "checked" : ""; ?> />
           <label class="model" for="mtransgênero">Mulher transgênero</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="hcisgênero" name="genero" class="genero" value="Homem cisgênero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "Homem cisgênero" ? "checked" : ""; ?> />
+          <input type="radio" id="hcisgênero" name="genero" class="genero" value="Homem cisgênero" required <?php echo isset($_POST['genero']) && $_POST['genero'] === "Homem cisgênero" ? "checked" : ""; ?> />
           <label class="model" for="hcisgênero">Homem cisgênero</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="htransgênero" name="genero" class="genero" value="Homem transgênero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "Homem transgênero" ? "checked" : ""; ?> />
+          <input type="radio" id="htransgênero" name="genero" class="genero" value="Homem transgênero" required <?php echo isset($_POST['genero']) && $_POST['genero'] === "Homem transgênero" ? "checked" : ""; ?> />
           <label class="model" for="htransgênero">Homem transgênero</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="binário" name="genero" value="não-binário" class="genero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "não-binário" ? "checked" : ""; ?> />
+          <input type="radio" id="binário" name="genero" value="não-binário" class="genero" required <?php echo isset($_POST['genero']) && $_POST['genero'] === "não-binário" ? "checked" : ""; ?> />
           <label class="model" for="binário">não-binário</label>
         </div>
         <div class="input-group">
-          <input type="radio" id="outro" name="genero" value="outro" class="genero" <?php echo isset($_POST['genero']) && $_POST['genero'] === "outro" ? "checked" : ""; ?> />
+          <input type="radio" id="outro" name="genero" value="outro" class="genero" required <?php echo isset($_POST['genero']) && $_POST['genero'] === "outro" ? "checked" : ""; ?> />
           <label class="model" for="outro">Outros</label>
         </div>
       </div>
 
       <div id="mensagemgenero"></div>
       <label for="cpf" id="labelCpf" class="label_login">CPF:</label>
-      <input class="input_login" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Digite seu cpf" value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : ''; ?>" />
+      <input class="input_login" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Digite seu cpf" required value="<?php echo isset($_POST['cpf']) ? htmlspecialchars($_POST['cpf']) : ''; ?>" />
       <div id="mensagemCPF" style="color:red"><?php echo $erroCpf ?></div>
 
 
       <label for="cel" class="label_login" id="labelCel">
         Telefone Celular:</label>
-      <input class="input_login" type="tel" id="numero" name="telefone_celular" placeholder="(xx) xxxxx-xxxx" maxlength="14" value="<?php echo isset($_POST['telefone_celular']) ? htmlspecialchars($_POST['telefone_celular']) : ''; ?>" />
+      <input class="input_login" type="tel" id="numero" name="telefone_celular" placeholder="(xx) xxxxx-xxxx" maxlength="14" required value="<?php echo isset($_POST['telefone_celular']) ? htmlspecialchars($_POST['telefone_celular']) : ''; ?>" />
 
       <label class="label_login" for="ende" class="form" id="labelCep">
         Cep:</label>
-      <input class="input_login" type="text" maxlength="9" id="cep" name="cep" placeholder="Digite seu cep" value="<?php echo isset($_POST['cep']) ? htmlspecialchars($_POST['cep']) : ''; ?>" />
+      <input class="input_login" type="text" maxlength="9" id="cep" name="cep" placeholder="Digite seu cep" required value="<?php echo isset($_POST['cep']) ? htmlspecialchars($_POST['cep']) : ''; ?>" />
       <div id="mensagemCep"></div>
 
       <label for="estado" class="label_login">Estado:</label>
@@ -252,33 +252,33 @@
 
       <label class="label_login" for="ende" class="form" id="labelCidade">
         Cidade:</label>
-      <input class="input_login" type="text" id="cid" name="cidade" placeholder="Digite sua cidade" value="<?php echo isset($_POST['cidade']) ? htmlspecialchars($_POST['cidade']) : ''; ?>" />
+      <input class="input_login" type="text" id="cid" name="cidade" placeholder="Digite sua cidade" required value="<?php echo isset($_POST['cidade']) ? htmlspecialchars($_POST['cidade']) : ''; ?>" />
 
       <label id="labelBairro" for="ende" class="label_login"> Bairro:</label>
-      <input class="input_login" type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" value="<?php echo isset($_POST['bairro']) ? htmlspecialchars($_POST['bairro']) : ''; ?>" />
+      <input class="input_login" type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" required value="<?php echo isset($_POST['bairro']) ? htmlspecialchars($_POST['bairro']) : ''; ?>" />
 
       <label id="labelRua" for="ende" class="label_login"> Rua:</label>
-      <input class="input_login" type="text" id="rua" name="rua" placeholder="Digite sua rua" value="<?php echo isset($_POST['rua']) ? htmlspecialchars($_POST['rua']) : ''; ?>" />
+      <input class="input_login" type="text" id="rua" name="rua" placeholder="Digite sua rua" required value="<?php echo isset($_POST['rua']) ? htmlspecialchars($_POST['rua']) : ''; ?>" />
 
       <label id="labelN" for="ende" class="label_login"> Nº:</label>
-      <input class="input_login" type="number" id="num" name="numero" placeholder="Digite o número da casa" value="<?php echo isset($_POST['numero']) ? htmlspecialchars($_POST['numero']) : ''; ?>" />
+      <input class="input_login" type="number" id="num" name="numero" placeholder="Digite o número da casa" required value="<?php echo isset($_POST['numero']) ? htmlspecialchars($_POST['numero']) : ''; ?>" />
 
       <label for="ende" class="label_login"> Complemento:</label>
-      <input class="input_login" type="text" id="comple" name="complemento" placeholder="Digite o complemento" value="<?php echo isset($_POST['complemento']) ? htmlspecialchars($_POST['complemento']) : ''; ?>" />
+      <input class="input_login" type="text" id="comple" name="complemento" placeholder="Digite o complemento" required value="<?php echo isset($_POST['complemento']) ? htmlspecialchars($_POST['complemento']) : ''; ?>" />
 
       <label class="label_login" id="labelLogin" for="login" class="form">Login:</label>
-      <input class="input_login" type="text" id="login" name="login" placeholder="Digite um login" maxlength="6" value="<?php echo isset($_POST['login']) ? htmlspecialchars($_POST['login']) : ''; ?>" />
+      <input class="input_login" type="text" id="login" name="login" placeholder="Digite um login" maxlength="6" required value="<?php echo isset($_POST['login']) ? htmlspecialchars($_POST['login']) : ''; ?>" />
       <div id="mensagemLogin" style="color:red"><?php echo $erroUserName ?></div>
 
       <label class="label_login" id="labelEmail" for="login" class="form">
         E-mail:</label>
-      <input class="input_login <?php echo $erroEmail ? 'com_erro' : ''; ?>" type="email" id="email" name="email" placeholder="Digite um e-mail" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" />
+      <input class="input_login <?php echo $erroEmail ? 'com_erro' : ''; ?>" type="email" id="email" name="email" placeholder="Digite um e-mail" required value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" />
       <div id="mensagemEmail" style="color:red"><?php echo $erroEmail ?></div>
 
       <label class="label_login" id="labelSenha" for="senha" class="form">
         Senha:</label>
       <div class="password-container">
-        <input class="input_login" type="password" id="senha" name="senha" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
+        <input class="input_login" type="password" id="senha" name="senha" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" required value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
         <i id="verSenha" class="far fa-eye"></i>
       </div>
       <div id="mensagemSenha1"></div>
@@ -286,7 +286,7 @@
       <label class="label_login" id="labelConfirmacao" for="senha2" class="form">
         Confirmação de Senha:</label>
       <div class="password-container">
-        <input class="input_login" type="password" id="senhaC" name="senha2" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
+        <input class="input_login" type="password" id="senhaC" name="senha2" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" required value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
         <i id="verConfirme" class="far fa-eye"></i>
       </div>
       <div id="mensagemSenha2"></div>
