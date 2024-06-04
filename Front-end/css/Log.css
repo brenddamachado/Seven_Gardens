@@ -257,15 +257,21 @@ body.dark-mode .cadastrar {
 .fa-moon {
   font-size: 20px;
 }
-
+.redes{
+  color: #fff !important;
+  font-size: 16px !important;
+  margin-bottom: auto !important;
+}
 /* FINAL DO DARK MODE */
 
 /* inicio footer */
 footer {
-  margin-top: 200px;
   background-color: #0f2b05;
   height: 200px;
   position: relative;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .social-icons {
@@ -281,9 +287,9 @@ footer {
 
 .social-icons .icon {
   display: inline-block;
-  margin: 10px 20px 0;
+  margin: 10px 10px 0;
   font-size: 30px;
-  color: #fff;
+  color: #fff !important;
   transition: transform 0.3s ease;
 }
 
@@ -326,7 +332,7 @@ footer {
 
 table{
   margin-top: 5%;
-
+  margin-bottom: 100px !important;
 }
 
 
