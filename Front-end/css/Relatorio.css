@@ -71,9 +71,6 @@
   justify-content: center;
 }
 
-#client-table {
-  padding: 20px;
-}
 
 .listar-usuarios {
   color: #0f2b05;
@@ -236,17 +233,21 @@ footer{
 
 #tabelaUsuarios {
   margin: 0 auto; 
-  width: 38%; /* Você pode ajustar a largura conforme necessário */
+  width: 100% !important; /* Você pode ajustar a largura conforme necessário */
   border-collapse: collapse;
   background-color: #fff;
-  border-radius: 10px;
+
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 5%;
+}
+#tabelaUsuarios td {
+  padding: 5px;
+  text-align: center;
 }
 
-
-#tabelaUsuarios th,
-#tabelaUsuarios td {
+#tabelaUsuarios th
+{
   padding: 15px;
   border-bottom: 1px solid #e0e0e0;
   text-align: center;
@@ -506,4 +507,15 @@ body.dark-mode .cadastrar {
     #openFilterForm{
       margin-top: 30px;
     }
+}
+
+@media (max-width: 373px) {
+  #tabelaUsuarios th{
+    padding: 0 !important;
+    font-size: 12px;
+  }
+
+  #tabelaUsuarios td{
+    font-size: 12px;
+  }
 }
