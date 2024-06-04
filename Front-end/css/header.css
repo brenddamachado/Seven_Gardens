@@ -436,6 +436,10 @@ body.dark-mode .fa-search {
   color: #070B06;
 }
 
+body.dark-mode .header {
+  background-color: #070b06;
+}
+
 body.dark-mode header,
 body.dark-mode footer,
 .dropdown-content a:hover {
