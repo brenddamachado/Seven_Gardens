@@ -95,7 +95,7 @@ senha.addEventListener("input", () => {
     mensagemSenha1.style.color = "red";
     validesenha = false;
   } else {
-    mensagem.innerHTML = "";
+    mensagemSenha1.innerHTML = "as senhas conferem";
     validesenha = true;
   }
 });
