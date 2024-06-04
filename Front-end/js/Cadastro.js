@@ -104,11 +104,11 @@ senha2.addEventListener("input", () => {
   senha2.value = senha2.value.replace(/[^a-zA-Z]/g, "");
 
   if (senha.value !== senha2.value) {
-    mensagem.innerHTML = "As senhas não conferem";
-    mensagem.style.color = "red";
+    mensagemSenha2.innerHTML = "as senhas não conferem";
+    mensagemSenha2.style.color = "red";
     validesenha2 = false;
   } else {
-    mensagem.innerHTML = "";
+    mensagemSenha2.innerHTML = "as senhas conferem";
     validesenha2 = true;
   }
 });
