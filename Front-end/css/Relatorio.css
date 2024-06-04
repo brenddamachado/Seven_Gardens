@@ -245,12 +245,13 @@ footer{
   padding: 5px;
   text-align: center;
   color: #212529;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 #tabelaUsuarios th
 {
   padding: 15px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
   text-align: center;
   background-color: #405b39;
   color: #f9f9f9;
@@ -335,6 +336,7 @@ body.dark-mode #tabelaUsuarios tbody{
 
 body.dark-mode #tabelaUsuarios td{
   color: #fff;
+  background-color: #1E1F1E;
   
 }
 
@@ -346,9 +348,12 @@ body.dark-mode td{
   color: #fff;
 }
 
-body.dark-mode #tabelaUsuarios th,
-body.dark-mode .modal-content{
+body.dark-mode #tabelaUsuarios th {
   background-color: #405b39 !important;
+}
+
+body.dark-mode .modal-content{
+  background-color: #1E1F1E !important;
 }
 
 body.dark-mode .dropbtn, body.dark-mode .opcoes {
