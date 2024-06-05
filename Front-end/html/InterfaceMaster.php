@@ -86,7 +86,7 @@
   </dialog>
 
 
-  <dialog  id="modalAdicionarColaborador">
+  <dialog id="modalAdicionarColaborador">
     <div class="form-header">
       <h2 class="title">Adicione um novo colaborador</h2>
     </div>
@@ -116,7 +116,7 @@
 
       <div class="input-box">
         <label for="username">Nome de usuário (6 caracteres alfabéticos):</label>
-        <input type="text"  maxlength="6" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required>
+        <input type="text" maxlength="6" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required>
       </div>
 
       <div class="input-box">
@@ -170,7 +170,7 @@
       <h3>Modelo do Banco de Dados</h3>
       <img src="../img/teste verde.svg" alt="Ícone de relatórios para análises detalhadas com relatórios completos" class="iconCard" />
       <p>Conheça um pouco da estrutura do sistema.</p>
-      <a href="Relatorio.php" class="card-button">Ver Modelo</a>
+      <a href="Modelobd.php" class="card-button">Ver Modelo</a>
     </div>
 
   </section>
@@ -222,7 +222,7 @@
 </script>';
           }
           ?>
-<script>
+          <script>
             document.addEventListener('DOMContentLoaded', function() {
               const modalAdicionarProduto = document.getElementById('modalAdicionarProduto');
               const form = modalAdicionarProduto.querySelector('form');

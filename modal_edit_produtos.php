@@ -3,7 +3,7 @@
   <div class="modal-content-editar">
     <span class="close-editar">&times;</span>
     <h2>Editar Produto</h2>
-    <form id="editarForm" method="POST" action="Back-end/editarProduto.php">
+    <form id="editarForm" method="POST" action="<?php echo base_url('Back-end/editarProduto.php'); ?>" enctype="multipart/form-data">
       <input type="hidden" name="idProduto" id="editarId">
       <div class="input-box">
         <label for="editarNome">Nome:</label>
@@ -24,6 +24,18 @@
       <div class="input-box">
         <label for="editarSubcategoria">Subcategoria:</label>
         <input type="text" name="subcategoria" id="editarSubcategoria" required>
+      </div>
+      <div class="input-box">
+        <label for="imagemProduto">Imagem do Produto:</label>
+        <div class="custom-file-input">
+          <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*" onchange="previewImg(event)" required>
+          <button type="button" onclick="document.getElementById('imagemProduto').click()">Escolher arquivo</button>
+        </div>
+      </div>
+
+      <!-- Área de pré-visualização da imagem -->
+      <div id="previewContainer">
+        <img id="previewImage" src="#" alt="Imagem de pré-visualização" style="display:none;">
       </div>
       <div class="button-box">
         <button type="submit">Salvar Alterações</button>
@@ -48,9 +60,3 @@
   </div>
 </div>
 
-<style>
-  .organiza_btns {
-    display: flex;
-    gap: 5px;
-  }
-</style>
