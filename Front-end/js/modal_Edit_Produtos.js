@@ -84,3 +84,15 @@ function atualizarContadorCarrinho() {
     cartCounter.textContent = itensCarrinho.length;
   }
 }
+
+// Função de pré-visualização da imagem
+function previewImg(event) {
+  const reader = new FileReader();
+  reader.onload = function () {
+    const output = document.getElementById('previewImage');
+    output.src = reader.result;
+    output.style.display = 'block';
+  };
+  reader.readAsDataURL(event.target.files[0]);
+}
+
