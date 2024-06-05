@@ -49,8 +49,8 @@ $nome_completo = $user['nome_completo'];
         <div class="conteudo-principal">
         <section id="tab1-content" class="secao">
                 <h2>Meu Painel</h2>
-                <p>Olá, <?php echo htmlspecialchars($nome_completo); ?> <a href="../../index.php">Sair</a></p>
-            </section>
+                <p>Olá, <?php echo htmlspecialchars($nome_completo); ?> <a href="logout.php">Sair</a></p>          
+        </section>
             <section id="tab2-content" class="secao">
                 <h2>Seus Pedidos</h2>
                 <table id="tabelaPedidos">
