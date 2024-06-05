@@ -266,7 +266,6 @@ body.dark-mode .btn_limpar {
 
 .texto_links {
   text-align: right;
-  gap: 10px;
   display: flex;
   flex-direction: column;
 }
