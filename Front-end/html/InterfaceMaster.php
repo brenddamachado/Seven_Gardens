@@ -7,30 +7,12 @@
   <title>Interface Master</title>
   <link rel="shortcut icon" href="../img/logoatual.svg" type="image/x-icon" />
   <link rel="stylesheet" href="../css/InterfaceMaster.css" />
+  <link rel="stylesheet" href="../css/headerMaster.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
-  <header>
-    <section class="header">
-      <div>
-        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
-      </div>
-      <nav>
-        <div class="navegacao">
-          <ul>
-            <li class="login">Dashboard</li>
-            <li class="cadastrar"><a class="cadastrar" href="../../index.php">Visualizar Home</a></li>
-          </ul>
-        </div>
-      </nav>
-    </section>
-
-    <section class="opcoes">
-      <h2 class="painel">Painel de controle</h2>
-    </section>
-  </header>
-
+  <?php include('../../headerMaster.php'); ?>
 
 
   <!-- Diálogo Modal para Adicionar Produto -->
@@ -98,20 +80,17 @@
       <!-- Seus botões de envio e cancelamento -->
       <div class="button-box">
         <button type="submit" id="add_produto">Adicionar</button>
-        <button type="button" onclick="fecharModalAdicionarProduto()" id="cancelar_add">Cancelar</button>
+        <button type="button" onclick="fecharModalAdicionarProduto()" class="cancelar_add" style=" background-color: #405b39;color: white; border: none;padding: 10px 20px;border-radius: 5px;cursor: pointer;font-size: 1rem;">Cancelar</button>
       </div>
     </form>
   </dialog>
 
 
-
-  <!-- Diálogo Modal para Adicionar Colaborador -->
   <dialog id="modalAdicionarColaborador">
     <div class="form-header">
       <h2 class="title">Adicione um novo colaborador</h2>
     </div>
-    <form action="../../Back-end/CadastroColaborador.php" method="post">
-
+    <form id="formAdicionarColaborador" action="../../Back-end/CadastroColaborador.php" method="post">
       <div id="responseMessage" style="display: none;"></div>
 
       <div class="input-box">
@@ -131,17 +110,27 @@
       </div>
 
       <div class="input-box">
-        <label for="enderecoColaborador">Endereço completo:</label>
-        <input type="text" id="enderecoColaborador" name="endereco_completo" required>
+        <label for="logradouro">Endereço:</label>
+        <input type="text" id="logradouro" name="logradouro" required>
       </div>
 
-      <!-- Seus botões de envio e cancelamento -->
+      <div class="input-box">
+        <label for="username">Nome de usuário (6 caracteres alfabéticos):</label>
+        <input type="text" maxlength="6" id="username" name="username" pattern="[a-zA-Z]{6}" title="O nome de usuário deve conter apenas letras e ter 6 caracteres." required>
+      </div>
+
+      <div class="input-box">
+        <label for="password">Senha (8 caracteres alfabéticos):</label>
+        <input type="password" maxlength="8" id="password" name="password" pattern="[a-zA-Z]{8}" title="A senha deve conter apenas letras e ter 8 caracteres." required>
+      </div>
+
       <div class="button-box">
         <button type="submit" id="add_colaborador">Adicionar</button>
         <button type="button" onclick="fecharModalCadastroColaborador()" id="cancelar_add">Cancelar</button>
       </div>
     </form>
   </dialog>
+
 
 
 
@@ -160,10 +149,10 @@
       <button onclick="abrirModalCadastroColaborador()">Cadastrar</button>
     </div>
     <div class="card">
-      <h3>Meus Clientes</h3>
+      <h3>Contas Cadastradas</h3>
       <img src="../img/clientes.svg" alt="Ícone de lista de clientes para gerenciar e acompanhar seus clientes" class="iconCard" />
-      <p>Gerencie e acompanhe seus clientes.</p>
-      <a href="ConsultaAdm.php" class="card-button">Ver Clientes</a>
+      <p>Gerencie e acompanhe seus usuários.</p>
+      <a href="Relatorio.php" class="card-button">Ver Cadastros</a>
     </div>
     <div class="card">
       <h3>Histórico</h3>
@@ -178,19 +167,12 @@
       <a href="Pedidos.php" class="card-button">Ver Pedidos</a>
     </div>
     <div class="card">
-      <h3>Relatórios</h3>
+      <h3>Modelo do Banco de Dados</h3>
       <img src="../img/teste verde.svg" alt="Ícone de relatórios para análises detalhadas com relatórios completos" class="iconCard" />
-      <p>Análises detalhadas com relatórios completos.</p>
-      <a href="Relatorio.php" class="card-button">Ver Relatórios</a>
+      <p>Conheça um pouco da estrutura do sistema.</p>
+      <a href="Modelobd.php" class="card-button">Ver Modelo</a>
     </div>
 
-
-    <div class="card">
-      <h3>Sair</h3>
-      <img src="../img/sair.svg" alt="Ícone de saída para encerrar a sessão e sair da plataforma" class="iconCard" />
-      <p>Encerre a sessão e saia da plataforma.</p>
-      <button class="button secondary" onclick="sair()">Sair</button>
-    </div>
   </section>
 
 
@@ -218,65 +200,28 @@
 
     </div>
   </footer>
-
           
           <script src=" ../js/acessibilidade.js"></script>
+          <?php require_once('../../Back-end/Logica_de_Botoes.php'); ?>
 
-          <script>
-            // Função para abrir a modal de cadastro de colaborador
-            function abrirModalCadastroColaborador() {
-              var modal = document.getElementById("modalAdicionarColaborador");
-              if (modal) {
-                modal.showModal();
-              }
-            }
-
-            // Função para fechar a modal de cadastro de colaborador
-            function fecharModalCadastroColaborador() {
-              var modal = document.getElementById("modalAdicionarColaborador");
-              if (modal) {
-                modal.close();
-              }
-            }
-          </script>
-
-          <!-- JavaScript para exibir mensagem na modal de cadastro do Colaborador -->
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              const form = document.getElementById('modalAdicionarColaborador').querySelector('form');
-
-              form.addEventListener('submit', function(e) {
-                e.preventDefault(); // Impede o envio tradicional do formulário
-
-                const formData = new FormData(this);
-                const responseMessageElement = document.getElementById('responseMessage'); // Elemento para mostrar mensagens de resposta
-
-                fetch(this.action, {
-                    method: 'POST',
-                    body: formData
-                  })
-                  .then(response => response.json()) // Assume que o servidor responde com JSON
-                  .then(data => {
-                    responseMessageElement.textContent = data.message; // Define a mensagem de resposta
-                    responseMessageElement.style.display = 'block'; // Torna o elemento visível
-                    responseMessageElement.style.color = data.success ? 'green' : 'red'; // Muda a cor baseada no sucesso
-
-                    if (data.success) {
-                      // Opcional: Limpa o formulário após sucesso
-                      form.reset();
-                    }
-                  })
-                  .catch(error => {
-                    console.error('Erro:', error);
-                    responseMessageElement.textContent = 'Erro ao enviar o formulário.';
-                    responseMessageElement.style.display = 'block';
-                    responseMessageElement.style.color = 'red'; // Cor vermelha para erros
-                  });
-              });
-            });
-          </script>
-
-
+          <?php
+          // Verificação de sessão para determinar se o usuário é um Colaborador
+          // session_start();
+          if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] === 'Colaborador') {
+            echo '<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const buttons = document.querySelectorAll(".card-container .card:nth-child(3) .card-button, .card-container .card:nth-child(4) .card-button, .card-container .card:nth-child(2) button");
+      buttons.forEach(button => {
+        button.disabled = true;
+        button.style.backgroundColor = "gray";
+        button.addEventListener("click", function(event) {
+          event.preventDefault(); // Impede a ação padrão do clique
+        });
+      });
+    });
+</script>';
+          }
+          ?>
           <script>
             document.addEventListener('DOMContentLoaded', function() {
               const modalAdicionarProduto = document.getElementById('modalAdicionarProduto');
@@ -336,8 +281,6 @@
               });
             });
           </script>
-
-
 
 </body>
 
