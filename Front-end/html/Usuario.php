@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,21 +12,16 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 </head>
-
 <body>
     <?php include('../../header.php'); ?>
-
     <div class="container-principal">
-
         <div class="barra-lateral">
             <a href="#tab1-content" class="active">Meu Painel</a>
             <a href="#tab2-content">Pedidos</a>
             <a href="#tab3-content">Endereços</a>
             <a href="#tab4-content">Detalhes da Conta</a>
             <a href="#tab5-content">Segurança</a>
-
         </div>
-
         <div class="conteudo-principal">
             <section id="tab1-content" class="secao">
                 <h2>Meu Painel</h2>
@@ -89,8 +83,6 @@
                 </table>
             </section>
             <section id="tab4-content" class="secao">
-
-                <!-- Formulário de Alteração de Dados Pessoais -->
                 <div class="divForm">
                     <form>
                         <div class="form-header">
@@ -117,136 +109,73 @@
                     </form>
                 </div>
             </section>
-            <!-- Formulário de Alteração de senha -->
             <section id="tab5-content" class="secao">
-                <div class="divForm">
-                    <form id="formAlterarSenha">
-                        <div class="form-header">
-                            <h2 class="title">Alteração de senha</h2>
-                        </div>
-                        <!-- Div para a mensagem de sucesso -->
-                        <div class="success-message" id="successMessage"></div>
-                        <div class="alteracao-senha">
-                            <div class="input-box">
-                                <label for="senha_atual">Senha atual:</label>
-                                <div class="input-wrapper">
-                                    <input type="password" id="senha_atual" name="senha_atual" placeholder="Digite sua senha atual" required>
-                                    <i class="far fa-eye" id="verSenhaAtual"></i>
-                                </div>
-                                <div class="error-message" id="erroSenhaAtual"></div>
-                            </div>
-                            <div class="input-box">
-                                <label for="senha">Nova senha:</label>
-                                <div class="input-wrapper">
-                                    <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha" maxlength="8" required>
-                                    <i class="far fa-eye" id="verSenha"></i>
-                                </div>
-                                <div class="error-message" id="erroSenha"></div>
-                            </div>
-                            <div class="input-box">
-                                <label for="senha2">Confirmação da nova senha:</label>
-                                <div class="input-wrapper">
-                                    <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha" maxlength="8" required>
-                                    <i class="far fa-eye" id="verConfirme"></i>
-                                </div>
-                                <div class="error-message" id="erroSenha2"></div>
-                            </div>
-                            <button type="submit" class="btn_salvar">Salvar alterações</button>
-                        </div>
-                    </form>
-
-                    <!-- Formulário de Exclusão de Conta -->
-                    <div>
-                        <p>Deseja excluir sua conta?</p>
-                        <form id="formExcluirConta">
-                            <button type="submit" name="excluir_conta" class="btn_excluir">Excluir conta</button>
-                        </form>
+    <div class="divForm">
+        <form id="formAlterarSenha">
+            <div class="form-header">
+                <h2 class="title">Alteração de senha</h2>
+            </div>
+            <div class="success-message" id="successMessage"></div>
+            <div class="alteracao-senha">
+                <div class="input-box">
+                    <label for="senha_atual">Senha atual:</label>
+                    <div class="input-wrapper">
+                        <input maxlength="8" type="password" id="senha_atual" name="senha_atual" placeholder="Digite sua senha atual" required>
+                        <i class="far fa-eye toggle-password" id="toggleSenhaAtual"></i>
                     </div>
+                    <div class="error-message" id="erroSenhaAtual"></div>
                 </div>
-            </section>
+                <div class="input-box">
+                    <label for="senha">Nova senha:</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha" maxlength="8" required>
+                        <i class="far fa-eye toggle-password" id="toggleNovaSenha"></i>
+                    </div>
+                    <div class="error-message" id="erroSenha"></div>
+                </div>
+                <div class="input-box">
+                    <label for="senha2">Confirmação da nova senha:</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="senha2" name="senha2" placeholder="Confirme sua nova senha" maxlength="8" required>
+                        <i class="far fa-eye toggle-password" id="toggleConfirmaSenha"></i>
+                    </div>
+                    <div class="error-message" id="erroSenha2"></div>
+                </div>
+                <button type="submit" class="btn_salvar">Salvar alterações</button>
+            </div>
+        </form>
+        <div>
+            <p>Deseja excluir sua conta?</p>
+            <form id="formExcluirConta">
+                <button type="submit" name="excluir_conta" class="btn_excluir">Excluir conta</button>
+            </form>
         </div>
     </div>
+</section>
 
-
-
-
+        </div>
+    </div>
     <section id="accessibility-section">
         <i class="fas fa-universal-access" id="accessibility-icon"></i>
         <div id="other-things">
             <i class="fas fa-moon" id="dark-mode-toggle"></i>
-
-
             <i class="fas fa-sun" id="light-mode-toggle"></i>
             <img class="img_letra" src="../img/aumentartext_1.svg" alt="" srcset="" id="increase-font"></i>
             <img class="img_letra" src="../img/diminuirtext_1.svg" alt="" srcset="" id="decrease-font"></i>
         </div>
     </section>
-
-
     <footer>
         <br>
         <div class="social-icons">
             <p> Siga-nos nas nossas redes sociais:</p>
-
             <a href="https://www.facebook.com/profile.php?id=100063959239107" class="icon" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/polen_azul?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="icon" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.whatsapp.com/catalog/5521981510975/?app_absent=0" class="icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </footer>
-    <script src=" ../js/Usuario.js"></script>
+    <script src="../js/Usuario.js"></script>
     <script src="../js/acessibilidade.js"></script>
     <script src="../js/carrinho.js"></script>
-    <script>
-        // editar e excluir usuario
-        document.getElementById('formAlterarSenha').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            let formData = new FormData(this);
-            formData.append('acao', 'alterar_senha');
-
-            fetch('processa_usuario.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('erroSenhaAtual').innerText = data.errors?.senha_atual || '';
-                    document.getElementById('erroSenha').innerText = data.errors?.senha || '';
-                    document.getElementById('erroSenha2').innerText = data.errors?.senha2 || '';
-                    document.getElementById('successMessage').innerText = data.message || '';
-
-                    if (data.success) {
-                        document.getElementById('formAlterarSenha').reset();
-                    }
-
-                    if (data.errors || data.message) {
-                        window.location.hash = '#tab5-content';
-                    }
-                })
-                .catch(error => console.error('Erro:', error));
-        });
-
-        document.getElementById('formExcluirConta').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            let formData = new FormData(this);
-            formData.append('acao', 'excluir_conta');
-
-            fetch('processa_usuario.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        window.location.href = data.redirect;
-                    } else {
-                        alert(data.message);
-                    }
-                })
-                .catch(error => console.error('Erro:', error));
-        });
-    </script>
+   
 </body>
-
 </html>

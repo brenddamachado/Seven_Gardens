@@ -113,12 +113,7 @@ body {
 
 .input-box input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 7px;
-  font-size: 1rem;
-  box-shadow: 1px 1px 4px #0000001c;
-  margin-bottom: 10px;
+  padding-right: 40px;
 }
 
 table {
@@ -851,4 +846,19 @@ table th, table td {
   footer{
     height: 150px;
   }
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input[type="password"] {
+  -webkit-text-security: disc; /* Safari */
+  -webkit-appearance: none; /* Remove aparência padrão do ícone no Chrome */
+  -moz-appearance: none; /* Remove aparência padrão do ícone no Firefox */
+  appearance: none; /* Remove aparência padrão do ícone no Edge */
 }
