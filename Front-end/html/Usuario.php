@@ -1,3 +1,27 @@
+<?php
+session_start();
+require_once __DIR__ . '/../../Front-end/PHP/connect.php';
+
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: ../../index.php');
+    exit();
+}
+
+$user_id = $_SESSION['usuario_id'];
+$sql = "SELECT nome_completo FROM usuario WHERE idUsuario = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$user_id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    // Lógica para lidar com o caso em que o usuário não foi encontrado
+    echo "Usuário não encontrado";
+    exit();
+}
+
+$nome_completo = $user['nome_completo'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,9 +47,9 @@
             <a href="#tab5-content">Segurança</a>
         </div>
         <div class="conteudo-principal">
-            <section id="tab1-content" class="secao">
+        <section id="tab1-content" class="secao">
                 <h2>Meu Painel</h2>
-                <p>Olá, [nome do usuário] <a href="../../index.php">Sair</a></p>
+                <p>Olá, <?php echo htmlspecialchars($nome_completo); ?> <a href="../../index.php">Sair</a></p>
             </section>
             <section id="tab2-content" class="secao">
                 <h2>Seus Pedidos</h2>
