@@ -84,3 +84,28 @@ hamburger.addEventListener("click", function () {
 closeButton.addEventListener("click", function () {
   mobileMenu.style.left = "-100%"; // Fecha o menu
 })
+
+
+
+
+const btnEye = document.getElementById("verConfirme");
+const passwordInput = document.getElementById("password");
+
+btnEye.addEventListener("click", () => {
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        btnEye.classList.remove("fa-eye");
+        btnEye.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        btnEye.classList.remove("fa-eye-slash");
+        btnEye.classList.add("fa-eye");
+    }
+});
+
+document.getElementById('togglePassword').addEventListener('click', function (e) {
+  const passwordInput = document.getElementById('password');
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  this.classList.toggle('fa-eye-slash');
+});
