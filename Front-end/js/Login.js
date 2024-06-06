@@ -1,13 +1,41 @@
 document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById('loginForm');
+  const userNameInput = document.getElementById('userName');
+  const passwordInput = document.getElementById('password');
+  const userNameError = document.getElementById('userNameError');
+  const passwordError = document.getElementById('passwordError');
+  const generalError = document.getElementById('errorMessages');
+
+  userNameInput.addEventListener('input', function () {
+    userNameError.style.display = 'none';
+    generalError.style.display = 'none';
+  });
+
+  passwordInput.addEventListener('input', function () {
+    passwordError.style.display = 'none';
+    generalError.style.display = 'none';
+  });
 
   loginForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    const userName = document.getElementById('userName').value;
-    const password = document.getElementById('password').value;
+    const userName = userNameInput.value;
+    const password = passwordInput.value;
+    let isValid = true;
 
-    if (!/^[a-zA-Z]{6}$/.test(userName) || !/^[a-zA-Z]{8}$/.test(password)) {
-      document.getElementById('errorMessages').textContent = 'Usuário ou senha formatados incorretamente.';
+    // Validando o nome de usuário
+    if (!/^[a-zA-Z]{6}$/.test(userName)) {
+      userNameError.style.display = 'inline'; // Exibindo a mensagem de erro específica
+      isValid = false;
+    }
+
+    // Validando a senha
+    if (!/^[a-zA-Z]{8}$/.test(password)) {
+      passwordError.style.display = 'inline'; // Exibindo a mensagem de erro específica
+      isValid = false;
+    }
+
+    if (!isValid) {
+      generalError.style.display = 'inline'; // Exibindo a mensagem de erro geral
       return;
     }
 
@@ -24,28 +52,27 @@ document.addEventListener('DOMContentLoaded', function () {
         if (data.success) {
           window.location.href = '2Fa.php';
         } else {
-          document.getElementById('errorMessages').textContent = data.message;
+          generalError.textContent = data.message; // Atualizando a mensagem de erro geral com a mensagem do servidor
+          generalError.style.display = 'inline'; // Exibindo a mensagem de erro geral
         }
       })
       .catch(error => {
         console.error('Erro ao enviar o formulário:', error);
-        document.getElementById('errorMessages').textContent = 'Erro ao processar a solicitação.';
+        generalError.textContent = 'Erro ao processar a solicitação.';
+        generalError.style.display = 'inline'; // Exibindo a mensagem de erro geral
       });
   });
 });
 
-
 function limparCampos() {
   document.getElementById('userName').value = '';
   document.getElementById('password').value = '';
+  document.getElementById('userNameError').style.display = 'none'; // Ocultando a mensagem de erro específica
+  document.getElementById('passwordError').style.display = 'none'; // Ocultando a mensagem de erro específica
+  document.getElementById('errorMessages').style.display = 'none'; // Ocultando a mensagem de erro geral
 }
 
-
-
-
-
 // HAMBURGUER JS
-
 let hamburger = document.getElementById("hamburguer");
 let mobileMenu = document.getElementById("mobile");
 let closeButton = document.querySelector(".close-btn");
@@ -56,6 +83,29 @@ hamburger.addEventListener("click", function () {
 
 closeButton.addEventListener("click", function () {
   mobileMenu.style.left = "-100%"; // Fecha o menu
+})
+
+
+
+
+const btnEye = document.getElementById("verConfirme");
+const passwordInput = document.getElementById("password");
+
+btnEye.addEventListener("click", () => {
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        btnEye.classList.remove("fa-eye");
+        btnEye.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        btnEye.classList.remove("fa-eye-slash");
+        btnEye.classList.add("fa-eye");
+    }
 });
 
-
+document.getElementById('togglePassword').addEventListener('click', function (e) {
+  const passwordInput = document.getElementById('password');
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  this.classList.toggle('fa-eye-slash');
+});

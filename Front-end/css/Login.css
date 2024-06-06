@@ -266,7 +266,6 @@ body.dark-mode .btn_limpar {
 
 .texto_links {
   text-align: right;
-  gap: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -593,8 +592,34 @@ body.dark-mode #enviarButton {
   }
 
 }
+/* Remove o ícone padrão do navegador */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
 
-.conta {
-  display: flex;
-  justify-content: flex-end;
+input[type="password"]::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px; /* espaço para o ícone */
+  -webkit-appearance: none; /* Remove aparência padrão do ícone no Chrome */
+  -moz-appearance: none; /* Remove aparência padrão do ícone no Firefox */
+  appearance: none; /* Remove aparência padrão do ícone no Edge */
+}
+
+.password-container i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+
 }
