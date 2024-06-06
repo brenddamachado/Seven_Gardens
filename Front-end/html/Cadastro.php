@@ -21,124 +21,106 @@
 
 
   <?php
-  include('../PHP/connect.php'); // Assegure-se de que este caminho está correto.
+include('../PHP/connect.php');
 
-  $erroUserName = "";
-  $erroCpf = "";
-  $erroEmail = "";
-  $mensagemSucesso = "";
-  $showAlert = false;
-  $showAlertError = false;
+$erroUserName = "";
+$erroCpf = "";
+$erroEmail = "";
+$mensagemSucesso = "";
+$showAlert = false;
+$showAlertError = false;
 
+function emailExists($email, $pdo)
+{
+  $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE email = ?");
+  $stmt->execute([$email]);
+  return $stmt->fetchColumn() ? true : false;
+}
 
+function cpfExists($cpf, $pdo)
+{
+  $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE cpf = ?");
+  $stmt->execute([$cpf]);
+  return $stmt->fetchColumn() ? true : false;
+}
 
-  // Funções para verificar se o email, cpf e login já existem no banco de dados.
-  function emailExists($email, $pdo)
-  {
-    $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE email = ?");
-    $stmt->execute([$email]);
-    return $stmt->fetchColumn() ? true : false;
+function user_nameExists($user_name, $pdo)
+{
+  $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE user_name = ?");
+  $stmt->execute([$user_name]);
+  return $stmt->fetchColumn() ? true : false;
+}
+
+function createUser($data, $pdo)
+{
+  $sql = "INSERT INTO usuario (nome_completo, data_nascimento, sexo, nome_materno, cpf, email, telefone_celular, user_name, senha, tipo_usuario, ativado)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  $stmt = $pdo->prepare($sql);
+  $senhaHash = password_hash($data['senha'], PASSWORD_DEFAULT);
+  $stmt->execute([
+    $data['nome_completo'], $data['data_nascimento'], $data['sexo'], $data['nome_materno'], $data['cpf'],
+    $data['email'], $data['telefone_celular'], $data['user_name'], $senhaHash, 'Cliente', 1
+  ]);
+  return $pdo->lastInsertId();
+}
+
+function createAddress($data, $userId, $pdo)
+{
+  $sql = "INSERT INTO endereco_completo (idUsuario, logradouro, numero, complemento, bairro, cidade, estado, cep)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([
+    $userId, $data['logradouro'], $data['numero'], $data['complemento'], $data['bairro'],
+    $data['cidade'], $data['estado'], $data['cep']
+  ]);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $data = [
+    'nome_completo' => $_POST['nome_completo'],
+    'data_nascimento' => $_POST['data_nascimento'],
+    'sexo' => $_POST['genero'],
+    'nome_materno' => $_POST['nome_materno'],
+    'cpf' => $_POST['cpf'],
+    'email' => $_POST['email'],
+    'telefone_celular' => $_POST['telefone_celular'],
+    'user_name' => $_POST['login'],
+    'senha' => $_POST['senha'],
+    'logradouro' => $_POST['rua'],
+    'numero' => $_POST['numero'],
+    'complemento' => $_POST['complemento'],
+    'bairro' => $_POST['bairro'],
+    'cidade' => $_POST['cidade'],
+    'estado' => $_POST['estado'],
+    'cep' => $_POST['cep']
+  ];
+
+  if (!empty($data['email']) && emailExists($data['email'], $pdo)) {
+    $erroEmail = "Este E-mail já foi cadastrado! Por favor, tente outro E-mail.";
+    $showAlertError = true;
   }
 
-  function cpfExists($cpf, $pdo)
-  {
-    $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE cpf = ?");
-    $stmt->execute([$cpf]);
-    return $stmt->fetchColumn() ? true : false;
+  if (!empty($data['cpf']) && cpfExists($data['cpf'], $pdo)) {
+    $erroCpf = "Este CPF já foi cadastrado! Por favor, tente outro CPF.";
+    $showAlertError = true;
   }
 
-  function user_nameExists($user_name, $pdo)
-  {
-    $stmt = $pdo->prepare("SELECT idUsuario FROM usuario WHERE user_name = ?");
-    $stmt->execute([$user_name]);
-    return $stmt->fetchColumn() ? true : false;
+  if (!empty($data['user_name']) && user_nameExists($data['user_name'], $pdo)) {
+    $erroUserName = "Este login de usuário já foi cadastrado! Por favor, tente outro nome de login.";
+    $showAlertError = true;
   }
 
-  // Essa função vai inserir o usuário no banco de dados
-  function createUser($data, $pdo)
-  {
-    $sql = "INSERT INTO usuario (nome_completo, data_nascimento, sexo, nome_materno, cpf, email, telefone_celular, user_name, senha, tipo_usuario, ativado)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $pdo->prepare($sql);
-    $senhaHash = password_hash($data['senha'], PASSWORD_DEFAULT); // Hashing da senha
-    $stmt->execute([
-      $data['nome_completo'], $data['data_nascimento'], $data['sexo'], $data['nome_materno'], $data['cpf'],
-      $data['email'], $data['telefone_celular'], $data['user_name'], $senhaHash, 'Cliente', 1
-    ]);
-    return $pdo->lastInsertId();
+  if (!$showAlertError) {
+    $userId = createUser($data, $pdo);
+    createAddress($data, $userId, $pdo);
+    $mensagemSucesso = "sucesso!";
+    $showAlert = true;
   }
+}
 
-  // Função para inserir o endereço no banco de dados
-  function createAddress($data, $userId, $pdo)
-  {
-    $sql = "INSERT INTO endereco_completo (idUsuario, logradouro, numero, complemento, bairro, cidade, estado, cep)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-      $userId, $data['logradouro'], $data['numero'], $data['complemento'], $data['bairro'],
-      $data['cidade'], $data['estado'], $data['cep']
-    ]);
-  }
+$pdo = null;
+?>
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $data = [
-      'nome_completo' => $_POST['nome_completo'],
-      'data_nascimento' => $_POST['data_nascimento'],
-      'sexo' => $_POST['genero'],
-      'nome_materno' => $_POST['nome_materno'],
-      'cpf' => $_POST['cpf'],
-      'email' => $_POST['email'],
-      'telefone_celular' => $_POST['telefone_celular'],
-      'user_name' => $_POST['login'],
-      'senha' => $_POST['senha'],
-      'logradouro' => $_POST['rua'],
-      'numero' => $_POST['numero'],
-      'complemento' => $_POST['complemento'],
-      'bairro' => $_POST['bairro'],
-      'cidade' => $_POST['cidade'],
-      'estado' => $_POST['estado'],
-      'cep' => $_POST['cep']
-    ];
-
-
-    // Verifica se o email, CPF ou login já existem
-    if (emailExists($data['email'], $pdo)) {
-      // Se o email já existir, define a mensagem de erro correspondente
-      $erroEmail = "Este E-mail já foi cadastrado! Por favor, tente outro E-mail.";
-      // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
-      $showAlertError = true;
-    }
-
-    if (cpfExists($data['cpf'], $pdo)) {
-      // Se o CPF já existir, define a mensagem de erro correspondente
-      $erroCpf = "Este CPF já foi cadastrado! Por favor, tente outro CPF.";
-      // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
-      $showAlertError = true;
-    }
-
-    if (user_nameExists($data['user_name'], $pdo)) {
-      // Se o nome de usuário já existir, define a mensagem de erro correspondente
-      $erroUserName = "Este login de usuário já foi cadastrado! Por favor, tente outro nome de login.";
-      // Define a flag $showAlertError como verdadeira para indicar que ocorreu um erro
-      $showAlertError = true;
-    }
-
-    // Se nenhum erro ocorreu (ou seja, nenhum dos campos já existe no banco de dados)
-    if (!$showAlertError) {
-      // Cria o usuário no banco de dados
-      $userId = createUser($data, $pdo);
-      // Cria o endereço do usuário no banco de dados
-      createAddress($data, $userId, $pdo);
-      // Define a mensagem de sucesso
-      $mensagemSucesso = "sucesso!";
-      // Define a flag $showAlert como verdadeira para indicar que a operação foi bem-sucedida
-      $showAlert = true;
-    }
-  }
-
-  // Encerra a conexão
-  $pdo = null;
-  ?>
 
   <!-- quando o usuario for cadastrar jogar direto pra página de login. -->
   <?php if ($showAlert) : ?>
