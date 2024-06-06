@@ -1,4 +1,6 @@
-  <!DOCTYPE html>
+<?php require '../../Front-end/PHP/connect.php';
+?>
+<!DOCTYPE html>
   <html lang="en">
 
   <head>
@@ -31,36 +33,37 @@
     </header>
 
 
-
-  <form id="user-search-form">
-    <h1 class="title">Consulta de usuário</h1><br>
-    <label for="inputPesquisa">Pesquisar por nome:</label>
-    <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
-    <button type="submit">Pesquisar</button>
-  </form>
+<form id="user-search-form" method="post" action="../../Back-end/processo_consulta_adm.php">
+  <h1 class="title">Consulta de usuário</h1><br>
+  <label for="inputPesquisa">Pesquisar por nome:</label>
+  <input type="text" id="inputPesquisa" name="inputPesquisa" placeholder="Digite o nome do usuário"><br><br>
+  <button type="submit">Pesquisar</button>
+</form>
 
   <table id="tabelaUsuarios">
     <thead>
       <tr>
+      <th>Id do Usuário</th>
         <th>Nome do Usuário</th>
+        <th>Compras</th>
          <th>Ação</th>
         <!-- Adicione mais colunas conforme necessário -->
       </tr>
     </thead>
     <tbody>
-      <!-- Os resultados da consulta serão exibidos aqui -->
+
     </tbody>
   </table>
 
 
-  <!-- Modal de Confirmação de Exclusão -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <p>Deseja realmente excluir este usuário?</p>
-      <button id="confirm-btn">Confirmar</button>
-      <button id="cancel-btn">Cancelar</button>
-    </div>
+<!-- Modal de confirmação -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <p id="modal-message"></p>
+    <button id="confirm-btn">Confirmar</button>
+    <button id="cancel-btn">Cancelar</button>
   </div>
+</div>
 
  <!-- ACESSIBILIDADES -->
     <section id="accessibility-section">

@@ -110,3 +110,20 @@
   cursor: pointer;
 }
 
+/* Estilizando o botão "Escolher arquivo" */
+.custom-file-input input[type="file"] {
+  display: none;
+}
+
+.custom-file-input button {
+  background-color: #405b39;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-file-input button:hover {
+  background-color: #0f2b05;
+}
