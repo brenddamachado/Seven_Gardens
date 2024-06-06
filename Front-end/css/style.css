@@ -254,10 +254,12 @@ body.dark-mode .btn_limpar {
   background-color: #151515;
 }
 
+body.dark-mode .social-icons p {
+  color: #ffffff;
+}
 body.dark-mode .conta p,
 body.dark-mode h1,
 body.dark-mode h3,
-body.dark-mode p,
 body.dark-mode label,
 body.dark-mode .home,
 body.dark-mode .dropbtn,
