@@ -26,6 +26,36 @@ $sql = "SELECT * FROM endereco_completo WHERE idUsuario = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$user_id]);
 $enderecos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+$response = ['success' => false, 'message' => '', 'errors' => []];
+// Função para buscar pedidos e itens do cliente
+function buscarPedidos($pdo, $user_id) {
+    $sql = "SELECT pedido.idPedido, pedido.horarioPedido, COALESCE(SUM(item_pedido.quantidade * produto.preco), 0) AS total
+            FROM pedido
+            LEFT JOIN item_pedido ON pedido.idPedido = item_pedido.id_pedido
+            LEFT JOIN produto ON item_pedido.id_produto = produto.idProduto
+            WHERE pedido.id_cliente = ?
+            GROUP BY pedido.idPedido, pedido.horarioPedido";
+    
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$user_id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function buscarItensPedido($pdo, $pedido_id) {
+    $sql = "SELECT produto.nome, item_pedido.quantidade
+            FROM item_pedido
+            JOIN produto ON item_pedido.id_produto = produto.idProduto
+            WHERE item_pedido.id_pedido = ?";
+    
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$pedido_id]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$user_id = $_SESSION['usuario_id'];
+$pedidos = buscarPedidos($pdo, $user_id);
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +87,7 @@ $enderecos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h2>Meu Painel</h2>
                 <p>Olá, <?php echo htmlspecialchars($nome_completo); ?> <a href="logout.php">Sair</a></p>          
         </section>
-            <section id="tab2-content" class="secao">
+        <section id="tab2-content" class="secao">
                 <h2>Seus Pedidos</h2>
                 <table id="tabelaPedidos">
                     <thead>
@@ -70,19 +100,36 @@ $enderecos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1234</td>
-                            <td>01/04/2024</td>
-                            <td>
-                                <ul>
-                                    <li>Produto 1</li>
-                                    <li>Produto 2</li>
-                                    <li>Produto 3</li>
-                                </ul>
-                            </td>
-                            <td>R$ 100,00</td>
-                            <td><button>Ver detalhes</button></td>
-                        </tr>
+                        <?php if (count($pedidos) > 0): ?>
+                            <?php foreach ($pedidos as $pedido): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($pedido['idPedido']); ?></td>
+                                    <td><?php echo htmlspecialchars($pedido['horarioPedido']); ?></td>
+                                    <td>
+                                        <ul>
+                                            <?php
+                                            $itens = buscarItensPedido($pdo, $pedido['idPedido']);
+                                            if (count($itens) > 0):
+                                                foreach ($itens as $item):
+                                            ?>
+                                                    <li><?php echo htmlspecialchars($item['nome']) . ' - ' . htmlspecialchars($item['quantidade']) . 'x'; ?></li>
+                                            <?php
+                                                endforeach;
+                                            else:
+                                            ?>
+                                                <li>Sem itens</li>
+                                            <?php endif; ?>
+                                        </ul>
+                                    </td>
+                                    <td>R$ <?php echo number_format($pedido['total'], 2, ',', '.'); ?></td>
+                                    <td><button>Ver detalhes</button></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="5">Nenhum pedido encontrado.</td>
+                            </tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </section>
