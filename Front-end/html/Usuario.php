@@ -8,18 +8,24 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 $user_id = $_SESSION['usuario_id'];
-$sql = "SELECT nome_completo FROM usuario WHERE idUsuario = ?";
+$sql = "SELECT * FROM usuario WHERE idUsuario = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    // Lógica para lidar com o caso em que o usuário não foi encontrado
     echo "Usuário não encontrado";
     exit();
 }
 
 $nome_completo = $user['nome_completo'];
+$telefone_celular = $user['telefone_celular'];
+$email = $user['email'];
+
+$sql = "SELECT * FROM endereco_completo WHERE idUsuario = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$user_id]);
+$enderecos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -107,32 +113,33 @@ $nome_completo = $user['nome_completo'];
                 </table>
             </section>
             <section id="tab4-content" class="secao">
-                <div class="divForm">
-                    <form>
-                        <div class="form-header">
-                            <h2 class="title">Detalhes da conta</h2>
-                        </div>
-                        <div class="container-dados">
-                            <div class="dados-pessoais">
-                                <h3 class="title">Alteração de dados</h3>
-                                <div class="input-box">
-                                    <label for="nome">Nome:</label>
-                                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome">
-                                </div>
-                                <div class="input-box">
-                                    <label for="sobrenome">Sobrenome:</label>
-                                    <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite o seu sobrenome">
-                                </div>
-                                <div class="input-box">
-                                    <label for="email">E-mail:</label>
-                                    <input type="email" id="email" name="email" placeholder="Digite um e-mail">
-                                </div>
-                                <button type="submit" class="btn_salvar">Salvar alterações</button>
-                            </div>
-                        </div>
-                    </form>
+    <div class="divForm">
+        <form id="formAlterarDados">
+            <div class="form-header">
+                <h2 class="title">Detalhes da conta</h2>
+            </div>
+            <div class="container-dados">
+                <div class="dados-pessoais">
+                    <h3 class="title">Alteração de dados</h3>
+                    <div class="input-box">
+                        <label for="nome">Nome:</label>
+                        <input minlength="15" type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($nome_completo); ?>" placeholder="Digite o seu nome">
+                    </div>
+                    <div class="input-box">
+                        <label for="telefone">Celular:</label>
+                        <input type="text" id="telefone" name="telefone" value="<?php echo htmlspecialchars($telefone_celular); ?>" placeholder="Digite o seu celular">
+                    </div>
+                    <div class="input-box">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" placeholder="Digite um e-mail">
+                    </div>
+                    <button type="submit" class="btn_salvar">Salvar alterações</button>
                 </div>
-            </section>
+            </div>
+        </form>
+    </div>
+</section>
+
             <section id="tab5-content" class="secao">
     <div class="divForm">
         <form id="formAlterarSenha">

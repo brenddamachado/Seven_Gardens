@@ -110,3 +110,26 @@ document.querySelectorAll('.toggle-password').forEach(item => {
       this.classList.toggle('fa-eye-slash');
   });
 });
+
+
+document.getElementById('formAlterarDados').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  let formData = new FormData(this);
+  formData.append('acao', 'alterar_dados');
+
+  fetch('processa_usuario.php', {
+          method: 'POST',
+          body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              alert('Dados alterados com sucesso!');
+              // Atualize a página ou redirecione conforme necessário
+          } else {
+              alert(data.message || 'Erro ao alterar os dados. Por favor, tente novamente.');
+          }
+      })
+      .catch(error => console.error('Erro:', error));
+});
