@@ -436,10 +436,10 @@ body.dark-mode .fa-search {
   color: #070B06;
 }
 
-body.dark-mode header,
+body.dark-mode .header,
 body.dark-mode footer,
 .dropdown-content a:hover {
-  background-color: #070B06;
+  background-color: #070B06 !important;
 }
 
 body.dark-mode .btn_cadastrar,
@@ -759,3 +759,4 @@ body.dark-mode a {
 @media (max-width:1059px) {
   
 }
+
