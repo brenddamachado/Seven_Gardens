@@ -275,24 +275,28 @@
       <input class="input_login <?php echo $erroEmail ? 'com_erro' : ''; ?>" type="email" id="email" name="email" placeholder="Digite um e-mail" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" />
       <div id="mensagemEmail" style="color:red"><?php echo $erroEmail ?></div>
 
-      <label class="label_login" id="labelSenha" for="senha" class="form">
-        Senha:</label>
-      <div class="password-container">
-        <input class="input_login" type="password" id="senha" name="senha" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
-        <i id="verSenha" class="far fa-eye"></i>
-      </div>
+      <label class="label_login" id="labelSenha" for="senha">
+    Senha:
+</label>
+<div class="password-container">
+    <input class="input_login" type="password" id="senha" name="senha" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
+    <i id="toggleSenha" class="far fa-eye"></i>
+</div>
 
-      <label class="label_login" id="labelConfirmacao" for="senha2" class="form">
-        Confirmação de Senha:</label>
-      <div class="password-container">
-        <input class="input_login" type="password" id="senhaC" name="senha2" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
-        <i id="verConfirme" class="far fa-eye"></i>
-      </div>  <div id="mensagem"></div>
+<label class="label_login" id="labelConfirmacao" for="senha2">
+    Confirmação de Senha:
+</label>
+<div class="password-container">
+    <input class="input_login" type="password" id="senhaC" name="senha2" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
+    <i id="toggleConfirme" class="far fa-eye"></i>
+</div>
+
+      <div id="mensagem"></div>
       <div class="conta">
         <p>Já possui uma conta?</p>
         <a href="Login.php" class="sessao">Iniciar sessão</a>
       </div>
-    
+
       <div class="buttons">
         <button class="btn_cadastrar" type="submit" id="cadastrar" name="cadastrar">
           Cadastrar
