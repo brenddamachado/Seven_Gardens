@@ -8,6 +8,7 @@
     </div>
     <div id="total-carrinho" class="total-carrinho">Total: R$ 0.00</div>
     <br><br>
-    <button id="finalizar-compra-btn" class="finalizar-compra-btn">Finalizar Compra</button>
+   
+    <button id="finalizar-compra-btn" class="finalizar-compra-btn"> <a href="Front-end\html\Erro.php">Finalizar Compra</a></button>
   </div>
 </div>

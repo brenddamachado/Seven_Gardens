@@ -459,6 +459,9 @@ body.dark-mode a {
   color: #E1F9D7;
 }
 
+/* body.dark-mode .itens-carrinho{
+  color: #151515 !important;
+} */
 #accessibility-section {
   position: fixed;
   top: 50%;

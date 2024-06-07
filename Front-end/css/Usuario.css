@@ -314,6 +314,10 @@ body.dark-mode button {
   background-color: #151515;
 }
 
+body.dark-mode table th, body.dark-mode table td {
+
+  color: #fff !important;
+}
 body.dark-mode .conta p,
 body.dark-mode .menu_btn a,
 body.dark-mode label,

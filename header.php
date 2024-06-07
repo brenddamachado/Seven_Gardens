@@ -31,12 +31,14 @@ require $path;
                   Olá, <?= htmlspecialchars($_SESSION['usuario_nome']) ?>!
                 <?php endif; ?>
               </span>
-              <a href="<?php echo base_url('Front-end/html/logout.php'); ?>" class="logout">Logout</a>
+              <a href="<?php echo base_url('index.php'); ?>" class="dashboard"> Home</a>
+
+    
               <?php if ($_SESSION['usuario_tipo'] === 'Master' || $_SESSION['usuario_tipo'] === 'Colaborador') : ?>
                 <a href="<?php echo base_url('Front-end/html/InterfaceMaster.php'); ?>" class="cadastro">Dashboard</a>
               <?php else : ?>
                 <a href="<?php echo base_url('Front-end/html/Usuario.php'); ?>" class="dashboard">Minha Conta</a>
-              <?php endif; ?>
+              <?php endif; ?>          <a href="<?php echo base_url('Front-end/html/logout.php'); ?>" class="logout">Logout</a>
             </li>
           <?php else : ?>
             <li class="home"><a class="login" href="<?php echo base_url('Front-end/html/Login.php'); ?>">Login</a></li>
