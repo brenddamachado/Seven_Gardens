@@ -287,12 +287,12 @@
       <div class="password-container">
         <input class="input_login" type="password" id="senhaC" name="senha2" placeholder="Digite sua senha" maxlength="8" autocomplete="new-password" value="<?php echo isset($_POST['senha']) ? htmlspecialchars($_POST['senha']) : ''; ?>" />
         <i id="verConfirme" class="far fa-eye"></i>
-      </div>
+      </div>  <div id="mensagem"></div>
       <div class="conta">
         <p>Já possui uma conta?</p>
-        <a href="Login.html" class="sessao">Iniciar sessão</a>
+        <a href="Login.php" class="sessao">Iniciar sessão</a>
       </div>
-      <div id="mensagem"></div>
+    
       <div class="buttons">
         <button class="btn_cadastrar" type="submit" id="cadastrar" name="cadastrar">
           Cadastrar

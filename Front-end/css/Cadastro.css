@@ -109,6 +109,7 @@ body {
 
 .conta {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 
