@@ -230,7 +230,9 @@ footer{
 }
 
 /**/
-
+ tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, .05);
+}
 #tabelaUsuarios {
   margin: 0 auto; 
   width: 100% !important; /* Você pode ajustar a largura conforme necessário */

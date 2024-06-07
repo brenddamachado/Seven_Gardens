@@ -1,11 +1,8 @@
-* {
-  margin: 0;
-}
 
 body {
-  margin: 0;
-  background-color: #f4f4f4;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 !important;
+  background-color: #f4f4f4 !important;
+  font-family: Arial, Helvetica, sans-serif !important; 
 }
 
 header {
@@ -75,8 +72,9 @@ a {
 /* inicio do form */
 form h1 {
   margin-top: 0%;
+  text-align: center;
   padding-bottom: 4%;
-  font-size: 18px !important;
+  font-size: 30px !important;
   color: #0f2b05;
 }
 
@@ -106,14 +104,14 @@ form {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 50px;
   margin: 0 auto; /* Isso centralizará o formulário na página */
-  max-width: 400px; /* Defina a largura máxima para evitar que o formulário se estenda demais */
+  max-width: 515px; /* Defina a largura máxima para evitar que o formulário se estenda demais */
   margin-bottom: 50px;
   margin-top: 150px;
 }
 
 
 label {
-  margin-bottom: 5px;
+  margin-bottom: auto !important;
   font-weight: bold;
   display: block;
 }
@@ -173,7 +171,7 @@ input[type="text"] {
 /* inicio DARK MODE */
 body.dark-mode, body.dark-mode
 button[type="submit"] {
-  background-color: #151515;
+  background-color: #151515 !important;
 }
 body.dark-mode form{
   background-color: #1E1F1E;
@@ -257,15 +255,21 @@ body.dark-mode .cadastrar {
 .fa-moon {
   font-size: 20px;
 }
-
+.redes{
+  color: #fff !important;
+  font-size: 16px !important;
+  margin-bottom: auto !important;
+}
 /* FINAL DO DARK MODE */
 
 /* inicio footer */
 footer {
-  margin-top: 200px;
   background-color: #0f2b05;
   height: 200px;
   position: relative;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .social-icons {
@@ -281,9 +285,9 @@ footer {
 
 .social-icons .icon {
   display: inline-block;
-  margin: 10px 20px 0;
+  margin: 10px 10px 0;
   font-size: 30px;
-  color: #fff;
+  color: #fff !important;
   transition: transform 0.3s ease;
 }
 
@@ -326,7 +330,7 @@ footer {
 
 table{
   margin-top: 5%;
-
+  margin-bottom: 100px !important;
 }
 
 
