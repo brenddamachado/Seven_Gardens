@@ -242,23 +242,37 @@ cepInput.on("input", function () {
   }
 });
 
-btn.addEventListener("click", () => {
-  let inputSenha = document.querySelector("#senha");
-  if (inputSenha.getAttribute("type") == "password") {
-    inputSenha.setAttribute("type", "text");
-  } else {
-    inputSenha.setAttribute("type", "password");
-  }
+document.addEventListener('DOMContentLoaded', (event) => {
+  const toggleSenha = document.querySelector('#toggleSenha');
+  const toggleConfirme = document.querySelector('#toggleConfirme');
+
+  toggleSenha.addEventListener('click', () => {
+      const inputSenha = document.querySelector('#senha');
+      if (inputSenha.getAttribute('type') === 'password') {
+          inputSenha.setAttribute('type', 'text');
+          toggleSenha.classList.remove('fa-eye');
+          toggleSenha.classList.add('fa-eye-slash');
+      } else {
+          inputSenha.setAttribute('type', 'password');
+          toggleSenha.classList.remove('fa-eye-slash');
+          toggleSenha.classList.add('fa-eye');
+      }
+  });
+
+  toggleConfirme.addEventListener('click', () => {
+      const inputSenhaC = document.querySelector('#senhaC');
+      if (inputSenhaC.getAttribute('type') === 'password') {
+          inputSenhaC.setAttribute('type', 'text');
+          toggleConfirme.classList.remove('fa-eye');
+          toggleConfirme.classList.add('fa-eye-slash');
+      } else {
+          inputSenhaC.setAttribute('type', 'password');
+          toggleConfirme.classList.remove('fa-eye-slash');
+          toggleConfirme.classList.add('fa-eye');
+      }
+  });
 });
 
-btn2.addEventListener("click", () => {
-  let inputSenha = document.querySelector("#senhaC");
-  if (inputSenha.getAttribute("type") == "password") {
-    inputSenha.setAttribute("type", "text");
-  } else {
-    inputSenha.setAttribute("type", "password");
-  }
-});
 
 login.addEventListener("input", function () {
   let inputValue = login.value;

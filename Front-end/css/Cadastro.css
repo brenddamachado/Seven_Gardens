@@ -78,15 +78,18 @@ body {
 }
 
 /* Estilo para o ícone de olho */
-.fa-eye {
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+
+.password-container i {
   position: absolute;
-  top: 30%;
-  font-size: 20px;
   right: 10px;
+  top: 40%;
   transform: translateY(-50%);
   cursor: pointer;
-  z-index: 2;
-  /* para garantir que o ícone fique sobre o input */
 }
 
 
@@ -109,6 +112,7 @@ body {
 
 .conta {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 
