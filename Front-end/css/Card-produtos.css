@@ -99,5 +99,20 @@
 
 
 
+@media (max-width: 1196px) {
+  .bloco-produtos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
- 
+@media (max-width: 768px) {
+  .bloco-produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 609px) {
+  .bloco-produtos {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
