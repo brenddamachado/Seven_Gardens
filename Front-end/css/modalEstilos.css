@@ -202,11 +202,15 @@ body.dark-mode .close-editar:focus,
 body.dark-mode .close-excluir:hover,
 body.dark-mode .close-excluir:focus,
 body.dark-mode .modal-carrinho .close:hover,
-body.dark-mode .modal-carrinho .close:focus {
+body.dark-mode .modal-carrinho .close:focus{
   color: #fff;
 }
 
 .finalizar-compra-btn a{
   text-decoration: none;
+  color: #fff;
+}
+
+body.dark-mode .produto-card p.descricao{
   color: #fff;
 }
