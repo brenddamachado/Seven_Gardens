@@ -127,3 +127,90 @@
 .custom-file-input button:hover {
   background-color: #0f2b05;
 }
+
+/* Modo escuro */
+body.dark-mode .modal-editar,
+body.dark-mode .modal-excluir,
+body.dark-mode .modal-carrinho {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .modal-content-editar,
+body.dark-mode .modal-content-excluir,
+body.dark-mode .modal-carrinho .modal-content {
+  background-color: #282828;
+  color: #e1f9d7;
+  border: 1px solid #444;
+}
+
+body.dark-mode .modal-content-editar .form-header,
+body.dark-mode .modal-content-excluir .form-header,
+body.dark-mode .modal-carrinho .modal-content .form-header {
+  color: #e1f9d7;
+}
+
+body.dark-mode .modal-content-editar .input-box label,
+body.dark-mode .modal-content-excluir .input-box label,
+body.dark-mode .modal-carrinho .modal-content label {
+  color: #e1f9d7;
+}
+
+body.dark-mode .modal-content-editar .input-box input,
+body.dark-mode .modal-content-excluir .input-box input,
+body.dark-mode .modal-carrinho .modal-content input,
+body.dark-mode .modal-content-editar .input-box textarea,
+body.dark-mode .modal-content-excluir .input-box textarea,
+body.dark-mode .modal-carrinho .modal-content textarea,
+body.dark-mode .modal-content-editar .input-box select,
+body.dark-mode .modal-content-excluir .input-box select,
+body.dark-mode .modal-carrinho .modal-content select {
+  background-color: #fff; /* Cor mais clara para inputs no modo escuro */
+  color: #111;
+  border: 1px solid #444;
+}
+
+body.dark-mode .modal-content-editar form button,
+body.dark-mode .modal-content-excluir form button,
+body.dark-mode .modal-carrinho .modal-content button {
+  background-color: #405b39;
+  color: #e1f9d7;
+}
+
+body.dark-mode .modal-content-editar form button:hover,
+body.dark-mode .modal-content-excluir form button:hover,
+body.dark-mode .modal-carrinho .modal-content button:hover {
+  background-color: #0f2b05;
+}
+
+body.dark-mode .modal-content-excluir .cancel-btn {
+  background-color: #555;
+  color: #e1f9d7;
+}
+
+body.dark-mode .modal-content-excluir .cancel-btn:hover {
+  background-color: #777;
+}
+
+body.dark-mode .close-editar,
+body.dark-mode .close-excluir,
+body.dark-mode .modal-carrinho .close {
+  color: #e1f9d7;
+}
+
+body.dark-mode .close-editar:hover,
+body.dark-mode .close-editar:focus,
+body.dark-mode .close-excluir:hover,
+body.dark-mode .close-excluir:focus,
+body.dark-mode .modal-carrinho .close:hover,
+body.dark-mode .modal-carrinho .close:focus{
+  color: #fff;
+}
+
+.finalizar-compra-btn a{
+  text-decoration: none;
+  color: #fff;
+}
+
+body.dark-mode .produto-card p.descricao{
+  color: #fff;
+}
