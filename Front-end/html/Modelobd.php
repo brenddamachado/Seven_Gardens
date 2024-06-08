@@ -8,27 +8,13 @@
   <link rel="stylesheet" href="../css/Log.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <script src="../js/acessibilidade.js"></script>
+  <link rel="stylesheet" href="../css/headerMaster.css">
 </head>
 
 <body>
-  <header>
-    <section class="header">
-      <div>
-        <img class="logo" src="../img/logoatual.svg" alt="" srcset="" />
-      </div>
-      <nav>
-        <div class="navegacao">
-          <ul class="paginas">
-            <li class="login"><a href="#">Dashboard</a></li>
-            <li class="cadastrar"> <a href="../../index.php">Visualizar Home</a></li>
-          </ul>
-        </div>
-      </nav>
-    </section>
-    <section class="opcoes">
-      <h2>Painel de controle</h2>
-    </section>
-  </header>
+
+<?php include('../../headerMaster.php'); ?>
+
   <div class="modelo_bd">
     <img src="../img/sevengardens.svg">
   </div>
