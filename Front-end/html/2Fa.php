@@ -71,7 +71,7 @@ $securityQuestion = $_SESSION['security_question'] ?? 'Pergunta não encontrada'
     </section>
 
   </footer>
-  <script src="../js/acessibilidade.js"></script>
+<script src="../js/acessibilidade.js"></script>
   <script src="../js/2Fa.js"></script>
   <script src="../js/carrinho.js"></script>
 </body>
